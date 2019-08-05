@@ -1,5 +1,5 @@
-require("httr")
-require("jsonlite")
+library("httr")
+library("jsonlite")
 
 defaultBaseEndPoint <- "https://dbh6gco67g.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi"
 
@@ -15,6 +15,8 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
 
 # Optional OO client
 dataplatformclient <- function(baseEndPoint = defaultBaseEndPoint) {
+  require("httr")
+  require("jsonlite")
   c <- list("baseEndPoint"=baseEndPoint)
   class(c) <- "dataplatformclient"
   return(c)
