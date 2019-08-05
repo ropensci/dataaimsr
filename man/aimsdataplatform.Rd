@@ -1,4 +1,4 @@
-\name{aimsdataplatform}
+\name{AIMS DataPlatform}
 \alias{aimsdataplatform}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{getData}

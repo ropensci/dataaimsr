@@ -6,6 +6,6 @@ Author: AIMS Datacentre <adc@aims.gov.au>
 Maintainer: AIMS Datacentre <adc@aims.gov.au>
 Description: AIMS Dataplatform API Client provides easy access to AIMS DataPlatform
    scientific data and information.
-License: What license is it under?
+License: CC BY 3.0 AU
 Encoding: UTF-8
 LazyData: true
