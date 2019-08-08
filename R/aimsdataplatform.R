@@ -1,7 +1,7 @@
-library("httr")
-library("jsonlite")
+library(httr)
+library(jsonlite)
 
-defaultBaseEndPoint <- "https://dbh6gco67g.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi"
+defaultBaseEndPoint <- "https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/prod/data-by-doi"
 
 # Get some data and return a data frame
 getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
@@ -9,23 +9,61 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
   dataRequest <- GET(endPoint, query = filters)
   jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
   dataFrame <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
-  #print(dataFrame)
+  dataFrame <- addNextPage(dataFrame)
+  print(paste("Cite this data as:", dataFrame$citation))
   return(dataFrame)
 }
 
-# Optional OO client
-dataplatformclient <- function(baseEndPoint = defaultBaseEndPoint) {
-  require("httr")
-  require("jsonlite")
-  c <- list("baseEndPoint"=baseEndPoint)
-  class(c) <- "dataplatformclient"
-  return(c)
+# Get some data and return a data frame
+getNextData <- function(url) {
+  dataRequest <- GET(parse_url(url))
+  if (http_error(dataRequest)) {
+    if (http_status(dataRequest)==204) {
+      warning("No more data")
+    } else {
+      warning(paste("Error", http_status(dataRequest), content(dataRequest)))
+    }
+  } else {
+    jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
+    dataFrame <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
+    dataFrame <- addNextPage(dataFrame)
+    if (nrow(dataFrame$results)==0) {
+      warning("No more data")
+    } else return(dataFrame)
+  }
 }
 
-dataplatform.getData <- function(object, doi, filters=NULL) {
-  return(getData(doi, filters=filters, baseEndPoint=object$baseEndPoint))
+getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
+  dataFrame = getData(doi, filters=filters, baseEndPoint=baseEndPoint)
+  nextUrl <- dataFrame$links$nextPage
+  moreData <<- TRUE
+  while(moreData) {
+    tryCatch({
+      nextDataFrame <- getNextData(nextUrl)
+      newDataFrame <- rbind(dataFrame$results, nextDataFrame$results)
+      dataFrame$results <- newDataFrame
+      if ("links" %in% names(nextDataFrame) && "nextPage" %in% names(dataFrame$links)) {
+        nextUrl <- nextDataFrame$links$nextPage
+      } else {
+        moreData <<- FALSE
+      }
+    }, warning = function(w) {
+      moreData <<- FALSE
+    }, error = function(e) {
+      print(paste("Error:", e))
+      moreData <<- FALSE
+    })
+    print(paste("Result count:", nrow(dataFrame$results)))
+  }
+  return(dataFrame)
 }
 
-# dataplatformclient.getFilterValues <- function(object, doi, filterName) {
-#   return(getFilterValues(doi, filterName, baseEndPoint=object$baseEndPoint))
-# }
+addNextPage <- function(dataFrame) {
+  if ("links" %in% names(dataFrame) && "next" %in% names(dataFrame$links)) {
+    dataFrame$links$nextPage <- dataFrame$links$'next'
+    dataFrame$links$'next' <- NULL
+  }
+  return(dataFrame)
+}
+
+# https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/prod/data-by-doi/10.25845/5c09bf93f315d/data?site-name=Davies Reef&size=10

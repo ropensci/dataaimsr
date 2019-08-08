@@ -1,12 +1,12 @@
 \name{AIMS DataPlatform}
-\alias{aimsdataplatform}
+\alias{getData}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{getData}
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-aimsdataplatform(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint)
+getData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -38,12 +38,9 @@ aimsdataplatform(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint)
 AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
-  # Create dataplatform client
-  client <- dataplatformclient()
   # Get a dataFrame
-  dataFrame <- dataplatform.getData(client, '10.25845/5b4eb0f9bb848', filters=list("site-name"="Davies Reef"))
-  # Print it out
-  print(dataFrame)
+  dataFrame <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
+  [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
