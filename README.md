@@ -9,10 +9,12 @@ The DataPlatform R Client library can be used like this:
 ```
 library(aimsdataplatform)
 
-client <- dataplatformclient()
-dataFrame <- dataplatform.getData(client, '10.25845/5b4eb0f9bb848', filters=list("site-name"="Davies Reef"))
+dataFrame <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef"))
 
-print(dataFrame)
+
+dataFrame <- getAllData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef"))
+
+summary(dataFrame$results)
 
 ```
 
