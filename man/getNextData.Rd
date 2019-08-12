@@ -11,7 +11,7 @@ getNextData(url)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{url}{
-    The URL of a data request.  Generally generated from the previous page under the links.next field of JSON output.
+    The URL of a data request.  Generally generated from the previous page under the links.nextPage field of JSON output.
   }
 }
 \details{
@@ -37,7 +37,7 @@ AIMS Datacentre <adc@aims.gov.au>
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
 
   # Get the next page
-  nextDataFrame <- getNextData(dataFrame$links$'next')
+  nextDataFrame <- getNextData(dataFrame$links$nextPage)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
