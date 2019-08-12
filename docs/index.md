@@ -6,7 +6,7 @@ __AIMS DataPlatform R Client__ will provide easy access to datasets for R applic
 
 Data Set     | DOI                    | Resolve DOI
 ------------ | ---------------------- |------------
-Weather Data | 10.25845/5c09bf93f315d | [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d)
+Weather Data | 10.25845/5c09bf93f315d | [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d){:target="_blank"}
 
 Available query parameters for *AIMS Weather* data set are:
 
