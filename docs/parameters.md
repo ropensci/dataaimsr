@@ -9,7 +9,7 @@ The list of parameters is:
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 
-$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi/10.25845/5c09bf93f315d/parameters")
+$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/prod/data-by-doi/10.25845/5c09bf93f315d/parameters")
 .done(populateParameters);
 
 function populateParameters(data) { populate("Parameters", "parameters", data); }
