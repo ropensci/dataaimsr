@@ -1,0 +1,41 @@
+
+AIMS DataPlatform R Client
+==========================
+
+The list of sites is:
+
+<div id="sites"></div>
+<div id="parameters"></div>
+<div id="series"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi/10.25845/5c09bf93f315d/sites")
+.done(populateSites);
+
+$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi/10.25845/5c09bf93f315d/parameters")
+.done(populateParameters);
+
+$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi/10.25845/5c09bf93f315d/series")
+.done(populateSeries);
+
+function populateSites(data) { populate("Sites", "sites", data); }
+
+function populateParameters(data) { populate("Parameters", "parameters", data); }
+
+function populateSeries(data) {
+  console.log(data);
+  $("#series").append("<h4>Series</h4>");
+  $("#series").append("<table><tr><th>Series ID</th><th>Series Name</th></tr>")
+  data.forEach((series) => $("#series").append("<tr><td>" + series.series_id + "</td><td>" + series.series_name + "</td></tr>"));
+  $("#series").append("</table>");
+}
+
+function populate(title, divId, data) {
+  console.log(data);
+  $("#" + divId).append("<h4>" + title + "</h4>");
+  data.forEach(item => $("#" + divId).append("<p>" + item + "</p>"));
+}
+
+</script>
