@@ -2,13 +2,13 @@
 AIMS DataPlatform R Client
 ==========================
 
-__AIMS DataPlatform R Client__ will provide easy access to datasets for R applications to the __AIMS DataPlatform API__.  The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The _AIMS DataPlatform API__ should be queried using the [DOI](https://doi.org) of the desired data set.  At this time available datasets are:
+__AIMS DataPlatform R Client__ will provide easy access to datasets for R applications to the __AIMS DataPlatform API__.  The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The __AIMS DataPlatform API__ should be queried using the [DOI](https://doi.org) of the desired data set.  At this time available datasets are:
 
-Data Set     | DOI
------------- | ----------------------
-Weather Data | 10.25845/5c09bf93f315d
+Data Set     | DOI                    | Resolve DOI
+------------ | ---------------------- |------------
+Weather Data | 10.25845/5c09bf93f315d | [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d)
 
-Available query parameters for *Weather* data set are:
+Available query parameters for *AIMS Weather* data set are:
 
 Query Parameter | Parameter Name | Parameter Values
 --------------- | -------------- | ----------------
