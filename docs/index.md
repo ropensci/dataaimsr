@@ -2,11 +2,11 @@
 AIMS DataPlatform R Client
 ==========================
 
-__AIMS DataPlatform R Client__ will provide easy access to datasets for R applications to the __AIMS DataPlatform API__.  The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The __AIMS DataPlatform API__ should be queried using the [DOI](https://doi.org) of the desired data set.  At this time available datasets are:
+__AIMS DataPlatform R Client__ will provide easy access to data sets for R applications to the __AIMS DataPlatform API__.  The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The __AIMS DataPlatform API__ should be queried using the [DOI](https://doi.org) of the desired data set.  At this time available data sets are:
 
 Data Set     | DOI                    | Resolve DOI
 ------------ | ---------------------- |------------
-Weather Data | 10.25845/5c09bf93f315d | [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d){:target="_blank"}
+AIMS Weather | 10.25845/5c09bf93f315d | [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d){:target="_blank"}
 
 Available query parameters for *AIMS Weather* data set are:
 
@@ -25,5 +25,7 @@ library(aimsdataplatform)
 getData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'parameter'='Wind Direction (Scalar Average 10 Minutes)', 'size'=10))
 
 getData('10.25845/5c09bf93f315d', filters=list('site-name'='Square Rocks', 'series'=104939, 'size'=10))
+
+getAllData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000)
 
 ```
