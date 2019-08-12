@@ -12,6 +12,8 @@ The list of sites is:
 $.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-doi/10.25845/5c09bf93f315d/sites")
 .done(populateSites);
 
+function populateSites(data) { populate("Sites", "sites", data); }
+
 function populate(title, divId, data) {
   console.log(data);
   $("#" + divId).append("<h4>" + title + "</h4>");

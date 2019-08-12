@@ -14,7 +14,7 @@ $.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/test/data-by-
 
 function populateSeries(data) {
   console.log(data);
-  $("#series").append("<h4>Series</h4>);
+  $("#series").append("<h4>Series</h4>");
   $("#series").append("<table><tr><th>Series ID</th><th>Series Name</th></tr>")
   data.forEach((series) => $("#series").append("<tr><td>" + series.series_id + "</td><td>" + series.series_name + "</td></tr>"));
   $("#series").append("</table>");
