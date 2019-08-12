@@ -12,7 +12,7 @@ Details on installation of __AIMS DataPlatform R Client__ are [here](install).
 Usage
 -----
 
-The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The __AIMS DataPlatform API__ should be queried using the [DOI](https://doi.org) of the desired data set.  At this time available data sets are:
+The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  The __AIMS DataPlatform API__ should be queried using the Digital Object Identifier ([DOI](https://doi.org)) of the desired data set.  At this time available data sets are:
 
 Data Set     | DOI                    | Resolve DOI
 ------------ | ---------------------- |------------
