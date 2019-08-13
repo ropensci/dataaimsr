@@ -1,7 +1,7 @@
 library(httr)
 library(jsonlite)
 
-defaultBaseEndPoint <- "https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/prod/data-by-doi"
+defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0"
 
 # Get some data and return a data frame
 getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {

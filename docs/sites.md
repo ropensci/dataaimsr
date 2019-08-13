@@ -9,7 +9,7 @@ The list of sites is:
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
 
-$.get("https://b5ms5dkmia.execute-api.ap-southeast-2.amazonaws.com/prod/data-by-doi/10.25845/5c09bf93f315d/sites")
+$.get("https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0/10.25845/5c09bf93f315d/sites")
 .done(populateSites);
 
 function populateSites(data) { populate("Sites", "sites", data); }
