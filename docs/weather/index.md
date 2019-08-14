@@ -5,9 +5,9 @@ Available query parameters for *AIMS Weather* data set are:
 
 Query Parameter | Parameter Name | Parameter Values
 --------------- | -------------- | ----------------
-Site name       | site-name      | [List of Weather Sites](sites)
-Parameter       | parameter      | [List of Weather Parameters](parameters)
-Series          | series         | [List of Weather Series ID and Names](series)
+Site name       | site-name      | [List of Sites](sites)
+Parameter       | parameter      | [List of Parameters](parameters)
+Series          | series         | [List of Series ID and Names](series)
 Size            | size           | Integer values
 From Date       | from-date      | String in form "YYYY-MM-DD hh:mm:ss"
 Through Date    | thru-date      | String in form "YYYY-MM-DD hh:mm:ss"
