@@ -60,5 +60,6 @@ dataFrame <- getAllData("10.25845/5c09bf93f315d", filters=list('series'=189, 'si
 
 plot(dataFrame$results$time, dataFrame$results$qc_value, pch=19, xlab="Time", ylab="Air Temperature", col="blue", main="Heron Island Weather Station Air Temperature", type="l")
 
-[plot](weather/RPlot.png)
 ```
+
+![plot](weather/RPlot.png)
