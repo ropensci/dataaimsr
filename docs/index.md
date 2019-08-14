@@ -62,4 +62,4 @@ plot(dataFrame$results$time, dataFrame$results$qc_value, pch=19, xlab="Time", yl
 
 ```
 
-![plot](weather/RPlot.png)
+![plot](weather/Rplot.png)
