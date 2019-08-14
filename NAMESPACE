@@ -1,1 +1,1 @@
-exportPattern("^get[[:alpha:]]+")
+exportPattern("^(get|aims)[[:alpha:]]+")

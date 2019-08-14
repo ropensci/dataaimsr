@@ -1,8 +1,12 @@
 library(httr)
 library(jsonlite)
 
-defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0"
+defaultBaseEndPoint <- "https://api.aims.gov.au/data/v1.0"
+#defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0"
 defaultDateFormat <- "%Y-%m-%dT%H:%M:%OS"
+
+aimsWeather <- "10.25845/5c09bf93f315d"
+aimsTemperatureLoggers <- "10.25845/5b4eb0f9bb848"
 
 # Get some data and return a data frame
 getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
@@ -18,13 +22,12 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
 
 # Get some data and return a data frame
 getNextData <- function(url) {
-  dataRequest <- GET(parse_url(url))
+  parsed_url <- parse_url(url)
+  # Unfortunately need to remove plus sign if not decoded properly
+  parsed_url$query$cursor <- gsub("\\+", " ", parsed_url$query$cursor)
+  dataRequest <- GET(parsed_url)
   if (http_error(dataRequest)) {
-    if (http_status(dataRequest)==204) {
-      warning("No more data")
-    } else {
-      warning(paste("Error", http_status(dataRequest), content(dataRequest)))
-    }
+    warning(paste("Error", http_status(dataRequest), content(dataRequest)))
   } else {
     jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
     dataFrame <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
@@ -53,6 +56,7 @@ getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
     }, warning = function(w) {
       moreData <<- FALSE
     }, error = function(e) {
+      print(paste("getAllError", e))
       moreData <<- FALSE
     })
     print(paste("Result count:", nrow(dataFrame$results)))

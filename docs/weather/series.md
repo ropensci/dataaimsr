@@ -10,7 +10,7 @@ When specifying a series the series Id should be used as the parameter value.  T
 <script src="../js/script.js"></script>
 <script>
 
-$.get("https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0/10.25845/5c09bf93f315d/series")
+$.get("https://api.aims.gov.au/data/v1.0/10.25845/5c09bf93f315d/series")
 .done(populateSeries);
 
 </script>
