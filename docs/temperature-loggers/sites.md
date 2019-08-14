@@ -1,8 +1,8 @@
 
-List of Sites
-=============
+List of Temperature Logger Sites
+================================
 
-The list of sites is:
+The list of sites for *AIMS Temperature Loggers* is:
 
 <div id="sites"></div>
 
@@ -11,6 +11,8 @@ The list of sites is:
 <script>
 
 $.get("https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0/10.25845/5c09bf93f315d/sites")
-.done(populateSites);
+.done(populateTempLoggerSites);
+
+function populateTempLoggerSites(data) { populate("Sites", "sites", data.results); }
 
 </script>
