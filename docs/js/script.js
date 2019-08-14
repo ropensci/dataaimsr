@@ -1,7 +1,7 @@
 
 
 
-function populateWeatherSeries(data) {
+function populateSeries(data) {
   console.log(data);
   $("#series").append("<h4>Series</h4>");
   $("#series").append("<table><tr><th>Series ID</th><th>Series Name</th></tr>")
