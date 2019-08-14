@@ -2,6 +2,7 @@ library(httr)
 library(jsonlite)
 
 defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/prod/v1.0"
+defaultDateFormat <- "%Y-%m-%dT%H:%M:%OS"
 
 # Get some data and return a data frame
 getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
@@ -9,6 +10,7 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
   dataRequest <- GET(endPoint, query = filters)
   jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
   dataFrame <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
+  dataFrame$results$time <- as.POSIXct(strptime(dataFrame$results$time, format=defaultDateFormat, tz="UTC"))
   dataFrame <- addNextPage(dataFrame)
   print(paste("Cite this data as:", dataFrame$citation))
   return(dataFrame)
@@ -26,6 +28,7 @@ getNextData <- function(url) {
   } else {
     jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
     dataFrame <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
+    dataFrame$results$time <- as.POSIXct(strptime(dataFrame$results$time, format=defaultDateFormat, tz="UTC"))
     dataFrame <- addNextPage(dataFrame)
     if (nrow(dataFrame$results)==0) {
       warning("No more data")
@@ -50,7 +53,6 @@ getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
     }, warning = function(w) {
       moreData <<- FALSE
     }, error = function(e) {
-      print(paste("Error:", e))
       moreData <<- FALSE
     })
     print(paste("Result count:", nrow(dataFrame$results)))
