@@ -40,7 +40,7 @@ Suppose we want to query a data series and plot it then the procedure might be:
 2. Perform data download using `getAllData`
 3. Use R `plot` to create a chart
 
-We decide to query the *AIMS Weather* data set based on a data series, then we are guaranteed of getting information from one site for one metric.  Our filters might look like the following:
+We decide to query the [AIMS Weather](weather) data set based on a data series, then we are guaranteed of getting information from one site for one metric.  Our filters might look like the following:
 
 
 Variable  | Value        | Description
