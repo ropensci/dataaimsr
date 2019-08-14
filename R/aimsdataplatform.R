@@ -56,7 +56,7 @@ getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
     }, warning = function(w) {
       moreData <<- FALSE
     }, error = function(e) {
-      print(paste("getAllError", e))
+      #print(paste("getAllError", e))
       moreData <<- FALSE
     })
     print(paste("Result count:", nrow(dataFrame$results)))
