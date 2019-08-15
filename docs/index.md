@@ -67,11 +67,11 @@ Then our query and plot might look like the following:
 ```
 > library(aimsdataplatform)
 
-> dataFrame <- getAllData("10.25845/5c09bf93f315d", filters=list('series'=189, 'size'=1000, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
+> results <- getAllData("10.25845/5c09bf93f315d", filters=list('series'=189, 'size'=1000, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
 [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 14 August 2019.  Time period: 2018-01-01 to 2018-01-07.  Series: Heron Island Weather Station Air Temperature"
 [1] "Result count: 865"
 
-> plot(dataFrame$results$time, dataFrame$results$qc_value, xlab="Time", ylab="Air Temperature", col="blue", main="Heron Island Weather Station Air Temperature", type="l")
+> plot(results$dataFrame$time, results$dataFrame$qc_value, xlab="Time", ylab="Air Temperature", col="blue", main="Heron Island Weather Station Air Temperature", type="l")
 
 ```
 

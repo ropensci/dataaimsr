@@ -39,7 +39,7 @@ AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
   # Get all data for a filter request
-  dataFrame <- getAllData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000))
+  > results <- getAllData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000))
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
   [1] "Result count: 20000"
   [1] "Result count: 30000"
@@ -54,13 +54,7 @@ AIMS Datacentre <adc@aims.gov.au>
   [1] "Result count: 120000"
   [1] "Result count: 122164"
   [1] "Result count: 122164"
-  summary(dataFrame)
-           Length Class      Mode
-  metadata  1     -none-     character
-  citation  1     -none-     character
-  links     1     -none-     list
-  results  14     data.frame list
-  summary(dataFrame$results)
+  > summary(results$dataFrame)
   deployment_id    site_name         location_name       depth            latitude        longitude      parameter          serial_num           data_id              time             raw_value        qc_value       series_id    series_name
   Min.   :10933   Length:10000       Length:10000       Mode:logical   Min.   :-18.83   Min.   :147.6   Length:10000       Length:10000       Min.   :516430890   Length:10000       Min.   : 0.00   Min.   : 0.00   Min.   :2882   Length:10000
   1st Qu.:10941   Class :character   Class :character   NA's:10000     1st Qu.:-18.83   1st Qu.:147.6   Class :character   Class :character   1st Qu.:527888447   Class :character   1st Qu.:12.24   1st Qu.:12.24   1st Qu.:4783   Class :character

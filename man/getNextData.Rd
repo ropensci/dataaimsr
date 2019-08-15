@@ -33,11 +33,11 @@ AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
   # Get a dataFrame
-  dataFrame <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
+  > results <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
 
   # Get the next page
-  nextDataFrame <- getNextData(dataFrame$links$nextPage)
+  > nextResults <- getNextData(results$links$nextPage)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
