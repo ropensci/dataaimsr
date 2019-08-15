@@ -17,6 +17,20 @@ The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  
 General Usage Examples
 ----------------------
 
+A list of functions available can be found using:
+
+```
+
+> help(package="aimsdataplatform")
+
+```
+Details on individual functions is available with the normal:
+
+```
+> library(aimsdataplaform)
+> ?getAllData
+
+```
 Examples usage of data request using query filter parameters with R client:
 
 ```
