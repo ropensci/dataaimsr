@@ -14,8 +14,8 @@ The DataPlatform R Client library can be used like this:
 Or to get all data associated with a request into memory:
 
 ```
-> dataFrame <- getAllData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10000))
-> summary(dataFrame$results)
+> results <- getAllData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10000))
+> summary(results$dataFrame)
 
 ```
 
