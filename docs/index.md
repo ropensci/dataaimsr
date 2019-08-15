@@ -2,7 +2,7 @@
 AIMS DataPlatform R Client
 ==========================
 
-__AIMS DataPlatform R Client__ will provide easy access to data sets for R applications to the __AIMS DataPlatform API__.
+__AIMS DataPlatform R Client__ will provide easy access to data sets for R applications to the [AIMS DataPlatform API](https://aims.github.io/data-platform).
 
 Installation
 ------------
