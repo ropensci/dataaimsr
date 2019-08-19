@@ -9,8 +9,9 @@ aimsWeather <- "10.25845/5c09bf93f315d"
 aimsTemperatureLoggers <- "10.25845/5b4eb0f9bb848"
 
 # Get some data and return a data frame
-getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
+getData <- function(doi, apiKey, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
   endPoint <- paste(baseEndPoint, doi, "data", sep="/")
+  add_headers("X-API-Key"=apiKey)
   dataRequest <- GET(endPoint, query = filters)
   jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
   results <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
@@ -20,10 +21,11 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
 }
 
 # Get some data and return a data frame
-getNextData <- function(url) {
+getNextData <- function(url, apiKey) {
   parsed_url <- parse_url(url)
   # Unfortunately need to remove plus sign if not decoded properly
   parsed_url$query$cursor <- gsub("\\+", " ", parsed_url$query$cursor)
+  add_headers("X-API-Key"=apiKey)
   dataRequest <- GET(parsed_url)
   if (http_error(dataRequest)) {
     warning(paste("Error", http_status(dataRequest), content(dataRequest)))
@@ -39,13 +41,13 @@ getNextData <- function(url) {
   }
 }
 
-getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
-  results = getData(doi, filters=filters, baseEndPoint=baseEndPoint)
+getAllData <- function(doi, apiKey, filters=NULL, baseEndPoint=defaultBaseEndPoint) {
+  results = getData(doi, apiKey, filters=filters, baseEndPoint=baseEndPoint)
   nextUrl <- results$links$nextPage
   moreData <<- TRUE
   while(moreData) {
     tryCatch({
-      nextResults <- getNextData(nextUrl)
+      nextResults <- getNextData(nextUrl, apiKey)
       newDataFrame <- rbind(results$dataFrame, nextResults$dataFrame)
       results$dataFrame <- newDataFrame
       if ("links" %in% names(nextResults) && "nextPage" %in% names(nextResults$links)) {
