@@ -88,6 +88,6 @@ If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in the user's
 AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
 
 ```
-The `.Renviron` file is usually stored in each users home directory.  For example in `C:\Users\<username>\.Renviron` or `/home/<username>/.Renviron`.  On some `Microsoft Windows` systems `.Renviron` may need to be in the user's `Documents` directory, eg. `C:\Users\<username>\Documents\.Renviron`.
+The `.Renviron` file is usually stored in each users home directory.  For example in `C:\Users\<username>\.Renviron` or `/home/<username>/.Renviron`.  On some Microsoft Windows systems `.Renviron` may need to be in the user's `Documents` directory, eg. `C:\Users\<username>\Documents\.Renviron`.
 
 API Keys can be obtained from the [AIMS DataPlatform project page](https://aims.github.io/data-platform)
