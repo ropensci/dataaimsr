@@ -1,8 +1,8 @@
 library(httr)
 library(jsonlite)
 
-#defaultBaseEndPoint <- "https://api.aims.gov.au/data/v1.0"
-defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/test/v1.0"
+defaultBaseEndPoint <- "https://api.aims.gov.au/data/v1.0"
+#defaultBaseEndPoint <- "https://6aq0l8l806.execute-api.ap-southeast-2.amazonaws.com/test/v1.0"
 
 defaultDateFormat <- "%Y-%m-%dT%H:%M:%OS"
 
