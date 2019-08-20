@@ -76,3 +76,18 @@ Then our query and plot might look like the following:
 ```
 
 ![plot](Rplot.png)
+
+Usage of AIMS DataPlatform API Key
+----------------------------------
+
+__AIMS DataPlatform__ requires an API Key for requests, this can be passed to each function as an additional `apiKey='XXXX'` argument, however it is preferred that API Keys are not stored in code.
+
+If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in the user's `.Renviron` file then that will be loaded and used automatically.  In that case the users `.Renviron` file might look like:
+
+```
+AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
+
+```
+The `.Renviron` file is usually stored in each users home directory.  For example in `C:\Users\<username>\.Renviron` or `/home/<username>/.Renviron`
+
+API Keys can be obtained from the [AIMS DataPlatform project page](https://aims.github.io/data-platform)
