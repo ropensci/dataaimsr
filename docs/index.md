@@ -79,7 +79,7 @@ Then our query and plot might look like the following:
     'size'=1000,
     'from-date'='2018-01-01',
     'thru-date'='2018-01-07'))
-[1] "Cite this data as: Australian Institute of Marine Science (AIMS)...."
+[1] "Cite this data as: Australian Institute of Marine Science (AIMS)..."
 [1] "Result count: 865"
 
 > plot(results$dataFrame$time, results$dataFrame$qc_value,
@@ -109,6 +109,15 @@ If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in the user's
 AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
 
 ```
-The `.Renviron` file is usually stored in each users home directory.  For example in `C:\Users\<username>\.Renviron` or `/home/<username>/.Renviron`.  On some Microsoft Windows systems `.Renviron` may need to be in the user's `Documents` directory, eg. `C:\Users\<username>\Documents\.Renviron`.
+The `.Renviron` file is usually stored in each users home directory.
+
+### Possible .Renviron file locations
+
+System     | .Renviron file locations
+-----------|-------------------------
+MS Windows | C:\Users\<username>\.Renviron
+           | or
+           | C:\Users\<username>\Documents\.Renviron
+Linux      | /home/<username>/.Renviron
 
 API Keys can be obtained from the [AIMS DataPlatform project page](https://aims.github.io/data-platform)
