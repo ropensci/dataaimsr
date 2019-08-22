@@ -12,7 +12,7 @@ aimsTemperatureLoggers <- "10.25845/5b4eb0f9bb848"
 # Get some data and return a data frame
 getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL) {
   endPoint <- paste(baseEndPoint, doi, "data", sep="/")
-  dataRequest <- GET(endPoint, add_headers("X-Api-Key"=getApiKey(apiKey)), query=filters)
+  dataRequest <- GET(endPoint, add_headers("X-Api-Key"=findApiKey(apiKey)), query=filters)
   if (http_error(dataRequest)) {
     warning(paste("Error", http_status(dataRequest), content(dataRequest)))
   } else {
@@ -29,7 +29,7 @@ getNextData <- function(url, apiKey=NULL) {
   parsed_url <- parse_url(url)
   # Unfortunately need to remove plus sign if not decoded properly
   parsed_url$query$cursor <- gsub("\\+", " ", parsed_url$query$cursor)
-  dataRequest <- GET(parsed_url, add_headers("X-Api-Key"=getApiKey(apiKey)))
+  dataRequest <- GET(parsed_url, add_headers("X-Api-Key"=findApiKey(apiKey)))
   if (http_error(dataRequest)) {
     warning(paste("Error", http_status(dataRequest), content(dataRequest)))
   } else {
@@ -69,6 +69,18 @@ getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiK
   return(results)
 }
 
+getFilterValues <- function(doi, filterName, baseEndPoint = defaultBaseEndPoint) {
+  endPoint <- paste(baseEndPoint, doi, filterName, sep="/")
+  dataRequest <- GET(endPoint)
+  if (http_error(dataRequest)) {
+    warning(paste("Error", http_status(dataRequest), content(dataRequest)))
+  } else {
+    jsonResponse <- content(dataRequest, "text", encoding = "UTF-8")
+    results <- fromJSON(jsonResponse, simplifyDataFrame = TRUE)
+    return(results)
+  }
+}
+
 updateFormat <- function(results) {
   if ("links" %in% names(results) && "next" %in% names(results$links)) {
     results$links$nextPage <- results$links$'next'
@@ -79,7 +91,7 @@ updateFormat <- function(results) {
   return(results)
 }
 
-getApiKey <- function(apiKey) {
+findApiKey <- function(apiKey) {
   if (is.null(apiKey)) {
     rEnvironApiKey <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
     if (is.null(rEnvironApiKey)) {

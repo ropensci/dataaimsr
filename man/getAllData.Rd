@@ -76,7 +76,3 @@ AIMS Datacentre <adc@aims.gov.au>
   Max.   :10941                                                        Max.   :-18.83   Max.   :147.6                                         Max.   :580588025                      Max.   :53.89   Max.   :53.89   Max.   :4783
                                                                                                                                                                                                     NA's   :10
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

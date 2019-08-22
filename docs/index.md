@@ -77,6 +77,12 @@ Then our query and plot might look like the following:
 
 ![plot](Rplot.png)
 
+Detailed Example
+----------------
+
+A more detailed example of the R package usage can be seen [here](detailed-example.nb.html).  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio* if [downloaded](detailed-example.Rmd).
+
+
 Usage of AIMS DataPlatform API Key
 ----------------------------------
 
