@@ -115,9 +115,7 @@ The `.Renviron` file is usually stored in each users home directory.
 
 System     | .Renviron file locations
 -----------|-------------------------
-MS Windows | C:\Users\<username>\.Renviron
-           | or
-           | C:\Users\<username>\Documents\.Renviron
-Linux      | /home/<username>/.Renviron
+MS Windows | `C:\Users\<username>\.Renviron`  or `C:\Users\<username>\Documents\.Renviron`
+Linux      | `/home/<username>/.Renviron`
 
 API Keys can be obtained from the [AIMS DataPlatform project page](https://aims.github.io/data-platform)
