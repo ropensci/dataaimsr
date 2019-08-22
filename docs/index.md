@@ -46,8 +46,7 @@ Examples usage of data request using query filter parameters with R client:
     'series'=104939, 'size'=10))
 
 > getAllData('10.25845/5c09bf93f315d', filters=list(
-    'site-name'='Davies Reef',
-    'size'=10000))
+    'site-name'='Davies Reef'))
 
 ```
 
@@ -76,7 +75,6 @@ Then our query and plot might look like the following:
 
 > results <- getAllData("10.25845/5c09bf93f315d", filters=list(
     'series'=189,
-    'size'=1000,
     'from-date'='2018-01-01',
     'thru-date'='2018-01-07'))
 [1] "Cite this data as: Australian Institute of Marine Science (AIMS)..."
