@@ -36,11 +36,14 @@ Examples usage of data request using query filter parameters with R client:
 ```
 > library(aimsdataplatform)
 
-> getData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'parameter'='Wind Direction (Scalar Average 10 Minutes)', 'size'=10))
+> getData('10.25845/5c09bf93f315d', \
+  filters=list('site-name'='Davies Reef', 'parameter'='Wind Direction (Scalar Average 10 Minutes)', 'size'=10))
 
-> getData('10.25845/5c09bf93f315d', filters=list('site-name'='Square Rocks', 'series'=104939, 'size'=10))
+> getData('10.25845/5c09bf93f315d', \
+  filters=list('site-name'='Square Rocks', 'series'=104939, 'size'=10))
 
-> getAllData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000)
+> getAllData('10.25845/5c09bf93f315d', \
+  filters=list('site-name'='Davies Reef', 'size'=10000)
 
 ```
 
@@ -67,11 +70,16 @@ Then our query and plot might look like the following:
 ```
 > library(aimsdataplatform)
 
-> results <- getAllData("10.25845/5c09bf93f315d", filters=list('series'=189, 'size'=1000, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
+> results <- getAllData("10.25845/5c09bf93f315d", \
+  filters=list('series'=189, 'size'=1000, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
 [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 14 August 2019.  Time period: 2018-01-01 to 2018-01-07.  Series: Heron Island Weather Station Air Temperature"
 [1] "Result count: 865"
 
-> plot(results$dataFrame$time, results$dataFrame$qc_value, xlab="Time", ylab="Air Temperature", col="blue", main="Heron Island Weather Station Air Temperature", type="l")
+> plot(results$dataFrame$time, results$dataFrame$qc_value, \
+    xlab="Time", \
+    ylab="Air Temperature", \
+    col="blue", main="Heron Island Weather Station Air Temperature", \
+    type="l")
 
 ```
 
