@@ -6,7 +6,7 @@ output: html_notebook
 
 This example assumes you have stored an *AIMS DataPlatform API Key* in your `.Renviron` file.  See [here](index#usage-of-aims-dataplatform-api-key) to see what that means.
 
-Similar to our previous example we want to run a plot on a series, lets discover a series to plot.
+Similar to our previous example we want to run a plot on a series, lets discover a series to plot.  If you are running this notebook in [R Studio](https://www.rstudio.com/) you can click on the green arrow inside each code block to run it.
 
 ```{r}
 library(aimsdataplatform)
