@@ -2,8 +2,9 @@
 title: "AIMS DataPlatform R Client Notebook Example"
 output: html_notebook
 ---
+[Back](index)
 
-This example assumes you have stored an *AIMS DataPlatform API Key* in your `.Renviron` file.  See [here](index) to see what that means.
+This example assumes you have stored an *AIMS DataPlatform API Key* in your `.Renviron` file.  See [here](index#usage-of-aims-dataplatform api-key) to see what that means.
 
 Similar to our previous example we want to run a plot on a series, lets discover a series to plot.
 
