@@ -38,12 +38,13 @@ Examples usage of data request using query filter parameters with R client:
 
 > getData('10.25845/5c09bf93f315d', filters=list(
     'site-name'='Davies Reef',
-    'parameter'='Wind Direction (Scalar Average 10 Minutes)',
-    'size'=10))
+    'parameter'='Wind Direction (Scalar Average 10 Minutes)'))
 
+# An example where only 10 rows of data is desired...
 > getData('10.25845/5c09bf93f315d', filters=list(
     'site-name'='Square Rocks',
-    'series'=104939, 'size'=10))
+    'series'=104939,
+    'size'=10))
 
 > getAllData('10.25845/5c09bf93f315d', filters=list(
     'site-name'='Davies Reef'))
