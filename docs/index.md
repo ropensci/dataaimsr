@@ -94,7 +94,7 @@ Then our query and plot might look like the following:
 Detailed Example
 ----------------
 
-A more detailed example of the R package usage can be seen [here](detailed-example.nb.html).  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio* if [downloaded](detailed-example.Rmd).
+A more detailed example of the R package usage can be seen on the [detailed example](detailed-example.nb.html) page.  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio*.  __Note that you need to have an AIMS DataPlatform API Key available to run this detailed example.__
 
 
 Usage of AIMS DataPlatform API Key
