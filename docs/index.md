@@ -65,7 +65,6 @@ We decide to query the [AIMS Weather](https://aims.github.io/data-platform/weath
 Variable  | Value        | Description
 ----------|--------------|------------
 series    | 189          | Found [here](https://aims.github.io/data-platform/weather/series), Heron Island Air Temperature data series
-size      | 1000         | Fetching 1000 rows of data per request
 from-date | '2018-01-01' | We want to start charting on 1/1/2018
 thru-date | '2018-01-07' | We are plotting 7 days of data
 
