@@ -1,17 +1,22 @@
 \name{AIMS DataPlatform}
-\alias{getNextData}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{getNextData}
+\alias{getPageData}
+\title{getPageData}
 \description{
 An R Client for AIMS DataPlatform API
 }
 \usage{
-getNextData(url)
+getPageData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{url}{
-    The URL of a data request.  Generally generated from the previous page under the links.nextPage field of JSON output.
+  \item{doi}{
+  The Digital Object Identifier for the data set.
+  }
+  \item{filters}{
+  A list of filters on the request such as site_name, eg filters=list("site_name"="Davies Reef").
+  }
+  \item{baseEndPoint}{
+  Alternate baseEndPoint if desired.
   }
   \item{apiKey}{
   The users AIMS DataPlatform API Key used for authentication.  Can be supplied here but recommended to be stored in .Renviron file.
@@ -44,10 +49,7 @@ AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
   # Get a dataFrame
-  > results <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
+  > results <- getPageData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
-
-  # Get the next page
-  > nextResults <- getNextData(results$links$nextPage)
-
+  > results$dataFrame
 }

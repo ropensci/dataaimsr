@@ -1,6 +1,6 @@
 [Back](index)
 
-AIMS DataPlatform R Client Installation
+AIMS Data Platform R Client Installation
 =======================================
 
 At this stage __AIMS DataPlatform R Client__ is not hosted on CRAN R package network.  An alternative method of installation is to use the R `devtools` package.

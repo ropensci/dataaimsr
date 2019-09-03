@@ -10,7 +10,7 @@ aimsWeather <- "10.25845/5c09bf93f315d"
 aimsTemperatureLoggers <- "10.25845/5b4eb0f9bb848"
 
 # Get some data and return a data frame
-getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL) {
+getPageData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL) {
   endPoint <- paste(baseEndPoint, doi, "data", sep="/")
   dataRequest <- GET(endPoint, add_headers("X-Api-Key"=findApiKey(apiKey)), query=filters)
   if (http_error(dataRequest)) {
@@ -25,7 +25,7 @@ getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=
 }
 
 # Get some data and return a data frame
-getNextData <- function(url, apiKey=NULL) {
+getNextPageData <- function(url, apiKey=NULL) {
   parsed_url <- parse_url(url)
   # Unfortunately need to remove plus sign if not decoded properly
   parsed_url$query$cursor <- gsub("\\+", " ", parsed_url$query$cursor)
@@ -44,13 +44,13 @@ getNextData <- function(url, apiKey=NULL) {
   }
 }
 
-getAllData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL) {
-  results = getData(doi, filters=filters, baseEndPoint=baseEndPoint, apiKey=apiKey)
+getData <- function(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL) {
+  results = getPageData(doi, filters=filters, baseEndPoint=baseEndPoint, apiKey=apiKey)
   nextUrl <- results$links$nextPage
   moreData <<- TRUE
   while(moreData) {
     tryCatch({
-      nextResults <- getNextData(nextUrl, apiKey=apiKey)
+      nextResults <- getNextPageData(nextUrl, apiKey=apiKey)
       newDataFrame <- rbind(results$dataFrame, nextResults$dataFrame)
       results$dataFrame <- newDataFrame
       if ("links" %in% names(nextResults) && "nextPage" %in% names(nextResults$links)) {

@@ -1,18 +1,18 @@
 
-AIMS DataPlatform R Client
+AIMS Data Platform R Client
 ==========================
 
-__AIMS DataPlatform R Client__ will provide easy access to data sets for R applications to the [AIMS DataPlatform API](https://aims.github.io/data-platform).
+__AIMS Data Platform R Client__ will provide easy access to data sets for R applications to the [AIMS Data Platform API](https://aims.github.io/data-platform).
 
 Installation
 ------------
 
-Details on installation of __AIMS DataPlatform R Client__ are [here](install).
+Details on installation of __AIMS Data Platform R Client__ are [here](install).
 
 Available Data Sets
 -------------------
 
-The __AIMS DataPlatform API__ is a *REST API* providing *JSON* formatted data.  Documentation about available data sets can be found on the [AIMS DataPlatfom API](https://aims.github.io/data-platform)
+The __AIMS Data Platform API__ is a *REST API* providing *JSON* formatted data.  Documentation about available data sets can be found on the [AIMS Data Platfom API](https://aims.github.io/data-platform)
 
 General Usage Examples
 ----------------------
@@ -93,13 +93,13 @@ Then our query and plot might look like the following:
 Detailed Example
 ----------------
 
-A more detailed example of the R package usage can be seen on the [detailed example](detailed-example.nb.html) page.  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio*.  __Note that you need to have an AIMS DataPlatform API Key available to run this detailed example.__
+A more detailed example of the R package usage can be seen on the [detailed example](detailed-example.nb.html) page.  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio*.  __Note that you need to have an AIMS Data Platform API Key available to run this detailed example.__
 
 
-Usage of AIMS DataPlatform API Key
+Usage of AIMS Data Platform API Key
 ----------------------------------
 
-__AIMS DataPlatform__ requires an API Key for requests, this can be passed to each function as an additional `apiKey='XXXX'` argument, however it is preferred that API Keys are not stored in code.
+__AIMS Data Platform__ requires an API Key for requests, this can be passed to each function as an additional `apiKey='XXXX'` argument, however it is preferred that API Keys are not stored in code.
 
 If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in the user's `.Renviron` file then that will be loaded and used automatically.  In that case the users `.Renviron` file might look like:
 
@@ -116,4 +116,4 @@ System     | .Renviron file locations
 MS Windows | `C:\Users\<username>\.Renviron`  or `C:\Users\<username>\Documents\.Renviron`
 Linux      | `/home/<username>/.Renviron`
 
-API Keys can be obtained from the [AIMS DataPlatform project page](https://aims.github.io/data-platform)
+API Keys can be obtained from the [AIMS Data Platform project page](https://aims.github.io/data-platform)

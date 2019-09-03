@@ -1,11 +1,12 @@
 \name{AIMS DataPlatform}
 \alias{getData}
+%- Also NEED an '\alias' for EACH other topic documented here.
 \title{getData}
 \description{
 An R Client for AIMS DataPlatform API
 }
 \usage{
-getData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL)
+getData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +22,7 @@ getData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL)
   \item{apiKey}{
   The users AIMS DataPlatform API Key used for authentication.  Can be supplied here but recommended to be stored in .Renviron file.
   }
+
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -48,8 +50,29 @@ getData(doi, filters=NULL, baseEndPoint=defaultBaseEndPoint, apiKey=NULL)
 AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
-  # Get a dataFrame
-  > results <- getData('10.25845/5c09bf93f315d', filters=list("site-name"="Davies Reef", "size"=10))
+  # Get all data for a filter request
+  > results <- getData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000))
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
-  > results$dataFrame
+  [1] "Result count: 20000"
+  [1] "Result count: 30000"
+  [1] "Result count: 40000"
+  [1] "Result count: 50000"
+  [1] "Result count: 60000"
+  [1] "Result count: 70000"
+  [1] "Result count: 80000"
+  [1] "Result count: 90000"
+  [1] "Result count: 100000"
+  [1] "Result count: 110000"
+  [1] "Result count: 120000"
+  [1] "Result count: 122164"
+  [1] "Result count: 122164"
+  > summary(results$dataFrame)
+  deployment_id    site_name         location_name       depth            latitude        longitude      parameter          serial_num           data_id              time             raw_value        qc_value       series_id    series_name
+  Min.   :10933   Length:10000       Length:10000       Mode:logical   Min.   :-18.83   Min.   :147.6   Length:10000       Length:10000       Min.   :516430890   Length:10000       Min.   : 0.00   Min.   : 0.00   Min.   :2882   Length:10000
+  1st Qu.:10941   Class :character   Class :character   NA's:10000     1st Qu.:-18.83   1st Qu.:147.6   Class :character   Class :character   1st Qu.:527888447   Class :character   1st Qu.:12.24   1st Qu.:12.24   1st Qu.:4783   Class :character
+  Median :10941   Mode  :character   Mode  :character                  Median :-18.83   Median :147.6   Mode  :character   Mode  :character   Median :543658375   Mode  :character   Median :19.44   Median :19.44   Median :4783   Mode  :character
+  Mean   :10941                                                        Mean   :-18.83   Mean   :147.6                                         Mean   :541826509                      Mean   :19.17   Mean   :19.17   Mean   :4674
+  3rd Qu.:10941                                                        3rd Qu.:-18.83   3rd Qu.:147.6                                         3rd Qu.:550019914                      3rd Qu.:25.56   3rd Qu.:25.56   3rd Qu.:4783
+  Max.   :10941                                                        Max.   :-18.83   Max.   :147.6                                         Max.   :580588025                      Max.   :53.89   Max.   :53.89   Max.   :4783
+                                                                                                                                                                                                    NA's   :10
 }
