@@ -47,7 +47,7 @@ getFilterValues('10.25845/5c09bf93f315d', 'series')
 
 The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot.  If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.
 
-Finally our filters might look like the following:
+Finally our values and filters might look like the following:
 
 Variable  | Value                  | Description
 ----------|------------------------|-------------------------------------------------------
@@ -67,14 +67,14 @@ results <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('se
 
 ```
 
-Now the results have been stored in the `results` we can attempt to plot.
+Now the results have been stored in the `results` object we can attempt to plot.
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value)
 
 ```
 
-Ok we have a plot, fairly unpleasant looking, that should be a line chart, also we should fix the time labels by putting the X values into an axis command:
+Ok we have a plot, fairly unpleasant looking, that should be a line chart:
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l')
@@ -84,14 +84,14 @@ plot(results$dataFrame$time, results$dataFrame$qc_value, type='l')
 Lets add some proper labels:
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature")
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Date", ylab="Air Temperature")
 
 ```
 
 Finally lets make the colour green and add a main title.
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Davies Reef Platform Air Temperature in 2018", col='green')
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Date", ylab="Air Temperature", main="Davies Reef Platform Air Temperature", col='green')
 
 ```
 
@@ -99,7 +99,7 @@ And add another series:
 
 ```{r}
 results2 <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('series'=87929, 'from-date'='2018-01-01', 'thru-date'='2018-01-10'))
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Date", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
 
 ```
@@ -107,7 +107,7 @@ lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
 Now a legend to distinguish data sets
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Date", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
 legend("bottomright", c("Davies Reef", "Bramble Cay"), fill=c("green", "blue"))
 
