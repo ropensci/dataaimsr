@@ -51,7 +51,7 @@ AIMS Datacentre <adc@aims.gov.au>
 }
 \examples{
   # Get all data for a filter request
-  > results <- getData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef', 'size'=10000))
+  > results <- getData('10.25845/5c09bf93f315d', filters=list('site-name'='Davies Reef'))
   [1] "Cite this data as: Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 August 2019.  Site: Davies Reef."
   [1] "Result count: 20000"
   [1] "Result count: 30000"

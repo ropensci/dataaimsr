@@ -1,65 +1,111 @@
 ---
-title: "AIMS DataPlatform R Client Notebook Example"
+title: "AIMS Data Platform R Client Notebook Example"
 output: html_notebook
 ---
 
 [Back](index)
 
-This example assumes you have obtained an *AIMS DataPlatform API Key*.  See [here](index#usage-of-aims-dataplatform-api-key) to see what that means.  To download and run this example interactively in *R Studio* click on `Code -> Download Rmd` in the top right corner of this document.
+This example assumes you have obtained an *AIMS Data Platform API Key*.  See [here](index#usage-of-aims-dataplatform-api-key) to see what that means.  To download and run this example interactively in *R Studio* click on `Code -> Download Rmd` in the top right corner of this document.
 
-Similar to our previous example we want to run a plot on a series, lets discover a series to plot.  If you are running this notebook in [R Studio](https://www.rstudio.com/) you can click on the green arrow inside each code block to run it.
+Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:
 
 ```{r}
+#       ==> paste your key here
+MY_API_KEY <- "api-key-for-r-notebook"
+
+```
+
+Install R Client
+----------------
+
+*AIMS Data Platform R Client* can be installed directly from [github](https://github.com/aims/data-platform-r) using the following code:
+
+```{r}
+
+install.packages("devtools")
+devtools::install_git("https://github.com/AIMS/data-platform-r")
 library(aimsdataplatform)
+
+```
+
+Discover a dataset
+------------------
+
+Suppose we want to query a data series and plot it then the procedure might be:
+1. Examine documentation and establish query filters
+2. Perform data download using `getData`
+3. Use R `plot` to create a chart
+
+We decide to query the [AIMS Weather](https://aims.github.io/data-platform/weather) data set based on a data series, then we are guaranteed of getting information from one site for one metric.
+
+To discover a data set we look up the filter values available for a series:
+
+
+```{r}
 getFilterValues('10.25845/5c09bf93f315d', 'series')
 ```
 
-The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot.  If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.  __Please note that in all code smaples below you should enter your own API Key in the field that says `api-key-for-r-notebook`.__
+The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot.  If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.
 
-After deciding on a series we plug the series id into a `getAllData` function:
+Finally our filters might look like the following:
+
+Variable  | Value                  | Description
+----------|------------------------|-------------------------------------------------------
+dio       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://aims.github.io/data-platform)
+series    | 64                     | Found [here](https://aims.github.io/data-platform/weather/series), Davies Reef Air Temperature data series
+from-date | '2018-01-01'           | We want to start charting on 1/1/2018
+thru-date | '2018-01-10'           | We are plotting 10 days of data
+
+
+Query and Plot Dataset
+----------------------
+
+After deciding on query parameters we plug the series id into a `getData` function:
 
 ```{r}
-results <- getAllData('10.25845/5c09bf93f315d', apiKey='api-key-for-r-notebook', filters=list('series'=4067, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
+results <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('series'=64, 'from-date'='2018-01-01', 'thru-date'='2018-01-10'))
 ```
 
 Now the results have been stored in the `results` we can attempt to plot.
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value)
+#axis(1, results$dataFrame$time, format(results$dataFrame$time, "%b %d"), las=2)
 ```
 
-Ok we have a plot, fairly unpleasant looking, that should be a line chart.
+Ok we have a plot, fairly unpleasant looking, that should be a line chart, also we should fix the time labels by putting the X values into an axis command:
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l')
+
 ```
 
 Lets add some proper labels:
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature")
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature")
 ```
 
 Finally lets make the colour green and add a main title.
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Yongala NRS Buoy Air Temperature", col='green')
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Davies Reef Platform Air Temperature in 2018", col='green')
 ```
 
 And add another series:
 
 ```{r}
-results2 <- getAllData('10.25845/5c09bf93f315d', apiKey='api-key-for-r-notebook', filters=list('series'=87929, 'from-date'='2018-01-01', 'thru-date'='2018-01-07'))
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations", col='green')
+results2 <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('series'=87929, 'from-date'='2018-01-01', 'thru-date'='2018-01-10'))
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
 ```
 
 Now a legend to distinguish data sets
 
 ```{r}
-plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations", col='green')
+plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
-legend("bottomright", c("Yongala NRS Buoy", "Bramble Cay"), fill=c("green", "blue"))
+legend("bottomright", c("Davies Reef", "Bramble Cay"), fill=c("green", "blue"))
 ```
 
 Finally citations can be added to our document with the following code:
