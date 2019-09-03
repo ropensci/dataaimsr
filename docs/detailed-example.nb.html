@@ -1767,12 +1767,21 @@ MY_API_KEY &lt;- &quot;api-key-for-r-notebook&quot;
 <p><em>AIMS Data Platform R Client</em> can be installed directly from <a href="https://github.com/aims/data-platform-r">github</a> using the following code:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5pbnN0YWxsLnBhY2thZ2VzKFwiZGV2dG9vbHNcIilcbmBgYCJ9 -->
-<pre class="r"><code>
-install.packages(&quot;devtools&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5zdGFsbC5wYWNrYWdlcyhcImRldnRvb2xzXCIpXG5gYGAifQ== -->
+<pre class="r"><code>install.packages(&quot;devtools&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5zdGFsbC5wYWNrYWdlcyA6IFVwZGF0aW5nIGxvYWRlZCBwYWNrYWdlc1xuIn0= -->
-<pre><code>Error in install.packages : Updating loaded packages</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8g46S847ixQzovVXNlcnMvamxzaGVlaGEvT25lRHJpdmUgLSBBdXN0cmFsaWFuIEluc3RpdHV0ZSBvZiBNYXJpbmUgU2NpZW5jZS9Eb2N1bWVudHMvUi93aW4tbGlicmFyeS8zLjbjpLzjuLJcbihhcyDjpLzjuLFsaWLjpLzjuLIgaXMgdW5zcGVjaWZpZWQpXG50cnlpbmcgVVJMICdodHRwczovL2NyYW4ucnN0dWRpby5jb20vYmluL3dpbmRvd3MvY29udHJpYi8zLjYvZGV2dG9vbHNfMi4xLjAuemlwJ1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi96aXAnIGxlbmd0aCAzMjY2NTUgYnl0ZXMgKDMxOCBLQilcbmRvd25sb2FkZWQgMzE4IEtCXG4ifQ== -->
+<pre><code>Installing package into 㤼㸱C:/Users/jlsheeha/OneDrive - Australian Institute of Marine Science/Documents/R/win-library/3.6㤼㸲
+(as 㤼㸱lib㤼㸲 is unspecified)
+trying URL &#39;https://cran.rstudio.com/bin/windows/contrib/3.6/devtools_2.1.0.zip&#39;
+Content type &#39;application/zip&#39; length 326655 bytes (318 KB)
+downloaded 318 KB</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoicGFja2FnZSDigJhkZXZ0b29sc+KAmSBzdWNjZXNzZnVsbHkgdW5wYWNrZWQgYW5kIE1ENSBzdW1zIGNoZWNrZWRcblxuVGhlIGRvd25sb2FkZWQgYmluYXJ5IHBhY2thZ2VzIGFyZSBpblxuXHRDOlxcVXNlcnNcXGpsc2hlZWhhXFxBcHBEYXRhXFxMb2NhbFxcVGVtcFxcUnRtcFFWZ1FnQVxcZG93bmxvYWRlZF9wYWNrYWdlc1xuIn0= -->
+<pre><code>package ‘devtools’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+    C:\Users\jlsheeha\AppData\Local\Temp\RtmpQVgQgA\downloaded_packages</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGV2dG9vbHM6Omluc3RhbGxfZ2l0KFwiaHR0cHM6Ly9naXRodWIuY29tL0FJTVMvZGF0YS1wbGF0Zm9ybS1yXCIpXG5gYGAifQ== -->
 <pre class="r"><code>devtools::install_git(&quot;https://github.com/AIMS/data-platform-r&quot;)</code></pre>
@@ -1780,9 +1789,61 @@ install.packages(&quot;devtools&quot;)</code></pre>
 <!-- rnb-output-begin eyJkYXRhIjoiRG93bmxvYWRpbmcgZ2l0IHJlcG8gaHR0cHM6Ly9naXRodWIuY29tL0FJTVMvZGF0YS1wbGF0Zm9ybS1yXG4ifQ== -->
 <pre><code>Downloading git repo https://github.com/AIMS/data-platform-r</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5SZXN0YXJ0aW5nIFIgc2Vzc2lvbi4uLlxuIn0= -->
-<pre><code>
-Restarting R session...</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICBcbiAgXG4gIFxuXHUwMDFiWzMybeKImlx1MDAxYlszOW0gIFx1MDAxYlszODs1OzI0N21jaGVja2luZyBmb3IgZmlsZSAnQzpcXFVzZXJzXFxqbHNoZWVoYVxcQXBwRGF0YVxcTG9jYWxcXFRlbXBcXFJ0bXBRVmdRZ0FcXGZpbGUyNTM0NTQ4MTc3Yi9ERVNDUklQVElPTidcdTAwMWJbMzltXHUwMDFiWzM2bVx1MDAxYlszNm0gKDQyNG1zKVx1MDAxYlszNm1cdTAwMWJbMzltXG5cbiAgXG4gIFxuICBcblx1MDAxYlszODs1OzI0N20tXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N20gIFx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtcHJlcGFyaW5nICdhaW1zZGF0YXBsYXRmb3JtJzpcdTAwMWJbMzltXHUwMDFiWzM2bVx1MDAxYlszOW1cblx1MDAxYlszMm3iiJpcdTAwMWJbMzltICBcdTAwMWJbMzg7NTsyNDdtY2hlY2tpbmcgREVTQ1JJUFRJT04gbWV0YS1pbmZvcm1hdGlvblx1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXG4gIFxuICBcbiAgXG5cdTAwMWJbMzg7NTsyNDdtLVx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtICBcdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bWNoZWNraW5nIGZvciBMRiBsaW5lLWVuZGluZ3MgaW4gc291cmNlIGFuZCBtYWtlIGZpbGVzIGFuZCBzaGVsbCBzY3JpcHRzXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cdTAwMWJbMzg7NTsyNDdtLVx1MDAxYlszOW1cdTAwMWJbMzg7NTsyNDdtICBcdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bWNoZWNraW5nIGZvciBlbXB0eSBvciB1bm5lZWRlZCBkaXJlY3Rvcmllc1x1MDAxYlszOW1cdTAwMWJbMzZtXHUwMDFiWzM5bVxuXHUwMDFiWzM4OzU7MjQ3bS1cdTAwMWJbMzltXHUwMDFiWzM4OzU7MjQ3bSAgXHUwMDFiWzM5bVx1MDAxYlszODs1OzI0N21idWlsZGluZyAnYWltc2RhdGFwbGF0Zm9ybV8xLjAuMC50YXIuZ3onXHUwMDFiWzM5bVx1MDAxYlszNm1cdTAwMWJbMzltXG5cbiAgXG4gICBcbiJ9 -->
+<pre><code>  
+  
+  
+[32m√[39m  [38;5;247mchecking for file &#39;C:\Users\jlsheeha\AppData\Local\Temp\RtmpQVgQgA\file2534548177b/DESCRIPTION&#39;[39m[36m[36m (424ms)[36m[39m
+
+  
+  
+  
+[38;5;247m-[39m[38;5;247m  [39m[38;5;247mpreparing &#39;aimsdataplatform&#39;:[39m[36m[39m
+[32m√[39m  [38;5;247mchecking DESCRIPTION meta-information[39m[36m[39m
+
+  
+  
+  
+[38;5;247m-[39m[38;5;247m  [39m[38;5;247mchecking for LF line-endings in source and make files and shell scripts[39m[36m[39m
+[38;5;247m-[39m[38;5;247m  [39m[38;5;247mchecking for empty or unneeded directories[39m[36m[39m
+[38;5;247m-[39m[38;5;247m  [39m[38;5;247mbuilding &#39;aimsdataplatform_1.0.0.tar.gz&#39;[39m[36m[39m
+
+  
+   </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiSW5zdGFsbGluZyBwYWNrYWdlIGludG8gkUM6L1VzZXJzL2psc2hlZWhhL09uZURyaXZlIC0gQXVzdHJhbGlhbiBJbnN0aXR1dGUgb2YgTWFyaW5lIFNjaWVuY2UvRG9jdW1lbnRzL1Ivd2luLWxpYnJhcnkvMy42klxuKGFzIJFsaWKSIGlzIHVuc3BlY2lmaWVkKVxuIn0= -->
+<pre><code>Installing package into 㤼㸱C:/Users/jlsheeha/OneDrive - Australian Institute of Marine Science/Documents/R/win-library/3.6㤼㸲
+(as 㤼㸱lib㤼㸲 is unspecified)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiKiBpbnN0YWxsaW5nICpzb3VyY2UqIHBhY2thZ2UgJ2FpbXNkYXRhcGxhdGZvcm0nIC4uLlxuKiogdXNpbmcgc3RhZ2VkIGluc3RhbGxhdGlvblxuKiogUlxuKiogYnl0ZS1jb21waWxlIGFuZCBwcmVwYXJlIHBhY2thZ2UgZm9yIGxhenkgbG9hZGluZ1xuKiogaGVscFxuKioqIGluc3RhbGxpbmcgaGVscCBpbmRpY2VzXG4gIGNvbnZlcnRpbmcgaGVscCBmb3IgcGFja2FnZSAnYWltc2RhdGFwbGF0Zm9ybSdcbiAgICBmaW5kaW5nIEhUTUwgbGlua3MgLi4uIGRvbmVcbiAgICBnZXREYXRhICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4gICAgZ2V0RmlsdGVyVmFsdWVzICAgICAgICAgICAgICAgICAgICAgICAgIGh0bWwgIFxuICAgIGdldE5leHRQYWdlRGF0YSAgICAgICAgICAgICAgICAgICAgICAgICBodG1sICBcbiAgICBnZXRQYWdlRGF0YSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaHRtbCAgXG4qKiBidWlsZGluZyBwYWNrYWdlIGluZGljZXNcbioqIHRlc3RpbmcgaWYgaW5zdGFsbGVkIHBhY2thZ2UgY2FuIGJlIGxvYWRlZCBmcm9tIHRlbXBvcmFyeSBsb2NhdGlvblxuKioqIGFyY2ggLSBpMzg2XG4qKiogYXJjaCAtIHg2NFxuKiogdGVzdGluZyBpZiBpbnN0YWxsZWQgcGFja2FnZSBjYW4gYmUgbG9hZGVkIGZyb20gZmluYWwgbG9jYXRpb25cbioqKiBhcmNoIC0gaTM4NlxuKioqIGFyY2ggLSB4NjRcbioqIHRlc3RpbmcgaWYgaW5zdGFsbGVkIHBhY2thZ2Uga2VlcHMgYSByZWNvcmQgb2YgdGVtcG9yYXJ5IGluc3RhbGxhdGlvbiBwYXRoXG4qIERPTkUgKGFpbXNkYXRhcGxhdGZvcm0pXG4ifQ== -->
+<pre><code>* installing *source* package &#39;aimsdataplatform&#39; ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+  converting help for package &#39;aimsdataplatform&#39;
+    finding HTML links ... done
+    getData                                 html  
+    getFilterValues                         html  
+    getNextPageData                         html  
+    getPageData                             html  
+** building package indices
+** testing if installed package can be loaded from temporary location
+*** arch - i386
+*** arch - x64
+** testing if installed package can be loaded from final location
+*** arch - i386
+*** arch - x64
+** testing if installed package keeps a record of temporary installation path
+* DONE (aimsdataplatform)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShhaW1zZGF0YXBsYXRmb3JtKVxuYGBgIn0= -->
+<pre class="r"><code>library(aimsdataplatform)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBodHRyXG5Mb2FkaW5nIHJlcXVpcmVkIHBhY2thZ2U6IGpzb25saXRlXG4ifQ== -->
+<pre><code>Loading required package: httr
+Loading required package: jsonlite</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
