@@ -50,7 +50,7 @@ Finally our filters might look like the following:
 
 Variable  | Value                  | Description
 ----------|------------------------|-------------------------------------------------------
-dio       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://aims.github.io/data-platform)
+doi       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://aims.github.io/data-platform)
 series    | 64                     | Found [here](https://aims.github.io/data-platform/weather/series), Davies Reef Air Temperature data series
 from-date | '2018-01-01'           | We want to start charting on 1/1/2018
 thru-date | '2018-01-10'           | We are plotting 10 days of data
