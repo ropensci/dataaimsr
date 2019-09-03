@@ -10,7 +10,7 @@ This example assumes you have obtained an *AIMS Data Platform API Key*.  See [he
 Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:
 
 ```{r}
-#       ==> paste your key here
+# paste your key where it says api-key-for-r-notebook
 MY_API_KEY <- "api-key-for-r-notebook"
 
 ```
@@ -21,7 +21,6 @@ Install R Client
 *AIMS Data Platform R Client* can be installed directly from [github](https://github.com/aims/data-platform-r) using the following code:
 
 ```{r}
-
 install.packages("devtools")
 devtools::install_git("https://github.com/AIMS/data-platform-r")
 library(aimsdataplatform)
@@ -64,13 +63,14 @@ After deciding on query parameters we plug the series id into a `getData` functi
 
 ```{r}
 results <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('series'=64, 'from-date'='2018-01-01', 'thru-date'='2018-01-10'))
+
 ```
 
 Now the results have been stored in the `results` we can attempt to plot.
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value)
-#axis(1, results$dataFrame$time, format(results$dataFrame$time, "%b %d"), las=2)
+
 ```
 
 Ok we have a plot, fairly unpleasant looking, that should be a line chart, also we should fix the time labels by putting the X values into an axis command:
@@ -84,12 +84,14 @@ Lets add some proper labels:
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature")
+
 ```
 
 Finally lets make the colour green and add a main title.
 
 ```{r}
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Davies Reef Platform Air Temperature in 2018", col='green')
+
 ```
 
 And add another series:
@@ -98,6 +100,7 @@ And add another series:
 results2 <- getData('10.25845/5c09bf93f315d', apiKey=MY_API_KEY, filters=list('series'=87929, 'from-date'='2018-01-01', 'thru-date'='2018-01-10'))
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="January 2018", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
+
 ```
 
 Now a legend to distinguish data sets
@@ -106,6 +109,7 @@ Now a legend to distinguish data sets
 plot(results$dataFrame$time, results$dataFrame$qc_value, type='l', xlab="Time", ylab="Air Temperature", main="Air Temperature at AIMS Weather Stations in 2018", col='green')
 lines(results2$dataFrame$time, results2$dataFrame$qc_value, col="blue")
 legend("bottomright", c("Davies Reef", "Bramble Cay"), fill=c("green", "blue"))
+
 ```
 
 Finally citations can be added to our document with the following code:
@@ -113,6 +117,7 @@ Finally citations can be added to our document with the following code:
 ```{r}
 results$citation
 results2$citation
+
 ```
 
 Bibliography
