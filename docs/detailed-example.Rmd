@@ -31,6 +31,7 @@ Discover a dataset
 ------------------
 
 Suppose we want to query a data series and plot it then the procedure might be:
+
 1. Examine documentation and establish query filters
 2. Perform data download using `getData`
 3. Use R `plot` to create a chart
