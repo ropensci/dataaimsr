@@ -5,7 +5,7 @@ output: html_notebook
 
 [Back](index)
 
-This example assumes you have obtained an [AIMS Data Platform API Key](https://aims.github.io/data-platform/key-request).  Further details about key usage can be found [here](https://aims.github.io/data-platform-r/index#usage-of-aims-dataplatform-api-key)
+This example assumes you have obtained an [AIMS Data Platform API Key](https://aims.github.io/data-platform/key-request).  Further details about key usage can be found [here](https://aims.github.io/data-platform-r/index#usage-of-aims-dataplatform-api-key).
 
 To download and run this example interactively in *R Studio* click on `Code -> Download Rmd` in the top right corner of this document.
 

@@ -2,12 +2,12 @@
 AIMS Data Platform R Client
 ==========================
 
-__AIMS Data Platform R Client__ will provide easy access to data sets for R applications to the [AIMS Data Platform API](https://aims.github.io/data-platform).
+__AIMS Data Platform R Client__ will provide easy access to data sets for R applications to the [AIMS Data Platform API](https://aims.github.io/data-platform){:target="_blank"}.
 
 Usage of AIMS Data Platform API Key
 ----------------------------------
 
-__AIMS Data Platform__ requires an API Key for requests, [get a key here.](https://aims.github.io/data-platform/key-request)
+__AIMS Data Platform__ requires an API Key for requests, [get a key here.](https://aims.github.io/data-platform/key-request){:target="_blank"}
 
 The API Key can be passed to each function as an additional `apiKey='XXXX'` argument, however it is preferred that API Keys are not stored in code.
 
@@ -51,10 +51,10 @@ This command will also install 2 dependencies `httr` and `jsonlite`.
 Available Data Sets
 -------------------
 
-The __AIMS Data Platform API__ is a *REST API* providing *JSON* formatted data.  Documentation about available data sets can be found on the [AIMS Data Platfom API](https://aims.github.io/data-platform)
+The __AIMS Data Platform API__ is a *REST API* providing *JSON* formatted data.  Documentation about available data sets can be found on the [AIMS Data Platfom API](https://aims.github.io/data-platform){:target="_blank"}.
 
 Detailed Example
 ----------------
 
-[A more detailed example of the R package usage on the weather dataset](10.25845/5c09bf93f315d/example-1.nb.html) page.  This is an [R Studio](https://www.rstudio.com/) Notebook and can be used interactively from *R Studio*.  __Note that you need to have an AIMS Data Platform API Key available to run this detailed example.__
+[A more detailed example of the R package usage on the weather dataset page.](10.25845/5c09bf93f315d/example-1.nb.html)  This is an [R Studio](https://www.rstudio.com/){:target="_blank"} Notebook and can be used interactively from *R Studio*.  __Note that you need to have an AIMS Data Platform API Key available to run this detailed example.__
 
