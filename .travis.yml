@@ -1,0 +1,13 @@
+language: R
+r: devel
+sudo: FALSE
+warnings_are_errors: true
+r_build_args: '--no-build-vignettes'
+r_check_args: '--ignore-vignettes'
+before_install:
+  - chmod 755 ./travis_tool/travis_timeout.sh
+
+script: ./travis_tool/travis_timeout.sh travis_wait
+
+after_success:
+  - travis_wait 30 Rscript -e 'covr::codecov()'
