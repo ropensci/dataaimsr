@@ -1,4 +1,4 @@
-Package: aimsdataplatform
+Package: dataaimsr
 Type: Package
 Title: AIMS DataPlatform API Client
 Version: 1.0.1

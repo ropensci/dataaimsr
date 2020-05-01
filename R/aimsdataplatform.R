@@ -88,7 +88,7 @@ request_process <- function(dt_req, next_page = FALSE) {
 #' 
 #' @importFrom httr GET add_headers
 page_data_get <- function(doi, filters = NULL, api_key = NULL) {
-  base_end_pt <- getOption("aimsdataplatform.base_end_point")
+  base_end_pt <- getOption("dataaimsr.base_end_point")
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   dt_req <- GET(end_pt,
                 add_headers("X-Api-Key" = api_key_find(api_key)),
@@ -141,10 +141,10 @@ next_page_data_get <- function(url, api_key = NULL) {
 #' 
 #' @examples
 #' \dontrun{
-#' library(aimsdataplatform)
+#' library(dataaimsr)
 #' # assumes that user already has API key saved to
 #' # .Renviron
-#' weather  <-  getOption("aimsdataplatform.weather")
+#' weather  <-  getOption("dataaimsr.weather")
 #' results <- aims_data_get(weather,
 #'                     api_key = NULL,
 #'                     filters = list('series' = 64,
@@ -194,15 +194,15 @@ aims_data_get <- function(doi, filters = NULL, ...) {
 #' 
 #' @examples
 #' \dontrun{
-#' library(aimsdataplatform)
-#' weather  <-  getOption("aimsdataplatform.weather")
+#' library(dataaimsr)
+#' weather  <-  getOption("dataaimsr.weather")
 #' filter_values_get(weather, filter_name = "series")
 #' }
 #' 
 #' @export
 #' @importFrom httr GET http_error
 filter_values_get <- function(doi, filter_name) {
-  base_end_pt <- getOption("aimsdataplatform.base_end_point")
+  base_end_pt <- getOption("dataaimsr.base_end_point")
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {
@@ -231,7 +231,7 @@ format_update <- function(results) {
     results$links$next_page <- results$links$"next"
     results$links$"next" <- NULL
   }
-  date_format <- getOption("aimsdataplatform.date_format")
+  date_format <- getOption("dataaimsr.date_format")
   results$results$time <- as.POSIXct(strptime(results$results$time,
                                               format = date_format,
                                               tz = "UTC"))

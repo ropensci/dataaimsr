@@ -25,10 +25,10 @@ Details about this function.
 }
 \examples{
 \dontrun{
-library(aimsdataplatform)
+library(dataaimsr)
 # assumes that user already has API key saved to
 # .Renviron
-weather  <-  getOption("aimsdataplatform.weather")
+weather  <-  getOption("dataaimsr.weather")
 results <- aims_data_get(weather,
                     api_key = NULL,
                     filters = list('series' = 64,

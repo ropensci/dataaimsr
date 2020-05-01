@@ -22,8 +22,8 @@ Details about this function.
 }
 \examples{
 \dontrun{
-library(aimsdataplatform)
-weather  <-  getOption("aimsdataplatform.weather")
+library(dataaimsr)
+weather  <-  getOption("dataaimsr.weather")
 filter_values_get(weather, filter_name = "series")
 }
 
