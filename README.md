@@ -15,9 +15,9 @@ Usage of AIMS Data Platform API Key
 **AIMS Data Platform** requires an API Key for requests, [get a key
 here.](https://aims.github.io/data-platform/key-request)
 
-The API Key can be passed to each function as an additional
-`apiKey='XXXX'` argument, however it is preferred that API Keys are not
-stored in code.
+The API Key can be passed to the package functions as an additional
+`api_key = 'XXXX'` argument, however it is preferred that API Keys are
+not stored in code.
 
 If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in
 the user’s `.Renviron` file then that will be loaded and used
@@ -63,10 +63,11 @@ Detailed Example
 ----------------
 
 [A more detailed example of the R package usage on the weather dataset
-page.](10.25845/5c09bf93f315d/example-1.nb.html) This is an [R
-Studio](https://www.rstudio.com/) Notebook and can be used interactively
-from *R Studio*. **Note that you need to have an AIMS Data Platform API
-Key available to run this detailed example.**
+page.](10.25845/5c09bf93f315d/example-1.nb.html) This is an
+[RStudio](https://www.rstudio.com/) Notebook and can be used
+interactively from [RStudio](https://www.rstudio.com/). **Note that you
+need to have an AIMS Data Platform API Key available to run this
+detailed example.**
 
 Further information about the **AIMS DataPlatform R Client** and **AIMS
 DataPlatform API** can be seen on the [project
