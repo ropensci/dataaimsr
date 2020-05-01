@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="inst/figures/logo.png" width = 150 alt="dataaimsr Logo"/>
+<img src="inst/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
 
 AIMS Data Platform R Client
 ===========================
