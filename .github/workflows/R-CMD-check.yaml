@@ -14,6 +14,14 @@ jobs:
         if: runner.os == 'macOS'
         run: brew cask install xquartz
 
+      - name: Install Pandoc on MacOS
+        if: runner.os == 'macOS'
+        run: brew cask install pandoc
+
+      - name: Install Pandoc-citeproc on MacOS
+        if: runner.os == 'macOS'
+        run: brew cask install pandoc-citeproc
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck", "plyr", "dplyr", "ggplot2"))

@@ -14,6 +14,14 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
+      - name: Install Pandoc on MacOS
+        if: runner.os == 'macOS'
+        run: brew cask install pandoc
+
+      - name: Install Pandoc-citeproc on MacOS
+        if: runner.os == 'macOS'
+        run: brew cask install pandoc-citeproc
+
       - name: Query dependencies
         run: |
           install.packages('remotes')
