@@ -22,7 +22,11 @@ library(ggplot2)
 Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:
 
 ```{r, echo = FALSE, message = FALSE}
+library(plyr)
+library(dplyr)
+library(ggplot2)
 library(dataaimsr)
+my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 ```
 
 ```{r, eval = FALSE}
@@ -65,8 +69,9 @@ For the purposes of this example, we will query the [AIMS Weather](https://aims.
 To discover a data set we look up the filter values available for a series:
 
 ```{r}
-weather <- getOption("dataaimsr.weather")
-head(filter_values_get(weather, filter_name = "series"))
+weather_doi <- getOption("dataaimsr.weather")
+filter_values_get(weather_doi, filter_name = "series") %>%
+  head()
 ```
 
 The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot. If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.
@@ -80,13 +85,12 @@ series    | 64                     | Found [here](https://aims.github.io/data-pl
 from-date | '2018-01-01'           | We want to start charting on 1/1/2018
 thru-date | '2018-01-10'           | We are plotting 10 days of data
 
-
 Query and Plot Dataset
 ----------------------
 
 After deciding on query parameters we plug the series id into a `aims_data_get` function:
 
-```{r, eval = FALSE}
+```{r, message = FALSE}
 davies <- aims_data_get(weather,
                          api_key = my_api_key,
                          filters = list("series" = 64,
@@ -102,7 +106,7 @@ The object `davies` is a list containing four elements:
 
 We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time
 
-```{r, eval = FALSE}
+```{r, message = FALSE}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
   aims_data_get(weather, api_key = my_api_key, 
@@ -124,16 +128,14 @@ ggplot(weather_data) +
         legend.position = "bottom")
 ```
 
-![](../../man/figures/weather.png)
-
 Bibliography
 ------------
 
-```{r, eval = FALSE}
+```{r, message = FALSE}
 citations  <-  plyr::ldply(results, "[[", "citation") %>%
   dplyr::rename("citation" = "[[")
 ```
 
-1. Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Davies Reef Weather Station Air Temperature
+1. `r citations[1, 2]`
 
-2. Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Bramble Cay Weather Station Air Temperature
+2. `r citations[2, 2]`
