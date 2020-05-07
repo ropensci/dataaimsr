@@ -2,28 +2,68 @@
 % Please edit documentation in R/dataaimsr.R
 \name{page_data_get}
 \alias{page_data_get}
-\title{Get some data and return a data frame}
+\title{Request data via the AIMS Data Platform API}
 \usage{
 page_data_get(doi, filters = NULL, api_key = NULL)
 }
 \arguments{
-\item{doi}{Description of parameter}
+\item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
+for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}}
 
-\item{filters}{Description of parameter}
+\item{filters}{A \code{\link[base]{list}} containing a set of 
+filters for the data query (see Details)}
 
-\item{api_key}{Description of parameter}
+\item{api_key}{An AIMS Data Platform 
+\href{https://aims.github.io/data-platform/key-request}{API Key}}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} simplified \code{data.frame}.
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
+containing four elements: 
+\code{metadata}: a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series; 
+\code{citation}: the citation information for the particular dataset; 
+\code{links}: the link from which the data query was retrieved;
+\code{data}: an output \code{\link[base]{data.frame}}.
 }
 \description{
-General description here
+A function that communicates with the 
+the \href{https://aims.github.io/data-platform}{AIMS Data Platform}
+via the AIMS Data Platform API
 }
 \details{
-Details about this function.
+The AIMS Data Platform R Client provides easy access to 
+data sets for R applications to the 
+\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+The AIMS Data Platform requires an API Key for requests, which can
+be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+It is preferred that API Keys are not stored in code. We recommend 
+storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
+permanently under the user's \code{.Renviron} file in order to load
+the API Key automatically.
+
+There are two types of data currently available through the 
+[AIMS Data Platform API](https://aims.github.io/data-platform): 
+[Weather](https://aims.github.io/data-platform/weather/index) and 
+[Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
+They are searched internally via unique DOI identifiers which 
+can be obtained by e.g. \code{getOption("dataaimsr.weather")} (see Examples).
+Only one DOI at a time can be passed to the argument \code{doi}.
+
+A list of arguments for \code{filters} can be found for both
+[Weather](https://aims.github.io/data-platform/weather/index) and 
+[Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
+
+Note that currently \code{from-date} and 
+\code{thru-date} cannot be inspected directly, for details about dates
+of available different time series can be accessed via Metadata on
+\href{https://aims.github.io/data-platform}{AIMS Data Platform API}. Despite
+this limitation, these time boundaries are very important because the 
+data are collected at very small time intervals, so just a few days of 
+time interval can yield massive datasets. The query will return and error 
+if it reaches the system's memory capacity.
 }
 \seealso{
-\code{\link{aims_data_get}}
+\code{\link{filter_values_get}}, \code{\link{aims_data_get}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

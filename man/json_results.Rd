@@ -2,21 +2,28 @@
 % Please edit documentation in R/dataaimsr.R
 \name{json_results}
 \alias{json_results}
-\title{Title here}
+\title{\code{\link[jsonlite]{fromJSON}} data request}
 \usage{
 json_results(dt_req)
 }
 \arguments{
-\item{dt_req}{Description of parameter}
+\item{dt_req}{An URL \code{\link[httr]{GET}} output}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} simplified \code{data.frame}.
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
+containing four elements: 
+\code{metadata}: a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series; 
+\code{citation}: the citation information for the particular dataset; 
+\code{links}: the link from which the data query was retrieved;
+\code{data}: an output \code{\link[base]{data.frame}}.
 }
 \description{
-General description here
+Wrapper function
 }
 \details{
-Details about this function.
+This function submits a \code{dt_req} 
+data request via \code{\link[jsonlite]{fromJSON}}.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

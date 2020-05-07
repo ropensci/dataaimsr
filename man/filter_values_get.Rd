@@ -7,26 +7,39 @@
 filter_values_get(doi, filter_name)
 }
 \arguments{
-\item{doi}{Description of parameter}
+\item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
+for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}}
 
-\item{filter_name}{Description of parameter}
+\item{filter_name}{A \code{\link[base]{character}} vector containing the name of
+the filter (see Details)}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} simplified \code{data.frame}.
+Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
 }
 \description{
-General description here
+This is a utility function which allows to user
+to query about the existing possibilities of 
+a given filter name
 }
 \details{
-Details about this function.
+A list of arguments for \code{filters} can be found for both
+[Weather](https://aims.github.io/data-platform/weather/index) and 
+[Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
 }
 \examples{
 \dontrun{
 library(dataaimsr)
-weather  <-  getOption("dataaimsr.weather")
-filter_values_get(weather, filter_name = "series")
+weather_doi  <-  getOption("dataaimsr.weather")
+ssts_doi     <-  getOption("dataaimsr.temp_loggers")
+filter_values_get(weather_doi, filter_name = "sites")
+filter_values_get(weather_doi, filter_name = "series")
+filter_values_get(weather_doi, filter_name = "parameters")
+filter_values_get(ssts_doi, filter_name = "sites")
 }
 
+}
+\seealso{
+\code{\link{aims_data_get}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

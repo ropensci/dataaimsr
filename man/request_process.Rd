@@ -2,23 +2,34 @@
 % Please edit documentation in R/dataaimsr.R
 \name{request_process}
 \alias{request_process}
-\title{Title here}
+\title{Format \code{\link{json_results}} output}
 \usage{
-request_process(dt_req, next_page = FALSE)
+request_process(dt_req, next_page = FALSE, ...)
 }
 \arguments{
-\item{dt_req}{Description of parameter}
+\item{dt_req}{An URL \code{\link[httr]{GET}} output}
 
-\item{next_page}{Description of parameter}
+\item{next_page}{Logical. Is this a multi-url request?}
+
+\item{...}{Additional arguments to be passed to internal function
+\code{\link{format_update}}}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} simplified \code{data.frame}.
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
+containing four elements: 
+\code{metadata}: a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series; 
+\code{citation}: the citation information for the particular dataset; 
+\code{links}: the link from which the data query was retrieved;
+\code{data}: an output \code{\link[base]{data.frame}}.
 }
 \description{
-General description here
+Wrapper function
 }
 \details{
-Details about this function.
+This function checks for errors in \code{dt_req} 
+data request and processes result via 
+\code{\link{json_results}}.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

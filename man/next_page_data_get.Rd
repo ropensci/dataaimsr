@@ -2,26 +2,45 @@
 % Please edit documentation in R/dataaimsr.R
 \name{next_page_data_get}
 \alias{next_page_data_get}
-\title{Get some data and return a data frame}
+\title{Further data requests via the AIMS Data Platform API}
 \usage{
-next_page_data_get(url, api_key = NULL)
+next_page_data_get(url, api_key = NULL, ...)
 }
 \arguments{
-\item{url}{Description of parameter}
+\item{url}{A data retrieval URL}
 
-\item{api_key}{Description of parameter}
+\item{api_key}{An AIMS Data Platform 
+\href{https://aims.github.io/data-platform/key-request}{API Key}}
+
+\item{...}{Additional arguments to be passed to internal function
+\code{\link{format_update}}}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} simplified \code{data.frame}.
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
+containing four elements: 
+\code{metadata}: a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series; 
+\code{citation}: the citation information for the particular dataset; 
+\code{links}: the link from which the data query was retrieved;
+\code{data}: an output \code{\link[base]{data.frame}}.
 }
 \description{
-General description here
+Similar to \code{\link{page_data_get}}, but for cases
+where there are multiple URLs for data retrieval
 }
 \details{
-Details about this function.
+The AIMS Data Platform R Client provides easy access to 
+data sets for R applications to the 
+\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+The AIMS Data Platform requires an API Key for requests, which can
+be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+It is preferred that API Keys are not stored in code. We recommend 
+storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
+permanently under the user's \code{.Renviron} file in order to load
+the API key automatically.
 }
 \seealso{
-\code{\link{aims_data_get}}
+\code{\link{filter_values_get}}, \code{\link{page_data_get}}, \code{\link{aims_data_get}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}
