@@ -7,7 +7,7 @@ Maintainer: AIMS Datacentre <adc@aims.gov.au>
 Description: AIMS Data Platform API Client provides easy access to AIMS Data Platform
    scientific data and information.
 Depends:
-    R (>= 3.5.0)
+    R (>= 3.6.0)
 Imports:
     httr,
     jsonlite
