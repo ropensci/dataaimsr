@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="inst/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
+<img src="man/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
 
 AIMS Data Platform R Client
 ===========================
@@ -19,9 +19,9 @@ The API Key can be passed to the package functions as an additional
 `api_key = 'XXXX'` argument, however it is preferred that API Keys are
 not stored in code.
 
-If the environment variable `AIMS_DATA_PLATFORM_API_KEY` is stored in
-the user’s `.Renviron` file then that will be loaded and used
-automatically. In that case the users `.Renviron` file might look like:
+If the environment variable `AIMS_DATAPLATFORM_API_KEY` is stored in the
+user’s `.Renviron` file then that will be loaded and used automatically.
+In that case the users `.Renviron` file might look like:
 
     AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
 
@@ -29,10 +29,28 @@ The `.Renviron` file is usually stored in each users home directory.
 
 ### Possible .Renviron file locations
 
-| System     | .Renviron file locations                                                     |
-|------------|------------------------------------------------------------------------------|
-| MS Windows | `C:\Users\<username>\.Renviron` or `C:\Users\<username>\Documents\.Renviron` |
-| Linux      | `/home/<username>/.Renviron`                                                 |
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>.Renviron file locations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MS Windows</td>
+<td><code>C:\Users\&lt;username&gt;\.Renviron</code> or <code>C:\Users\&lt;username&gt;\Documents\.Renviron</code></td>
+</tr>
+<tr class="even">
+<td>Linux / MacOs</td>
+<td><code>/home/&lt;username&gt;/.Renviron</code></td>
+</tr>
+</tbody>
+</table>
 
 Installation
 ------------
@@ -48,7 +66,7 @@ R `devtools` can be installed using the following command:
 After `devtools` has been installed the **AIMS Data Platform R Client**
 can be installed directly from GitHub using the following command:
 
-    devtools::install_git("https://github.com/AIMS/data-platform-r")
+    devtools::install_github("https://github.com/AIMS/data-platform-r")
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
@@ -59,15 +77,8 @@ The **AIMS Data Platform API** is a *REST API* providing *JSON*
 formatted data. Documentation about available data sets can be found on
 the [AIMS Data Platfom API](https://aims.github.io/data-platform).
 
-Detailed Example
-----------------
-
-[A more detailed example of the R package usage on the weather dataset
-page.](10.25845/5c09bf93f315d/example-1.nb.html) This is an
-[RStudio](https://www.rstudio.com/) Notebook and can be used
-interactively from [RStudio](https://www.rstudio.com/). **Note that you
-need to have an AIMS Data Platform API Key available to run this
-detailed example.**
+Further Information
+-------------------
 
 Further information about the **AIMS DataPlatform R Client** and **AIMS
 DataPlatform API** can be seen on the [project
