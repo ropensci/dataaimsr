@@ -2,6 +2,12 @@
 
 <img src="man/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
 
+<!-- badges: start -->
+
+[![R build
+status](https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/data-platform-r/actions)
+<!-- badges: end -->
+
 AIMS Data Platform R Client
 ===========================
 
