@@ -1,6 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
+dataaimsr <img src="man/figures/logo.png" width = 200 alt="dataaimsr Logo"/>
+============================================================================
 
 <!-- badges: start -->
 
@@ -12,15 +13,14 @@ status](https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.1-orange.svg)](commits/master)
 <!-- badges: end -->
 
-AIMS Data Platform R Client
-===========================
+Overview
+--------
 
-**AIMS Data Platform R Client** will provide easy access to data sets
-for R applications to the [AIMS Data Platform
+`dataaimsr` is the **AIMS Data Platform R Client** will provide easy
+access to data sets for R applications to the [AIMS Data Platform
 API](https://aims.github.io/data-platform).
 
-Usage of AIMS Data Platform API Key
------------------------------------
+### Usage of AIMS Data Platform API Key
 
 **AIMS Data Platform** requires an API Key for requests, [get a key
 here.](https://aims.github.io/data-platform/key-request)
@@ -62,8 +62,7 @@ The `.Renviron` file is usually stored in each users home directory.
 </tbody>
 </table>
 
-Installation
-------------
+### Installation
 
 At this stage **AIMS Data Platform R Client** is not hosted on CRAN R
 package network. An alternative method of installation is to use the R
@@ -80,15 +79,13 @@ can be installed directly from GitHub using the following command:
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
-Available Data Sets
--------------------
+### Available Data Sets
 
 The **AIMS Data Platform API** is a *REST API* providing *JSON*
 formatted data. Documentation about available data sets can be found on
 the [AIMS Data Platfom API](https://aims.github.io/data-platform).
 
-Further Information
--------------------
+### Further Information
 
 Further information about the **AIMS DataPlatform R Client** and **AIMS
 DataPlatform API** can be seen on the [project
