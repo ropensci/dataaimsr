@@ -132,8 +132,9 @@
 <pre><code>## [1] "10.25845/5b4eb0f9bb848"</code></pre>
 <p>For the purposes of this example, we will query the <a href="https://aims.github.io/data-platform/weather">AIMS Weather</a> dataset based on a data series, then we are guaranteed of getting information from one site for one metric.</p>
 <p>To discover a data set we look up the filter values available for a series:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">weather</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"dataaimsr.weather"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="../reference/filter_values_get.html">filter_values_get</a></span>(<span class="no">weather</span>, <span class="kw">filter_name</span> <span class="kw">=</span> <span class="st">"series"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">weather_doi</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"dataaimsr.weather"</span>)
+<span class="fu"><a href="../reference/filter_values_get.html">filter_values_get</a></span>(<span class="no">weather_doi</span>, <span class="kw">filter_name</span> <span class="kw">=</span> <span class="st">"series"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>()</pre></body></html></div>
 <pre><code>##   series_id
 ## 1      9847
 ## 2    104918
@@ -214,7 +215,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">axis.title.x</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">size</span> <span class="kw">=</span> <span class="fl">12</span>),
         <span class="kw">axis.title.y</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">size</span> <span class="kw">=</span> <span class="fl">12</span>),
         <span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>)</pre></body></html></div>
-<p><img src="../../man/figures/weather.png"></p>
+<p><img src="weather_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
