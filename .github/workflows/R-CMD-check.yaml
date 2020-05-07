@@ -7,24 +7,10 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
-
       - uses: r-lib/actions/setup-r@master
-
-      - name: Install XQuartz on MacOS
-        if: runner.os == 'macOS'
-        run: brew cask install xquartz
-
-      - name: Install Pandoc on MacOS
-        if: runner.os == 'macOS'
-        run: brew install pandoc
-
-      - name: Install Pandoc-citeproc on MacOS
-        if: runner.os == 'macOS'
-        run: brew install pandoc-citeproc
-
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck", "plyr", "dplyr", "ggplot2"))
+          install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check

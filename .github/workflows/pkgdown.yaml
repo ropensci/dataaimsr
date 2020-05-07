@@ -14,14 +14,6 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
-      - name: Install Pandoc on MacOS
-        if: runner.os == 'macOS'
-        run: brew install pandoc
-
-      - name: Install Pandoc-citeproc on MacOS
-        if: runner.os == 'macOS'
-        run: brew install pandoc-citeproc
-
       - name: Query dependencies
         run: |
           install.packages('remotes')
@@ -30,9 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages("plyr")
-          install.packages("dplyr")
-          install.packages("ggplot2")
           install.packages("remotes")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_dev("pkgdown")

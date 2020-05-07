@@ -22,11 +22,7 @@ library(ggplot2)
 Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:
 
 ```{r, echo = FALSE, message = FALSE}
-library(plyr)
-library(dplyr)
-library(ggplot2)
 library(dataaimsr)
-my_api_key <- dataaimsr:::api_key_find(api_key = NULL)
 ```
 
 ```{r, eval = FALSE}
@@ -70,8 +66,7 @@ To discover a data set we look up the filter values available for a series:
 
 ```{r}
 weather <- getOption("dataaimsr.weather")
-filter_values_get(weather, filter_name = "series") %>%
-  head()
+head(filter_values_get(weather, filter_name = "series"))
 ```
 
 The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot. If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.
@@ -91,7 +86,7 @@ Query and Plot Dataset
 
 After deciding on query parameters we plug the series id into a `aims_data_get` function:
 
-```{r, message = FALSE}
+```{r, eval = FALSE}
 davies <- aims_data_get(weather,
                          api_key = my_api_key,
                          filters = list("series" = 64,
@@ -107,7 +102,7 @@ The object `davies` is a list containing four elements:
 
 We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time
 
-```{r, message = FALSE}
+```{r, eval = FALSE}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
   aims_data_get(weather, api_key = my_api_key, 
@@ -129,15 +124,16 @@ ggplot(weather_data) +
         legend.position = "bottom")
 ```
 
+![](../../man/figures/weather.png)
+
 Bibliography
 ------------
 
-```{r, echo = FALSE}
+```{r, eval = FALSE}
 citations  <-  plyr::ldply(results, "[[", "citation") %>%
   dplyr::rename("citation" = "[[")
 ```
 
-1. `r citations[1, 2]`
+1. Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Davies Reef Weather Station Air Temperature
 
-2. `r citations[2, 2]`
-
+2. Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Bramble Cay Weather Station Air Temperature
