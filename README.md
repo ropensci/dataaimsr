@@ -1,7 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" height="139" />
-========================================================================================================
+dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
+===========================================================================================
 
 <!-- badges: start -->
 
