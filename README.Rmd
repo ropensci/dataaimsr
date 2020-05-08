@@ -20,7 +20,7 @@ version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])
 version <- gsub('-', '.', version)
 ```
 
-# dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" height="139" />
+# dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
 
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
