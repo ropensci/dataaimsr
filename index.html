@@ -86,22 +86,25 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<p><img src="reference/figures/logo.png" width="200" alt="dataaimsr Logo"></p>
-<!-- badges: start -->
-<p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a> <a href="https://github.com/AIMS/data-platform-r/actions"><img src="https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://choosealicense.com/"><img src="https://img.shields.io/badge/license-CC%20BY%203.0%20AU-lightgrey.svg" alt="license"></a> <a href="commits/master"><img src="https://img.shields.io/badge/Package%20version-1.0.1-orange.svg" alt="packageversion"></a> <!-- badges: end --></p>
-<div id="aims-data-platform-r-client" class="section level1">
+<div id="dataaimsr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#aims-data-platform-r-client" class="anchor"></a>AIMS Data Platform R Client</h1></div>
-<p><strong>AIMS Data Platform R Client</strong> will provide easy access to data sets for R applications to the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
-<div id="usage-of-aims-data-platform-api-key" class="section level2">
+<a href="#dataaimsr-" class="anchor"></a>dataaimsr <img src="reference/figures/logo.png" width="200" alt="dataaimsr Logo">
+</h1></div>
+<!-- badges: start -->
+
+<div id="overview" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage-of-aims-data-platform-api-key" class="anchor"></a>Usage of AIMS Data Platform API Key</h2>
+<a href="#overview" class="anchor"></a>Overview</h2>
+<p><code>dataaimsr</code> is the <strong>AIMS Data Platform R Client</strong> will provide easy access to data sets for R applications to the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
+<div id="usage-of-aims-data-platform-api-key" class="section level3">
+<h3 class="hasAnchor">
+<a href="#usage-of-aims-data-platform-api-key" class="anchor"></a>Usage of AIMS Data Platform API Key</h3>
 <p><strong>AIMS Data Platform</strong> requires an API Key for requests, <a href="https://aims.github.io/data-platform/key-request">get a key here.</a></p>
 <p>The API Key can be passed to the package functions as an additional <code>api_key = 'XXXX'</code> argument, however it is preferred that API Keys are not stored in code.</p>
 <p>If the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code> is stored in the user’s <code>.Renviron</code> file then that will be loaded and used automatically. In that case the users <code>.Renviron</code> file might look like:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX</span></code></pre></div>
 <p>The <code>.Renviron</code> file is usually stored in each users home directory.</p>
+</div>
 <div id="possible-renviron-file-locations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#possible-renviron-file-locations" class="anchor"></a>Possible .Renviron file locations</h3>
@@ -138,10 +141,9 @@ Linux / MacOs
 </tbody>
 </table>
 </div>
-</div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div id="installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h3>
 <p>At this stage <strong>AIMS Data Platform R Client</strong> is not hosted on CRAN R package network. An alternative method of installation is to use the R <code>devtools</code> package.</p>
 <p>R <code>devtools</code> can be installed using the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</span></code></pre></div>
@@ -149,19 +151,19 @@ Linux / MacOs
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/AIMS/data-platform-r"</span>)</span></code></pre></div>
 <p>This command will also install 2 dependencies <code>httr</code> and <code>jsonlite</code>.</p>
 </div>
-<div id="available-data-sets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#available-data-sets" class="anchor"></a>Available Data Sets</h2>
+<div id="available-data-sets" class="section level3">
+<h3 class="hasAnchor">
+<a href="#available-data-sets" class="anchor"></a>Available Data Sets</h3>
 <p>The <strong>AIMS Data Platform API</strong> is a <em>REST API</em> providing <em>JSON</em> formatted data. Documentation about available data sets can be found on the <a href="https://aims.github.io/data-platform">AIMS Data Platfom API</a>.</p>
 </div>
-<div id="further-information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#further-information" class="anchor"></a>Further Information</h2>
+<div id="further-information" class="section level3">
+<h3 class="hasAnchor">
+<a href="#further-information" class="anchor"></a>Further Information</h3>
 <p>Further information about the <strong>AIMS DataPlatform R Client</strong> and <strong>AIMS DataPlatform API</strong> can be seen on the <a href="https://aims.github.io/data-platform-r">project page</a>.</p>
 <p>This library is provided for use under the Creative Commons by Attribution license (<a href="https://creativecommons.org/licenses/by/3.0/au/legalcode">CC BY 3.0</a>) by the AIMS Datacentre for the <a href="https://www.aims.gov.au">Austrailian Institute of Marine Science</a></p>
 </div>
 </div>
-
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -188,7 +190,16 @@ Linux / MacOs
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://github.com/AIMS/data-platform-r/actions"><img src="https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://choosealicense.com/"><img src="https://img.shields.io/badge/license-CC%20BY%203.0%20AU-lightgrey.svg" alt="license"></a></li>
+<li><a href="commits/master"><img src="https://img.shields.io/badge/Package%20version-1.0.1-orange.svg" alt="packageversion"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
