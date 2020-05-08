@@ -9,8 +9,7 @@ aims_data_doi_get(target)
 \arguments{
 \item{target}{A \code{\link[base]{character}} vector of length 1
 specifying the dataset. Only \code{weather} or
-\code{temp_loggers} are currently allowed.
-#'}
+\code{temp_loggers} are currently allowed.}
 }
 \value{
 A \code{\link[base]{character}} vector
@@ -25,6 +24,7 @@ library(dataaimsr)
 weather_doi  <-  aims_data_doi_get('weather')
 ssts_doi  <-  aims_data_doi_get('temp_loggers')
 }
+
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

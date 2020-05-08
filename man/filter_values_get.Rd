@@ -29,8 +29,8 @@ A list of arguments for \code{filters} can be found for both
 \examples{
 \dontrun{
 library(dataaimsr)
-weather_doi  <-  getOption("dataaimsr.weather")
-ssts_doi     <-  getOption("dataaimsr.temp_loggers")
+weather_doi  <-  aims_data_doi_get("weather")
+ssts_doi     <-  aims_data_doi_get("temp_loggers")
 filter_values_get(weather_doi, filter_name = "sites")
 filter_values_get(weather_doi, filter_name = "series")
 filter_values_get(weather_doi, filter_name = "parameters")

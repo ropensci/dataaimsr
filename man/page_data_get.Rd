@@ -46,7 +46,7 @@ There are two types of data currently available through the
 \href{https://aims.github.io/data-platform/weather/index}{Weather} and
 \href{https://aims.github.io/data-platform/temperature-loggers/index}{Sea Water Temperature Loggers}.
 They are searched internally via unique DOI identifiers which
-can be obtained by e.g. \code{getOption("dataaimsr.weather")} (see Examples).
+can be obtained by the function \code{\link{aims_data_doi_get}} (see Examples).
 Only one DOI at a time can be passed to the argument \code{doi}.
 
 A list of arguments for \code{filters} can be found for both

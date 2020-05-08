@@ -117,7 +117,7 @@ request_process <- function(dt_req, next_page = FALSE, ...) {
 #' [Weather](https://aims.github.io/data-platform/weather/index) and 
 #' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
 #' They are searched internally via unique DOI identifiers which 
-#' can be obtained by e.g. \code{getOption("dataaimsr.weather")} (see Examples).
+#' can be obtained by the function \code{\link{aims_data_doi_get}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
 #' A list of arguments for \code{filters} can be found for both
@@ -227,7 +227,7 @@ next_page_data_get <- function(url, api_key = NULL, ...) {
 #' [Weather](https://aims.github.io/data-platform/weather/index) and 
 #' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
 #' They are searched internally via unique DOI identifiers which 
-#' can be obtained by e.g. \code{getOption("dataaimsr.weather")} (see Examples).
+#' can be obtained by the function \code{\link{aims_data_doi_get}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
 #' A list of arguments for \code{filters} can be found for both
@@ -258,8 +258,8 @@ next_page_data_get <- function(url, api_key = NULL, ...) {
 #' library(dataaimsr)
 #' # assumes that user already has API key saved to
 #' # .Renviron
-#' weather_doi  <-  getOption("dataaimsr.weather")
-#' ssts_doi     <-  getOption("dataaimsr.temp_loggers")
+#' weather_doi  <-  aims_data_doi_get("weather")
+#' ssts_doi     <-  aims_data_doi_get("temp_loggers")
 #' 
 #' # 64 corresponds to air temperature from Davies Reef
 #' wdata <- aims_data_get(weather_doi,
@@ -333,8 +333,8 @@ aims_data_get <- function(doi, filters = NULL, ...) {
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi  <-  getOption("dataaimsr.weather")
-#' ssts_doi     <-  getOption("dataaimsr.temp_loggers")
+#' weather_doi  <-  aims_data_doi_get("weather")
+#' ssts_doi     <-  aims_data_doi_get("temp_loggers")
 #' filter_values_get(weather_doi, filter_name = "sites")
 #' filter_values_get(weather_doi, filter_name = "series")
 #' filter_values_get(weather_doi, filter_name = "parameters")
@@ -430,18 +430,20 @@ api_key_find <- function(api_key) {
 #' @param target A \code{\link[base]{character}} vector of length 1 
 #' specifying the dataset. Only \code{weather} or 
 #' \code{temp_loggers} are currently allowed.
-#' #' 
+#' 
 #' @return A \code{\link[base]{character}} vector 
 #' containing the dataset DOI string.
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
-#' @export
+#' 
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
 #' weather_doi  <-  aims_data_doi_get('weather')
 #' ssts_doi  <-  aims_data_doi_get('temp_loggers')
 #' }
+#' 
+#' @export
 aims_data_doi_get  <-  function(target) {
   if (!(target %in% c("weather", "temp_loggers"))) {
     stop("Wrong type of data target, only \"weather\"",
