@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIMS Data Notebook Example • dataaimsr</title>
+<title>AIMS weather time series data sets • dataaimsr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="AIMS Data Notebook Example">
+<script src="../pkgdown.js"></script><meta property="og:title" content="AIMS weather time series data sets">
 <meta property="og:description" content="dataaimsr">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -61,7 +61,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/weather.html">AIMS Data Notebook Example</a>
+      <a href="../articles/weather.html">AIMS weather time series data sets</a>
     </li>
   </ul>
 </li>
@@ -86,7 +86,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>AIMS Data Notebook Example</h1>
+      <h1 data-toc-skip>AIMS weather time series data sets</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/aims/data-platform-r/blob/master/vignettes/weather.Rmd"><code>vignettes/weather.Rmd</code></a></small>
@@ -96,19 +96,20 @@
 
     
     
-<p>This example assumes you have obtained an <a href="https://aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a>. Further details about key usage can be found <a href="../index.html">here</a>.</p>
+<p>This example assumes you have obtained an <a href="https://aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a>. Further details about API Key implementation and usage can be found <a href="../index.html">here</a>.</p>
 <p>To interact locally with this example in <a href="https://www.rstudio.com/">RStudio</a>, click on the source code at the top of this page, then click on <code>Raw</code>, and simply copy and paste the code to a new <a href="https://rmarkdown.rstudio.com/">.Rmd</a> file created in <a href="https://www.rstudio.com/">RStudio</a>.</p>
 <p>Let’s start by loading some packages that we are going to need down the track:</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">plyr</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)</pre></body></html></div>
-<p>Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># paste your key where it says api-key-for-r-notebook</span>
+<p>Once you have obtained your API Key, please consider following the recommended guidelines as explained <a href="../index.html">here</a>. If you successfully placed your API Key permanently to the <code>.Renviron</code>, then just set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. If for some reason you are having difficulty placing your API Key permanently to the <code>.Renviron</code>, then just paste it to the object <code>my_api_key</code>.</p>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># set my_api_key to NULL if successfully placed in .Renviron</span>
+<span class="co"># paste your key where it says api-key-for-r-notebook</span>
 <span class="no">my_api_key</span> <span class="kw">&lt;-</span> <span class="st">"api-key-for-r-notebook"</span></pre></body></html></div>
 <div id="install-r-client" class="section level2">
 <h2 class="hasAnchor">
 <a href="#install-r-client" class="anchor"></a>Install R Client</h2>
-<p><em>AIMS Data Platform R Client</em> can be installed directly from <a href="https://github.com/aims/data-platform-r">github</a> using the following code:</p>
+<p><code>dataaimsr</code> can be installed and loaded directly from <a href="https://github.com/aims/data-platform-r">GitHub</a> using the following code:</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
 <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu">install_github</span>(<span class="st">"https://github.com/AIMS/data-platform-r"</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dataaimsr</span>)</pre></body></html></div>
@@ -121,18 +122,11 @@
 <li>Examine documentation and establish query filters</li>
 <li>Perform data download using <code>aims_data_get</code>
 </li>
-<li>Use R <code>plot</code> to create a chart</li>
+<li>Use the Rpackage <code>ggplot2</code> to create a time-series chart</li>
 </ol>
-<p>There are two types of data currently available through the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>: <a href="https://aims.github.io/data-platform/weather">Weather</a> and <a href="https://aims.github.io/data-platform/temperature-loggers">Sea Water Temperature Loggers</a>. They are searched internally via unique DOI identifiers. To retrieve these identifiers, simply run:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">weather</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"dataaimsr.weather"</span>)
-<span class="no">weather</span></pre></body></html></div>
-<pre><code>## [1] "10.25845/5c09bf93f315d"</code></pre>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">loggers</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"dataaimsr.temp_loggers"</span>)
-<span class="no">loggers</span></pre></body></html></div>
-<pre><code>## [1] "10.25845/5b4eb0f9bb848"</code></pre>
-<p>For the purposes of this example, we will query the <a href="https://aims.github.io/data-platform/weather">AIMS Weather</a> dataset based on a data series, then we are guaranteed of getting information from one site for one metric.</p>
-<p>To discover a data set we look up the filter values available for a series:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">weather_doi</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span>(<span class="st">"dataaimsr.weather"</span>)
+<p>There are two types of data programs currently available through the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>: <a href="https://aims.github.io/data-platform/weather">Weather</a>, which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and <a href="https://aims.github.io/data-platform/temperature-loggers">Sea Water Temperature Loggers</a>, which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.</p>
+<p>For the purposes of this example, we will query the <a href="https://aims.github.io/data-platform/weather">AIMS Weather</a>. To explore this data program, we use the function <code>filter_values_get</code>. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found <a href="https://aims.github.io/data-platform/weather/index">here</a>. We recommend exploring the parameter <code>series</code>:</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">weather_doi</span>  <span class="kw">&lt;-</span>  <span class="fu"><a href="../reference/aims_data_doi_get.html">aims_data_doi_get</a></span>(<span class="st">"weather"</span>)
 <span class="fu"><a href="../reference/filter_values_get.html">filter_values_get</a></span>(<span class="no">weather_doi</span>, <span class="kw">filter_name</span> <span class="kw">=</span> <span class="st">"series"</span>) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>()</pre></body></html></div>
 <pre><code>##   series_id
@@ -149,7 +143,7 @@
 ## 4 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
 ## 5 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
 ## 6                           Raine Island Weather Station Air Temperature</code></pre>
-<p>The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot. If we did not choose a data series from the <em>AIMS Weather</em> data set we might have to specify additional parameters to ensure the data is as expected.</p>
+<p>The benefits to choosing a data <code>series</code> is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the <a href="https://aims.github.io/data-platform/weather">AIMS Weather</a> program, we would have to specify additional parameters to ensure the data is as expected.</p>
 <p>Finally our values and filters might look like the following:</p>
 <table class="table">
 <thead><tr class="header">
@@ -185,20 +179,20 @@
 <div id="query-and-plot-dataset" class="section level2">
 <h2 class="hasAnchor">
 <a href="#query-and-plot-dataset" class="anchor"></a>Query and Plot Dataset</h2>
-<p>After deciding on query parameters we plug the series id into a <code>aims_data_get</code> function:</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">davies</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="no">weather</span>,
-                         <span class="kw">api_key</span> <span class="kw">=</span> <span class="no">my_api_key</span>,
-                         <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"series"</span> <span class="kw">=</span> <span class="fl">64</span>,
-                                        <span class="st">"from-date"</span> <span class="kw">=</span> <span class="st">"2018-01-01"</span>,
-                                        <span class="st">"thru-date"</span> <span class="kw">=</span> <span class="st">"2018-01-10"</span>))</pre></body></html></div>
+<p>After deciding on query parameters, we plug the series id into a <code>aims_data_get</code> function:</p>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">davies</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="no">weather_doi</span>,
+                        <span class="kw">api_key</span> <span class="kw">=</span> <span class="no">my_api_key</span>,
+                        <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"series"</span> <span class="kw">=</span> <span class="fl">64</span>,
+                                       <span class="st">"from-date"</span> <span class="kw">=</span> <span class="st">"2018-01-01"</span>,
+                                       <span class="st">"thru-date"</span> <span class="kw">=</span> <span class="st">"2018-01-10"</span>))</pre></body></html></div>
 <p>The object <code>davies</code> is a list containing four elements:<br>
 - <code>metadata</code> a doi link containing the metadata record for the data series<br>
 - <code>citation</code> the citation information for the particular dataset - <code>links</code> the link returning the data query<br>
 - <code>data</code> an output <code>data.frame</code></p>
-<p>We can even visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time</p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">target_series</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Davies Reef"</span> <span class="kw">=</span> <span class="fl">64</span>, <span class="st">"Bramble Cay"</span> <span class="kw">=</span> <span class="fl">87929</span>)
+<p>We can even visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:</p>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">target_series</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Davies Reef"</span> <span class="kw">=</span> <span class="fl">64</span>, <span class="st">"Bramble Cay"</span> <span class="kw">=</span> <span class="fl">87929</span>)
 <span class="no">results</span> <span class="kw">&lt;-</span> <span class="kw pkg">plyr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/llply.html">llply</a></span>(<span class="no">target_series</span>, <span class="kw">function</span>(<span class="no">series_number</span>, <span class="no">my_api_key</span>, <span class="no">...</span>) {
-  <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="no">weather</span>, <span class="kw">api_key</span> <span class="kw">=</span> <span class="no">my_api_key</span>,
+  <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="no">weather_doi</span>, <span class="kw">api_key</span> <span class="kw">=</span> <span class="no">my_api_key</span>,
                 <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"series"</span> <span class="kw">=</span> <span class="no">series_number</span>, <span class="no">...</span>))
 }, <span class="kw">my_api_key</span> <span class="kw">=</span> <span class="no">my_api_key</span>, <span class="st">"from-date"</span> <span class="kw">=</span> <span class="st">"2018-01-01"</span>, <span class="st">"thru-date"</span> <span class="kw">=</span> <span class="st">"2018-01-10"</span>)
 
@@ -215,17 +209,18 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">axis.title.x</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">size</span> <span class="kw">=</span> <span class="fl">12</span>),
         <span class="kw">axis.title.y</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="kw">size</span> <span class="kw">=</span> <span class="fl">12</span>),
         <span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>)</pre></body></html></div>
-<p><img src="weather_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p><img src="weather_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h2>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">citations</span>  <span class="kw">&lt;-</span>  <span class="kw pkg">plyr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/ldply.html">ldply</a></span>(<span class="no">results</span>, <span class="st">"[["</span>, <span class="st">"citation"</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">rename</a></span>(<span class="st">"citation"</span> <span class="kw">=</span> <span class="st">"[["</span>)</pre></body></html></div>
-<ol style="list-style-type: decimal">
-<li><p>Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, <a href="https://doi.org/10.25845/5c09bf93f315d" class="uri">https://doi.org/10.25845/5c09bf93f315d</a>, accessed 8 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Davies Reef Weather Station Air Temperature</p></li>
-<li><p>Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, <a href="https://doi.org/10.25845/5c09bf93f315d" class="uri">https://doi.org/10.25845/5c09bf93f315d</a>, accessed 8 May 2020. Time period: 2018-01-01 to 2018-01-10. Series: Bramble Cay Weather Station Air Temperature</p></li>
-</ol>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="kw pkg">plyr</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/ldply.html">ldply</a></span>(<span class="no">results</span>, <span class="st">"[["</span>, <span class="st">"citation"</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">rename</a></span>(<span class="st">"citation"</span> <span class="kw">=</span> <span class="st">"[["</span>) <span class="kw">%&gt;%</span>
+  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">citation</span>) <span class="kw">%&gt;%</span>
+  <span class="no">unlist</span> <span class="kw">%&gt;%</span>
+  <span class="no">unname</span></pre></body></html></div>
+<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 May 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
+## [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 8 May 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</code></pre>
 </div>
   </div>
 

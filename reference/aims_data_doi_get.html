@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Further data requests via the AIMS Data Platform API — next_page_data_get • dataaimsr</title>
+<title>AIMS Dataset DOI retriever — aims_data_doi_get • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,8 @@
 
 
 
-<meta property="og:title" content="Further data requests via the AIMS Data Platform API — next_page_data_get" />
-<meta property="og:description" content="Similar to page_data_get, but for cases
-where there are multiple URLs for data retrieval" />
+<meta property="og:title" content="AIMS Dataset DOI retriever — aims_data_doi_get" />
+<meta property="og:description" content="Returns DOI for a given dataset" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -129,61 +128,40 @@ where there are multiple URLs for data retrieval" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Further data requests via the AIMS Data Platform API</h1>
+    <h1>AIMS Dataset DOI retriever</h1>
     <small class="dont-index">Source: <a href='https://github.com/aims/data-platform-r/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
-    <div class="hidden name"><code>next_page_data_get.Rd</code></div>
+    <div class="hidden name"><code>aims_data_doi_get.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Similar to <code><a href='page_data_get.html'>page_data_get</a></code>, but for cases
-where there are multiple URLs for data retrieval</p>
+    <p>Returns DOI for a given dataset</p>
     </div>
 
-    <pre class="usage"><span class='fu'>next_page_data_get</span>(<span class='no'>url</span>, <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>aims_data_doi_get</span>(<span class='no'>target</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>url</th>
-      <td><p>A data retrieval URL</p></td>
-    </tr>
-    <tr>
-      <th>api_key</th>
-      <td><p>An AIMS Data Platform
-<a href='https://aims.github.io/data-platform/key-request'>API Key</a></p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments to be passed to internal function
-<code><a href='format_update.html'>format_update</a></code></p></td>
+      <th>target</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector of length 1
+specifying the dataset. Only <code>weather</code> or
+<code>temp_loggers</code> are currently allowed.
+#'</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
-containing four elements:
-<code>metadata</code>: a <a href='https://www.doi.org/'>DOI</a> link
-containing the metadata record for the data series;
-<code>citation</code>: the citation information for the particular dataset;
-<code>links</code>: the link from which the data query was retrieved;
-<code>data</code>: an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector
+containing the dataset DOI string.</p>
 
-    <p>The AIMS Data Platform R Client provides easy access to
-data sets for R applications to the
-<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>.
-The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this <a href='https://aims.github.io/data-platform/key-request'>link</a>.
-It is preferred that API Keys are not stored in code. We recommend
-storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
-permanently under the user's <code>.Renviron</code> file in order to load
-the API key automatically.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='filter_values_get.html'>filter_values_get</a></code>, <code><a href='page_data_get.html'>page_data_get</a></code>, <code><a href='aims_data_get.html'>aims_data_get</a></code></p></div>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dataaimsr</span>)
+<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'>aims_data_doi_get</span>(<span class='st'>'weather'</span>)
+<span class='no'>ssts_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'>aims_data_doi_get</span>(<span class='st'>'temp_loggers'</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

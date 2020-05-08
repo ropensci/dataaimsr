@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Request data via the AIMS Data Platform API — aims_data_get" />
-<meta property="og:description" content="A function that communicates with the 
+<meta property="og:description" content="A function that communicates with the
 the AIMS Data Platform
 via the AIMS Data Platform API" />
 <meta property="og:image" content="/logo.png" />
@@ -105,7 +105,7 @@ via the AIMS Data Platform API" />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/weather.html">AIMS Data Notebook Example</a>
+      <a href="../articles/weather.html">AIMS weather time series data sets</a>
     </li>
   </ul>
 </li>
@@ -136,7 +136,7 @@ via the AIMS Data Platform API" />
     </div>
 
     <div class="ref-description">
-    <p>A function that communicates with the 
+    <p>A function that communicates with the
 the <a href='https://aims.github.io/data-platform'>AIMS Data Platform</a>
 via the AIMS Data Platform API</p>
     </div>
@@ -153,7 +153,7 @@ for a chosen <a href='https://aims.github.io/data-platform'>AIMS data series</a>
     </tr>
     <tr>
       <th>filters</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing a set of 
+      <td><p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing a set of
 filters for the data query (see Details)</p></td>
     </tr>
     <tr>
@@ -165,41 +165,41 @@ filters for the data query (see Details)</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> 
-containing four elements: 
+    <p>A <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
+containing four elements:
 <code>metadata</code>: a <a href='https://www.doi.org/'>DOI</a> link
-containing the metadata record for the data series; 
-<code>citation</code>: the citation information for the particular dataset; 
+containing the metadata record for the data series;
+<code>citation</code>: the citation information for the particular dataset;
 <code>links</code>: the link from which the data query was retrieved;
 <code>data</code>: an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The AIMS Data Platform R Client provides easy access to 
-data sets for R applications to the 
+    <p>The AIMS Data Platform R Client provides easy access to
+data sets for R applications to the
 <a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>.
 The AIMS Data Platform requires an API Key for requests, which can
 be obtained at this <a href='https://aims.github.io/data-platform/key-request'>link</a>.
-It is preferred that API Keys are not stored in code. We recommend 
-storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
+It is preferred that API Keys are not stored in code. We recommend
+storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
 permanently under the user's <code>.Renviron</code> file in order to load
 the API key automatically.</p>
-<p>There are two types of data currently available through the 
-[AIMS Data Platform API](https://aims.github.io/data-platform): 
-[Weather](https://aims.github.io/data-platform/weather/index) and 
-[Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
-They are searched internally via unique DOI identifiers which 
+<p>There are two types of data currently available through the
+<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>:
+<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
+<a href='https://aims.github.io/data-platform/temperature-loggers/index'>Sea Water Temperature Loggers</a>.
+They are searched internally via unique DOI identifiers which
 can be obtained by e.g. <code><a href='https://rdrr.io/r/base/options.html'>getOption("dataaimsr.weather")</a></code> (see Examples).
 Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
 <p>A list of arguments for <code>filters</code> can be found for both
-[Weather](https://aims.github.io/data-platform/weather/index) and 
-[Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).</p>
-<p>Note that currently <code>from-date</code> and 
+<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
+<a href='https://aims.github.io/data-platform/weather/index'>Sea Water Temperature Loggers</a>.</p>
+<p>Note that currently <code>from-date</code> and
 <code>thru-date</code> cannot be inspected directly, for details about dates
 of available different time series can be accessed via Metadata on
 <a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>. Despite
-this limitation, these time boundaries are very important because the 
-data are collected at very small time intervals, so just a few days of 
-time interval can yield massive datasets. The query will return and error 
+this limitation, these time boundaries are very important because the
+data are collected at very small time intervals, so just a few days of
+time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
