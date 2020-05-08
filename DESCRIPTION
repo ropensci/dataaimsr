@@ -23,4 +23,5 @@ LazyData: true
 VignetteBuilder: knitr
 URL: https://aims.github.io/data-platform-r
 BugReports: https://github.com/aims/data-platform-r/issues
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
