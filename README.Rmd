@@ -51,8 +51,8 @@ The `.Renviron` file is usually stored in each users home directory.
 
 System        | .Renviron file locations
 --------------|-------------------------
-MS Windows    | <code>C:\Users\&lt;username&gt;\.Renviron</code>  or <code>C:\Users\&lt;username&gt;\Documents\.Renviron</code>
-Linux / MacOs | <code>/home/&lt;username&gt;/.Renviron</code>
+MS Windows    | <code>C:&#92;Users&#92;&#8249;username&#8250;&#92;.Renviron</code>  or <code>C:&#92;Users&#92;&#8249;username&#8250;&#92;Documents&#92;.Renviron</code>
+Linux / MacOs | <code>&#47;home&#47;&#8249;username&#8250;&#47;.Renviron</code>
 
 ### Installation
 
