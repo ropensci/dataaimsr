@@ -173,8 +173,8 @@ the filter (see Details)</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dataaimsr</span>)
-<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"dataaimsr.weather"</span>)
-<span class='no'>ssts_doi</span>     <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"dataaimsr.temp_loggers"</span>)
+<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi_get.html'>aims_data_doi_get</a></span>(<span class='st'>"weather"</span>)
+<span class='no'>ssts_doi</span>     <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi_get.html'>aims_data_doi_get</a></span>(<span class='st'>"temp_loggers"</span>)
 <span class='fu'>filter_values_get</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"sites"</span>)
 <span class='fu'>filter_values_get</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"series"</span>)
 <span class='fu'>filter_values_get</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"parameters"</span>)

@@ -188,7 +188,7 @@ the API key automatically.</p>
 <a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
 <a href='https://aims.github.io/data-platform/temperature-loggers/index'>Sea Water Temperature Loggers</a>.
 They are searched internally via unique DOI identifiers which
-can be obtained by e.g. <code><a href='https://rdrr.io/r/base/options.html'>getOption("dataaimsr.weather")</a></code> (see Examples).
+can be obtained by the function <code><a href='aims_data_doi_get.html'>aims_data_doi_get</a></code> (see Examples).
 Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
 <p>A list of arguments for <code>filters</code> can be found for both
 <a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
@@ -207,8 +207,8 @@ if it reaches the system's memory capacity.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dataaimsr</span>)
 <span class='co'># assumes that user already has API key saved to</span>
 <span class='co'># .Renviron</span>
-<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"dataaimsr.weather"</span>)
-<span class='no'>ssts_doi</span>     <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span>(<span class='st'>"dataaimsr.temp_loggers"</span>)
+<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi_get.html'>aims_data_doi_get</a></span>(<span class='st'>"weather"</span>)
+<span class='no'>ssts_doi</span>     <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi_get.html'>aims_data_doi_get</a></span>(<span class='st'>"temp_loggers"</span>)
 
 <span class='co'># 64 corresponds to air temperature from Davies Reef</span>
 <span class='no'>wdata</span> <span class='kw'>&lt;-</span> <span class='fu'>aims_data_get</span>(<span class='no'>weather_doi</span>,
