@@ -18,13 +18,13 @@ in .Renviron or, if missing entirely, an error message.
 This function tries to search for an API Key
 }
 \details{
-The AIMS Data Platform R Client provides easy access to 
-data sets for R applications to the 
+The AIMS Data Platform R Client provides easy access to
+data sets for R applications to the
 \href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
 be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
-It is preferred that API Keys are not stored in code. We recommend 
-storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
+It is preferred that API Keys are not stored in code. We recommend
+storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
 the API Key automatically.
 }

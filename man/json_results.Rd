@@ -10,11 +10,11 @@ json_results(dt_req)
 \item{dt_req}{An URL \code{\link[httr]{GET}} output}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
-containing four elements: 
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
+containing four elements:
 \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series; 
-\code{citation}: the citation information for the particular dataset; 
+containing the metadata record for the data series;
+\code{citation}: the citation information for the particular dataset;
 \code{links}: the link from which the data query was retrieved;
 \code{data}: an output \code{\link[base]{data.frame}}.
 }
@@ -22,7 +22,7 @@ containing the metadata record for the data series;
 Wrapper function
 }
 \details{
-This function submits a \code{dt_req} 
+This function submits a \code{dt_req}
 data request via \code{\link[jsonlite]{fromJSON}}.
 }
 \author{

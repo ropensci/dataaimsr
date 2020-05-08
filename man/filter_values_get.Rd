@@ -18,13 +18,13 @@ Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vecto
 }
 \description{
 This is a utility function which allows to user
-to query about the existing possibilities of 
+to query about the existing possibilities of
 a given filter name
 }
 \details{
 A list of arguments for \code{filters} can be found for both
-[Weather](https://aims.github.io/data-platform/weather/index) and 
-[Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
+\href{https://aims.github.io/data-platform/weather/index}{Weather} and
+\href{https://aims.github.io/data-platform/weather/index}{Sea Water Temperature Loggers}.
 }
 \examples{
 \dontrun{

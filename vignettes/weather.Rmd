@@ -1,13 +1,13 @@
 ---
-title: "AIMS Data Notebook Example"
+title: "AIMS weather time series data sets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{AIMS Data Notebook Example}
+  %\VignetteIndexEntry{AIMS weather time series data sets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-This example assumes you have obtained an [AIMS Data Platform API Key](https://aims.github.io/data-platform/key-request). Further details about key usage can be found [here](../index.html).
+This example assumes you have obtained an [AIMS Data Platform API Key](https://aims.github.io/data-platform/key-request). Further details about API Key implementation and usage can be found [here](../index.html).
 
 To interact locally with this example in [RStudio](https://www.rstudio.com/), click on the source code at the top of this page, then click on `Raw`, and simply copy and paste the code to a new [.Rmd](https://rmarkdown.rstudio.com/) file created in [RStudio](https://www.rstudio.com/).
 
@@ -19,7 +19,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-Once you have obtained your API Key past it in the following code chunk and it will be used throughout this tutorial:
+Once you have obtained your API Key, please consider following the recommended guidelines as explained [here](../index.html). If you successfully placed your API Key permanently to the `.Renviron`, then just set the object `my_api_key` to `NULL` in the chunk below. If for some reason you are having difficulty placing your API Key permanently to the `.Renviron`, then just paste it to the object `my_api_key`.
 
 ```{r, echo = FALSE, message = FALSE}
 library(plyr)
@@ -30,14 +30,14 @@ my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 ```
 
 ```{r, eval = FALSE}
+# set my_api_key to NULL if successfully placed in .Renviron
 # paste your key where it says api-key-for-r-notebook
 my_api_key <- "api-key-for-r-notebook"
 ```
 
-Install R Client
-----------------
+## Install R Client
 
-*AIMS Data Platform R Client* can be installed directly from [github](https://github.com/aims/data-platform-r) using the following code:
+`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/aims/data-platform-r) using the following code:
 
 ```{r, eval = FALSE}
 install.packages("devtools")
@@ -45,36 +45,25 @@ devtools::install_github("https://github.com/AIMS/data-platform-r")
 library(dataaimsr)
 ```
 
-Discover a dataset
-------------------
+## Discover a dataset
 
 Suppose we want to query a data series and plot it then the procedure might be:
 
 1. Examine documentation and establish query filters
 2. Perform data download using `aims_data_get`
-3. Use R `plot` to create a chart
+3. Use the Rpackage `ggplot2` to create a time-series chart
 
-There are two types of data currently available through the [AIMS Data Platform API](https://aims.github.io/data-platform): [Weather](https://aims.github.io/data-platform/weather) and [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers). They are searched internally via unique DOI identifiers. To retrieve these identifiers, simply run:
+There are two types of data programs currently available through the [AIMS Data Platform API](https://aims.github.io/data-platform): [Weather](https://aims.github.io/data-platform/weather), which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers), which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.
 
-```{r}
-weather <- getOption("dataaimsr.weather")
-weather
-
-loggers <- getOption("dataaimsr.temp_loggers")
-loggers
-```
-
-For the purposes of this example, we will query the [AIMS Weather](https://aims.github.io/data-platform/weather) dataset based on a data series, then we are guaranteed of getting information from one site for one metric.
-
-To discover a data set we look up the filter values available for a series:
+For the purposes of this example, we will query the [AIMS Weather](https://aims.github.io/data-platform/weather). To explore this data program, we use the function `filter_values_get`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://aims.github.io/data-platform/weather/index). We recommend exploring the parameter `series`:
 
 ```{r}
-weather_doi <- getOption("dataaimsr.weather")
+weather_doi  <-  aims_data_doi_get("weather")
 filter_values_get(weather_doi, filter_name = "series") %>%
   head()
 ```
 
-The benefits to choosing a data series is that it comes from one location and parameter type, making the data easy to plot. If we did not choose a data series from the *AIMS Weather* data set we might have to specify additional parameters to ensure the data is as expected.
+The benefits to choosing a data `series` is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the [AIMS Weather](https://aims.github.io/data-platform/weather) program, we would have to specify additional parameters to ensure the data is as expected.
 
 Finally our values and filters might look like the following:
 
@@ -85,17 +74,16 @@ series    | 64                     | Found [here](https://aims.github.io/data-pl
 from-date | '2018-01-01'           | We want to start charting on 1/1/2018
 thru-date | '2018-01-10'           | We are plotting 10 days of data
 
-Query and Plot Dataset
-----------------------
+## Query and Plot Dataset
 
-After deciding on query parameters we plug the series id into a `aims_data_get` function:
+After deciding on query parameters, we plug the series id into a `aims_data_get` function:
 
 ```{r, message = FALSE}
-davies <- aims_data_get(weather,
-                         api_key = my_api_key,
-                         filters = list("series" = 64,
-                                        "from-date" = "2018-01-01",
-                                        "thru-date" = "2018-01-10"))
+davies <- aims_data_get(weather_doi,
+                        api_key = my_api_key,
+                        filters = list("series" = 64,
+                                       "from-date" = "2018-01-01",
+                                       "thru-date" = "2018-01-10"))
 ```
 
 The object `davies` is a list containing four elements:  
@@ -104,12 +92,12 @@ The object `davies` is a list containing four elements:
 - `links` the link returning the data query  
 - `data` an output `data.frame`  
 
-We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time
+We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:
 
 ```{r, message = FALSE}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
-  aims_data_get(weather, api_key = my_api_key, 
+  aims_data_get(weather_doi, api_key = my_api_key, 
                 filters = list("series" = series_number, ...))
 }, my_api_key = my_api_key, "from-date" = "2018-01-01", "thru-date" = "2018-01-10")
 
@@ -128,14 +116,12 @@ ggplot(weather_data) +
         legend.position = "bottom")
 ```
 
-Bibliography
-------------
+## Bibliography
 
 ```{r, message = FALSE}
-citations  <-  plyr::ldply(results, "[[", "citation") %>%
-  dplyr::rename("citation" = "[[")
+plyr::ldply(results, "[[", "citation") %>%
+  dplyr::rename("citation" = "[[") %>%
+  dplyr::select(citation) %>%
+  unlist %>%
+  unname
 ```
-
-1. `r citations[1, 2]`
-
-2. `r citations[2, 2]`

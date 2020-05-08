@@ -15,11 +15,11 @@ request_process(dt_req, next_page = FALSE, ...)
 \code{\link{format_update}}}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
-containing four elements: 
+A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
+containing four elements:
 \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series; 
-\code{citation}: the citation information for the particular dataset; 
+containing the metadata record for the data series;
+\code{citation}: the citation information for the particular dataset;
 \code{links}: the link from which the data query was retrieved;
 \code{data}: an output \code{\link[base]{data.frame}}.
 }
@@ -27,8 +27,8 @@ containing the metadata record for the data series;
 Wrapper function
 }
 \details{
-This function checks for errors in \code{dt_req} 
-data request and processes result via 
+This function checks for errors in \code{dt_req}
+data request and processes result via
 \code{\link{json_results}}.
 }
 \author{
