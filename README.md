@@ -9,6 +9,7 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
 status](https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/data-platform-r/actions)
+![pkgdown](https://github.com/AIMS/data-platform-r/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-CC%20BY%203.0%20AU-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.1-orange.svg)](commits/master)
 <!-- badges: end -->
