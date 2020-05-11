@@ -25,6 +25,7 @@ version <- gsub('-', '.', version)
 <!-- badges: start -->
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build status](https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/data-platform-r/actions)
+![pkgdown](https://github.com/AIMS/data-platform-r/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-CC BY 3.0 AU-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg)](commits/master)
 <!-- badges: end -->
