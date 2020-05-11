@@ -21,7 +21,8 @@ Overview
 with easy access to data sets from the [AIMS Data Platform
 API](https://aims.github.io/data-platform).
 
-### Usage of AIMS Data Platform API Key
+Usage of AIMS Data Platform API Key
+-----------------------------------
 
 **AIMS Data Platform** requires an API Key for requests, [get a key
 here.](https://aims.github.io/data-platform/key-request)
@@ -38,7 +39,8 @@ In that case the users `.Renviron` file might look like:
 
 The `.Renviron` file is usually stored in each users home directory.
 
-### Possible .Renviron file locations
+Possible .Renviron file locations
+---------------------------------
 
 <table>
 <colgroup>
@@ -63,7 +65,8 @@ The `.Renviron` file is usually stored in each users home directory.
 </tbody>
 </table>
 
-### Installation
+Installation
+------------
 
 At this stage `dataaimsr` is not hosted on CRAN R package network. An
 alternative method of installation is to use the R `devtools` package.
@@ -79,13 +82,15 @@ directly from GitHub using the following command:
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
-### Available Data Sets
+Available Data Sets
+-------------------
 
 The **AIMS Data Platform API** is a *REST API* providing *JSON*
 formatted data. Documentation about available data sets can be found on
 the [AIMS Data Platform API](https://aims.github.io/data-platform).
 
-### Further Information
+Further Information
+-------------------
 
 Further information about `dataaimsr` and the **AIMS Data Platform API**
 can be seen on the [project
@@ -96,3 +101,14 @@ Attribution license ([CC BY
 3.0](https://creativecommons.org/licenses/by/3.0/au/legalcode)) by the
 AIMS Datacentre for the [Australian Institute of Marine
 Science](https://www.aims.gov.au)
+
+AIMS R package logos
+--------------------
+
+Our R package logos use a watercolour map of Australia, obtained with
+the [ggmap](https://cran.r-project.org/web/packages/ggmap/) R package,
+which downloads original map tiles provided by [Stamen
+Design](http://stamen.com), under [CC BY
+3.0](http://creativecommons.org/licenses/by/3.0), with data from
+[OpenStreetMap](http://openstreetmap.org), under [CC BY
+SA](http://creativecommons.org/licenses/by-sa/3.0).
