@@ -78,7 +78,7 @@ R `devtools` can be installed using the following command:
 After `devtools` has been installed `dataaimsr` can be installed
 directly from GitHub using the following command:
 
-    devtools::install_github("https://github.com/AIMS/dataaimsr")
+    devtools::install_github("https://github.com/AIMS/data-platform-r")
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
