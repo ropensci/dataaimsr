@@ -9,17 +9,19 @@ vignette: >
 
 #### This R Notebook demonstrates access to the Research Data Platform API using the R language
 
-```{#r message=FALSE}
-```
-
 
 ## 1. Register my API Key and Load the Libraries:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 MY_API_KEY <- "5xoN44VxEM5uQHxB0iydYijBwqbGCAO5DOyvA1t3"
 library(dataaimsr)
+
+library(plyr)
+library(dplyr)
+library(ggplot2)
 library(tidyverse)
 ```
+
 
 ## 2. Find a Dataset:
 
@@ -46,291 +48,141 @@ filter_values_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filter_name = "sites")
 
 ## 3. Get the Percentage Hard Coral data from the API service by Site
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 Site1 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 1", "from-date"="2007-01-01","thru-date"="2020-01-01"))
+
 Site2 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 2", "from-date"="2007-01-01","thru-date"="2020-01-01"))
+
 Site3 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 3", "from-date"="2007-01-01","thru-date"="2020-01-01"))
 
-Site1
+all_sites <- rbind(Site1, Site2, Site3)
 
+all_sites
 ```
 
-## 4. Now massage the data into a form we can use..
-
-### First split this into individual transects (3 Sites by 5 Transects at each site = 15 transects in total)
+## 4 Convert the data to numbers and identify the transects
 
 ```{r}
-Site1Trans1All <- Site1[grep("transect 1", Site1$survey_title),]
-Site1Trans2All <- Site1[grep("transect 2", Site1$survey_title),]
-Site1Trans3All <- Site1[grep("transect 3", Site1$survey_title),]
-Site1Trans4All <- Site1[grep("transect 4", Site1$survey_title),]
-Site1Trans5All <- Site1[grep("transect 5", Site1$survey_title),]
+all_sites <- transform(all_sites, hc_cover = as.numeric(hc_cover))
+all_sites <- transform(all_sites, year = as.numeric(year))
 
-Site2Trans1All <- Site2[grep("transect 1", Site2$survey_title),]
-Site2Trans2All <- Site2[grep("transect 2", Site2$survey_title),]
-Site2Trans3All <- Site2[grep("transect 3", Site2$survey_title),]
-Site2Trans4All <- Site2[grep("transect 4", Site2$survey_title),]
-Site2Trans5All <- Site2[grep("transect 5", Site2$survey_title),]
-
-Site3Trans1All <- Site3[grep("transect 1", Site3$survey_title),]
-Site3Trans2All <- Site3[grep("transect 2", Site3$survey_title),]
-Site3Trans3All <- Site3[grep("transect 3", Site3$survey_title),]
-Site3Trans4All <- Site3[grep("transect 4", Site3$survey_title),]
-Site3Trans5All <- Site3[grep("transect 5", Site3$survey_title),]
-```
-
-### Now discard the columns we don't want to leave the Hard Coral cover by Year for each Transect
-
-
-```{r}
-Site1Trans1 <- subset(Site1Trans1All, select = c(year,hc_cover) )
-Site1Trans2 <- subset(Site1Trans2All, select = c(year,hc_cover) )
-Site1Trans3 <- subset(Site1Trans3All, select = c(year,hc_cover) )
-Site1Trans4 <- subset(Site1Trans4All, select = c(year,hc_cover) )
-Site1Trans5 <- subset(Site1Trans5All, select = c(year,hc_cover) )
-
-Site2Trans1 <- subset(Site2Trans1All, select = c(year,hc_cover) )
-Site2Trans2 <- subset(Site2Trans2All, select = c(year,hc_cover) )
-Site2Trans3 <- subset(Site2Trans3All, select = c(year,hc_cover) )
-Site2Trans4 <- subset(Site2Trans4All, select = c(year,hc_cover) )
-Site2Trans5 <- subset(Site2Trans5All, select = c(year,hc_cover) )
-
-Site3Trans1 <- subset(Site3Trans1All, select = c(year,hc_cover) )
-Site3Trans2 <- subset(Site3Trans2All, select = c(year,hc_cover) )
-Site3Trans3 <- subset(Site3Trans3All, select = c(year,hc_cover) )
-Site3Trans4 <- subset(Site3Trans4All, select = c(year,hc_cover) )
-Site3Trans5 <- subset(Site3Trans5All, select = c(year,hc_cover) )
-
-```
-
-### and rename the columns so they are unique...
-
-
-```{r}
-names(Site1Trans1)[names(Site1Trans1) == "hc_cover"] <- "hc_cover_S1T1"
-names(Site1Trans2)[names(Site1Trans2) == "hc_cover"] <- "hc_cover_S1T2"
-names(Site1Trans3)[names(Site1Trans3) == "hc_cover"] <- "hc_cover_S1T3"
-names(Site1Trans4)[names(Site1Trans4) == "hc_cover"] <- "hc_cover_S1T4"
-names(Site1Trans5)[names(Site1Trans5) == "hc_cover"] <- "hc_cover_S1T5"
-
-names(Site2Trans1)[names(Site2Trans1) == "hc_cover"] <- "hc_cover_S2T1"
-names(Site2Trans2)[names(Site2Trans2) == "hc_cover"] <- "hc_cover_S2T2"
-names(Site2Trans3)[names(Site2Trans3) == "hc_cover"] <- "hc_cover_S2T3"
-names(Site2Trans4)[names(Site2Trans4) == "hc_cover"] <- "hc_cover_S2T4"
-names(Site2Trans5)[names(Site2Trans5) == "hc_cover"] <- "hc_cover_S2T5"
-
-names(Site3Trans1)[names(Site3Trans1) == "hc_cover"] <- "hc_cover_S3T1"
-names(Site3Trans2)[names(Site3Trans2) == "hc_cover"] <- "hc_cover_S3T2"
-names(Site3Trans3)[names(Site3Trans3) == "hc_cover"] <- "hc_cover_S3T3"
-names(Site3Trans4)[names(Site3Trans4) == "hc_cover"] <- "hc_cover_S3T4"
-names(Site3Trans5)[names(Site3Trans5) == "hc_cover"] <- "hc_cover_S3T5"
-
-```
-
-### and merge them into a new dataframe...
-
-```{r}
-Site1Data1 <- merge(Site1Trans1,Site1Trans2,by="year")
-Site1Data2 <- merge(Site1Data1,Site1Trans3,by="year")
-Site1Data3 <- merge(Site1Data2,Site1Trans4,by="year")
-Site1Data <- merge(Site1Data3,Site1Trans5,by="year")
-
-Site2Data1 <- merge(Site2Trans1,Site2Trans2,by="year")
-Site2Data2 <- merge(Site2Data1,Site2Trans3,by="year")
-Site2Data3 <- merge(Site2Data2,Site2Trans4,by="year")
-Site2Data <- merge(Site2Data3,Site2Trans5,by="year")
-
-Site3Data1 <- merge(Site3Trans1,Site3Trans2,by="year")
-Site3Data2 <- merge(Site3Data1,Site3Trans3,by="year")
-Site3Data3 <- merge(Site3Data2,Site3Trans4,by="year")
-Site3Data <- merge(Site3Data3,Site3Trans5,by="year")
-
+all_sites$survey_title <- substr(all_sites$survey_title, 20, 29)
 ```
 
 
-#### Site 1:
-```{r}
-Site1Data
+## 5. Plot the individual transects through time:
+
+### Site 1:
+
+```{r, fig.width = 12, fig.height = 6, message=FALSE, warning=FALSE}
+site_1 <- all_sites %>% filter(site_name == "Davies Reef Site 1")
+
+g1<-ggplot(site_1, aes(x = year, y = hc_cover)) + 
+  geom_line(aes(color = survey_title), size = 1) +
+  theme_minimal()
+
+g1<-g1+labs(title='Hard Coral Cover for Davies Reef, Site 1.')
+
+g1<-g1+theme(plot.title = element_text(size=20))
+g1<-g1+scale_x_continuous(breaks=c(2007,2009,2011,2013,2015,2017,2019))
+g1<-g1+scale_y_continuous(breaks=c(0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65))
+g1<-g1+ylim(0.15,0.5)
+
+g1
 ```
 
 
-#### Site 2:
-```{r}
-Site2Data
+### Site 2:
+
+```{r, fig.width = 12, fig.height = 6, message=FALSE, warning=FALSE}
+site_2 <- all_sites %>% filter(site_name == "Davies Reef Site 2")
+
+g2<-ggplot(site_2, aes(x = year, y = hc_cover)) + 
+  geom_line(aes(color = survey_title), size = 1) +
+  theme_minimal()
+
+g2<-g2+labs(title='Hard Coral Cover for Davies Reef, Site 2.')
+
+g2<-g2+theme(plot.title = element_text(size=20))
+g2<-g2+scale_x_continuous(breaks=c(2007,2009,2011,2013,2015,2017,2019))
+g2<-g2+scale_y_continuous(breaks=c(0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65))
+g2<-g2+ylim(0.15,0.5)
+
+g2
 ```
 
 
-#### Site 3:
-```{r}
-Site3Data
-```
+### Site 3:
 
-## 6. Now we can plot these
+```{r, fig.width = 12, fig.height = 6, message=FALSE, warning=FALSE}
+site_3 <- all_sites %>% filter(site_name == "Davies Reef Site 3")
 
-```{r}
-par(xpd=TRUE)
-plot(Site1Trans1$year, Site1Trans1$hc_cover, type='l', xlab="Survey Year", ylab="% Hard Coral Cover", main="Coral Cover from Davies Reef Site 1", col='red')
+g3<-ggplot(site_3, aes(x = year, y = hc_cover)) + 
+  geom_line(aes(color = survey_title), size = 1) +
+  theme_minimal()
+g3<-g3+labs(title='Hard Coral Cover for Davies Reef, Site 3.')
 
-legend("topright", legend=c("T1", "T2","T3","T4","T5"),col=c("red", "blue", "green", "orange","#009999"), lty=1, cex=0.8)
+g3<-g3+theme(plot.title = element_text(size=20))
+g3<-g3+scale_x_continuous(breaks=c(2007,2009,2011,2013,2015,2017,2019))
+g3<-g3+scale_y_continuous(breaks=c(0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65))
+g3<-g3+ylim(0.15,0.5)
 
-par(new=TRUE)
-plot(Site1Trans2$year, Site1Trans2$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="blue")
-par(new=TRUE)
-plot(Site1Trans3$year, Site1Trans3$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="green")
-par(new=TRUE)
-plot(Site1Trans4$year, Site1Trans4$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="orange")
-par(new=TRUE)
-plot(Site1Trans5$year, Site1Trans5$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="#009999")
-
-```
-```{r}
-par(xpd=TRUE)
-plot(Site2Trans1$year, Site2Trans1$hc_cover, type='l', xlab="Survey Year", ylab="% Hard Coral Cover", main="Coral Cover from Davies Reef Site 2", col='red')
-
-legend("topright", legend=c("T1", "T2","T3","T4","T5"),col=c("red", "blue", "green", "orange","#009999"), lty=1, cex=0.8)
-
-par(new=TRUE)
-plot(Site2Trans2$year, Site2Trans2$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="blue")
-par(new=TRUE)
-plot(Site2Trans3$year, Site2Trans3$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="green")
-par(new=TRUE)
-plot(Site2Trans4$year, Site2Trans4$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="orange")
-par(new=TRUE)
-plot(Site2Trans5$year, Site2Trans5$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="#009999")
-
-
-```
-```{r}
-par(xpd=TRUE)
-plot(Site3Trans1$year, Site3Trans1$hc_cover, type='l', xlab="Survey Year", ylab="% Hard Coral Cover", main="Coral Cover from Davies Reef Site 3", col='red')
-
-legend("topright", legend=c("T1", "T2","T3","T4","T5"),col=c("red", "blue", "green", "orange","#009999"), lty=1, cex=0.8)
-
-par(new=TRUE)
-plot(Site3Trans2$year, Site3Trans2$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="blue")
-par(new=TRUE)
-plot(Site3Trans3$year, Site3Trans3$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="green")
-par(new=TRUE)
-plot(Site3Trans4$year, Site3Trans4$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="orange")
-par(new=TRUE)
-plot(Site3Trans5$year, Site3Trans5$hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="#009999")
-
-```
-
-## 7. Now calculate Site averages...
-
-### first we need to make sure that the coral cover values are numbers
-
-```{r}
-site1Temp <- transform(Site1Data, hc_cover_S1T1 = as.numeric(hc_cover_S1T1),hc_cover_S1T2 = as.numeric(hc_cover_S1T2),hc_cover_S1T3 = as.numeric(hc_cover_S1T3),hc_cover_S1T4 = as.numeric(hc_cover_S1T4),hc_cover_S1T5 = as.numeric(hc_cover_S1T5))
-
-site2Temp <- transform(Site2Data, hc_cover_S2T1 = as.numeric(hc_cover_S2T1),hc_cover_S2T2 = as.numeric(hc_cover_S2T2),hc_cover_S2T3 = as.numeric(hc_cover_S2T3),hc_cover_S2T4 = as.numeric(hc_cover_S2T4),hc_cover_S2T5 = as.numeric(hc_cover_S2T5))
-
-site3Temp <- transform(Site3Data, hc_cover_S3T1 = as.numeric(hc_cover_S3T1),hc_cover_S3T2 = as.numeric(hc_cover_S3T2),hc_cover_S3T3 = as.numeric(hc_cover_S3T3),hc_cover_S3T4 = as.numeric(hc_cover_S3T4),hc_cover_S3T5 = as.numeric(hc_cover_S3T5))
-
-```
-
-### and calculate the means...
-
-```{r}
-
-
-
-Site1Means <- site1Temp %>%
-  mutate(Site1TransMean = (hc_cover_S1T1 + hc_cover_S1T2 + hc_cover_S1T3 + hc_cover_S1T4 + hc_cover_S1T5)/5.0)
-
-Site2Means <- site2Temp %>%
-  mutate(Site2TransMean = (hc_cover_S2T1 + hc_cover_S2T2 + hc_cover_S2T3 + hc_cover_S2T4 + hc_cover_S2T5)/5.0)
-
-Site3Means <- site3Temp %>%
-  mutate(Site3TransMean = (hc_cover_S3T1 + hc_cover_S3T2 + hc_cover_S3T3 + hc_cover_S3T4 + hc_cover_S3T5)/5.0)
-
-```
-
-### which we can now plot...
-
-```{r}
-par(xpd=TRUE)
-plot(Site1Means$year, Site1Means$Site1TransMean, type='l', xlab="Survey Year", ylab="% Hard Coral Cover", main="Coral Cover from Davies Reef for each site", col='red')
-par(new=TRUE)
-plot(Site2Means$year, Site2Means$Site2TransMean, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="blue")
-par(new=TRUE)
-plot(Site3Means$year, Site3Means$Site3TransMean, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="green")
+g3
 ```
 
 
-## 7. Finally we can calaculate the Reef value through time...
+## 6. Now do the summary stats by Site and then by Reef:
 
-### Again we merge the site values into a new dataframe and then create an average on that for the reef values...
+### By Site:
 
 ```{r}
-SiteMeansTemp1 <- merge(Site1Means,Site2Means,by="year")
-SiteMeansTemp2  <- merge(SiteMeansTemp1,Site3Means,by="year")
+hcc_by_site <- aggregate(all_sites[, 9], list(all_sites$site_name, all_sites$year), mean, na.rm=TRUE)
 
-SiteMeansTemp2
+names(hcc_by_site)[names(hcc_by_site) == "Group.1"] <- "Site"
+names(hcc_by_site)[names(hcc_by_site) == "Group.2"] <- "Year"
+names(hcc_by_site)[names(hcc_by_site) == "x"] <- "HC_Cover"
 
-
-SiteMeans <- SiteMeansTemp2 %>%  
-  mutate(SiteMean_hc_cover = (Site1TransMean + Site2TransMean + Site3TransMean)/3.0)
-
-SiteMeans
-
-par(xpd=TRUE)
-plot(SiteMeans$year, SiteMeans$SiteMean_hc_cover, type='l', xlab="Survey Year", ylab="% Hard Coral Cover", main="Coral Cover from Davies Reef", col='red')
-
-
+hcc_by_site
 ```
 
-```{r}
+```{r, fig.width = 12, fig.height = 6, message=FALSE, warning=FALSE}
+g4<-ggplot(hcc_by_site, aes(x = Year, y = HC_Cover)) + 
+  geom_line(aes(color = Site), size = 1) +
+  theme_minimal()
+g4<-g4+labs(title='Hard Coral Cover for Davies Reef by Site.')
 
+g4<-g4+theme(plot.title = element_text(size=20))
+g4<-g4+scale_x_continuous(breaks=c(2007,2009,2011,2013,2015,2017,2019))
+g4<-g4+scale_y_continuous(breaks=c(0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65))
+g4<-g4+ylim(0.15,0.5)
+
+g4
 ```
 
-
-
-
-## Now get some more data... In this case the water temperatue data from the Davies Reef Weather Station and in particluar for the 2015-16 bleaching event...
+### By Reef:
 
 ```{r}
-weather_doi  <-  aims_data_doi_get("weather")
 
-weatherData <- aims_data_get(weather_doi,
-                        api_key = MY_API_KEY,
-                        filters = list("series" = 65,
-                                       "from-date" = "2019-09-01",
-                                       "thru-date" = "2020-03-30"))
+hcc_by_year <- aggregate(all_sites[, 9], list(all_sites$year), mean, na.rm=TRUE)
+
+names(hcc_by_year)[names(hcc_by_year) == "Group.1"] <- "Year"
+names(hcc_by_year)[names(hcc_by_year) == "x"] <- "HC_Cover"
+
+hcc_by_year
 ```
 
+```{r, fig.width = 12, fig.height = 6, message=FALSE, warning=FALSE}
+g5<-ggplot(hcc_by_year, aes(x = Year, y = HC_Cover)) + 
+  geom_line(size = 1) +
+  theme_minimal()
 
-```{r}
-plot(weatherData$data$time, weatherData$data$qc_value, type='l', xlab="Date", ylab="Water Temperature", main="Davies Reef Platform Water Temperature (4m)", col='red')
-```
+g5<-g5+labs(title='Hard Coral Cover for Davies Reef')
 
-```{r}
-weatherData
-```
+g5<-g5+theme(plot.title = element_text(size=20))
+g5<-g5+scale_x_continuous(breaks=c(2007,2009,2011,2013,2015,2017,2019))
+g5<-g5+scale_y_continuous(breaks=c(0.0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65))
+g5<-g5+ylim(0.15,0.5)
 
-# now plot them on top of each other...
-
-First convert the date in the Coral Cover data to a date /time
-
-```{r}
-
-library(anytime)
-SiteMeans$yrData <- anytime(SiteMeans$year)
-
-SiteMeans
-
-
-```
-
-
-Now co-plot
-
-```{r}
-#plot(weatherData$data$time, weatherData$data$qc_value, type='l', xlab="Date", ylab="Water Temperature", main="Davies Reef Platform Water Temperature (4m)", col='red')
-#par(new=TRUE)
-#plot(SiteMeans$yrDate, SiteMeans$SiteMean_hc_cover, type='l',xaxt='n', yaxt='n', ann=FALSE, xlab="", ylab="",  col="blue")
-
-
+g5
 ```
 
