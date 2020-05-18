@@ -57,7 +57,7 @@ Site3 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("s
 
 all_sites <- rbind(Site1, Site2, Site3)
 
-all_sites
+head(all_sites, n=5L)
 ```
 
 ## 4 Convert the data to numbers and identify the transects
