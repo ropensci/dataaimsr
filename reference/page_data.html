@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • dataaimsr</title>
+<title>Request data via the AIMS Data Platform API — page_data • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Request data via the AIMS Data Platform API — page_data" />
+<meta property="og:description" content="A function that communicates with the
+the AIMS Data Platform
+via the AIMS Data Platform API" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +69,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -128,96 +131,84 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Request data via the AIMS Data Platform API</h1>
+    <small class="dont-index">Source: <a href='https://github.com/aims/data-platform-r/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
+    <div class="hidden name"><code>page_data.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>A function that communicates with the
+the <a href='https://aims.github.io/data-platform'>AIMS Data Platform</a>
+via the AIMS Data Platform API</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>page_data</span>(<span class='no'>doi</span>, <span class='kw'>filters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="aims_data.html">aims_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="aims_data_doi.html">aims_data_doi()</a></code> </p>
-        </td>
-        <td><p>AIMS Dataset DOI retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="filter_values.html">filter_values()</a></code> </p>
-        </td>
-        <td><p>Retrieve existing list of data attributes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="find_api_key.html">find_api_key()</a></code> </p>
-        </td>
-        <td><p>AIMS API Key retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="handle_error.html">handle_error()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code> error handler</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="json_results.html">json_results()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> data request</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="next_page_data.html">next_page_data()</a></code> </p>
-        </td>
-        <td><p>Further data requests via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="page_data.html">page_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="process_request.html">process_request()</a></code> </p>
-        </td>
-        <td><p>Format <code>json_results</code> output</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update_format.html">update_format()</a></code> </p>
-        </td>
-        <td><p>Format <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> output list</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>doi</th>
+      <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
+for a chosen <a href='https://aims.github.io/data-platform'>AIMS data series</a></p></td>
+    </tr>
+    <tr>
+      <th>filters</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing a set of
+filters for the data query (see Details)</p></td>
+    </tr>
+    <tr>
+      <th>api_key</th>
+      <td><p>An AIMS Data Platform
+<a href='https://aims.github.io/data-platform/key-request'>API Key</a></p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
+containing four elements:
+<code>metadata</code>: a <a href='https://www.doi.org/'>DOI</a> link
+containing the metadata record for the data series;
+<code>citation</code>: the citation information for the particular dataset;
+<code>links</code>: the link from which the data query was retrieved;
+<code>data</code>: an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The AIMS Data Platform R Client provides easy access to
+data sets for R applications to the
+<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>.
+The AIMS Data Platform requires an API Key for requests, which can
+be obtained at this <a href='https://aims.github.io/data-platform/key-request'>link</a>.
+It is preferred that API Keys are not stored in code. We recommend
+storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
+permanently under the user's <code>.Renviron</code> file in order to load
+the API Key automatically.</p>
+<p>There are two types of data currently available through the
+<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>:
+<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
+<a href='https://aims.github.io/data-platform/temperature-loggers/index'>Sea Water Temperature Loggers</a>.
+They are searched internally via unique DOI identifiers which
+can be obtained by the function <code><a href='aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
+Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
+<p>A list of arguments for <code>filters</code> can be found for both
+<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
+<a href='https://aims.github.io/data-platform/weather/index'>Sea Water Temperature Loggers</a>.</p>
+<p>Note that currently <code>from-date</code> and
+<code>thru-date</code> cannot be inspected directly, for details about dates
+of available different time series can be accessed via Metadata on
+<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>. Despite
+this limitation, these time boundaries are very important because the
+data are collected at very small time intervals, so just a few days of
+time interval can yield massive datasets. The query will return and error
+if it reaches the system's memory capacity.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='filter_values.html'>filter_values</a></code>, <code><a href='aims_data.html'>aims_data</a></code></p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

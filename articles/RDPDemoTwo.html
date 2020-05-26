@@ -141,43 +141,43 @@
 <div id="we-can-see-the-sites-available-by" class="section level3">
 <h3 class="hasAnchor">
 <a href="#we-can-see-the-sites-available-by" class="anchor"></a>We can see the sites available by:</h3>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="../reference/filter_values_get.html">filter_values_get</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filter_name</span> <span class="kw">=</span> <span class="st">"sites"</span>)</pre></body></html></div>
-<pre><code>##   site_id          site_name                               data_years
-## 1    1136 Davies Reef Site 1 2005, 2007, 2009, 2011, 2013, 2015, 2017
-## 2    1137 Davies Reef Site 2 2005, 2007, 2009, 2011, 2013, 2015, 2017
-## 3    1138 Davies Reef Site 3 2005, 2007, 2009, 2011, 2013, 2015, 2017</code></pre>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="../reference/filter_values.html">filter_values</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filter_name</span> <span class="kw">=</span> <span class="st">"sites"</span>)</pre></body></html></div>
+<pre><code>##   site_id          site_name                                     data_years
+## 1    1136 Davies Reef Site 1 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019
+## 2    1137 Davies Reef Site 2 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019
+## 3    1138 Davies Reef Site 3 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019</code></pre>
 </div>
 </div>
 <div id="get-the-percentage-hard-coral-data-from-the-api-service-by-site" class="section level2">
 <h2 class="hasAnchor">
 <a href="#get-the-percentage-hard-coral-data-from-the-api-service-by-site" class="anchor"></a>3. Get the Percentage Hard Coral data from the API service by Site</h2>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">Site1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 1"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">Site1</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 1"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
 
-<span class="no">Site2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 2"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
+<span class="no">Site2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 2"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
 
-<span class="no">Site3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data_get.html">aims_data_get</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 3"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
+<span class="no">Site3</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span>(<span class="st">"e791fa0e-053b-4a50-b856-aaa0b88848d7"</span>, <span class="kw">filters</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="st">"site"</span><span class="kw">=</span><span class="st">"Davies Reef Site 3"</span>, <span class="st">"from-date"</span><span class="kw">=</span><span class="st">"2007-01-01"</span>,<span class="st">"thru-date"</span><span class="kw">=</span><span class="st">"2020-01-01"</span>))
 
 <span class="no">all_sites</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span>(<span class="no">Site1</span>, <span class="no">Site2</span>, <span class="no">Site3</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">all_sites</span>, <span class="kw">n</span><span class="kw">=</span><span class="fl">5L</span>)</pre></body></html></div>
 <pre><code>##      id site_id          site_name survey_id
-## 1 10779    1136 Davies Reef Site 1     11802
-## 2 10778    1136 Davies Reef Site 1     11801
-## 3 10780    1136 Davies Reef Site 1     11803
-## 4 10776    1136 Davies Reef Site 1     11799
-## 5 10777    1136 Davies Reef Site 1     11800
+## 1 10777    1136 Davies Reef Site 1     11800
+## 2 10776    1136 Davies Reef Site 1     11799
+## 3 10778    1136 Davies Reef Site 1     11801
+## 4 10780    1136 Davies Reef Site 1     11803
+## 5 10779    1136 Davies Reef Site 1     11802
 ##                               survey_title exposure year
-## 1 Davies Reef Site 1 transect 4 2007-05-28  Exposed 2007
-## 2 Davies Reef Site 1 transect 3 2007-05-28  Exposed 2007
-## 3 Davies Reef Site 1 transect 5 2007-05-28  Exposed 2007
-## 4 Davies Reef Site 1 transect 1 2007-05-28  Exposed 2007
-## 5 Davies Reef Site 1 transect 2 2007-05-28  Exposed 2007
+## 1 Davies Reef Site 1 transect 2 2007-05-28  Exposed 2007
+## 2 Davies Reef Site 1 transect 1 2007-05-28  Exposed 2007
+## 3 Davies Reef Site 1 transect 3 2007-05-28  Exposed 2007
+## 4 Davies Reef Site 1 transect 5 2007-05-28  Exposed 2007
+## 5 Davies Reef Site 1 transect 4 2007-05-28  Exposed 2007
 ##     survey_start_date_time  hc_cover latitude longitude data
-## 1 2007-05-27T14:00:00.000Z 0.4100000  -18.806  147.6686     
-## 2 2007-05-27T14:00:00.000Z 0.3947368  -18.806  147.6686     
-## 3 2007-05-27T14:00:00.000Z 0.3684211  -18.806  147.6686     
-## 4 2007-05-27T14:00:00.000Z 0.4210526  -18.806  147.6686     
-## 5 2007-05-27T14:00:00.000Z 0.3400000  -18.806  147.6686</code></pre>
+## 1 2007-05-27T14:00:00.000Z 0.3400000  -18.806  147.6686     
+## 2 2007-05-27T14:00:00.000Z 0.4210526  -18.806  147.6686     
+## 3 2007-05-27T14:00:00.000Z 0.3947368  -18.806  147.6686     
+## 4 2007-05-27T14:00:00.000Z 0.3684211  -18.806  147.6686     
+## 5 2007-05-27T14:00:00.000Z 0.4100000  -18.806  147.6686</code></pre>
 </div>
 <div id="convert-the-data-to-numbers-and-identify-the-transects" class="section level2">
 <h2 class="hasAnchor">
@@ -263,7 +263,7 @@
 <pre><code>##                  Site Year  HC_Cover
 ## 1  Davies Reef Site 1 2007 0.3868421
 ## 2  Davies Reef Site 2 2007 0.3930479
-## 3  Davies Reef Site 3 2007 0.3925092
+## 3  Davies Reef Site 3 2007 0.3916521
 ## 4  Davies Reef Site 1 2009 0.3160000
 ## 5  Davies Reef Site 2 2009 0.3106508
 ## 6  Davies Reef Site 3 2009 0.4128947
@@ -278,7 +278,10 @@
 ## 15 Davies Reef Site 3 2015 0.3008421
 ## 16 Davies Reef Site 1 2017 0.3769900
 ## 17 Davies Reef Site 2 2017 0.3498541
-## 18 Davies Reef Site 3 2017 0.3235263</code></pre>
+## 18 Davies Reef Site 3 2017 0.3235263
+## 19 Davies Reef Site 1 2019 0.4782537
+## 20 Davies Reef Site 2 2019 0.4287008
+## 21 Davies Reef Site 3 2019 0.3887472</code></pre>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">g4</span><span class="kw">&lt;-</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">hcc_by_site</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">Year</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">HC_Cover</span>)) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="no">Site</span>), <span class="kw">size</span> <span class="kw">=</span> <span class="fl">1</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>()
@@ -302,12 +305,13 @@
 
 <span class="no">hcc_by_year</span></pre></body></html></div>
 <pre><code>##   Year  HC_Cover
-## 1 2007 0.3907997
+## 1 2007 0.3905140
 ## 2 2009 0.3465152
 ## 3 2011 0.2436347
 ## 4 2013 0.3178840
 ## 5 2015 0.2876028
-## 6 2017 0.3501235</code></pre>
+## 6 2017 0.3501235
+## 7 2019 0.4319006</code></pre>
 <div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">g5</span><span class="kw">&lt;-</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">hcc_by_year</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">Year</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">HC_Cover</span>)) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="kw">size</span> <span class="kw">=</span> <span class="fl">1</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>()

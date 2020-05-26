@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • dataaimsr</title>
+<title>Retrieve existing list of data attributes — filter_values • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Retrieve existing list of data attributes — filter_values" />
+<meta property="og:description" content="This is a utility function which allows to user
+to query about the existing possibilities of
+a given filter name" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +69,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -128,96 +131,59 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Retrieve existing list of data attributes</h1>
+    <small class="dont-index">Source: <a href='https://github.com/aims/data-platform-r/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
+    <div class="hidden name"><code>filter_values.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This is a utility function which allows to user
+to query about the existing possibilities of
+a given filter name</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>filter_values</span>(<span class='no'>doi</span>, <span class='no'>filter_name</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="aims_data.html">aims_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="aims_data_doi.html">aims_data_doi()</a></code> </p>
-        </td>
-        <td><p>AIMS Dataset DOI retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="filter_values.html">filter_values()</a></code> </p>
-        </td>
-        <td><p>Retrieve existing list of data attributes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="find_api_key.html">find_api_key()</a></code> </p>
-        </td>
-        <td><p>AIMS API Key retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="handle_error.html">handle_error()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code> error handler</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="json_results.html">json_results()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> data request</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="next_page_data.html">next_page_data()</a></code> </p>
-        </td>
-        <td><p>Further data requests via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="page_data.html">page_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="process_request.html">process_request()</a></code> </p>
-        </td>
-        <td><p>Format <code>json_results</code> output</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update_format.html">update_format()</a></code> </p>
-        </td>
-        <td><p>Format <code><a href='https://jeroen.cran.dev/jsonlite/reference/fromJSON.html'>fromJSON</a></code> output list</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>doi</th>
+      <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
+for a chosen <a href='https://aims.github.io/data-platform'>AIMS data series</a></p></td>
+    </tr>
+    <tr>
+      <th>filter_name</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector containing the name of
+the filter (see Details)</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Either a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A list of arguments for <code>filters</code> can be found for both
+<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
+<a href='https://aims.github.io/data-platform/weather/index'>Sea Water Temperature Loggers</a>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='aims_data.html'>aims_data</a></code></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dataaimsr</span>)
+<span class='no'>weather_doi</span>  <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span>(<span class='st'>"weather"</span>)
+<span class='no'>ssts_doi</span>     <span class='kw'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span>(<span class='st'>"temp_loggers"</span>)
+<span class='fu'>filter_values</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"sites"</span>)
+<span class='fu'>filter_values</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"series"</span>)
+<span class='fu'>filter_values</span>(<span class='no'>weather_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"parameters"</span>)
+<span class='fu'>filter_values</span>(<span class='no'>ssts_doi</span>, <span class='kw'>filter_name</span> <span class='kw'>=</span> <span class='st'>"sites"</span>)
+}</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
