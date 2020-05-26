@@ -8,9 +8,9 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
-status](https://github.com/AIMS/data-platform-r/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/data-platform-r/actions)
-![pkgdown](https://github.com/AIMS/data-platform-r/workflows/pkgdown/badge.svg)
-[![license](https://img.shields.io/badge/license-CC%20BY%203.0%20AU-lightgrey.svg)](https://choosealicense.com/)
+status](https://github.com/AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/dataaimsr/actions)
+![pkgdown](https://github.com/AIMS/dataaimsr/workflows/pkgdown/badge.svg)
+[![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.1-orange.svg)](commits/master)
 <!-- badges: end -->
 
@@ -78,7 +78,7 @@ R `devtools` can be installed using the following command:
 After `devtools` has been installed `dataaimsr` can be installed
 directly from GitHub using the following command:
 
-    devtools::install_github("https://github.com/AIMS/data-platform-r")
+    devtools::install_github("https://github.com/AIMS/dataaimsr")
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
@@ -93,8 +93,7 @@ Further Information
 -------------------
 
 Further information about `dataaimsr` and the **AIMS Data Platform API**
-can be seen on the [project
-page](https://aims.github.io/data-platform-r).
+can be seen on the [project page](https://aims.github.io/dataaimsr).
 
 This library is provided for use under the Creative Commons by
 Attribution license ([CC BY
