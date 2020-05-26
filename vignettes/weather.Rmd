@@ -37,11 +37,11 @@ my_api_key <- "api-key-for-r-notebook"
 
 ## Install R Client
 
-`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/aims/data-platform-r) using the following code:
+`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/aims/dataaimsr) using the following code:
 
 ```{r, eval = FALSE}
 install.packages("devtools")
-devtools::install_github("https://github.com/AIMS/data-platform-r")
+devtools::install_github("https://github.com/AIMS/dataaimsr")
 library(dataaimsr)
 ```
 
@@ -50,16 +50,16 @@ library(dataaimsr)
 Suppose we want to query a data series and plot it then the procedure might be:
 
 1. Examine documentation and establish query filters
-2. Perform data download using `aims_data_get`
+2. Perform data download using `aims_data`
 3. Use the Rpackage `ggplot2` to create a time-series chart
 
 There are two types of data programs currently available through the [AIMS Data Platform API](https://aims.github.io/data-platform): [Weather](https://aims.github.io/data-platform/weather), which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers), which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.
 
-For the purposes of this example, we will query the [AIMS Weather](https://aims.github.io/data-platform/weather). To explore this data program, we use the function `filter_values_get`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://aims.github.io/data-platform/weather/index). We recommend exploring the parameter `series`:
+For the purposes of this example, we will query the [AIMS Weather](https://aims.github.io/data-platform/weather). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://aims.github.io/data-platform/weather/index). We recommend exploring the parameter `series`:
 
 ```{r}
-weather_doi  <-  aims_data_doi_get("weather")
-filter_values_get(weather_doi, filter_name = "series") %>%
+weather_doi  <-  aims_data_doi("weather")
+filter_values(weather_doi, filter_name = "series") %>%
   head()
 ```
 
@@ -76,14 +76,14 @@ thru-date | '2018-01-10'           | We are plotting 10 days of data
 
 ## Query and Plot Dataset
 
-After deciding on query parameters, we plug the series id into a `aims_data_get` function:
+After deciding on query parameters, we plug the series id into a `aims_data` function:
 
 ```{r, message = FALSE}
-davies <- aims_data_get(weather_doi,
-                        api_key = my_api_key,
-                        filters = list("series" = 64,
-                                       "from-date" = "2018-01-01",
-                                       "thru-date" = "2018-01-10"))
+davies <- aims_data(weather_doi,
+                    api_key = my_api_key,
+                    filters = list("series" = 64,
+                                   "from-date" = "2018-01-01",
+                                   "thru-date" = "2018-01-10"))
 ```
 
 The object `davies` is a list containing four elements:  
@@ -97,8 +97,8 @@ We can even visually compare multiple series at once. For instance, let's compar
 ```{r, message = FALSE}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
-  aims_data_get(weather_doi, api_key = my_api_key, 
-                filters = list("series" = series_number, ...))
+  aims_data(weather_doi, api_key = my_api_key, 
+            filters = list("series" = series_number, ...))
 }, my_api_key = my_api_key, "from-date" = "2018-01-01", "thru-date" = "2018-01-10")
 
 weather_data <- plyr::ldply(results, "[[", "data")

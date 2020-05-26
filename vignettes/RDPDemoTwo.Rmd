@@ -42,18 +42,18 @@ library(tidyverse)
 ### We can see the sites available by:
 
 ```{r}
-filter_values_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filter_name = "sites")
+filter_values("e791fa0e-053b-4a50-b856-aaa0b88848d7", filter_name = "sites")
 ```
 
 
 ## 3. Get the Percentage Hard Coral data from the API service by Site
 
 ```{r message=FALSE, warning=FALSE}
-Site1 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 1", "from-date"="2007-01-01","thru-date"="2020-01-01"))
+Site1 <- aims_data("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 1", "from-date"="2007-01-01","thru-date"="2020-01-01"))
 
-Site2 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 2", "from-date"="2007-01-01","thru-date"="2020-01-01"))
+Site2 <- aims_data("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 2", "from-date"="2007-01-01","thru-date"="2020-01-01"))
 
-Site3 <- aims_data_get("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 3", "from-date"="2007-01-01","thru-date"="2020-01-01"))
+Site3 <- aims_data("e791fa0e-053b-4a50-b856-aaa0b88848d7", filters = list("site"="Davies Reef Site 3", "from-date"="2007-01-01","thru-date"="2020-01-01"))
 
 all_sites <- rbind(Site1, Site2, Site3)
 

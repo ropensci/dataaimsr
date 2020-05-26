@@ -17,7 +17,7 @@ Suggests:
     plyr,
     dplyr,
     ggplot2
-License: CC BY 3.0 AU
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr

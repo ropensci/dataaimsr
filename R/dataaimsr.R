@@ -13,7 +13,7 @@
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr http_status content
-error_handle <- function(dt_req) {
+handle_error <- function(dt_req) {
   stop(paste("Error", http_status(dt_req),
                 content(dt_req)))
 }
@@ -22,7 +22,7 @@ error_handle <- function(dt_req) {
 #' 
 #' Wrapper function
 #' 
-#' @inheritParams error_handle
+#' @inheritParams handle_error
 #' 
 #' @details This function submits a \code{dt_req} 
 #' data request via \code{\link[jsonlite]{fromJSON}}.
@@ -48,12 +48,12 @@ json_results  <-  function(dt_req) {
 #' 
 #' Wrapper function
 #' 
-#' @inheritParams error_handle
+#' @inheritParams handle_error
 #' 
 #' @param next_page Logical. Is this a multi-url request?
 #' 
 #' @param ... Additional arguments to be passed to internal function
-#' \code{\link{format_update}}
+#' \code{\link{update_format}}
 #' 
 #' @details This function checks for errors in \code{dt_req} 
 #' data request and processes result via 
@@ -70,15 +70,15 @@ json_results  <-  function(dt_req) {
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr http_error
-request_process <- function(dt_req, next_page = FALSE, ...) {
+process_request <- function(dt_req, next_page = FALSE, ...) {
   if (http_error(dt_req)) {
-    error_handle(dt_req)
+    handle_error(dt_req)
   } else {
     results <- json_results(dt_req)
     if (next_page && length(results$results) == 0) {
       warning("No more data")
     } else {
-      results <- format_update(results, ...)
+      results <- update_format(results, ...)
       if (!next_page) {
         message(paste("Cite this data as:", results$citation))
       }
@@ -117,7 +117,7 @@ request_process <- function(dt_req, next_page = FALSE, ...) {
 #' [Weather](https://aims.github.io/data-platform/weather/index) and 
 #' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
 #' They are searched internally via unique DOI identifiers which 
-#' can be obtained by the function \code{\link{aims_data_doi_get}} (see Examples).
+#' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
 #' A list of arguments for \code{filters} can be found for both
@@ -141,23 +141,23 @@ request_process <- function(dt_req, next_page = FALSE, ...) {
 #' \code{links}: the link from which the data query was retrieved;
 #' \code{data}: an output \code{\link[base]{data.frame}}.
 #' 
-#' @seealso \code{\link{filter_values_get}}, \code{\link{aims_data_get}}
+#' @seealso \code{\link{filter_values}}, \code{\link{aims_data}}
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr GET add_headers
-page_data_get <- function(doi, filters = NULL, api_key = NULL) {
+page_data <- function(doi, filters = NULL, api_key = NULL) {
   base_end_pt <- getOption("dataaimsr.base_end_point")
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   dt_req <- GET(end_pt,
-                add_headers("X-Api-Key" = api_key_find(api_key)),
+                add_headers("X-Api-Key" = find_api_key(api_key)),
                 query = filters)
-  request_process(dt_req, doi = doi)
+  process_request(dt_req, doi = doi)
 }
 
 #' Further data requests via the AIMS Data Platform API
 #' 
-#' Similar to \code{\link{page_data_get}}, but for cases
+#' Similar to \code{\link{page_data}}, but for cases
 #' where there are multiple URLs for data retrieval
 #' 
 #' @param url A data retrieval URL
@@ -166,7 +166,7 @@ page_data_get <- function(doi, filters = NULL, api_key = NULL) {
 #' \href{https://aims.github.io/data-platform/key-request}{API Key}
 #' 
 #' @param ... Additional arguments to be passed to internal function
-#' \code{\link{format_update}}
+#' \code{\link{update_format}}
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
@@ -186,15 +186,15 @@ page_data_get <- function(doi, filters = NULL, api_key = NULL) {
 #' \code{links}: the link from which the data query was retrieved;
 #' \code{data}: an output \code{\link[base]{data.frame}}.
 #' 
-#' @seealso \code{\link{filter_values_get}}, \code{\link{page_data_get}}, \code{\link{aims_data_get}}
+#' @seealso \code{\link{filter_values}}, \code{\link{page_data}}, \code{\link{aims_data}}
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr GET add_headers
-next_page_data_get <- function(url, api_key = NULL, ...) {
+next_page_data <- function(url, api_key = NULL, ...) {
   dt_req <- GET(url,
-                add_headers("X-Api-Key" = api_key_find(api_key)))
-  request_process(dt_req, next_page = TRUE, ...)
+                add_headers("X-Api-Key" = find_api_key(api_key)))
+  process_request(dt_req, next_page = TRUE, ...)
 }
 
 #' Request data via the AIMS Data Platform API
@@ -210,7 +210,7 @@ next_page_data_get <- function(url, api_key = NULL, ...) {
 #' filters for the data query (see Details)
 #' 
 #' @param ... Additional arguments to be passed to internal functions
-#' \code{\link{page_data_get}} and \code{\link{next_page_data_get}}
+#' \code{\link{page_data}} and \code{\link{next_page_data}}
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
@@ -227,7 +227,7 @@ next_page_data_get <- function(url, api_key = NULL, ...) {
 #' [Weather](https://aims.github.io/data-platform/weather/index) and 
 #' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
 #' They are searched internally via unique DOI identifiers which 
-#' can be obtained by the function \code{\link{aims_data_doi_get}} (see Examples).
+#' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
 #' A list of arguments for \code{filters} can be found for both
@@ -258,37 +258,37 @@ next_page_data_get <- function(url, api_key = NULL, ...) {
 #' library(dataaimsr)
 #' # assumes that user already has API key saved to
 #' # .Renviron
-#' weather_doi  <-  aims_data_doi_get("weather")
-#' ssts_doi     <-  aims_data_doi_get("temp_loggers")
+#' weather_doi  <-  aims_data_doi("weather")
+#' ssts_doi     <-  aims_data_doi("temp_loggers")
 #' 
 #' # 64 corresponds to air temperature from Davies Reef
-#' wdata <- aims_data_get(weather_doi,
+#' wdata <- aims_data(weather_doi,
 #'                        api_key = NULL,
 #'                        filters = list("series" = 64,
 #'                                       "from-date" = "2018-01-01",
 #'                                       "thru-date" = "2018-01-10"))
 #'
 #' # Downloads Chlorophyll data from all sites between given time interval
-#' cdata <- aims_data_get(weather_doi,
+#' cdata <- aims_data(weather_doi,
 #'                        api_key = NULL,
 #'                        filters = list("parameters" = "Chlorophyll",
 #'                                       "from-date" = "2003-01-01",
 #'                                       "thru-date" = "2003-01-02"))
 #' 
-#' sdata <- aims_data_get(ssts_doi,
+#' sdata <- aims_data(ssts_doi,
 #'                        api_key = NULL,
 #'                        filters = list("site-name" = "Bickerton Island"))
 #' }
 #' 
 #' @export
-aims_data_get <- function(doi, filters = NULL, ...) {
-  results <- page_data_get(doi, filters = filters, ...)
+aims_data <- function(doi, filters = NULL, ...) {
+  results <- page_data(doi, filters = filters, ...)
   message(results$links)
   next_url <- results$links$next_page
   more_data <- TRUE
   while (more_data) {
     tryCatch({
-      next_res <- next_page_data_get(next_url, ..., doi = doi)
+      next_res <- next_page_data(next_url, ..., doi = doi)
       results$data <- rbind(results$data, next_res$data)
       if ("links" %in% names(next_res) &&
           "next_page" %in% names(next_res$links)) {
@@ -326,29 +326,29 @@ aims_data_get <- function(doi, filters = NULL, ...) {
 #' 
 #' @return Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
 #' 
-#' @seealso \code{\link{aims_data_get}}
+#' @seealso \code{\link{aims_data}}
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi  <-  aims_data_doi_get("weather")
-#' ssts_doi     <-  aims_data_doi_get("temp_loggers")
-#' filter_values_get(weather_doi, filter_name = "sites")
-#' filter_values_get(weather_doi, filter_name = "series")
-#' filter_values_get(weather_doi, filter_name = "parameters")
-#' filter_values_get(ssts_doi, filter_name = "sites")
+#' weather_doi  <-  aims_data_doi("weather")
+#' ssts_doi     <-  aims_data_doi("temp_loggers")
+#' filter_values(weather_doi, filter_name = "sites")
+#' filter_values(weather_doi, filter_name = "series")
+#' filter_values(weather_doi, filter_name = "parameters")
+#' filter_values(ssts_doi, filter_name = "sites")
 #' }
 #' 
 #' @export
 #' @importFrom httr GET http_error
-filter_values_get <- function(doi, filter_name) {
+filter_values <- function(doi, filter_name) {
   base_end_pt <- getOption("dataaimsr.base_end_point")
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {
-    error_handle(dt_req)
+    handle_error(dt_req)
   } else {
     json_results(dt_req)
   }
@@ -374,7 +374,7 @@ filter_values_get <- function(doi, filter_name) {
 #' \code{data}: an output \code{\link[base]{data.frame}}.
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
-format_update <- function(results, doi) {
+update_format <- function(results, doi) {
   if ("links" %in% names(results) &&
       "next" %in% names(results$links)) {
     results$links$next_page <- results$links$"next"
@@ -409,7 +409,7 @@ format_update <- function(results, doi) {
 #' in .Renviron or, if missing entirely, an error message.
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
-api_key_find <- function(api_key) {
+find_api_key <- function(api_key) {
   if (is.null(api_key)) {
     r_env_api_key <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
     if (is.null(r_env_api_key)) {
@@ -439,12 +439,12 @@ api_key_find <- function(api_key) {
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi  <-  aims_data_doi_get('weather')
-#' ssts_doi  <-  aims_data_doi_get('temp_loggers')
+#' weather_doi  <-  aims_data_doi('weather')
+#' ssts_doi  <-  aims_data_doi('temp_loggers')
 #' }
 #' 
 #' @export
-aims_data_doi_get  <-  function(target) {
+aims_data_doi  <-  function(target) {
   if (!(target %in% c("weather", "temp_loggers"))) {
     stop("Wrong type of data target, only \"weather\"",
          "or \"temp_loggers\" are allowed")
