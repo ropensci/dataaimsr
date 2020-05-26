@@ -95,11 +95,9 @@ Further Information
 Further information about `dataaimsr` and the **AIMS Data Platform API**
 can be seen on the [project page](https://aims.github.io/dataaimsr).
 
-This library is provided for use under the Creative Commons by
-Attribution license ([CC BY
-3.0](https://creativecommons.org/licenses/by/3.0/au/legalcode)) by the
-AIMS Datacentre for the [Australian Institute of Marine
-Science](https://www.aims.gov.au)
+`dataaimsr` is provided by the [Australian Institute of Marine
+Science](https://www.aims.gov.au) under the MIT License
+([MIT](http://opensource.org/licenses/MIT)).
 
 AIMS R package logos
 --------------------
