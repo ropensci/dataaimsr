@@ -6,13 +6,20 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R build
 status](https://github.com/AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/dataaimsr/actions)
 ![pkgdown](https://github.com/AIMS/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.1-orange.svg)](commits/master)
 <!-- badges: end -->
+
+Warning
+-------
+
+**This package and its API dependency are a work in progress. So we
+advise not installing this package just yet as many of the
+functionalities may change or simply become deprecated.**
 
 Overview
 --------
