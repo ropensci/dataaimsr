@@ -21,7 +21,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
-URL: https://aims.github.io/data-platform-r
-BugReports: https://github.com/aims/data-platform-r/issues
+URL: https://aims.github.io/dataaimsr
+BugReports: https://github.com/aims/dataaimsr/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
