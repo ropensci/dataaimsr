@@ -112,7 +112,7 @@ via the AIMS Data Platform API" />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/aims/data-platform-r/">
+  <a href="https://github.com/aims/dataaimsr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -131,7 +131,7 @@ via the AIMS Data Platform API" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Request data via the AIMS Data Platform API</h1>
-    <small class="dont-index">Source: <a href='https://github.com/aims/data-platform-r/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/aims/dataaimsr/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
     <div class="hidden name"><code>page_data.Rd</code></div>
     </div>
 
@@ -141,7 +141,7 @@ the <a href='https://aims.github.io/data-platform'>AIMS Data Platform</a>
 via the AIMS Data Platform API</p>
     </div>
 
-    <pre class="usage"><span class='fu'>page_data</span>(<span class='no'>doi</span>, <span class='kw'>filters</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/dataaimsr/man/page_data.html'>page_data</a></span>(<span class='kw'>doi</span>, filters = <span class='kw'>NULL</span>, api_key = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -188,7 +188,7 @@ the API Key automatically.</p>
 <a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
 <a href='https://aims.github.io/data-platform/temperature-loggers/index'>Sea Water Temperature Loggers</a>.
 They are searched internally via unique DOI identifiers which
-can be obtained by the function <code><a href='aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
+can be obtained by the function <code><a href='https://rdrr.io/pkg/dataaimsr/man/aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
 Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
 <p>A list of arguments for <code>filters</code> can be found for both
 <a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
@@ -203,7 +203,10 @@ time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='filter_values.html'>filter_values</a></code>, <code><a href='aims_data.html'>aims_data</a></code></p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/dataaimsr/man/filter_values.html'>filter_values</a></code>, <code><a href='https://rdrr.io/pkg/dataaimsr/man/aims_data.html'>aims_data</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
