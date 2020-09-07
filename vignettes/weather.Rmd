@@ -37,11 +37,11 @@ my_api_key <- "api-key-for-r-notebook"
 
 ## Install R Client
 
-`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/aims/dataaimsr) using the following code:
+`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/open-aims/dataaimsr) using the following code:
 
 ```{r, eval = FALSE}
 install.packages("devtools")
-devtools::install_github("https://github.com/AIMS/dataaimsr")
+devtools::install_github("https://github.com/open-AIMS/dataaimsr")
 library(dataaimsr)
 ```
 
