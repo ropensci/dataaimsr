@@ -68,7 +68,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/aims/dataaimsr/">
+  <a href="https://github.com/open-aims/dataaimsr/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -89,7 +89,7 @@
       <h1 data-toc-skip>AIMS weather time series data sets</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/aims/dataaimsr/blob/master/vignettes/weather.Rmd"><code>vignettes/weather.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/open-aims/dataaimsr/blob/master/vignettes/weather.Rmd"><code>vignettes/weather.Rmd</code></a></small>
       <div class="hidden name"><code>weather.Rmd</code></div>
 
     </div>
@@ -113,11 +113,11 @@
 <div id="install-r-client" class="section level2">
 <h2 class="hasAnchor">
 <a href="#install-r-client" class="anchor"></a>Install R Client</h2>
-<p><code>dataaimsr</code> can be installed and loaded directly from <a href="https://github.com/aims/dataaimsr">GitHub</a> using the following code:</p>
+<p><code>dataaimsr</code> can be installed and loaded directly from <a href="https://github.com/open-aims/dataaimsr">GitHub</a> using the following code:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"https://github.com/AIMS/dataaimsr"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://aims.github.io/dataaimsr">dataaimsr</a></span>)
+<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"https://github.com/open-AIMS/dataaimsr"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span>)
 </pre></div>
 </div>
 <div id="discover-a-dataset" class="section level2">
@@ -138,19 +138,19 @@
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>()
 </pre></div>
 <pre><code>##   series_id
-## 1      9847
-## 2    104918
-## 3    100686
-## 4       266
-## 5      2639
-## 6     10243
+## 1    104918
+## 2    100686
+## 3       266
+## 4      2639
+## 5     10243
+## 6       258
 ##                                                              series_name
-## 1      Cleveland Bay North Cardinal Marker Minimum Wind Speed 10 Minutes
-## 2        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) 
-## 3                            Saibai Island Weather Station Hail Duration
-## 4 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
-## 5 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
-## 6                           Raine Island Weather Station Air Temperature</code></pre>
+## 1        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) 
+## 2                            Saibai Island Weather Station Hail Duration
+## 3 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
+## 4 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
+## 5                           Raine Island Weather Station Air Temperature
+## 6             Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)</code></pre>
 <p>The benefits to choosing a data <code>series</code> is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the <a href="https://aims.github.io/data-platform/weather">AIMS Weather</a> program, we would have to specify additional parameters to ensure the data is as expected.</p>
 <p>Finally our values and filters might look like the following:</p>
 <table class="table">
@@ -233,8 +233,8 @@
   <span class="kw">unlist</span> <span class="op">%&gt;%</span>
   <span class="kw">unname</span>
 </pre></div>
-<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 14 July 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
-## [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 14 July 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</code></pre>
+<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 September 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
+## [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 7 September 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</code></pre>
 </div>
   </div>
 
