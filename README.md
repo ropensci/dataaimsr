@@ -6,12 +6,16 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
-status](https://github.com/AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/AIMS/dataaimsr/actions)
-![pkgdown](https://github.com/AIMS/dataaimsr/workflows/pkgdown/badge.svg)
+status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/dataaimsr/actions)
+![pkgdown](https://github.com/open-AIMS/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.1-orange.svg)](commits/master)
+[![Ask Us Anything
+!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/dataaimsr/issues/new)
+![Open Source
+Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
 
 Warning
@@ -26,16 +30,16 @@ Overview
 
 `dataaimsr` is the **AIMS Data Platform R Client**, and will provide you
 with easy access to data sets from the [AIMS Data Platform
-API](https://aims.github.io/data-platform).
+API](https://open-aims.github.io/data-platform).
 
 Usage of AIMS Data Platform API Key
 -----------------------------------
 
 **AIMS Data Platform** requires an API Key for requests, [get a key
-here.](https://aims.github.io/data-platform/key-request)
+here.](https://open-aims.github.io/data-platform/key-request)
 
 The API Key can be passed to the package functions as an additional
-`api_key = 'XXXX'` argument, however it is preferred that API Keys are
+`api_key = "XXXX"` argument, however it is preferred that API Keys are
 not stored permanently in your machine.
 
 If the environment variable `AIMS_DATAPLATFORM_API_KEY` is stored in the
@@ -85,7 +89,7 @@ R `devtools` can be installed using the following command:
 After `devtools` has been installed `dataaimsr` can be installed
 directly from GitHub using the following command:
 
-    devtools::install_github("https://github.com/AIMS/dataaimsr")
+    devtools::install_github("https://github.com/open-AIMS/dataaimsr")
 
 This command will also install 2 dependencies `httr` and `jsonlite`.
 
@@ -94,13 +98,14 @@ Available Data Sets
 
 The **AIMS Data Platform API** is a *REST API* providing *JSON*
 formatted data. Documentation about available data sets can be found on
-the [AIMS Data Platform API](https://aims.github.io/data-platform).
+the [AIMS Data Platform API](https://open-aims.github.io/data-platform).
 
 Further Information
 -------------------
 
 Further information about `dataaimsr` and the **AIMS Data Platform API**
-can be seen on the [project page](https://aims.github.io/dataaimsr).
+can be seen on the [project
+page](https://open-aims.github.io/dataaimsr).
 
 `dataaimsr` is provided by the [Australian Institute of Marine
 Science](https://www.aims.gov.au) under the MIT License
