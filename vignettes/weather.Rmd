@@ -53,9 +53,9 @@ Suppose we want to query a data series and plot it then the procedure might be:
 2. Perform data download using `aims_data`
 3. Use the Rpackage `ggplot2` to create a time-series chart
 
-There are two types of data programs currently available through the [AIMS Data Platform API](https://open-aims.github.io/data-platform): [Weather](https://open-aims.github.io/data-platform/weather), which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and [Sea Water Temperature Loggers](https://open-aims.github.io/data-platform/temperature-loggers), which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.
+There are two types of data programs currently available through the [AIMS Data Platform API](https://open-aims.github.io/data-platform): [Weather](https://doi.org/10.25845/5c09bf93f315d), which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and [Sea Water Temperature Loggers](https://doi.org/10.25845/5b4eb0f9bb848), which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.
 
-For the purposes of this example, we will query the [AIMS Weather](https://open-aims.github.io/data-platform/weather). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://open-aims.github.io/data-platform/weather/index). We recommend exploring the parameter `series`:
+For the purposes of this example, we will query the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://doi.org/10.25845/5c09bf93f315d/index). We recommend exploring the parameter `series`:
 
 ```{r}
 weather_doi  <-  aims_data_doi("weather")
@@ -63,14 +63,14 @@ filter_values(weather_doi, filter_name = "series") %>%
   head()
 ```
 
-The benefits to choosing a data `series` is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the [AIMS Weather](https://open-aims.github.io/data-platform/weather) program, we would have to specify additional parameters to ensure the data is as expected.
+The benefits to choosing a data `series` is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d) program, we would have to specify additional parameters to ensure the data is as expected.
 
 Finally our values and filters might look like the following:
 
 Variable  | Value                  | Description
 ----------|------------------------|-------------------------------------------------------
 doi       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://open-aims.github.io/data-platform)
-series    | 64                     | Found [here](https://open-aims.github.io/data-platform/weather/series), Davies Reef Air Temperature data series
+series    | 64                     | Found [here](https://doi.org/10.25845/5c09bf93f315d/series), Davies Reef Air Temperature data series
 from-date | '2018-01-01'           | We want to start charting on 1/1/2018
 thru-date | '2018-01-10'           | We are plotting 10 days of data
 
