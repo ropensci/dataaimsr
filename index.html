@@ -46,12 +46,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -100,13 +94,13 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>dataaimsr</code> is the <strong>AIMS Data Platform R Client</strong>, and will provide you with easy access to data sets from the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
+<p><code>dataaimsr</code> is the <strong>AIMS Data Platform R Client</strong>, and will provide you with easy access to data sets from the <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
 </div>
 <div id="usage-of-aims-data-platform-api-key" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage-of-aims-data-platform-api-key" class="anchor"></a>Usage of AIMS Data Platform API Key</h2>
-<p><strong>AIMS Data Platform</strong> requires an API Key for requests, <a href="https://aims.github.io/data-platform/key-request">get a key here.</a></p>
-<p>The API Key can be passed to the package functions as an additional <code>api_key = 'XXXX'</code> argument, however it is preferred that API Keys are not stored permanently in your machine.</p>
+<p><strong>AIMS Data Platform</strong> requires an API Key for requests, <a href="https://open-aims.github.io/data-platform/key-request">get a key here.</a></p>
+<p>The API Key can be passed to the package functions as an additional <code>api_key = "XXXX"</code> argument, however it is preferred that API Keys are not stored permanently in your machine.</p>
 <p>If the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code> is stored in the user’s <code>.Renviron</code> file then that will be loaded and used automatically. In that case the users <code>.Renviron</code> file might look like:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX</span></code></pre></div>
 <p>The <code>.Renviron</code> file is usually stored in each users home directory.</p>
@@ -154,18 +148,18 @@ Linux / MacOs
 <p>R <code>devtools</code> can be installed using the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</span></code></pre></div>
 <p>After <code>devtools</code> has been installed <code>dataaimsr</code> can be installed directly from GitHub using the following command:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/AIMS/dataaimsr"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/open-AIMS/dataaimsr"</span>)</span></code></pre></div>
 <p>This command will also install 2 dependencies <code>httr</code> and <code>jsonlite</code>.</p>
 </div>
 <div id="available-data-sets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#available-data-sets" class="anchor"></a>Available Data Sets</h2>
-<p>The <strong>AIMS Data Platform API</strong> is a <em>REST API</em> providing <em>JSON</em> formatted data. Documentation about available data sets can be found on the <a href="https://aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
+<p>The <strong>AIMS Data Platform API</strong> is a <em>REST API</em> providing <em>JSON</em> formatted data. Documentation about available data sets can be found on the <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a>.</p>
 </div>
 <div id="further-information" class="section level2">
 <h2 class="hasAnchor">
 <a href="#further-information" class="anchor"></a>Further Information</h2>
-<p>Further information about <code>dataaimsr</code> and the <strong>AIMS Data Platform API</strong> can be seen on the <a href="https://aims.github.io/dataaimsr">project page</a>.</p>
+<p>Further information about <code>dataaimsr</code> and the <strong>AIMS Data Platform API</strong> can be seen on the <a href="https://open-aims.github.io/dataaimsr">project page</a>.</p>
 <p><code>dataaimsr</code> is provided by the <a href="https://www.aims.gov.au">Australian Institute of Marine Science</a> under the MIT License (<a href="http://opensource.org/licenses/MIT">MIT</a>).</p>
 </div>
 <div id="aims-r-package-logos" class="section level2">
@@ -203,10 +197,11 @@ Linux / MacOs
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/AIMS/dataaimsr/actions"><img src="https://github.com/AIMS/dataaimsr/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://github.com/open-AIMS/dataaimsr/actions"><img src="https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://choosealicense.com/"><img src="https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg" alt="license"></a></li>
 <li><a href="commits/master"><img src="https://img.shields.io/badge/Package%20version-1.0.1-orange.svg" alt="packageversion"></a></li>
+<li><a href="https://github.com/open-AIMS/dataaimsr/issues/new"><img src="https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg" alt="Ask Us Anything !"></a></li>
 </ul>
 </div>
 </div>
@@ -218,7 +213,7 @@ Linux / MacOs
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

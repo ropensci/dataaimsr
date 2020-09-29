@@ -89,12 +89,6 @@ a given filter name" />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -141,7 +135,7 @@ to query about the existing possibilities of
 a given filter name</p>
     </div>
 
-    <pre class="usage"><span class='fu'>filter_values</span>(<span class='kw'>doi</span>, <span class='kw'>filter_name</span>)</pre>
+    <pre class="usage"><span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>doi</span>, <span class='va'>filter_name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,15 +168,15 @@ the filter (see Details)</p></td>
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://open-aims.github.io/dataaimsr'>dataaimsr</a></span>)
-<span class='kw'>weather_doi</span>  <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span>(<span class='st'>"weather"</span>)
-<span class='kw'>ssts_doi</span>     <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span>(<span class='st'>"temp_loggers"</span>)
-<span class='fu'>filter_values</span>(<span class='kw'>weather_doi</span>, filter_name = <span class='st'>"sites"</span>)
-<span class='fu'>filter_values</span>(<span class='kw'>weather_doi</span>, filter_name = <span class='st'>"series"</span>)
-<span class='fu'>filter_values</span>(<span class='kw'>weather_doi</span>, filter_name = <span class='st'>"parameters"</span>)
-<span class='fu'>filter_values</span>(<span class='kw'>ssts_doi</span>, filter_name = <span class='st'>"sites"</span>)
-}
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://open-aims.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span>
+<span class='va'>weather_doi</span>  <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"weather"</span><span class='op'>)</span>
+<span class='va'>ssts_doi</span>     <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"sites"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"series"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"parameters"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"sites"</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 </div></pre>
   </div>
@@ -200,7 +194,7 @@ the filter (see Details)</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
