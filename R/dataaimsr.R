@@ -87,6 +87,19 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
   }
 }
 
+base_end_pt <- function(aims_version) {
+  base_end_pt <- getOption("dataaimsr.base_end_point")
+  if (is.na(aims_version)) {
+    aims_version <- getOption("dataaimsr.version")[doi]
+  }
+  if (is.na(aims_version)) {
+    aims_version <- "/v1.0"
+  }
+
+  base_end_pt=paste0(base_end_pt, aims_version)
+  return (base_end_pt)
+}
+
 #' Request data via the AIMS Data Platform API
 #' 
 #' A function that communicates with the 
@@ -146,9 +159,17 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr GET add_headers
-page_data <- function(doi, filters = NULL, api_key = NULL) {
-  base_end_pt <- getOption("dataaimsr.base_end_point")
+page_data <- function(doi, filters = NULL, api_key = NULL, summary=NA, aims_version=NA) {
+  base_end_pt = base_end_pt(aims_version)
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
+  if (!is.na(summary)) {
+    end_pt <- paste(end_pt, summary, sep="/")
+  }
+
+  if (is.null(filters[["size"]])) {
+    filters[["size"]]=10000
+  }
+
   dt_req <- GET(end_pt,
                 add_headers("X-Api-Key" = find_api_key(api_key)),
                 query = filters)
@@ -192,6 +213,9 @@ page_data <- function(doi, filters = NULL, api_key = NULL) {
 #' 
 #' @importFrom httr GET add_headers
 next_page_data <- function(url, api_key = NULL, ...) {
+  url<-URLencode(url)
+  url<-gsub("+", "%2B", url, fixed=TRUE)
+
   dt_req <- GET(url,
                 add_headers("X-Api-Key" = find_api_key(api_key)))
   process_request(dt_req, next_page = TRUE, ...)
@@ -343,8 +367,8 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' 
 #' @export
 #' @importFrom httr GET http_error
-filter_values <- function(doi, filter_name) {
-  base_end_pt <- getOption("dataaimsr.base_end_point")
+filter_values <- function(doi, filter_name, aims_version=NA) {
+  base_end_pt = base_end_pt(aims_version)
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {
@@ -380,10 +404,8 @@ update_format <- function(results, doi) {
     results$links$next_page <- results$links$"next"
     results$links$"next" <- NULL
   }
-  date_format <- getOption("dataaimsr.date_format")[doi]
-  results$results$time <- as.POSIXct(strptime(results$results$time,
-                                              format = date_format,
-                                              tz = "UTC"))
+  if("time" %in% colnames(results$results))
+  results$results$time <- parse_iso_8601(results$results$time)
   names(results)[names(results) == "results"] <- "data"
   results
 }
