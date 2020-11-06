@@ -87,7 +87,7 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
   }
 }
 
-base_end_pt <- function(aims_version) {
+base_end_pt <- function(doi, aims_version) {
   base_end_pt <- getOption("dataaimsr.base_end_point")
   if (is.na(aims_version)) {
     aims_version <- getOption("dataaimsr.version")[doi]
@@ -160,7 +160,7 @@ base_end_pt <- function(aims_version) {
 #' 
 #' @importFrom httr GET add_headers
 page_data <- function(doi, filters = NULL, api_key = NULL, summary=NA, aims_version=NA) {
-  base_end_pt = base_end_pt(aims_version)
+  base_end_pt = base_end_pt(doi,aims_version)
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   if (!is.na(summary)) {
     end_pt <- paste(end_pt, summary, sep="/")
@@ -368,7 +368,7 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' @export
 #' @importFrom httr GET http_error
 filter_values <- function(doi, filter_name, aims_version=NA) {
-  base_end_pt = base_end_pt(aims_version)
+  base_end_pt = base_end_pt(doi, aims_version)
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {
