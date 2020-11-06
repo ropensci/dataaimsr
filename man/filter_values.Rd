@@ -4,7 +4,7 @@
 \alias{filter_values}
 \title{Retrieve existing list of data attributes}
 \usage{
-filter_values(doi, filter_name)
+filter_values(doi, filter_name, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}

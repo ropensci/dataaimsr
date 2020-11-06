@@ -398,6 +398,7 @@ filter_values <- function(doi, filter_name, aims_version=NA) {
 #' \code{data}: an output \code{\link[base]{data.frame}}.
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
+#' @importFrom parsedate parse_iso_8601
 update_format <- function(results, doi) {
   if ("links" %in% names(results) &&
       "next" %in% names(results$links)) {

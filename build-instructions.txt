@@ -1,0 +1,8 @@
+Before you commit changes.
+
+Rebuild the documentation
+roxygen2::roxygenise()
+
+Test the build
+devtools::build(vignettes = TRUE)
+

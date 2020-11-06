@@ -4,7 +4,7 @@
 \alias{page_data}
 \title{Request data via the AIMS Data Platform API}
 \usage{
-page_data(doi, filters = NULL, api_key = NULL)
+page_data(doi, filters = NULL, api_key = NULL, summary = NA, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
