@@ -137,7 +137,19 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
   }
 }
 
-base_end_pt <- function(doi, aims_version) {
+#' Expose available query filters
+#' 
+#' Expose available query filters which are allowed to be parsed either
+#' via argument \code{summary} or \code{filters} in \code{\link{aims_data}}
+#' 
+#' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
+#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' @param aims_version A \code{\link[base]{character}} string
+#' defining the version of database. Must be "/v1.0" or "-v2.0".
+#' If none is provided, then "-v2.0" (the most recent) is used.
+#'
+#' @author AIMS Datacentre \email{adc@aims.gov.au}
+make_base_end_pt <- function(doi, aims_version = NA) {
   base_end_pt <- getOption("dataaimsr.base_end_point")
   if (is.na(aims_version)) {
     aims_version <- getOption("dataaimsr.version")[doi]
@@ -209,7 +221,7 @@ base_end_pt <- function(doi, aims_version) {
 #' @importFrom httr GET add_headers
 page_data <- function(doi, filters = NULL, api_key = NULL,
                       summary = NA, aims_version = NA) {
-  base_end_pt <- base_end_pt(doi, aims_version)
+  base_end_pt <- make_base_end_pt(doi, aims_version)
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   if (!is.na(summary)) {
     end_pt <- paste(end_pt, summary, sep = "/")
