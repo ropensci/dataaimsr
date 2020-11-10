@@ -89,7 +89,7 @@ handle_error <- function(dt_req) {
 #' 
 #' @importFrom httr content
 #' @importFrom jsonlite fromJSON
-json_results  <-  function(dt_req) {
+json_results <- function(dt_req) {
     json_resp <- content(dt_req, "text", encoding = "UTF-8")
     fromJSON(json_resp, simplifyDataFrame = TRUE)
 }
@@ -145,9 +145,7 @@ base_end_pt <- function(doi, aims_version) {
   if (is.na(aims_version)) {
     aims_version <- "/v1.0"
   }
-
-  base_end_pt=paste0(base_end_pt, aims_version)
-  return (base_end_pt)
+  paste0(base_end_pt, aims_version)
 }
 
 #' Request data via the AIMS Data Platform API
@@ -347,8 +345,8 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #'                                       "thru-date" = "2003-01-02"))
 #' 
 #' sdata <- aims_data(ssts_doi,
-#'                        api_key = NULL,
-#'                        filters = list("site-name" = "Bickerton Island"))
+#'                    api_key = NULL,
+#'                    filters = list("site" = "Bickerton Island"))
 #' }
 #' 
 #' @export
@@ -528,12 +526,12 @@ find_api_key <- function(api_key) {
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi  <-  aims_data_doi('weather')
-#' ssts_doi  <-  aims_data_doi('temp_loggers')
+#' weather_doi <- aims_data_doi('weather')
+#' ssts_doi <- aims_data_doi('temp_loggers')
 #' }
 #' 
 #' @export
-aims_data_doi  <-  function(target) {
+aims_data_doi <- function(target) {
   if (!(target %in% c("weather", "temp_loggers"))) {
     stop("Wrong type of data target, only \"weather\"",
          "or \"temp_loggers\" are allowed")
