@@ -417,12 +417,9 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
 #' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
 #' 
-#' @param filter_name A \code{\link[base]{character}} vector containing the name of
-#' the filter (see Details)
-#' 
-#' @details A list of arguments for \code{filters} can be found for both
-#' [Weather](https://aims.github.io/data-platform/weather/index) and 
-#' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
+#' @param filter_name A \code{\link[base]{character}} string containing the name of
+#' the filter. Must be "sites" or "series". It could also be "parameters" for the
+#' weather data (i.e. doi = aims_data_doi("weather")).
 #' 
 #' @return Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
 #' 
@@ -433,18 +430,30 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi  <-  aims_data_doi("weather")
-#' ssts_doi     <-  aims_data_doi("temp_loggers")
+#' weather_doi <- aims_data_doi("weather")
+#' ssts_doi    <- aims_data_doi("temp_loggers")
 #' filter_values(weather_doi, filter_name = "sites")
 #' filter_values(weather_doi, filter_name = "series")
 #' filter_values(weather_doi, filter_name = "parameters")
 #' filter_values(ssts_doi, filter_name = "sites")
+#' filter_values(ssts_doi, filter_name = "series")
 #' }
-#' 
+#'
 #' @export
 #' @importFrom httr GET http_error
-filter_values <- function(doi, filter_name, aims_version=NA) {
-  base_end_pt = base_end_pt(doi, aims_version)
+filter_values <- function(doi, filter_name, aims_version = NA) {
+  if (length(filter_name) > 1) {
+    stop("Argument \"filter_name\" should contain one single value")
+  }
+  sdoi <- aims_data_doi("temp_loggers")
+  if (!filter_name %in% c("sites", "series", "parameters")) {
+    stop("\"filter_name\" must be \"sites\", \"series\"or ",
+         " \"parameters\"")
+  }
+  if (doi == sdoi & filter_name == "parameters") {
+    stop("\"filter_name\" = \"parameters\" only works for weather station doi")
+  }
+  base_end_pt <- make_base_end_pt(doi, aims_version)
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {
