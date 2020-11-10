@@ -2,6 +2,7 @@
 
 export(aims_data)
 export(aims_data_doi)
+export(expose_attributes)
 export(filter_values)
 importFrom(httr,GET)
 importFrom(httr,add_headers)

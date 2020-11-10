@@ -1,3 +1,53 @@
+#' Expose available query filters
+#' 
+#' Expose available query filters which are allowed to be parsed either
+#' via argument \code{summary} or \code{filters} in \code{\link{aims_data}}
+#' 
+#' @param verbose Should explanations be printed to screen? Defaults to TRUE.
+#' @param ... unused.
+#' 
+#' @details Use this function to learn which summary modes and
+#' filters are allowed. The summary option is only available to
+#' the temperature logger data. Future versions will implement the
+#' same feature for the weather station data.
+#' 
+#' @return A \code{\link[base]{list}} of a \code{\link[base]{character}} vector
+#' each: one detailing summary modes, another detailing filters.
+#' 
+#' @author AIMS Datacentre \email{adc@aims.gov.au}
+#' 
+#' @export
+expose_attributes <- function(verbose = TRUE, ...) {
+  if (verbose) {
+    message("summary-by-series = expose summary for all available series;",
+            " a series is a continuing time-series, i.e. a collection of",
+            " deployments measuring the same parameter at the same place.",
+            " For temperature loggers, series is synonymous with sub-site.",
+            " For weather stations, it is the combination of sub-site and",
+            " parameter.\n",
+            "summary-by-deployment = expose summary for all available",
+            " deployments\n",
+            "site = filter by a particular site\n",
+            "subsite = filter by a particular subsite\n",
+            "series = filter by a particular series\n",
+            "size = set a page size for large queries",
+            " (only for the `data` and `data-no-key` endpoints)\n",
+            "min_lat = minimum latitude; used to filter by a lat-lon box\n",
+            "max_lat = maximum latitude; used to filter by a lat-lon box\n",
+            "min_lon = minimum longitude; used to filter by a lat-lon box\n",
+            "max_lon = maximum longitude; used to filter by a lat-lon box\n",
+            "from_date = filter from time (as.Date of format YYYY-MM-DD)\n",
+            "thru_date = filter until time (as.Date of format YYYY-MM-DD)\n",
+            "version = request the data as recorded at a particular time",
+            " (a version history)\n",
+            "cursor = used for pagination on / data")
+  }
+  list(summary = c("summary-by-series", "summary-by-deployment"),
+       filters = c("site", "subsite", "series", "size", "min_lat",
+                   "max_lat", "min_lon", "max_lon", "from_date",
+                   "thru_date", "version", "cursor"))
+}
+
 #' \code{\link[httr]{GET}} error handler
 #' 
 #' Displays error status
@@ -159,17 +209,16 @@ base_end_pt <- function(doi, aims_version) {
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr GET add_headers
-page_data <- function(doi, filters = NULL, api_key = NULL, summary=NA, aims_version=NA) {
-  base_end_pt = base_end_pt(doi,aims_version)
+page_data <- function(doi, filters = NULL, api_key = NULL,
+                      summary = NA, aims_version = NA) {
+  base_end_pt <- base_end_pt(doi, aims_version)
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   if (!is.na(summary)) {
-    end_pt <- paste(end_pt, summary, sep="/")
+    end_pt <- paste(end_pt, summary, sep = "/")
   }
-
   if (is.null(filters[["size"]])) {
-    filters[["size"]]=10000
+    filters[["size"]] <- 10000
   }
-
   dt_req <- GET(end_pt,
                 add_headers("X-Api-Key" = find_api_key(api_key)),
                 query = filters)
@@ -213,9 +262,7 @@ page_data <- function(doi, filters = NULL, api_key = NULL, summary=NA, aims_vers
 #' 
 #' @importFrom httr GET add_headers
 next_page_data <- function(url, api_key = NULL, ...) {
-  url<-URLencode(url)
-  url<-gsub("+", "%2B", url, fixed=TRUE)
-
+  url <- gsub("+", "%2B", URLencode(url), fixed = TRUE)
   dt_req <- GET(url,
                 add_headers("X-Api-Key" = find_api_key(api_key)))
   process_request(dt_req, next_page = TRUE, ...)
@@ -306,6 +353,25 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #' 
 #' @export
 aims_data <- function(doi, filters = NULL, ...) {
+  tl_doi <- aims_data_doi("temp_loggers")
+  allowed <- expose_attributes(verbose = FALSE)
+  add_args <- list(...)
+  if ("summary" %in% names(add_args)) {
+    if (doi != tl_doi) {
+      stop("Argument \"summary\" is currently only available",
+           " for the temperature logger (\"temp_loggers\") dataset")
+    }
+    if (!all(add_args$summary %in% allowed$summary)) {
+      wrong_s <- setdiff(add_args$summary, allowed$summary)
+      stop("summary string \"", paste(wrong_s, sep = "; "),
+           "\" not allowed; please check ?expose_attributes")
+    }
+  }
+  if (!is.null(filters) & !all(names(filters) %in% allowed$filters)) {
+    wrong_f <- setdiff(names(filters), allowed$filters)
+    stop("filter string \"", paste(wrong_f, sep = "; "),
+         "\" not allowed; please check ?expose_attributes")
+  }
   results <- page_data(doi, filters = filters, ...)
   message(results$links)
   next_url <- results$links$next_page
