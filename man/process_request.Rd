@@ -17,11 +17,14 @@ process_request(dt_req, next_page = FALSE, ...)
 \value{
 A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
 containing four elements:
-\code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series;
-\code{citation}: the citation information for the particular dataset;
-\code{links}: the link from which the data query was retrieved;
-\code{data}: an output \code{\link[base]{data.frame}}.
+\itemize{
+\item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series.}
+\item{\code{citation}}{the citation information for the particular
+dataset.}
+\item{\code{links}}{the link from which the data query was retrieved.}
+\item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+}
 }
 \description{
 Wrapper function

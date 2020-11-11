@@ -3,49 +3,87 @@
 #' Expose available query filters which are allowed to be parsed either
 #' via argument \code{summary} or \code{filters} in \code{\link{aims_data}}
 #' 
-#' @param verbose Should explanations be printed to screen? Defaults to TRUE.
-#' @param ... unused.
+#' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' 
 #' @details Use this function to learn which summary modes and
-#' filters are allowed. The summary option is only available to
-#' the temperature logger data. Future versions will implement the
-#' same feature for the weather station data.
+#' filters are allowed.
+#' 
+#' We are working on implementing summary visualisation methods for weather
+#' station data. So, for the moment, the options below are only available
+#' for temperature logger data. Two options are available:
+#' 
+#' \itemize{
+#'    \item{summary-by-series}{Expose summary for all available series;
+#'          a series is a continuing time-series, i.e. a collection of
+#'          deployments measuring the same parameter at the same site.
+#'          For temperature loggers, series is synonymous with sub-site.
+#'          For weather stations, it is the combination of sub-site and
+#'          parameter.}
+#'    \item{summary-by-deployment}{Expose summary for all available
+#'          deployments.}
+#' }
+#' 
+#' Currently we are working on standardising all filter names
+#' across datasets. However, for the moment they might differ depending on
+#' whether the user is downloading temperature logger data or weather station
+#' data. Below the valid parameter names should be read as
+#' temperature-logger / weather-station (NA means that the particular filter
+#' name is not available for the dataset.
+#' 
+#' \itemize{
+#'    \item{site/site-name}{Filter by a particular site.}
+#'    \item{subsite/NA}{Filter by a particular subsite.}
+#'    \item{series/series_name}{Filter by a particular series.}
+#'    \item{parameter/parameter}{Parameter of interest. Only used for weather
+#'          station data.}
+#'    \item{min_lat/min-latitude}{Minimum latitude; used to filter by a lat-lon box.}
+#'    \item{max_lat/max-latitude}{Maximum latitude; used to filter by a lat-lon box.}
+#'    \item{min_lon/min-longitude}{Minimum longitude; used to filter by a lat-lon box.}
+#'    \item{max_lon/max-longitude}{Maximum longitude; used to filter by a lat-lon box.}
+#'    \item{from_date/from-date}{Filter from time (string of format YYYY-MM-DD).}
+#'    \item{thru_date/thru-date}{Filter until time (string of format YYYY-MM-DD).}
+#' }
+#' 
+#' Some additional options for the actual download, which should be passed as additional
+#' arguments to the function,  are:
+#' \itemize{
+#'    \item{size}{Set a page size for large queries
+#'          (only for the `data` and `data-no-key` endpoints).}
+#'    \item{cursor}{Used for pagination on / data").}
+#'    \item{version}{Request the data as recorded at a particular time
+#'          (a version history).}
+#' }
 #' 
 #' @return A \code{\link[base]{list}} of a \code{\link[base]{character}} vector
 #' each: one detailing summary modes, another detailing filters.
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
+#' @examples
+#' \dontrun{
+#' library(dataaimsr)
+#' weather_doi <- aims_data_doi("weather")
+#' ssts_doi <- aims_data_doi("temp_loggers")
+#' expose_attributes(weather_doi)
+#' expose_attributes(ssts_doi)
+#' }
 #' @export
-expose_attributes <- function(verbose = TRUE, ...) {
-  if (verbose) {
-    message("summary-by-series = expose summary for all available series;",
-            " a series is a continuing time-series, i.e. a collection of",
-            " deployments measuring the same parameter at the same place.",
-            " For temperature loggers, series is synonymous with sub-site.",
-            " For weather stations, it is the combination of sub-site and",
-            " parameter.\n",
-            "summary-by-deployment = expose summary for all available",
-            " deployments\n",
-            "site = filter by a particular site\n",
-            "subsite = filter by a particular subsite\n",
-            "series = filter by a particular series\n",
-            "size = set a page size for large queries",
-            " (only for the `data` and `data-no-key` endpoints)\n",
-            "min_lat = minimum latitude; used to filter by a lat-lon box\n",
-            "max_lat = maximum latitude; used to filter by a lat-lon box\n",
-            "min_lon = minimum longitude; used to filter by a lat-lon box\n",
-            "max_lon = maximum longitude; used to filter by a lat-lon box\n",
-            "from_date = filter from time (as.Date of format YYYY-MM-DD)\n",
-            "thru_date = filter until time (as.Date of format YYYY-MM-DD)\n",
-            "version = request the data as recorded at a particular time",
-            " (a version history)\n",
-            "cursor = used for pagination on / data")
+expose_attributes <- function(doi) {
+  w_doi <- aims_data_doi("weather")
+  tl_doi <- aims_data_doi("temp_loggers")
+  if (doi == tl_doi) {
+    list(summary = c("summary-by-series", "summary-by-deployment"),
+         filters = c("site", "subsite", "series", "size", "parameter",
+                     "min_lat", "max_lat", "min_lon", "max_lon",
+                     "from_date", "thru_date", "version", "cursor"))
+  } else if (doi == w_doi) {
+    list(summary = NA,
+         filters = c("site-name", "series", "size", "parameter",
+                     "min-latitude", "max-latitude", "min-longitude",
+                     "max-longitude", "from-date", "thru-date",
+                     "version", "cursor"))
   }
-  list(summary = c("summary-by-series", "summary-by-deployment"),
-       filters = c("site", "subsite", "series", "size", "min_lat",
-                   "max_lat", "min_lon", "max_lon", "from_date",
-                   "thru_date", "version", "cursor"))
 }
 
 #' \code{\link[httr]{GET}} error handler
@@ -79,11 +117,14 @@ handle_error <- function(dt_req) {
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
@@ -111,11 +152,14 @@ json_results <- function(dt_req) {
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
@@ -143,7 +187,7 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
 #' via argument \code{summary} or \code{filters} in \code{\link{aims_data}}
 #' 
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' @param aims_version A \code{\link[base]{character}} string
 #' defining the version of database. Must be "/v1.0" or "-v2.0".
 #' If none is provided, then "-v2.0" (the most recent) is used.
@@ -163,58 +207,63 @@ make_base_end_pt <- function(doi, aims_version = NA) {
 #' Request data via the AIMS Data Platform API
 #' 
 #' A function that communicates with the 
-#' the \href{https://aims.github.io/data-platform}{AIMS Data Platform}
+#' the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
 #' via the AIMS Data Platform API
 #' 
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' 
 #' @param filters A \code{\link[base]{list}} containing a set of 
 #' filters for the data query (see Details)
 #' 
 #' @param api_key An AIMS Data Platform 
-#' \href{https://aims.github.io/data-platform/key-request}{API Key}
+#' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 #' The AIMS Data Platform requires an API Key for requests, which can
-#' be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+#' be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 #' It is preferred that API Keys are not stored in code. We recommend 
 #' storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
 #' permanently under the user's \code{.Renviron} file in order to load
 #' the API Key automatically.
 #' 
 #' There are two types of data currently available through the 
-#' [AIMS Data Platform API](https://aims.github.io/data-platform): 
-#' [Weather](https://aims.github.io/data-platform/weather/index) and 
-#' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
+#' [AIMS Data Platform API](https://open-aims.github.io/data-platform): 
+#' [Weather](https://weather.aims.gov.au/#/overview) and 
+#' [Sea Water Temperature Loggers](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e). 
 #' They are searched internally via unique DOI identifiers which 
 #' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
-#' A list of arguments for \code{filters} can be found for both
-#' [Weather](https://aims.github.io/data-platform/weather/index) and 
-#' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
+#' A list of arguments for \code{filters} can be exposed for both
+#' [Weather](https://weather.aims.gov.au/#/overview) and 
+#' [Sea Water Temperature Loggers](https://weather.aims.gov.au/#/overview)
+#' using function \code{\link{expose_attributes}}.
 #' 
-#' Note that currently \code{from-date} and 
-#' \code{thru-date} cannot be inspected directly, for details about dates
-#' of available different time series can be accessed via Metadata on
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}. Despite
-#' this limitation, these time boundaries are very important because the 
+#' Note that at present the user can inspect the range of dates for
+#' the temperature loggers data only (see usage of argument \code{summary} in
+#' \code{\link{aims_data}}). Details about available dates for each dataset
+#' and time series can be accessed via Metadata on
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+#' We raise this caveat here because these time boundaries are very important;
 #' data are collected at very small time intervals, so just a few days of 
 #' time interval can yield massive datasets. The query will return and error 
 #' if it reaches the system's memory capacity.
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
-#' @seealso \code{\link{filter_values}}, \code{\link{aims_data}}
+#' @seealso \code{\link{expose_attributes}}, \code{\link{filter_values}}, \code{\link{aims_data}}
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
@@ -243,16 +292,16 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
 #' @param url A data retrieval URL
 #' 
 #' @param api_key An AIMS Data Platform 
-#' \href{https://aims.github.io/data-platform/key-request}{API Key}
+#' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' 
 #' @param ... Additional arguments to be passed to internal function
 #' \code{\link{update_format}}
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 #' The AIMS Data Platform requires an API Key for requests, which can
-#' be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+#' be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 #' It is preferred that API Keys are not stored in code. We recommend 
 #' storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
 #' permanently under the user's \code{.Renviron} file in order to load
@@ -260,11 +309,14 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
 #' @seealso \code{\link{filter_values}}, \code{\link{page_data}}, \code{\link{aims_data}}
 #' 
@@ -281,11 +333,11 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #' Request data via the AIMS Data Platform API
 #' 
 #' A function that communicates with the 
-#' the \href{https://aims.github.io/data-platform}{AIMS Data Platform}
+#' the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
 #' via the AIMS Data Platform API
 #' 
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' 
 #' @param filters A \code{\link[base]{list}} containing a set of 
 #' filters for the data query (see Details)
@@ -295,42 +347,47 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 #' The AIMS Data Platform requires an API Key for requests, which can
-#' be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+#' be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 #' It is preferred that API Keys are not stored in code. We recommend 
 #' storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
 #' permanently under the user's \code{.Renviron} file in order to load
-#' the API key automatically.
+#' the API Key automatically.
 #' 
 #' There are two types of data currently available through the 
-#' [AIMS Data Platform API](https://aims.github.io/data-platform): 
-#' [Weather](https://aims.github.io/data-platform/weather/index) and 
-#' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/temperature-loggers/index). 
+#' [AIMS Data Platform API](https://open-aims.github.io/data-platform): 
+#' [Weather](https://weather.aims.gov.au/#/overview) and 
+#' [Sea Water Temperature Loggers](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e). 
 #' They are searched internally via unique DOI identifiers which 
 #' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
 #' 
-#' A list of arguments for \code{filters} can be found for both
-#' [Weather](https://aims.github.io/data-platform/weather/index) and 
-#' [Sea Water Temperature Loggers](https://aims.github.io/data-platform/weather/index).
+#' A list of arguments for \code{filters} can be exposed for both
+#' [Weather](https://weather.aims.gov.au/#/overview) and 
+#' [Sea Water Temperature Loggers](https://weather.aims.gov.au/#/overview)
+#' using function \code{\link{expose_attributes}}.
 #' 
-#' Note that currently \code{from-date} and 
-#' \code{thru-date} cannot be inspected directly, for details about dates
-#' of available different time series can be accessed via Metadata on
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}. Despite
-#' this limitation, these time boundaries are very important because the 
+#' Note that at present the user can inspect the range of dates for
+#' the temperature loggers data only (see usage of argument \code{summary} in
+#' \code{\link{aims_data}}). Details about available dates for each dataset
+#' and time series can be accessed via Metadata on
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+#' We raise this caveat here because these time boundaries are very important;
 #' data are collected at very small time intervals, so just a few days of 
 #' time interval can yield massive datasets. The query will return and error 
 #' if it reaches the system's memory capacity.
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
@@ -339,37 +396,104 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #' library(dataaimsr)
 #' # assumes that user already has API key saved to
 #' # .Renviron
-#' weather_doi  <-  aims_data_doi("weather")
-#' ssts_doi     <-  aims_data_doi("temp_loggers")
 #' 
-#' # 64 corresponds to air temperature from Davies Reef
-#' wdata <- aims_data(weather_doi,
-#'                        api_key = NULL,
-#'                        filters = list("series" = 64,
-#'                                       "from-date" = "2018-01-01",
-#'                                       "thru-date" = "2018-01-10"))
-#'
-#' # Downloads Chlorophyll data from all sites between given time interval
-#' cdata <- aims_data(weather_doi,
-#'                        api_key = NULL,
-#'                        filters = list("parameters" = "Chlorophyll",
-#'                                       "from-date" = "2003-01-01",
-#'                                       "thru-date" = "2003-01-02"))
+#' # first we retrieve the correct DOI
+#' # for each dataset
+#' weather_doi <- aims_data_doi("weather")
+#' ssts_doi <- aims_data_doi("temp_loggers")
 #' 
+#' # first notice that most filter names
+#' # are not the same across datasets
+#' # to discover what is allowed
+#' expose_attributes(weather_doi)
+#' 
+#' # start downloads:
+#' # 1. downloads weather data from
+#' # site Yongala
+#' # within a defined date range
+#' wdata_a <- aims_data(weather_doi,
+#'                      api_key = NULL,
+#'                      filters = list("site-name" = "Yongala",
+#'                                     "from-date" = "2018-01-01",
+#'                                     "thru-date" = "2018-01-02"))$data
+#' 
+#' # 2. downloads weather data from all sites
+#' # under series 64 from Davies Reef
+#' # within a defined date range
+#' # ignores summary argument
+#' wdata_b <- aims_data(weather_doi,
+#'                      api_key = NULL,
+#'                      summary = "summary-by-series",
+#'                      filters = list("series" = 64,
+#'                                     "from-date" = "1991-10-18",
+#'                                     "thru-date" = "1991-10-19"))$data
+#' head(wdata_b)
+#' range(wdata_b$time)
+#' 
+#' # 3. downloads weather data from all sites
+#' # under series 64 from Davies Reef
+#' # within defined date AND time range
+#' wdata_c <- aims_data(weather_doi,
+#'                      api_key = NULL,
+#'                      filters = list("series" = 64,
+#'                                     "from-date" = "1991-10-18T06:00:00",
+#'                                     "thru-date" = "1991-10-18T12:00:00"))$data
+#' 
+#' # 4. downloads all parameters from all sites
+#' # within a defined date range
+#' cdata_a <- aims_data(weather_doi,
+#'                      api_key = NULL,
+#'                      filters = list("from-date" = "2003-01-01",
+#'                                     "thru-date" = "2003-01-02"))$data
+#' # note that there are multiple sites and series
+#' # so in this case, because we did not specify a specific
+#' # parameter, series within sites could differ by both
+#' # parameter and depth
+#' head(cdata_a)
+#' unique(cdata_a[, c("site_name", "series_id", "series_name")])
+#' unique(cdata_a$parameter)
+#' range(cdata_a$time)
+#' 
+#' # 5. downloads chlorophyll from all sites
+#' # within a defined date range
+#' cdata_b <- aims_data(weather_doi,
+#'                      api_key = NULL,
+#'                      filters = list("parameter" = "Chlorophyll",
+#'                                     "from-date" = "2018-01-01",
+#'                                     "thru-date" = "2018-01-02"))$data
+#' # note again that there are multiple sites and series
+#' # however in this case because we did specify a specific
+#' # parameter, series within sites differ by depth only
+#' head(cdata_b)
+#' unique(cdata_b[, c("site_name", "series_id", "series_name", "depth")])
+#' unique(cdata_b$parameter)
+#' range(cdata_b$time)
+#' 
+#' # 6. downloads summarised temperature data
+#' # for all sites
+#' # within a defined date range
 #' sdata <- aims_data(ssts_doi,
 #'                    api_key = NULL,
-#'                    filters = list("site" = "Bickerton Island"))
+#'                    summary = "summary-by-series",
+#'                    filters = list("from_date" = "2018-01-01",
+#'                                   "thru_date" = "2018-12-31"))$data
+#' head(sdata)
+#' unique(sdata$site)
+#' min(sdata$from_date)
+#' max(sdata$thru_date)
 #' }
 #' 
 #' @export
 aims_data <- function(doi, filters = NULL, ...) {
-  tl_doi <- aims_data_doi("temp_loggers")
-  allowed <- expose_attributes(verbose = FALSE)
+  w_doi <- aims_data_doi("weather")
+  allowed <- expose_attributes(doi)
   add_args <- list(...)
   if ("summary" %in% names(add_args)) {
-    if (doi != tl_doi) {
-      stop("Argument \"summary\" is currently only available",
-           " for the temperature logger (\"temp_loggers\") dataset")
+    if (doi == w_doi) {
+      message("Argument \"summary\" is currently only available",
+              " for the temperature logger (\"temp_loggers\") dataset.\n",
+              " Ignoring \"summary\" entry. See details in ?expose_attributes")
+      add_args$summary <- NA
     }
     if (!all(add_args$summary %in% allowed$summary)) {
       wrong_s <- setdiff(add_args$summary, allowed$summary)
@@ -377,12 +501,15 @@ aims_data <- function(doi, filters = NULL, ...) {
            "\" not allowed; please check ?expose_attributes")
     }
   }
-  if (!is.null(filters) & !all(names(filters) %in% allowed$filters)) {
-    wrong_f <- setdiff(names(filters), allowed$filters)
-    stop("filter string \"", paste(wrong_f, sep = "; "),
-         "\" not allowed; please check ?expose_attributes")
+  if (!is.null(filters)) {
+    if (!all(names(filters) %in% allowed$filters)) {
+      wrong_f <- setdiff(names(filters), allowed$filters)
+      stop("filter string \"", paste(wrong_f, sep = "; "),
+           "\" not allowed; please check ?expose_attributes")
+    }
   }
-  results <- page_data(doi, filters = filters, ...)
+  all_args <- c(doi = doi, filters = list(filters), add_args)
+  results <- do.call(page_data, all_args)
   message(results$links)
   next_url <- results$links$next_page
   more_data <- TRUE
@@ -415,7 +542,7 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' a given filter name
 #' 
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' 
 #' @param filter_name A \code{\link[base]{character}} string containing the name of
 #' the filter. Must be "sites" or "series". It could also be "parameters" for the
@@ -431,7 +558,7 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' \dontrun{
 #' library(dataaimsr)
 #' weather_doi <- aims_data_doi("weather")
-#' ssts_doi    <- aims_data_doi("temp_loggers")
+#' ssts_doi <- aims_data_doi("temp_loggers")
 #' filter_values(weather_doi, filter_name = "sites")
 #' filter_values(weather_doi, filter_name = "series")
 #' filter_values(weather_doi, filter_name = "parameters")
@@ -472,15 +599,18 @@ filter_values <- function(doi, filter_name, aims_version = NA) {
 #' generated by \code{\link{json_results}}.
 #' 
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}
+#' for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' 
 #' @return A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}} 
 #' containing four elements: 
-#' \code{metadata}: a \href{https://www.doi.org/}{DOI} link
-#' containing the metadata record for the data series; 
-#' \code{citation}: the citation information for the particular dataset; 
-#' \code{links}: the link from which the data query was retrieved;
-#' \code{data}: an output \code{\link[base]{data.frame}}.
+#' \itemize{
+#'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+#'          containing the metadata record for the data series.}
+#'    \item{\code{citation}}{the citation information for the particular
+#'          dataset.}
+#'    \item{\code{links}}{the link from which the data query was retrieved.}
+#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#' }
 #' 
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' @importFrom parsedate parse_iso_8601
@@ -490,8 +620,9 @@ update_format <- function(results, doi) {
     results$links$next_page <- results$links$"next"
     results$links$"next" <- NULL
   }
-  if("time" %in% colnames(results$results))
-  results$results$time <- parse_iso_8601(results$results$time)
+  if ("time" %in% colnames(results$results)) {
+    results$results$time <- parse_iso_8601(results$results$time)
+  }
   names(results)[names(results) == "results"] <- "data"
   results
 }
@@ -501,13 +632,13 @@ update_format <- function(results, doi) {
 #' This function tries to search for an API Key
 #' 
 #' @param api_key An API Key obtained from
-#' \href{https://aims.github.io/data-platform/key-request}{AIMS DataPlatform}.
+#' \href{https://open-aims.github.io/data-platform/key-request}{AIMS DataPlatform}.
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
-#' \href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 #' The AIMS Data Platform requires an API Key for requests, which can
-#' be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+#' be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 #' It is preferred that API Keys are not stored in code. We recommend 
 #' storing the environment variable `AIMS_DATAPLATFORM_API_KEY` 
 #' permanently under the user's \code{.Renviron} file in order to load
@@ -522,7 +653,7 @@ find_api_key <- function(api_key) {
     r_env_api_key <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
     if (is.null(r_env_api_key)) {
       stop("No API Key could be found, please see",
-           "https://aims.github.io/data-platform/key-request")
+           "https://open-aims.github.io/data-platform/key-request")
     } else {
       r_env_api_key
     }

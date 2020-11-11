@@ -8,10 +8,11 @@ filter_values(doi, filter_name, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}}
+for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
-\item{filter_name}{A \code{\link[base]{character}} vector containing the name of
-the filter (see Details)}
+\item{filter_name}{A \code{\link[base]{character}} string containing the name of
+the filter. Must be "sites" or "series". It could also be "parameters" for the
+weather data (i.e. doi = aims_data_doi("weather")).}
 }
 \value{
 Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
@@ -21,20 +22,16 @@ This is a utility function which allows to user
 to query about the existing possibilities of
 a given filter name
 }
-\details{
-A list of arguments for \code{filters} can be found for both
-\href{https://aims.github.io/data-platform/weather/index}{Weather} and
-\href{https://aims.github.io/data-platform/weather/index}{Sea Water Temperature Loggers}.
-}
 \examples{
 \dontrun{
 library(dataaimsr)
-weather_doi  <-  aims_data_doi("weather")
-ssts_doi     <-  aims_data_doi("temp_loggers")
+weather_doi <- aims_data_doi("weather")
+ssts_doi <- aims_data_doi("temp_loggers")
 filter_values(weather_doi, filter_name = "sites")
 filter_values(weather_doi, filter_name = "series")
 filter_values(weather_doi, filter_name = "parameters")
 filter_values(ssts_doi, filter_name = "sites")
+filter_values(ssts_doi, filter_name = "series")
 }
 
 }

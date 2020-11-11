@@ -8,7 +8,7 @@ aims_data(doi, filters = NULL, ...)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}}
+for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{filters}{A \code{\link[base]{list}} containing a set of
 filters for the data query (see Details)}
@@ -19,45 +19,50 @@ filters for the data query (see Details)}
 \value{
 A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
 containing four elements:
-\code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series;
-\code{citation}: the citation information for the particular dataset;
-\code{links}: the link from which the data query was retrieved;
-\code{data}: an output \code{\link[base]{data.frame}}.
+\itemize{
+\item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series.}
+\item{\code{citation}}{the citation information for the particular
+dataset.}
+\item{\code{links}}{the link from which the data query was retrieved.}
+\item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+}
 }
 \description{
 A function that communicates with the
-the \href{https://aims.github.io/data-platform}{AIMS Data Platform}
+the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
 via the AIMS Data Platform API
 }
 \details{
 The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
-the API key automatically.
+the API Key automatically.
 
 There are two types of data currently available through the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}:
-\href{https://aims.github.io/data-platform/weather/index}{Weather} and
-\href{https://aims.github.io/data-platform/temperature-loggers/index}{Sea Water Temperature Loggers}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}:
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e}{Sea Water Temperature Loggers}.
 They are searched internally via unique DOI identifiers which
 can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 Only one DOI at a time can be passed to the argument \code{doi}.
 
-A list of arguments for \code{filters} can be found for both
-\href{https://aims.github.io/data-platform/weather/index}{Weather} and
-\href{https://aims.github.io/data-platform/weather/index}{Sea Water Temperature Loggers}.
+A list of arguments for \code{filters} can be exposed for both
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://weather.aims.gov.au/#/overview}{Sea Water Temperature Loggers}
+using function \code{\link{expose_attributes}}.
 
-Note that currently \code{from-date} and
-\code{thru-date} cannot be inspected directly, for details about dates
-of available different time series can be accessed via Metadata on
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}. Despite
-this limitation, these time boundaries are very important because the
+Note that at present the user can inspect the range of dates for
+the temperature loggers data only (see usage of argument \code{summary} in
+\code{\link{aims_data}}). Details about available dates for each dataset
+and time series can be accessed via Metadata on
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+We raise this caveat here because these time boundaries are very important;
 data are collected at very small time intervals, so just a few days of
 time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.
@@ -67,26 +72,91 @@ if it reaches the system's memory capacity.
 library(dataaimsr)
 # assumes that user already has API key saved to
 # .Renviron
-weather_doi  <-  aims_data_doi("weather")
-ssts_doi     <-  aims_data_doi("temp_loggers")
 
-# 64 corresponds to air temperature from Davies Reef
-wdata <- aims_data(weather_doi,
-                       api_key = NULL,
-                       filters = list("series" = 64,
-                                      "from-date" = "2018-01-01",
-                                      "thru-date" = "2018-01-10"))
+# first we retrieve the correct DOI
+# for each dataset
+weather_doi <- aims_data_doi("weather")
+ssts_doi <- aims_data_doi("temp_loggers")
 
-# Downloads Chlorophyll data from all sites between given time interval
-cdata <- aims_data(weather_doi,
-                       api_key = NULL,
-                       filters = list("parameters" = "Chlorophyll",
-                                      "from-date" = "2003-01-01",
-                                      "thru-date" = "2003-01-02"))
+# first notice that most filter names
+# are not the same across datasets
+# to discover what is allowed
+expose_attributes(weather_doi)
 
+# start downloads:
+# 1. downloads weather data from
+# site Yongala
+# within a defined date range
+wdata_a <- aims_data(weather_doi,
+                     api_key = NULL,
+                     filters = list("site-name" = "Yongala",
+                                    "from-date" = "2018-01-01",
+                                    "thru-date" = "2018-01-02"))$data
+
+# 2. downloads weather data from all sites
+# under series 64 from Davies Reef
+# within a defined date range
+# ignores summary argument
+wdata_b <- aims_data(weather_doi,
+                     api_key = NULL,
+                     summary = "summary-by-series",
+                     filters = list("series" = 64,
+                                    "from-date" = "1991-10-18",
+                                    "thru-date" = "1991-10-19"))$data
+head(wdata_b)
+range(wdata_b$time)
+
+# 3. downloads weather data from all sites
+# under series 64 from Davies Reef
+# within defined date AND time range
+wdata_c <- aims_data(weather_doi,
+                     api_key = NULL,
+                     filters = list("series" = 64,
+                                    "from-date" = "1991-10-18T06:00:00",
+                                    "thru-date" = "1991-10-18T12:00:00"))$data
+
+# 4. downloads all parameters from all sites
+# within a defined date range
+cdata_a <- aims_data(weather_doi,
+                     api_key = NULL,
+                     filters = list("from-date" = "2003-01-01",
+                                    "thru-date" = "2003-01-02"))$data
+# note that there are multiple sites and series
+# so in this case, because we did not specify a specific
+# parameter, series within sites could differ by both
+# parameter and depth
+head(cdata_a)
+unique(cdata_a[, c("site_name", "series_id", "series_name")])
+unique(cdata_a$parameter)
+range(cdata_a$time)
+
+# 5. downloads chlorophyll from all sites
+# within a defined date range
+cdata_b <- aims_data(weather_doi,
+                     api_key = NULL,
+                     filters = list("parameter" = "Chlorophyll",
+                                    "from-date" = "2018-01-01",
+                                    "thru-date" = "2018-01-02"))$data
+# note again that there are multiple sites and series
+# however in this case because we did specify a specific
+# parameter, series within sites differ by depth only
+head(cdata_b)
+unique(cdata_b[, c("site_name", "series_id", "series_name", "depth")])
+unique(cdata_b$parameter)
+range(cdata_b$time)
+
+# 6. downloads summarised temperature data
+# for all sites
+# within a defined date range
 sdata <- aims_data(ssts_doi,
-                       api_key = NULL,
-                       filters = list("site-name" = "Bickerton Island"))
+                   api_key = NULL,
+                   summary = "summary-by-series",
+                   filters = list("from_date" = "2018-01-01",
+                                  "thru_date" = "2018-12-31"))$data
+head(sdata)
+unique(sdata$site)
+min(sdata$from_date)
+max(sdata$thru_date)
 }
 
 }

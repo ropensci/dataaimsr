@@ -8,62 +8,67 @@ page_data(doi, filters = NULL, api_key = NULL, summary = NA, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://aims.github.io/data-platform}{AIMS data series}}
+for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{filters}{A \code{\link[base]{list}} containing a set of
 filters for the data query (see Details)}
 
 \item{api_key}{An AIMS Data Platform
-\href{https://aims.github.io/data-platform/key-request}{API Key}}
+\href{https://open-aims.github.io/data-platform/key-request}{API Key}}
 }
 \value{
 A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
 containing four elements:
-\code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series;
-\code{citation}: the citation information for the particular dataset;
-\code{links}: the link from which the data query was retrieved;
-\code{data}: an output \code{\link[base]{data.frame}}.
+\itemize{
+\item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series.}
+\item{\code{citation}}{the citation information for the particular
+dataset.}
+\item{\code{links}}{the link from which the data query was retrieved.}
+\item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+}
 }
 \description{
 A function that communicates with the
-the \href{https://aims.github.io/data-platform}{AIMS Data Platform}
+the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
 via the AIMS Data Platform API
 }
 \details{
 The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
 the API Key automatically.
 
 There are two types of data currently available through the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}:
-\href{https://aims.github.io/data-platform/weather/index}{Weather} and
-\href{https://aims.github.io/data-platform/temperature-loggers/index}{Sea Water Temperature Loggers}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}:
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e}{Sea Water Temperature Loggers}.
 They are searched internally via unique DOI identifiers which
 can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 Only one DOI at a time can be passed to the argument \code{doi}.
 
-A list of arguments for \code{filters} can be found for both
-\href{https://aims.github.io/data-platform/weather/index}{Weather} and
-\href{https://aims.github.io/data-platform/weather/index}{Sea Water Temperature Loggers}.
+A list of arguments for \code{filters} can be exposed for both
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://weather.aims.gov.au/#/overview}{Sea Water Temperature Loggers}
+using function \code{\link{expose_attributes}}.
 
-Note that currently \code{from-date} and
-\code{thru-date} cannot be inspected directly, for details about dates
-of available different time series can be accessed via Metadata on
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}. Despite
-this limitation, these time boundaries are very important because the
+Note that at present the user can inspect the range of dates for
+the temperature loggers data only (see usage of argument \code{summary} in
+\code{\link{aims_data}}). Details about available dates for each dataset
+and time series can be accessed via Metadata on
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+We raise this caveat here because these time boundaries are very important;
 data are collected at very small time intervals, so just a few days of
 time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.
 }
 \seealso{
-\code{\link{filter_values}}, \code{\link{aims_data}}
+\code{\link{expose_attributes}}, \code{\link{filter_values}}, \code{\link{aims_data}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

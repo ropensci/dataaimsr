@@ -4,12 +4,11 @@
 \alias{expose_attributes}
 \title{Expose available query filters}
 \usage{
-expose_attributes(verbose = TRUE, ...)
+expose_attributes(doi)
 }
 \arguments{
-\item{verbose}{Should explanations be printed to screen? Defaults to TRUE.}
-
-\item{...}{unused.}
+\item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
+for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 }
 \value{
 A \code{\link[base]{list}} of a \code{\link[base]{character}} vector
@@ -21,9 +20,62 @@ via argument \code{summary} or \code{filters} in \code{\link{aims_data}}
 }
 \details{
 Use this function to learn which summary modes and
-filters are allowed. The summary option is only available to
-the temperature logger data. Future versions will implement the
-same feature for the weather station data.
+filters are allowed.
+
+We are working on implementing summary visualisation methods for weather
+station data. So, for the moment, the options below are only available
+for temperature logger data. Two options are available:
+
+\itemize{
+\item{summary-by-series}{Expose summary for all available series;
+a series is a continuing time-series, i.e. a collection of
+deployments measuring the same parameter at the same site.
+For temperature loggers, series is synonymous with sub-site.
+For weather stations, it is the combination of sub-site and
+parameter.}
+\item{summary-by-deployment}{Expose summary for all available
+deployments.}
+}
+
+Currently we are working on standardising all filter names
+across datasets. However, for the moment they might differ depending on
+whether the user is downloading temperature logger data or weather station
+data. Below the valid parameter names should be read as
+temperature-logger / weather-station (NA means that the particular filter
+name is not available for the dataset.
+
+\itemize{
+\item{site/site-name}{Filter by a particular site.}
+\item{subsite/NA}{Filter by a particular subsite.}
+\item{series/series_name}{Filter by a particular series.}
+\item{parameter/parameter}{Parameter of interest. Only used for weather
+station data.}
+\item{min_lat/min-latitude}{Minimum latitude; used to filter by a lat-lon box.}
+\item{max_lat/max-latitude}{Maximum latitude; used to filter by a lat-lon box.}
+\item{min_lon/min-longitude}{Minimum longitude; used to filter by a lat-lon box.}
+\item{max_lon/max-longitude}{Maximum longitude; used to filter by a lat-lon box.}
+\item{from_date/from-date}{Filter from time (string of format YYYY-MM-DD).}
+\item{thru_date/thru-date}{Filter until time (string of format YYYY-MM-DD).}
+}
+
+Some additional options for the actual download, which should be passed as additional
+arguments to the function,  are:
+\itemize{
+\item{size}{Set a page size for large queries
+(only for the \code{data} and \code{data-no-key} endpoints).}
+\item{cursor}{Used for pagination on / data").}
+\item{version}{Request the data as recorded at a particular time
+(a version history).}
+}
+}
+\examples{
+\dontrun{
+library(dataaimsr)
+weather_doi <- aims_data_doi("weather")
+ssts_doi <- aims_data_doi("temp_loggers")
+expose_attributes(weather_doi)
+expose_attributes(ssts_doi)
+}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

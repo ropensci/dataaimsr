@@ -58,7 +58,7 @@ There are two types of data programs currently available through the [AIMS Data 
 For the purposes of this example, we will query the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found [here](https://doi.org/10.25845/5c09bf93f315d/index). We recommend exploring the parameter `series`:
 
 ```{r}
-weather_doi  <-  aims_data_doi("weather")
+weather_doi <- aims_data_doi("weather")
 filter_values(weather_doi, filter_name = "series") %>%
   head()
 ```

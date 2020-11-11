@@ -10,7 +10,7 @@ next_page_data(url, api_key = NULL, ...)
 \item{url}{A data retrieval URL}
 
 \item{api_key}{An AIMS Data Platform
-\href{https://aims.github.io/data-platform/key-request}{API Key}}
+\href{https://open-aims.github.io/data-platform/key-request}{API Key}}
 
 \item{...}{Additional arguments to be passed to internal function
 \code{\link{update_format}}}
@@ -18,11 +18,14 @@ next_page_data(url, api_key = NULL, ...)
 \value{
 A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
 containing four elements:
-\code{metadata}: a \href{https://www.doi.org/}{DOI} link
-containing the metadata record for the data series;
-\code{citation}: the citation information for the particular dataset;
-\code{links}: the link from which the data query was retrieved;
-\code{data}: an output \code{\link[base]{data.frame}}.
+\itemize{
+\item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
+containing the metadata record for the data series.}
+\item{\code{citation}}{the citation information for the particular
+dataset.}
+\item{\code{links}}{the link from which the data query was retrieved.}
+\item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+}
 }
 \description{
 Similar to \code{\link{page_data}}, but for cases
@@ -31,9 +34,9 @@ where there are multiple URLs for data retrieval
 \details{
 The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load

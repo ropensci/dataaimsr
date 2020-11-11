@@ -21,8 +21,8 @@ Returns DOI for a given dataset
 \examples{
 \dontrun{
 library(dataaimsr)
-weather_doi  <-  aims_data_doi('weather')
-ssts_doi  <-  aims_data_doi('temp_loggers')
+weather_doi <- aims_data_doi('weather')
+ssts_doi <- aims_data_doi('temp_loggers')
 }
 
 }

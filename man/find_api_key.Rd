@@ -8,7 +8,7 @@ find_api_key(api_key)
 }
 \arguments{
 \item{api_key}{An API Key obtained from
-\href{https://aims.github.io/data-platform/key-request}{AIMS DataPlatform}.}
+\href{https://open-aims.github.io/data-platform/key-request}{AIMS DataPlatform}.}
 }
 \value{
 Either a \code{\link[base]{character}} vector API Key found
@@ -20,9 +20,9 @@ This function tries to search for an API Key
 \details{
 The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-\href{https://aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://aims.github.io/data-platform/key-request}{link}.
+be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
