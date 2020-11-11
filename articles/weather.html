@@ -122,7 +122,7 @@
 <li>Use the Rpackage <code>ggplot2</code> to create a time-series chart</li>
 </ol>
 <p>There are two types of data programs currently available through the <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a>: <a href="https://doi.org/10.25845/5c09bf93f315d">Weather</a>, which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a>, which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.</p>
-<p>For the purposes of this example, we will query the <a href="https://doi.org/10.25845/5c09bf93f315d">AIMS Weather</a>. To explore this data program, we use the function <code>filter_values</code>. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found <a href="https://doi.org/10.25845/5c09bf93f315d/index">here</a>. We recommend exploring the parameter <code>series</code>:</p>
+<p>For the purposes of this example, we will query the <a href="https://doi.org/10.25845/5c09bf93f315d">AIMS Weather</a>. To explore this data program, we use the function <code>filter_values</code>. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For all data sets, a list of available filter parameters can be found with the function <code>expose_attributes</code>. We recommend exploring the parameter <code>series</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">weather_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/filter_values.html">filter_values</a></span><span class="op">(</span><span class="va">weather_doi</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -159,7 +159,7 @@
 <tr class="even">
 <td>series</td>
 <td>64</td>
-<td>Found <a href="https://doi.org/10.25845/5c09bf93f315d/series">here</a>, Davies Reef Air Temperature data series</td>
+<td>Found <a href="https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e">here</a>, Davies Reef Air Temperature data series</td>
 </tr>
 <tr class="odd">
 <td>from-date</td>

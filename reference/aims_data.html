@@ -283,8 +283,12 @@ if it reaches the system's memory capacity.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>cdata_b</span><span class='op'>$</span><span class='va'>time</span><span class='op'>)</span>
 
 <span class='co'># 6. downloads summarised temperature data</span>
-<span class='co'># for all sites</span>
-<span class='co'># within a defined date range</span>
+<span class='co'># for all sites that contain data</span>
+<span class='co'># within a defined date range; note that</span>
+<span class='co'># from_date and thru_date column in the output</span>
+<span class='co'># contain the entire coverage of the series</span>
+<span class='co'># and does not necessarily correspond to the</span>
+<span class='co'># input from_date and thru_date</span>
 <span class='va'>sdata</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>ssts_doi</span>,
                    api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
                    summary <span class='op'>=</span> <span class='st'>"summary-by-series"</span>,
