@@ -278,7 +278,7 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
     end_pt <- paste(end_pt, summary, sep = "/")
   }
   if (is.null(filters[["size"]])) {
-    filters[["size"]] <- 10000
+    filters[["size"]] <- 1000
   }
   dt_req <- GET(end_pt,
                 add_headers("X-Api-Key" = find_api_key(api_key)),
