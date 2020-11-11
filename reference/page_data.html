@@ -135,7 +135,14 @@ the <a href='https://open-aims.github.io/data-platform'>AIMS Data Platform</a>
 via the AIMS Data Platform API</p>
     </div>
 
-    <pre class="usage"><span class='fu'>page_data</span><span class='op'>(</span><span class='va'>doi</span>, filters <span class='op'>=</span> <span class='cn'>NULL</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>, summary <span class='op'>=</span> <span class='cn'>NA</span>, aims_version <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>page_data</span><span class='op'>(</span>
+  <span class='va'>doi</span>,
+  filters <span class='op'>=</span> <span class='cn'>NULL</span>,
+  api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+  summary <span class='op'>=</span> <span class='cn'>NA</span>,
+  aims_version <span class='op'>=</span> <span class='cn'>NA</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,6 +161,10 @@ filters for the data query (see Details)</p></td>
       <th>api_key</th>
       <td><p>An AIMS Data Platform
 <a href='https://open-aims.github.io/data-platform/key-request'>API Key</a></p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Should links be printed to screen? Used for debugging only</p></td>
     </tr>
     </table>
 
