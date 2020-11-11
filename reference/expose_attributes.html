@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Format json_results output — process_request • dataaimsr</title>
+<title>Expose available query filters — expose_attributes • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Format json_results output — process_request" />
-<meta property="og:description" content="Wrapper function" />
+<meta property="og:title" content="Expose available query filters — expose_attributes" />
+<meta property="og:description" content="Expose available query filters which are allowed to be parsed either
+via argument summary or filters in aims_data" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -122,56 +123,92 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Format <code><a href='json_results.html'>json_results</a></code> output</h1>
+    <h1>Expose available query filters</h1>
     <small class="dont-index">Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
-    <div class="hidden name"><code>process_request.Rd</code></div>
+    <div class="hidden name"><code>expose_attributes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Wrapper function</p>
+    <p>Expose available query filters which are allowed to be parsed either
+via argument <code>summary</code> or <code>filters</code> in <code><a href='aims_data.html'>aims_data</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>process_request</span><span class='op'>(</span><span class='va'>dt_req</span>, next_page <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>expose_attributes</span><span class='op'>(</span><span class='va'>doi</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dt_req</th>
-      <td><p>An URL <code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code> output</p></td>
-    </tr>
-    <tr>
-      <th>next_page</th>
-      <td><p>Logical. Is this a multi-url request?</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments to be passed to internal function
-<code><a href='update_format.html'>update_format</a></code></p></td>
+      <th>doi</th>
+      <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
+for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
-containing four elements:</p><ul>
-<li><p><code>metadata</code>a <a href='https://www.doi.org/'>DOI</a> link
-containing the metadata record for the data series.</p></li>
-<li><p><code>citation</code>the citation information for the particular
-dataset.</p></li>
-<li><p><code>links</code>the link from which the data query was retrieved.</p></li>
-<li><p><code>data</code>an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p></li>
-</ul>
-
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector
+each: one detailing summary modes, another detailing filters.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function checks for errors in <code>dt_req</code>
-data request and processes result via
-<code><a href='json_results.html'>json_results</a></code>.</p>
+    <p>Use this function to learn which summary modes and
+filters are allowed.</p>
+<p>We are working on implementing summary visualisation methods for weather
+station data. So, for the moment, the options below are only available
+for temperature logger data. Two options are available:</p>
+<ul>
+<li><p>summary-by-seriesExpose summary for all available series;
+a series is a continuing time-series, i.e. a collection of
+deployments measuring the same parameter at the same site.
+For temperature loggers, series is synonymous with sub-site.
+For weather stations, it is the combination of sub-site and
+parameter.</p></li>
+<li><p>summary-by-deploymentExpose summary for all available
+deployments.</p></li>
+</ul>
+
+<p>Currently we are working on standardising all filter names
+across datasets. However, for the moment they might differ depending on
+whether the user is downloading temperature logger data or weather station
+data. Below the valid parameter names should be read as
+temperature-logger / weather-station (NA means that the particular filter
+name is not available for the dataset.</p>
+<ul>
+<li><p>site/site-nameFilter by a particular site.</p></li>
+<li><p>subsite/NAFilter by a particular subsite.</p></li>
+<li><p>series/series_nameFilter by a particular series.</p></li>
+<li><p>parameter/parameterParameter of interest. Only used for weather
+station data.</p></li>
+<li><p>min_lat/min-latitudeMinimum latitude; used to filter by a lat-lon box.</p></li>
+<li><p>max_lat/max-latitudeMaximum latitude; used to filter by a lat-lon box.</p></li>
+<li><p>min_lon/min-longitudeMinimum longitude; used to filter by a lat-lon box.</p></li>
+<li><p>max_lon/max-longitudeMaximum longitude; used to filter by a lat-lon box.</p></li>
+<li><p>from_date/from-dateFilter from time (string of format YYYY-MM-DD).</p></li>
+<li><p>thru_date/thru-dateFilter until time (string of format YYYY-MM-DD).</p></li>
+</ul>
+
+<p>Some additional options for the actual download, which should be passed as additional
+arguments to the function,  are:</p><ul>
+<li><p>sizeSet a page size for large queries
+(only for the <code>data</code> and <code>data-no-key</code> endpoints).</p></li>
+<li><p>cursorUsed for pagination on / data").</p></li>
+<li><p>versionRequest the data as recorded at a particular time
+(a version history).</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://open-aims.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span>
+<span class='va'>weather_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"weather"</span><span class='op'>)</span>
+<span class='va'>ssts_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span><span class='op'>)</span>
+<span class='fu'>expose_attributes</span><span class='op'>(</span><span class='va'>weather_doi</span><span class='op'>)</span>
+<span class='fu'>expose_attributes</span><span class='op'>(</span><span class='va'>ssts_doi</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

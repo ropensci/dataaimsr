@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • dataaimsr</title>
+<title>Expose available query filters — make_base_end_pt • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Expose available query filters — make_base_end_pt" />
+<meta property="og:description" content="Expose available query filters which are allowed to be parsed either
+via argument summary or filters in aims_data" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -119,108 +121,41 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Expose available query filters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
+    <div class="hidden name"><code>make_base_end_pt.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Expose available query filters which are allowed to be parsed either
+via argument <code>summary</code> or <code>filters</code> in <code><a href='aims_data.html'>aims_data</a></code></p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>make_base_end_pt</span><span class='op'>(</span><span class='va'>doi</span>, aims_version <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="aims_data.html">aims_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="aims_data_doi.html">aims_data_doi()</a></code> </p>
-        </td>
-        <td><p>AIMS Dataset DOI retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="expose_attributes.html">expose_attributes()</a></code> </p>
-        </td>
-        <td><p>Expose available query filters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="filter_values.html">filter_values()</a></code> </p>
-        </td>
-        <td><p>Retrieve existing list of data attributes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="find_api_key.html">find_api_key()</a></code> </p>
-        </td>
-        <td><p>AIMS API Key retriever</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="handle_error.html">handle_error()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code> error handler</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="json_results.html">json_results()</a></code> </p>
-        </td>
-        <td><p><code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> data request</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_base_end_pt.html">make_base_end_pt()</a></code> </p>
-        </td>
-        <td><p>Expose available query filters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="next_page_data.html">next_page_data()</a></code> </p>
-        </td>
-        <td><p>Further data requests via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="page_data.html">page_data()</a></code> </p>
-        </td>
-        <td><p>Request data via the AIMS Data Platform API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="process_request.html">process_request()</a></code> </p>
-        </td>
-        <td><p>Format <code>json_results</code> output</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update_format.html">update_format()</a></code> </p>
-        </td>
-        <td><p>Format <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> output list</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>doi</th>
+      <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
+for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
+    </tr>
+    <tr>
+      <th>aims_version</th>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string
+defining the version of database. Must be "/v1.0" or "-v2.0".
+If none is provided, then "-v2.0" (the most recent) is used.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

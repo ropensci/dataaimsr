@@ -124,7 +124,7 @@
 <p>There are two types of data programs currently available through the <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a>: <a href="https://doi.org/10.25845/5c09bf93f315d">Weather</a>, which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a>, which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.</p>
 <p>For the purposes of this example, we will query the <a href="https://doi.org/10.25845/5c09bf93f315d">AIMS Weather</a>. To explore this data program, we use the function <code>filter_values</code>. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For the Weather data sets, a list of available filter parameters can be found <a href="https://doi.org/10.25845/5c09bf93f315d/index">here</a>. We recommend exploring the parameter <code>series</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">weather_doi</span>  <span class="op">&lt;-</span>  <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">weather_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/filter_values.html">filter_values</a></span><span class="op">(</span><span class="va">weather_doi</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>##   series_id
@@ -220,8 +220,8 @@
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">citation</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="va">unlist</span> <span class="op">%&gt;%</span>
   <span class="va">unname</span></code></pre></div>
-<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 6 November 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
-## [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 6 November 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</code></pre>
+<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 11 November 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
+## [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 11 November 2020.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</code></pre>
 </div>
   </div>
 

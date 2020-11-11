@@ -131,7 +131,7 @@ via the AIMS Data Platform API" />
 
     <div class="ref-description">
     <p>A function that communicates with the
-the <a href='https://aims.github.io/data-platform'>AIMS Data Platform</a>
+the <a href='https://open-aims.github.io/data-platform'>AIMS Data Platform</a>
 via the AIMS Data Platform API</p>
     </div>
 
@@ -143,7 +143,7 @@ via the AIMS Data Platform API</p>
     <tr>
       <th>doi</th>
       <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
-for a chosen <a href='https://aims.github.io/data-platform'>AIMS data series</a></p></td>
+for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
     </tr>
     <tr>
       <th>filters</th>
@@ -160,38 +160,43 @@ filters for the data query (see Details)</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
-containing four elements:
-<code>metadata</code>: a <a href='https://www.doi.org/'>DOI</a> link
-containing the metadata record for the data series;
-<code>citation</code>: the citation information for the particular dataset;
-<code>links</code>: the link from which the data query was retrieved;
-<code>data</code>: an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p>
+containing four elements:</p><ul>
+<li><p><code>metadata</code>a <a href='https://www.doi.org/'>DOI</a> link
+containing the metadata record for the data series.</p></li>
+<li><p><code>citation</code>the citation information for the particular
+dataset.</p></li>
+<li><p><code>links</code>the link from which the data query was retrieved.</p></li>
+<li><p><code>data</code>an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>.
+<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this <a href='https://aims.github.io/data-platform/key-request'>link</a>.
+be obtained at this <a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
 permanently under the user's <code>.Renviron</code> file in order to load
-the API key automatically.</p>
+the API Key automatically.</p>
 <p>There are two types of data currently available through the
-<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>:
-<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
-<a href='https://aims.github.io/data-platform/temperature-loggers/index'>Sea Water Temperature Loggers</a>.
+<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>:
+<a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
+<a href='https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e'>Sea Water Temperature Loggers</a>.
 They are searched internally via unique DOI identifiers which
 can be obtained by the function <code><a href='aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
 Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
-<p>A list of arguments for <code>filters</code> can be found for both
-<a href='https://aims.github.io/data-platform/weather/index'>Weather</a> and
-<a href='https://aims.github.io/data-platform/weather/index'>Sea Water Temperature Loggers</a>.</p>
-<p>Note that currently <code>from-date</code> and
-<code>thru-date</code> cannot be inspected directly, for details about dates
-of available different time series can be accessed via Metadata on
-<a href='https://aims.github.io/data-platform'>AIMS Data Platform API</a>. Despite
-this limitation, these time boundaries are very important because the
+<p>A list of arguments for <code>filters</code> can be exposed for both
+<a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
+<a href='https://weather.aims.gov.au/#/overview'>Sea Water Temperature Loggers</a>
+using function <code><a href='expose_attributes.html'>expose_attributes</a></code>.</p>
+<p>Note that at present the user can inspect the range of dates for
+the temperature loggers data only (see usage of argument <code>summary</code> in
+<code>aims_data</code>). Details about available dates for each dataset
+and time series can be accessed via Metadata on
+<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
+We raise this caveat here because these time boundaries are very important;
 data are collected at very small time intervals, so just a few days of
 time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
@@ -204,26 +209,91 @@ if it reaches the system's memory capacity.</p>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://open-aims.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span>
 <span class='co'># assumes that user already has API key saved to</span>
 <span class='co'># .Renviron</span>
-<span class='va'>weather_doi</span>  <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"weather"</span><span class='op'>)</span>
-<span class='va'>ssts_doi</span>     <span class='op'>&lt;-</span>  <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span><span class='op'>)</span>
 
-<span class='co'># 64 corresponds to air temperature from Davies Reef</span>
-<span class='va'>wdata</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
-                       api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-                       filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"series"</span> <span class='op'>=</span> <span class='fl'>64</span>,
-                                      <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,
-                                      <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-10"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># first we retrieve the correct DOI</span>
+<span class='co'># for each dataset</span>
+<span class='va'>weather_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"weather"</span><span class='op'>)</span>
+<span class='va'>ssts_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span><span class='op'>)</span>
 
-<span class='co'># Downloads Chlorophyll data from all sites between given time interval</span>
-<span class='va'>cdata</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
-                       api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-                       filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"parameters"</span> <span class='op'>=</span> <span class='st'>"Chlorophyll"</span>,
-                                      <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"2003-01-01"</span>,
-                                      <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"2003-01-02"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># first notice that most filter names</span>
+<span class='co'># are not the same across datasets</span>
+<span class='co'># to discover what is allowed</span>
+<span class='fu'><a href='expose_attributes.html'>expose_attributes</a></span><span class='op'>(</span><span class='va'>weather_doi</span><span class='op'>)</span>
 
+<span class='co'># start downloads:</span>
+<span class='co'># 1. downloads weather data from</span>
+<span class='co'># site Yongala</span>
+<span class='co'># within a defined date range</span>
+<span class='va'>wdata_a</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
+                     api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                     filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"site-name"</span> <span class='op'>=</span> <span class='st'>"Yongala"</span>,
+                                    <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,
+                                    <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-02"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+
+<span class='co'># 2. downloads weather data from all sites</span>
+<span class='co'># under series 64 from Davies Reef</span>
+<span class='co'># within a defined date range</span>
+<span class='co'># ignores summary argument</span>
+<span class='va'>wdata_b</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
+                     api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                     summary <span class='op'>=</span> <span class='st'>"summary-by-series"</span>,
+                     filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"series"</span> <span class='op'>=</span> <span class='fl'>64</span>,
+                                    <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"1991-10-18"</span>,
+                                    <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"1991-10-19"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>wdata_b</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>wdata_b</span><span class='op'>$</span><span class='va'>time</span><span class='op'>)</span>
+
+<span class='co'># 3. downloads weather data from all sites</span>
+<span class='co'># under series 64 from Davies Reef</span>
+<span class='co'># within defined date AND time range</span>
+<span class='va'>wdata_c</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
+                     api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                     filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"series"</span> <span class='op'>=</span> <span class='fl'>64</span>,
+                                    <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"1991-10-18T06:00:00"</span>,
+                                    <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"1991-10-18T12:00:00"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+
+<span class='co'># 4. downloads all parameters from all sites</span>
+<span class='co'># within a defined date range</span>
+<span class='va'>cdata_a</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
+                     api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                     filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"2003-01-01"</span>,
+                                    <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"2003-01-02"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+<span class='co'># note that there are multiple sites and series</span>
+<span class='co'># so in this case, because we did not specify a specific</span>
+<span class='co'># parameter, series within sites could differ by both</span>
+<span class='co'># parameter and depth</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cdata_a</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>cdata_a</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"site_name"</span>, <span class='st'>"series_id"</span>, <span class='st'>"series_name"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>cdata_a</span><span class='op'>$</span><span class='va'>parameter</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>cdata_a</span><span class='op'>$</span><span class='va'>time</span><span class='op'>)</span>
+
+<span class='co'># 5. downloads chlorophyll from all sites</span>
+<span class='co'># within a defined date range</span>
+<span class='va'>cdata_b</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>weather_doi</span>,
+                     api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                     filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"parameter"</span> <span class='op'>=</span> <span class='st'>"Chlorophyll"</span>,
+                                    <span class='st'>"from-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,
+                                    <span class='st'>"thru-date"</span> <span class='op'>=</span> <span class='st'>"2018-01-02"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+<span class='co'># note again that there are multiple sites and series</span>
+<span class='co'># however in this case because we did specify a specific</span>
+<span class='co'># parameter, series within sites differ by depth only</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>cdata_b</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>cdata_b</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"site_name"</span>, <span class='st'>"series_id"</span>, <span class='st'>"series_name"</span>, <span class='st'>"depth"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>cdata_b</span><span class='op'>$</span><span class='va'>parameter</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>cdata_b</span><span class='op'>$</span><span class='va'>time</span><span class='op'>)</span>
+
+<span class='co'># 6. downloads summarised temperature data</span>
+<span class='co'># for all sites</span>
+<span class='co'># within a defined date range</span>
 <span class='va'>sdata</span> <span class='op'>&lt;-</span> <span class='fu'>aims_data</span><span class='op'>(</span><span class='va'>ssts_doi</span>,
-                       api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-                       filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"site-name"</span> <span class='op'>=</span> <span class='st'>"Bickerton Island"</span><span class='op'>)</span><span class='op'>)</span>
+                   api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
+                   summary <span class='op'>=</span> <span class='st'>"summary-by-series"</span>,
+                   filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"from_date"</span> <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,
+                                  <span class='st'>"thru_date"</span> <span class='op'>=</span> <span class='st'>"2018-12-31"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>$</span><span class='va'>data</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>sdata</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>sdata</span><span class='op'>$</span><span class='va'>site</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>sdata</span><span class='op'>$</span><span class='va'>from_date</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>sdata</span><span class='op'>$</span><span class='va'>thru_date</span><span class='op'>)</span>
 <span class='op'>}</span>
 
 </div></pre>
