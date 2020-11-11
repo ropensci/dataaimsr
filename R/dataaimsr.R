@@ -219,6 +219,8 @@ make_base_end_pt <- function(doi, aims_version = NA) {
 #' @param api_key An AIMS Data Platform 
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' 
+#' @param verbose Should links be printed to screen? Used for debugging only
+#' 
 #' @details The AIMS Data Platform R Client provides easy access to 
 #' data sets for R applications to the 
 #' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
@@ -269,7 +271,7 @@ make_base_end_pt <- function(doi, aims_version = NA) {
 #' 
 #' @importFrom httr GET add_headers
 page_data <- function(doi, filters = NULL, api_key = NULL,
-                      summary = NA, aims_version = NA) {
+                      summary = NA, aims_version = NA, verbose = FALSE) {
   base_end_pt <- make_base_end_pt(doi, aims_version)
   end_pt <- paste(base_end_pt, doi, "data", sep = "/")
   if (!is.na(summary)) {
@@ -281,6 +283,10 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
   dt_req <- GET(end_pt,
                 add_headers("X-Api-Key" = find_api_key(api_key)),
                 query = filters)
+  if (verbose) {
+    message(end_pt)
+    message(dt_req)
+  }
   process_request(dt_req, doi = doi)
 }
 

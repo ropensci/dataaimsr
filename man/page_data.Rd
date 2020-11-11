@@ -4,7 +4,14 @@
 \alias{page_data}
 \title{Request data via the AIMS Data Platform API}
 \usage{
-page_data(doi, filters = NULL, api_key = NULL, summary = NA, aims_version = NA)
+page_data(
+  doi,
+  filters = NULL,
+  api_key = NULL,
+  summary = NA,
+  aims_version = NA,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
@@ -15,6 +22,8 @@ filters for the data query (see Details)}
 
 \item{api_key}{An AIMS Data Platform
 \href{https://open-aims.github.io/data-platform/key-request}{API Key}}
+
+\item{verbose}{Should links be printed to screen? Used for debugging only}
 }
 \value{
 A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
