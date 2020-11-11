@@ -23,6 +23,13 @@ filters for the data query (see Details)}
 \item{api_key}{An AIMS Data Platform
 \href{https://open-aims.github.io/data-platform/key-request}{API Key}}
 
+\item{summary}{Should summary tables be printed instead of full data?
+Details in ?\code{\link{expose_attributes}}}
+
+\item{aims_version}{A \code{\link[base]{character}} string
+defining the version of database. Must be "/v1.0" or "-v2.0".
+If none is provided, then "-v2.0" (the most recent) is used.}
+
 \item{verbose}{Should links be printed to screen? Used for debugging only}
 }
 \value{

@@ -11,3 +11,5 @@ inst/doc
 docs/
 
 dataaimsr.Rcheck/
+
+build-instructions.txt

@@ -146,8 +146,12 @@ unique(cdata_b$parameter)
 range(cdata_b$time)
 
 # 6. downloads summarised temperature data
-# for all sites
-# within a defined date range
+# for all sites that contain data
+# within a defined date range; note that
+# from_date and thru_date column in the output
+# contain the entire coverage of the series
+# and does not necessarily correspond to the
+# input from_date and thru_date
 sdata <- aims_data(ssts_doi,
                    api_key = NULL,
                    summary = "summary-by-series",

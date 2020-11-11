@@ -219,6 +219,13 @@ make_base_end_pt <- function(doi, aims_version = NA) {
 #' @param api_key An AIMS Data Platform 
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' 
+#' @param summary Should summary tables be printed instead of full data?
+#' Details in ?\code{\link{expose_attributes}}
+#' 
+#' @param aims_version A \code{\link[base]{character}} string
+#' defining the version of database. Must be "/v1.0" or "-v2.0".
+#' If none is provided, then "-v2.0" (the most recent) is used.
+#' 
 #' @param verbose Should links be printed to screen? Used for debugging only
 #' 
 #' @details The AIMS Data Platform R Client provides easy access to 
@@ -329,6 +336,7 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #' 
 #' @importFrom httr GET add_headers
+#' @importFrom utils URLencode
 next_page_data <- function(url, api_key = NULL, ...) {
   url <- gsub("+", "%2B", URLencode(url), fixed = TRUE)
   dt_req <- GET(url,
@@ -476,8 +484,12 @@ next_page_data <- function(url, api_key = NULL, ...) {
 #' range(cdata_b$time)
 #' 
 #' # 6. downloads summarised temperature data
-#' # for all sites
-#' # within a defined date range
+#' # for all sites that contain data
+#' # within a defined date range; note that
+#' # from_date and thru_date column in the output
+#' # contain the entire coverage of the series
+#' # and does not necessarily correspond to the
+#' # input from_date and thru_date
 #' sdata <- aims_data(ssts_doi,
 #'                    api_key = NULL,
 #'                    summary = "summary-by-series",
@@ -553,6 +565,10 @@ aims_data <- function(doi, filters = NULL, ...) {
 #' @param filter_name A \code{\link[base]{character}} string containing the name of
 #' the filter. Must be "sites" or "series". It could also be "parameters" for the
 #' weather data (i.e. doi = aims_data_doi("weather")).
+#' 
+#' @param aims_version A \code{\link[base]{character}} string
+#' defining the version of database. Must be "/v1.0" or "-v2.0".
+#' If none is provided, then "-v2.0" (the most recent) is used.
 #' 
 #' @return Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
 #' 

@@ -13,6 +13,10 @@ for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 \item{filter_name}{A \code{\link[base]{character}} string containing the name of
 the filter. Must be "sites" or "series". It could also be "parameters" for the
 weather data (i.e. doi = aims_data_doi("weather")).}
+
+\item{aims_version}{A \code{\link[base]{character}} string
+defining the version of database. Must be "/v1.0" or "-v2.0".
+If none is provided, then "-v2.0" (the most recent) is used.}
 }
 \value{
 Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.

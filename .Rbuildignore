@@ -2,6 +2,15 @@
 ^\.Rproj\.user$
 README.Rmd
 ^_pkgdown\.yml$
+^.travis\.yml$
 ^docs$
 ^pkgdown$
 ^\.github$
+^travis_tool$
+^build-instructions.txt$
+^LICENSE.md$
+^TODO.md$
+^tmp_docs$
+^tmp_examples.R$
+^tmp_new_dev.R$
+^tmp_new_tests.R$
