@@ -21,7 +21,7 @@ library(ggplot2)
 
 Once you have obtained your API Key, please consider following the recommended guidelines as explained [here](../index.html). If you successfully placed your API Key permanently to the `.Renviron`, then just set the object `my_api_key` to `NULL` in the chunk below. If for some reason you are having difficulty placing your API Key permanently to the `.Renviron`, then just paste it to the object `my_api_key`.
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(plyr)
 library(dplyr)
 library(ggplot2)
@@ -78,7 +78,7 @@ thru-date | '2018-01-10'           | We are plotting 10 days of data
 
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 davies <- aims_data(weather_doi,
                     api_key = my_api_key,
                     filters = list("series" = 64,
@@ -94,7 +94,7 @@ The object `davies` is a list containing four elements:
 
 We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
   aims_data(weather_doi, api_key = my_api_key, 
@@ -118,7 +118,7 @@ ggplot(weather_data) +
 
 ## Bibliography
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 plyr::ldply(results, "[[", "citation") %>%
   dplyr::rename("citation" = "[[") %>%
   dplyr::select(citation) %>%
