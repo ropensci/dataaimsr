@@ -104,6 +104,17 @@ sdata <- aims_data(ssts_doi,
 head(sdata$data)
 ```
 
+The output of `aims_data` (here, `sdata`) is a list containing four
+elements:
+
+- `metadata` a doi link containing the metadata record for the data series
+
+- `citation` the citation information for the particular dataset
+
+- `links` the link returning the data query
+
+- `data` an output `data.frame`
+
 The summary argument here is key. It should only be flagged when the
 user wants an overview of the available data. Again, this currently
 implemented for the Sea Water Temperature Loggers dataset. One can
