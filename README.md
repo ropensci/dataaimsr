@@ -28,8 +28,8 @@ functionalities may change or simply become deprecated.**
 Overview
 --------
 
-`dataaimsr` is the **AIMS Data Platform R Client**, and will provide you
-with easy access to data sets from the [AIMS Data Platform
+`dataaimsr` is the **AIMS Data Platform R package**, and will provide
+you with easy access to data sets from the [AIMS Data Platform
 API](https://open-aims.github.io/data-platform).
 
 Usage of AIMS Data Platform API Key
