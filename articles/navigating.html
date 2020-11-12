@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
@@ -61,6 +61,9 @@
       <a href="../articles/weather.html">AIMS weather time series data sets</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -93,9 +96,6 @@
 
     
     
-<div id="discover-a-dataset" class="section level2">
-<h2 class="hasAnchor">
-<a href="#discover-a-dataset" class="anchor"></a>Discover a dataset</h2>
 <p>The very first thing to do is read the documentation on our <a href="../index.html">README</a> page. Make sure you have the package properly installed, and that your personal <a href="https://open-aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a> has been downloaded.</p>
 <p>Once you have obtained your API Key, you can either place it permanently on your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below, or if for some reason you are having difficulty placing your API Key permanently to the <code>.Renviron</code>, then just paste it to the object <code>my_api_key</code> below.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -107,7 +107,6 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span></code></pre></div>
-</div>
 <div id="how-this-package-works" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-this-package-works" class="anchor"></a>How this package works</h2>
@@ -116,9 +115,9 @@
 <p>For the Sea Water Temperature Loggers dataset, series is synonymous with the variable called subsite. For the Weather Station dataset, it is the combination of subsite and parameter.</p>
 <p>This vignette gives an overview of how one would go about discovering the overall information contained in the datasets. For dataset-specific vignettes, see our other <a href="https://open-aims.github.io/dataaimsr/articles">vignette pages</a>.</p>
 </div>
-<div id="discover-a-dataset-1" class="section level2">
+<div id="discover-a-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#discover-a-dataset-1" class="anchor"></a>Discover a dataset</h2>
+<a href="#discover-a-dataset" class="anchor"></a>Discover a dataset</h2>
 <p>The <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a> points to the full metadata of each dataset. We are currently working on ways to facilitate the visualisation of both datasets and their multiple features directly through the R package. At the moment though it is only possible to visualise summary information for the Sea Water Temperature Loggers dataset. A similar feature for the Weather Station dataset will be implemented in the near future (likely early 2021)—so for now, please refer to the online metadata to discover from where (and when) you can download data.</p>
 <div id="data-summary" class="section level3">
 <h3 class="hasAnchor">
