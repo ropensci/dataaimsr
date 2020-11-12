@@ -16,8 +16,8 @@ Suggests:
     knitr,
     rmarkdown,
     plyr,
-    dplyr,
-    ggplot2
+    tidyverse,
+    ggmap
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

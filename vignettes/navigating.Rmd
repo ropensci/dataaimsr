@@ -1,30 +1,30 @@
 ---
-title: "AIMS weather time series data sets"
+title: "Navigating dataaimsr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{AIMS weather time series data sets}
+  %\VignetteIndexEntry{Navigating dataaimsr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-This example assumes you have obtained an [AIMS Data Platform API Key](https://open-aims.github.io/data-platform/key-request). Further details about API Key implementation and usage can be found [here](../index.html).
+## Discover a dataset
 
-To interact locally with this example in [RStudio](https://www.rstudio.com/), click on the source code at the top of this page, then click on `Raw`, and simply copy and paste the code to a new [.Rmd](https://rmarkdown.rstudio.com/) file created in [RStudio](https://www.rstudio.com/).
+The very first thing to do is read the documentation on our
+[README](../index.html) page. Make sure you have the package properly 
+installed, and that your personal [AIMS Data Platform API Key][1] has 
+been downloaded.
 
-Let's start by loading some packages that we are going to need down the track:
+[1]: https://open-aims.github.io/data-platform/key-request
 
-```{r, eval = FALSE}
-library(plyr)
-library(dplyr)
-library(ggplot2)
-```
-
-Once you have obtained your API Key, please consider following the recommended guidelines as explained [here](../index.html). If you successfully placed your API Key permanently to the `.Renviron`, then just set the object `my_api_key` to `NULL` in the chunk below. If for some reason you are having difficulty placing your API Key permanently to the `.Renviron`, then just paste it to the object `my_api_key`.
+Once you have obtained your API Key, you can either place it 
+permanently on your `.Renviron` file and set the object `my_api_key` to 
+`NULL` in the chunk below, or if for some reason you are having 
+difficulty placing your API Key permanently to the `.Renviron`, then 
+just paste it to the object `my_api_key` below.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library(plyr)
-library(dplyr)
-library(ggplot2)
+library(tidyverse)
+library(ggmap)
 library(dataaimsr)
 my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 ```
@@ -35,17 +35,55 @@ my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 my_api_key <- "api-key-for-r-notebook"
 ```
 
-## Install the package
-
-`dataaimsr` can be installed and loaded directly from [GitHub](https://github.com/open-aims/dataaimsr) using the following code:
+Then install `dataaimsr` following the documentation on our
+[README](../index.html) page. Once that's out of the way, we load the packages needed for this vignette:
 
 ```{r, eval = FALSE}
-install.packages("devtools")
-devtools::install_github("https://github.com/open-AIMS/dataaimsr")
+library(tidyverse)
+library(ggmap)
 library(dataaimsr)
 ```
 
+## How this package works
+
+`dataaimsr` contains two sets of monitoring data collected by AIMS
+since the 1980's: the [Weather Station][2] dataset which contains 
+encompasses data for different parameters (e.g. Air Temperature, Air 
+Pressure, Chlorophyll, and many others); and the
+[Sea Water Temperature Loggers][3] dataset which contains records of 
+(you guessed it!) sea water temperature at different sites and water 
+depths.
+
+[2]: https://doi.org/10.25845/5c09bf93f315d
+[3]: https://doi.org/10.25845/5b4eb0f9bb848
+
+The datasets are very large, and as such they are not locally stored.
+They are instead downloaded via the API and unique DOI identifier (just 
+hover over the data links above to see the actual DOI codes). The 
+datasets are structured by sites, series and parameters. A series is a 
+continuing time-series, i.e. a collection of deployments measuring the 
+same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the 
+same site.
+
+For the Sea Water Temperature Loggers dataset, series is synonymous 
+with the variable called subsite. For the Weather Station dataset, it 
+is the combination of subsite and parameter.
+
+This vignette gives an overview of how one would go about discovering
+the overall information contained in the datasets. For dataset-specific 
+vignettes, see our other [vignette pages][4].
+
+[4]: https://open-aims.github.io/dataaimsr/articles
+
 ## Discover a dataset
+
+The [AIMS Data Platform API][5] points to the full metadata of each
+dataset. We are currently working on ways to facilitate the 
+visualisation of both datasets and their multiple features directly
+through the R package.
+
+
+[5]: https://open-aims.github.io/data-platform 
 
 Suppose we want to query a data series and plot it then the procedure might be:
 
@@ -53,7 +91,6 @@ Suppose we want to query a data series and plot it then the procedure might be:
 2. Perform data download using `aims_data`
 3. Use the Rpackage `ggplot2` to create a time-series chart
 
-There are two types of data programs currently available through the [AIMS Data Platform API](https://open-aims.github.io/data-platform): [Weather](https://doi.org/10.25845/5c09bf93f315d), which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and [Sea Water Temperature Loggers](https://doi.org/10.25845/5b4eb0f9bb848), which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.
 
 For the purposes of this example, we will query the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For all data sets, a list of available filter parameters can be found with the function `expose_attributes`. We recommend exploring the parameter `series`:
 
