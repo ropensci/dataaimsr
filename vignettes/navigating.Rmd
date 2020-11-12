@@ -7,8 +7,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Discover a dataset
-
 The very first thing to do is read the documentation on our
 [README](../index.html) page. Make sure you have the package properly 
 installed, and that your personal [AIMS Data Platform API Key][1] has 
