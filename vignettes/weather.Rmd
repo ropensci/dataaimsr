@@ -32,7 +32,7 @@ my_api_key <- "api-key-for-r-notebook"
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(plyr)
-library(tidyvers)
+library(tidyverse)
 library(dataaimsr)
 my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 ```
