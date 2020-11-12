@@ -80,85 +80,180 @@ vignettes, see our other [vignette pages][4].
 The [AIMS Data Platform API][5] points to the full metadata of each
 dataset. We are currently working on ways to facilitate the 
 visualisation of both datasets and their multiple features directly
-through the R package.
-
+through the R package. At the moment though it is only possible
+to visualise summary information for the Sea Water Temperature Loggers
+dataset. A similar feature for the Weather Station dataset will be 
+implemented in the near future (likely early 2021)---so for now, please
+refer to the online metadata to discover from where (and when) you can 
+download data.
 
 [5]: https://open-aims.github.io/data-platform 
 
-Suppose we want to query a data series and plot it then the procedure might be:
+### Data summary
 
-1. Examine documentation and establish query filters
-2. Perform data download using `aims_data`
-3. Use the Rpackage `ggplot2` to create a time-series chart
+The first step would be to visualise the dataset. Let's do this by
+mapping all available sites. First we need to store the DOI for the
+target dataset---this is done via the function `aims_data_doi`. We
+can then download the summary information for the Sea Water Temperature 
+Loggers dataset using the main function called `aims_data`:
 
+```{r, message = FALSE, warning = FALSE}
+# see ?aims_data_doi for argument names
+ssts_doi <- aims_data_doi("temp_loggers")
+sdata <- aims_data(ssts_doi,
+                   api_key = my_api_key,
+                   summary = "summary-by-series")
+head(sdata$data)
+```
 
-For the purposes of this example, we will query the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d). To explore this data program, we use the function `filter_values`. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For all data sets, a list of available filter parameters can be found with the function `expose_attributes`. We recommend exploring the parameter `series`:
+The summary argument here is key. It should only be flagged when the
+user wants an overview of the available data. Again, this currently
+implemented for the Sea Water Temperature Loggers dataset. One can
+visualise `summary-by-series` or `summary-by-deployment`.
 
-```{r}
+Notice that `sdata$data` contains a lot of information, most of which is
+related to site / series / parameter ID. Each row corresponds to a
+unique series, and a certain site may contain multiple series; in such
+cases, series generally differ from one another by depth. The columns 
+`from_date` and `thru_date` are probably one of the most valuable 
+pieces of information. They provide the user with the window of data 
+collection for a particular series, which is probably crucial to decide 
+whether that particular series is of relevance to the specific question
+in hand.
+
+Also note that there are three columns containing the total number of 
+observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
+respectively stand for uncalibrated, calibrated, and quality-controlled 
+observations. Calibrated and quality-controlled are generally the same,
+and currently there is no public information on AIMS quality-control
+methods and algorithms. However, if this is crucial information to you,
+please reach out to the
+[Data Manager from the AIMS Data Centre](adc@aims.gov.au). So let's
+go ahead and plot these data on a map of Australia, while colouring
+based on the total amount of calibrated observations:
+
+```{r, fig.width = 7, fig.height = 4.36, message = FALSE, warning = FALSE}
+sdata$data <- sdata$data %>%
+  dplyr::mutate(cols = cal_obs * 1e-3) %>%
+  tidyr::drop_na(lon, lat)
+lab <- expression(atop("# Calibrated obs.",
+                       paste("(" %*% 10^3, ")")))
+ozmap <- ggmap::get_stamenmap(bbox = c(left = 94, bottom = -45,
+                                       right = 162, top = 0),
+                              zoom = 4, maptype = "watercolor")
+ggmap::ggmap(ozmap) +
+  theme_void() +
+  geom_point(data = sdata$data,
+             mapping = aes(x = lon, y = lat,
+                           colour = cols,
+                           fill = cols),
+             shape = 16, alpha = 0.8) +
+  scale_colour_gradient(name = lab,
+                        low = "dodgerblue4",
+                        high = "darkred") +
+  scale_fill_gradient(name = lab,
+                      low = "dodgerblue4",
+                      high = "darkred")
+```
+
+### Filter values
+
+In the case of the Weather Station dataset, knowing what sites are
+out there is a bit tricky. However, currently we have a convenience
+function called `filter_values` which allows one to query what
+sites, series and parameters are available for both datasets:
+
+```{r, message = FALSE, warning = FALSE}
 weather_doi <- aims_data_doi("weather")
 filter_values(weather_doi, filter_name = "series") %>%
   head()
 ```
 
-The benefits to choosing a data `series` is that it comes from one location and variable type, making the data easy to plot. If we did not choose a data series from the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d) program, we would have to specify additional parameters to ensure the data is as expected.
+The downside is that one cannot know what time window is available
+for each one of those, nor how they are nested (i.e. series /
+parameter / site). In a way though the series name generally
+gives that information anyway (see code output above). If knowing the 
+available observation window is absolutely crucial, then as mentioned 
+above the user should refer to the [online metadata][5].
 
-Finally our values and filters might look like the following:
+## Download slices of datasets
 
-Variable  | Value                  | Description
-----------|------------------------|-------------------------------------------------------
-doi       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://open-aims.github.io/data-platform)
-series    | 64                     | Found [here](https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e), Davies Reef Air Temperature data series
-from-date | '2018-01-01'           | We want to start charting on 1/1/2018
-thru-date | '2018-01-10'           | We are plotting 10 days of data
+Now that we know how to explore the datasets and what data is out there,
+we finish this vignette by showing an example of how one would go about
+downloading actual data.
 
-## Query and Plot Dataset
+We say slices of datasets because AIMS monitoring datasets are of very 
+high temporal resolution and if one tries to download the entire thing
+it might take hours if not days. Generally that is why we download
+slices of data at a time, and for that we need filters.
 
-After deciding on query parameters, we plug the series id into a `aims_data` function:
+### Data filters
 
-```{r, message = FALSE, warning = FALSE}
-davies <- aims_data(weather_doi,
-                    api_key = my_api_key,
-                    filters = list("series" = 64,
-                                   "from-date" = "2018-01-01",
-                                   "thru-date" = "2018-01-10"))
-```
-
-The object `davies` is a list containing four elements:  
-- `metadata` a doi link containing the metadata record for the data series  
-- `citation` the citation information for the particular dataset 
-- `links` the link returning the data query  
-- `data` an output `data.frame`  
-
-We can even visually compare multiple series at once. For instance, let's compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:
-
-```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
-target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
-results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
-  aims_data(weather_doi, api_key = my_api_key, 
-            filters = list("series" = series_number, ...))
-}, my_api_key = my_api_key, "from-date" = "2018-01-01", "thru-date" = "2018-01-10")
-
-weather_data <- plyr::ldply(results, "[[", "data")
-
-ggplot(weather_data) +
-  geom_line(aes(x = time, y = raw_value, colour = site_name)) +
-  labs(x = "Date",
-       y = "Air temperature (˚C)",
-       colour = "Site",
-       title = "AIMS",
-       subtitle = "Weather stations") +
-  theme_bw() +
-  theme(axis.title.x = element_text(size = 12),
-        axis.title.y = element_text(size = 12),
-        legend.position = "bottom")
-```
-
-## Bibliography
+Filters are the last important information the user needs to know to 
+master the navigation and download of AIMS monitoring datasets. Each 
+dataset can filtered by attributes which can be exposed with the function `expose_attributes`:
 
 ```{r, message = FALSE, warning = FALSE}
-plyr::ldply(results, "[[", "citation") %>%
-  dplyr::rename("citation" = "[[") %>%
-  dplyr::select(citation) %>%
-  unlist %>%
-  unname
+expose_attributes(weather_doi)
+expose_attributes(ssts_doi)
 ```
+
+Notice that they are not (yet!) consistent across datasets, so pay 
+attention to the nuances. The help file (see `?expose_attributes`)
+contains the details about what each filter targets. So, having
+an understanding of the summaries and what filters are available
+provide the user with a great head start.
+
+Downloading the data is achieved using the same `aims_data` function, 
+however now we do not specify a `summary` argument, and instead 
+implement filters. For example, let's say we want to download all the
+data collected at the Yongala for a specific time window:
+
+```{r, message = FALSE, warning = FALSE}
+wdata_a <- aims_data(weather_doi,
+                     api_key = my_api_key,
+                     filters = list("site-name" = "Yongala",
+                                    "from-date" = "2018-01-01",
+                                    "thru-date" = "2018-01-02"))$data
+head(wdata_a)
+```
+
+We see that there a bunch of parameters available for this site at the
+specified time:
+
+```{r}
+unique(wdata_a$parameter)
+```
+
+And the actual measurements are either raw or quality-controlled. Let's
+plot wind speed data as an example
+
+```{r, message = FALSE, warning = FALSE, fig.width = 7.4, fig.height = 5.2}
+wdata_a %>%
+  dplyr::filter(grepl("Wind Speed", parameter)) %>%
+  ggplot(data = .) +
+    geom_line(aes(x = time, y = qc_value, colour = parameter)) +
+    labs(x = "Date",
+         y = "Wind speed (km / h)",
+         colour = "Site",
+         title = "AIMS Weather stations",
+         subtitle = "Yongala (2018)") +
+    theme_bw()
+```
+
+We could refine even further by including a time window to download the 
+data:
+
+```{r, message = FALSE, warning = FALSE}
+wdata_b <- aims_data(weather_doi,
+                     api_key = my_api_key,
+                     filters = list("series" = 64,
+                                    "from-date" = "1991-10-18T06:00:00",
+                                    "thru-date" = "1991-10-18T12:00:00"))$data
+range(wdata_b$time)
+```
+
+## More info
+
+See our other [vignette pages][4] for further dataset-specific 
+explorations.

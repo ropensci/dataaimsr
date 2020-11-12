@@ -700,8 +700,8 @@ find_api_key <- function(api_key) {
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi <- aims_data_doi('weather')
-#' ssts_doi <- aims_data_doi('temp_loggers')
+#' weather_doi <- aims_data_doi("weather")
+#' ssts_doi <- aims_data_doi("temp_loggers")
 #' }
 #' 
 #' @export
