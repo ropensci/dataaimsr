@@ -151,6 +151,13 @@
 ## 4         0    4656   4656
 ## 5    437544  566585 566585
 ## 6    369317  495663 495608</code></pre>
+<p>The output of <code>aims_data</code> (here, <code>sdata</code>) is a list containing four elements:</p>
+<ul>
+<li><p><code>metadata</code> a doi link containing the metadata record for the data series</p></li>
+<li><p><code>citation</code> the citation information for the particular dataset</p></li>
+<li><p><code>links</code> the link returning the data query</p></li>
+<li><p><code>data</code> an output <code>data.frame</code></p></li>
+</ul>
 <p>The summary argument here is key. It should only be flagged when the user wants an overview of the available data. Again, this currently implemented for the Sea Water Temperature Loggers dataset. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>.</p>
 <p>Notice that <code>sdata$data</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>from_date</code> and <code>thru_date</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
 <p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same, and currently there is no public information on AIMS quality-control methods and algorithms. However, if this is crucial information to you, please reach out to the <a href="adc@aims.gov.au">Data Manager from the AIMS Data Centre</a>. So let’s go ahead and plot these data on a map of Australia, while colouring based on the total amount of calibrated observations:</p>
