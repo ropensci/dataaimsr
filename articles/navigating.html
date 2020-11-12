@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIMS weather time series data sets • dataaimsr</title>
+<title>Navigating dataaimsr • dataaimsr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="AIMS weather time series data sets">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Navigating dataaimsr">
 <meta property="og:description" content="dataaimsr">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -80,43 +80,46 @@
 
       
 
-      </header><script src="weather_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="navigating_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>AIMS weather time series data sets</h1>
+      <h1 data-toc-skip>Navigating dataaimsr</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/open-aims/dataaimsr/blob/master/vignettes/weather.Rmd"><code>vignettes/weather.Rmd</code></a></small>
-      <div class="hidden name"><code>weather.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/open-aims/dataaimsr/blob/master/vignettes/navigating.Rmd"><code>vignettes/navigating.Rmd</code></a></small>
+      <div class="hidden name"><code>navigating.Rmd</code></div>
 
     </div>
 
     
     
-<p>This example assumes you have obtained an <a href="https://open-aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a>. Further details about API Key implementation and usage can be found <a href="../index.html">here</a>.</p>
-<p>To interact locally with this example in <a href="https://www.rstudio.com/">RStudio</a>, click on the source code at the top of this page, then click on <code>Raw</code>, and simply copy and paste the code to a new <a href="https://rmarkdown.rstudio.com/">.Rmd</a> file created in <a href="https://www.rstudio.com/">RStudio</a>.</p>
-<p>Let’s start by loading some packages that we are going to need down the track:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr">plyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
-<p>Once you have obtained your API Key, please consider following the recommended guidelines as explained <a href="../index.html">here</a>. If you successfully placed your API Key permanently to the <code>.Renviron</code>, then just set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. If for some reason you are having difficulty placing your API Key permanently to the <code>.Renviron</code>, then just paste it to the object <code>my_api_key</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># set my_api_key to NULL if successfully placed in .Renviron</span>
-<span class="co"># paste your key where it says api-key-for-r-notebook</span>
-<span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">"api-key-for-r-notebook"</span></code></pre></div>
-<div id="install-the-package" class="section level2">
-<h2 class="hasAnchor">
-<a href="#install-the-package" class="anchor"></a>Install the package</h2>
-<p><code>dataaimsr</code> can be installed and loaded directly from <a href="https://github.com/open-aims/dataaimsr">GitHub</a> using the following code:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"https://github.com/open-AIMS/dataaimsr"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span></code></pre></div>
-</div>
 <div id="discover-a-dataset" class="section level2">
 <h2 class="hasAnchor">
 <a href="#discover-a-dataset" class="anchor"></a>Discover a dataset</h2>
+<p>The very first thing to do is read the documentation on our <a href="../index.html">README</a> page. Make sure you have the package properly installed, and that your personal <a href="https://open-aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a> has been downloaded.</p>
+<p>Once you have obtained your API Key, you can either place it permanently on your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below, or if for some reason you are having difficulty placing your API Key permanently to the <code>.Renviron</code>, then just paste it to the object <code>my_api_key</code> below.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># set my_api_key to NULL if successfully placed in .Renviron</span>
+<span class="co"># paste your key where it says api-key-for-r-notebook</span>
+<span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">"api-key-for-r-notebook"</span></code></pre></div>
+<p>Then install <code>dataaimsr</code> following the documentation on our <a href="../index.html">README</a> page. Once that’s out of the way, we load the packages needed for this vignette:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="how-this-package-works" class="section level2">
+<h2 class="hasAnchor">
+<a href="#how-this-package-works" class="anchor"></a>How this package works</h2>
+<p><code>dataaimsr</code> contains two sets of monitoring data collected by AIMS since the 1980’s: the <a href="https://doi.org/10.25845/5c09bf93f315d">Weather Station</a> dataset which contains encompasses data for different parameters (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others); and the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset which contains records of (you guessed it!) sea water temperature at different sites and water depths.</p>
+<p>The datasets are very large, and as such they are not locally stored. They are instead downloaded via the API and unique DOI identifier (just hover over the data links above to see the actual DOI codes). The datasets are structured by sites, series and parameters. A series is a continuing time-series, i.e. a collection of deployments measuring the same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the same site.</p>
+<p>For the Sea Water Temperature Loggers dataset, series is synonymous with the variable called subsite. For the Weather Station dataset, it is the combination of subsite and parameter.</p>
+<p>This vignette gives an overview of how one would go about discovering the overall information contained in the datasets. For dataset-specific vignettes, see our other <a href="https://open-aims.github.io/dataaimsr/articles">vignette pages</a>.</p>
+</div>
+<div id="discover-a-dataset-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#discover-a-dataset-1" class="anchor"></a>Discover a dataset</h2>
+<p>The <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a> points to the full metadata of each dataset. We are currently working on ways to facilitate the visualisation of both datasets and their multiple features directly through the R package.</p>
 <p>Suppose we want to query a data series and plot it then the procedure might be:</p>
 <ol style="list-style-type: decimal">
 <li>Examine documentation and establish query filters</li>
@@ -124,9 +127,8 @@
 </li>
 <li>Use the Rpackage <code>ggplot2</code> to create a time-series chart</li>
 </ol>
-<p>There are two types of data programs currently available through the <a href="https://open-aims.github.io/data-platform">AIMS Data Platform API</a>: <a href="https://doi.org/10.25845/5c09bf93f315d">Weather</a>, which contains multiple datasets for different variables (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others), and <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a>, which contains multiple datasets of (you guessed it!) sea water temperature at different sites and water depths. They are queried via unique DOI identifiers.</p>
 <p>For the purposes of this example, we will query the <a href="https://doi.org/10.25845/5c09bf93f315d">AIMS Weather</a>. To explore this data program, we use the function <code>filter_values</code>. This function takes a DOI and a given parameter filter, and returns all the available information regarding the filter. For all data sets, a list of available filter parameters can be found with the function <code>expose_attributes</code>. We recommend exploring the parameter <code>series</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">weather_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span>
 <span class="fu"><a href="../reference/filter_values.html">filter_values</a></span><span class="op">(</span><span class="va">weather_doi</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -181,7 +183,7 @@
 <h2 class="hasAnchor">
 <a href="#query-and-plot-dataset" class="anchor"></a>Query and Plot Dataset</h2>
 <p>After deciding on query parameters, we plug the series id into a <code>aims_data</code> function:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">davies</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">weather_doi</span>,
                     api_key <span class="op">=</span> <span class="va">my_api_key</span>,
                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"series"</span> <span class="op">=</span> <span class="fl">64</span>,
@@ -192,7 +194,7 @@
 - <code>citation</code> the citation information for the particular dataset - <code>links</code> the link returning the data query<br>
 - <code>data</code> an output <code>data.frame</code></p>
 <p>We can even visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">target_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Davies Reef"</span> <span class="op">=</span> <span class="fl">64</span>, <span class="st">"Bramble Cay"</span> <span class="op">=</span> <span class="fl">87929</span><span class="op">)</span>
 <span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">plyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/llply.html">llply</a></span><span class="op">(</span><span class="va">target_series</span>, <span class="kw">function</span><span class="op">(</span><span class="va">series_number</span>, <span class="va">my_api_key</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">weather_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>, 
@@ -201,23 +203,23 @@
 
 <span class="va">weather_data</span> <span class="op">&lt;-</span> <span class="fu">plyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/ldply.html">ldply</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"[["</span>, <span class="st">"data"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">weather_data</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">raw_value</span>, colour <span class="op">=</span> <span class="va">site_name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">weather_data</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">raw_value</span>, colour <span class="op">=</span> <span class="va">site_name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
        y <span class="op">=</span> <span class="st">"Air temperature (˚C)"</span>,
        colour <span class="op">=</span> <span class="st">"Site"</span>,
        title <span class="op">=</span> <span class="st">"AIMS"</span>,
        subtitle <span class="op">=</span> <span class="st">"Weather stations"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
+  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
+        axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
         legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="weather_files/figure-html/unnamed-chunk-7-1.png" width="480"></p>
+<p><img src="navigating_files/figure-html/unnamed-chunk-6-1.png" width="480"></p>
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h2>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">plyr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/plyr/man/ldply.html">ldply</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"[["</span>, <span class="st">"citation"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="st">"citation"</span> <span class="op">=</span> <span class="st">"[["</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">citation</span><span class="op">)</span> <span class="op">%&gt;%</span>
