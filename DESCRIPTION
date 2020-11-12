@@ -1,7 +1,7 @@
 Package: dataaimsr
 Type: Package
 Title: AIMS Data Platform API Client
-Version: 1.0.1
+Version: 1.0.2
 Author: AIMS Datacentre <adc@aims.gov.au>
 Maintainer: AIMS Datacentre <adc@aims.gov.au>
 Description: AIMS Data Platform API Client provides easy access to AIMS Data Platform
