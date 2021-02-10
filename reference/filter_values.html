@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retrieve existing list of data attributes — filter_values • dataaimsr</title>
+<title>Retrieve vector of existing filter values — filter_values • dataaimsr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,11 +46,13 @@
 
 
 
-<meta property="og:title" content="Retrieve existing list of data attributes — filter_values" />
+<meta property="og:title" content="Retrieve vector of existing filter values — filter_values" />
 <meta property="og:description" content="This is a utility function which allows to user
 to query about the existing possibilities of
 a given filter name" />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -102,7 +104,10 @@ a given filter name" />
       <a href="../articles/navigating.html">Navigating dataaimsr</a>
     </li>
     <li>
-      <a href="../articles/weather.html">AIMS weather time series data sets</a>
+      <a href="../articles/tloggers.html">Sea Water Temperature Loggers time series dataset</a>
+    </li>
+    <li>
+      <a href="../articles/weather.html">AIMS Weather Station time series datasets</a>
     </li>
   </ul>
 </li>
@@ -113,7 +118,7 @@ a given filter name" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/open-aims/dataaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -130,7 +135,7 @@ a given filter name" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve existing list of data attributes</h1>
+    <h1>Retrieve vector of existing filter values</h1>
     <small class="dont-index">Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
     <div class="hidden name"><code>filter_values.Rd</code></div>
     </div>
@@ -149,13 +154,14 @@ a given filter name</p>
     <tr>
       <th>doi</th>
       <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
-for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
+for a chosen
+<a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
     </tr>
     <tr>
       <th>filter_name</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string containing the name of
-the filter. Must be "sites" or "series". It could also be "parameters" for the
-weather data (i.e. doi = aims_data_doi("weather")).</p></td>
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string containing the
+name of the filter. Must be "site", "subsite", "series", or
+"parameter". See details.</p></td>
     </tr>
     <tr>
       <th>aims_version</th>
@@ -167,10 +173,19 @@ If none is provided, then "-v2.0" (the most recent) is used.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Either a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector.</p>
+    <p>Either a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> if
+<code>filter_name = "series"</code>, else a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>
+vector.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For a full description of each valid filter_name see
+?<code><a href='expose_attributes.html'>expose_attributes</a></code>. In the temperature logger dataset,
+"subsite" is equivalent to "series"; moreover, note that there is only one
+parameter being measured (i.e. water temperature), so the "parameter" filter
+contains one single value.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='aims_data.html'>aims_data</a></code></p></div>
+    <div class='dont-index'><p><code><a href='aims_data.html'>aims_data</a></code>, <code><a href='expose_attributes.html'>expose_attributes</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
@@ -180,11 +195,14 @@ If none is provided, then "-v2.0" (the most recent) is used.</p></td>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://open-aims.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span>
 <span class='va'>weather_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"weather"</span><span class='op'>)</span>
 <span class='va'>ssts_doi</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data_doi.html'>aims_data_doi</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span><span class='op'>)</span>
-<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"sites"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"site"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"subsite"</span><span class='op'>)</span>
 <span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"series"</span><span class='op'>)</span>
-<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"parameters"</span><span class='op'>)</span>
-<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"sites"</span><span class='op'>)</span>
-<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"series"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>weather_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"parameter"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"site"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"subsite"</span><span class='op'>)</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"series"</span><span class='op'>)</span> <span class='co'># same as subsite</span>
+<span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>ssts_doi</span>, filter_name <span class='op'>=</span> <span class='st'>"parameter"</span><span class='op'>)</span>
 <span class='op'>}</span>
 
 </div></pre>

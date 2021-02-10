@@ -47,9 +47,11 @@
 
 
 <meta property="og:title" content="Further data requests via the AIMS Data Platform API — next_page_data" />
-<meta property="og:description" content="Similar to page_data, but for cases
-where there are multiple URLs for data retrieval" />
+<meta property="og:description" content="Similar to page_data, but for cases #' where there are
+multiple URLs for data retrieval" />
 <meta property="og:image" content="/logo.png" />
+
+
 
 
 
@@ -101,7 +103,10 @@ where there are multiple URLs for data retrieval" />
       <a href="../articles/navigating.html">Navigating dataaimsr</a>
     </li>
     <li>
-      <a href="../articles/weather.html">AIMS weather time series data sets</a>
+      <a href="../articles/tloggers.html">Sea Water Temperature Loggers time series dataset</a>
+    </li>
+    <li>
+      <a href="../articles/weather.html">AIMS Weather Station time series datasets</a>
     </li>
   </ul>
 </li>
@@ -112,7 +117,7 @@ where there are multiple URLs for data retrieval" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/open-aims/dataaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -135,8 +140,8 @@ where there are multiple URLs for data retrieval" />
     </div>
 
     <div class="ref-description">
-    <p>Similar to <code><a href='page_data.html'>page_data</a></code>, but for cases
-where there are multiple URLs for data retrieval</p>
+    <p>Similar to <code><a href='page_data.html'>page_data</a></code>, but for cases #' where there are
+multiple URLs for data retrieval</p>
     </div>
 
     <pre class="usage"><span class='fu'>next_page_data</span><span class='op'>(</span><span class='va'>url</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
@@ -162,13 +167,16 @@ where there are multiple URLs for data retrieval</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
-containing four elements:</p><ul>
+    <p>If <code>summary</code> is passed as an additional argument (see code
+example below), <code>aims_data</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>
+containing the summary information for the dataset (NB: currently,
+<code>summary</code> only works for the temperature logger dataset).</p>
+<p>Otherwise, if actual data is downloaded, a <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code>
+<code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing three elements:</p><ul>
 <li><p><code>metadata</code>a <a href='https://www.doi.org/'>DOI</a> link
 containing the metadata record for the data series.</p></li>
 <li><p><code>citation</code>the citation information for the particular
 dataset.</p></li>
-<li><p><code>links</code>the link from which the data query was retrieved.</p></li>
 <li><p><code>data</code>an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p></li>
 </ul>
 
@@ -178,14 +186,36 @@ dataset.</p></li>
 data sets for R applications to the
 <a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this <a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
+be obtained at this
+<a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
 permanently under the user's <code>.Renviron</code> file in order to load
-the API key automatically.</p>
+the API Key automatically.</p>
+<p>There are two types of data currently available through the
+<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>:
+<a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
+<a href='https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e'>Sea Water Temperature Loggers</a>.
+They are searched internally via unique DOI identifiers which
+can be obtained by the function <code><a href='aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
+Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
+<p>A list of arguments for <code>filters</code> can be exposed for both
+<a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
+<a href='https://weather.aims.gov.au/#/overview'>Sea Water Temperature Loggers</a>
+using function <code><a href='expose_attributes.html'>expose_attributes</a></code>.</p>
+<p>Note that at present the user can inspect the range of dates for
+the temperature loggers data only (see usage of argument <code>summary</code> in
+<code><a href='aims_data.html'>aims_data</a></code>). Details about available dates for each dataset
+and time series can be accessed via Metadata on
+<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
+We raise this caveat here because these time boundaries are very important;
+data are collected at very small time intervals, so just a few days of
+time interval can yield massive datasets. The query will return and error
+if it reaches the system's memory capacity.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='filter_values.html'>filter_values</a></code>, <code><a href='page_data.html'>page_data</a></code>, <code><a href='aims_data.html'>aims_data</a></code></p></div>
+    <div class='dont-index'><p><code><a href='filter_values.html'>filter_values</a></code>, <code><a href='page_data.html'>page_data</a></code>,
+<code><a href='aims_data.html'>aims_data</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>

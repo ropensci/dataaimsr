@@ -54,6 +54,8 @@ via argument summary or filters in aims_data" />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -101,7 +103,10 @@ via argument summary or filters in aims_data" />
       <a href="../articles/navigating.html">Navigating dataaimsr</a>
     </li>
     <li>
-      <a href="../articles/weather.html">AIMS weather time series data sets</a>
+      <a href="../articles/tloggers.html">Sea Water Temperature Loggers time series dataset</a>
+    </li>
+    <li>
+      <a href="../articles/weather.html">AIMS Weather Station time series datasets</a>
     </li>
   </ul>
 </li>
@@ -112,7 +117,7 @@ via argument summary or filters in aims_data" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/open-aims/dataaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -147,14 +152,15 @@ via argument <code>summary</code> or <code>filters</code> in <code><a href='aims
     <tr>
       <th>doi</th>
       <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
-for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
+for a chosen
+<a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector
-each: one detailing summary modes, another detailing filters.</p>
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of two <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>
+vectors: one detailing summary modes, another detailing filters.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Use this function to learn which summary modes and
@@ -173,28 +179,32 @@ parameter.</p></li>
 deployments.</p></li>
 </ul>
 
-<p>Currently we are working on standardising all filter names
-across datasets. However, for the moment they might differ depending on
-whether the user is downloading temperature logger data or weather station
-data. Below the valid parameter names should be read as
-temperature-logger / weather-station (NA means that the particular filter
-name is not available for the dataset.</p>
+<p>We offer a list of valid filter names:</p>
 <ul>
-<li><p>site/site-nameFilter by a particular site.</p></li>
-<li><p>subsite/NAFilter by a particular subsite.</p></li>
-<li><p>series/series_nameFilter by a particular series.</p></li>
-<li><p>parameter/parameterParameter of interest. Only used for weather
-station data.</p></li>
-<li><p>min_lat/min-latitudeMinimum latitude; used to filter by a lat-lon box.</p></li>
-<li><p>max_lat/max-latitudeMaximum latitude; used to filter by a lat-lon box.</p></li>
-<li><p>min_lon/min-longitudeMinimum longitude; used to filter by a lat-lon box.</p></li>
-<li><p>max_lon/max-longitudeMaximum longitude; used to filter by a lat-lon box.</p></li>
-<li><p>from_date/from-dateFilter from time (string of format YYYY-MM-DD).</p></li>
-<li><p>thru_date/thru-dateFilter until time (string of format YYYY-MM-DD).</p></li>
+<li><p>siteFilter by a particular site.</p></li>
+<li><p>subsiteFilter by a particular subsite.</p></li>
+<li><p>seriesFilter by a particular series.</p></li>
+<li><p>series_idA unique identifier for the series - it should be
+unique within a dataset. An alternative to looking up a series by name.</p></li>
+<li><p>parameterParameter of interest. Only relevant for
+weather station data because temperature logger is always water
+temperature.</p></li>
+<li><p>min_latMinimum latitude; used to filter by a
+lat-lon box.</p></li>
+<li><p>max_latMaximum latitude; used to filter by a
+lat-lon box.</p></li>
+<li><p>min_lonMinimum longitude; used to filter by a
+lat-lon box.</p></li>
+<li><p>max_lonMaximum longitude; used to filter by a
+lat-lon box.</p></li>
+<li><p>from_dateFilter from time (string of format
+YYYY-MM-DD).</p></li>
+<li><p>thru_dateFilter until time (string of format
+YYYY-MM-DD).</p></li>
 </ul>
 
-<p>Some additional options for the actual download, which should be passed as additional
-arguments to the function,  are:</p><ul>
+<p>Some additional options for the actual download, which should be passed as
+additional arguments to the function, are:</p><ul>
 <li><p>sizeSet a page size for large queries
 (only for the <code>data</code> and <code>data-no-key</code> endpoints).</p></li>
 <li><p>cursorUsed for pagination on / data").</p></li>
@@ -214,6 +224,7 @@ arguments to the function,  are:</p><ul>
 <span class='fu'>expose_attributes</span><span class='op'>(</span><span class='va'>weather_doi</span><span class='op'>)</span>
 <span class='fu'>expose_attributes</span><span class='op'>(</span><span class='va'>ssts_doi</span><span class='op'>)</span>
 <span class='op'>}</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

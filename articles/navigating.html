@@ -58,7 +58,10 @@
       <a href="../articles/navigating.html">Navigating dataaimsr</a>
     </li>
     <li>
-      <a href="../articles/weather.html">AIMS weather time series data sets</a>
+      <a href="../articles/tloggers.html">Sea Water Temperature Loggers time series dataset</a>
+    </li>
+    <li>
+      <a href="../articles/weather.html">AIMS Weather Station time series datasets</a>
     </li>
   </ul>
 </li>
@@ -69,7 +72,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/open-aims/dataaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -110,8 +113,8 @@
 <div id="how-this-package-works" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-this-package-works" class="anchor"></a>How this package works</h2>
-<p><code>dataaimsr</code> contains two sets of monitoring data collected by AIMS since the 1980’s: the <a href="https://doi.org/10.25845/5c09bf93f315d">Weather Station</a> dataset which contains encompasses data for different parameters (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others); and the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset which contains records of (you guessed it!) sea water temperature at different sites and water depths.</p>
-<p>The datasets are very large, and as such they are not locally stored. They are instead downloaded via the API and unique DOI identifier (just hover over the data links above to see the actual DOI codes). The datasets are structured by sites, series and parameters. A series is a continuing time-series, i.e. a collection of deployments measuring the same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the same site.</p>
+<p><code>dataaimsr</code> contains two sets of monitoring data collected by AIMS—<a href="https://www.aims.gov.au/">the Australian Institute of Marine Science</a>—since the 1980’s: the <a href="https://doi.org/10.25845/5c09bf93f315d">Weather Station</a> dataset which contains encompasses data for different parameters (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others); and the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset which contains records of (you guessed it!) sea water temperature at different sites and water depths.</p>
+<p>The datasets are very large, and as such they are not locally stored. They are instead downloaded via the API and unique DOI identifier (just hover over the data links above to see the actual DOI codes). The datasets are structured by sites, series and parameters. A series is a continuing time-series, i.e. a collection of deployments measuring the same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the same subsite. So, for a given site and parameter, there might exist multiple subsites and therefore series, in which case they are most likely distinguishable by depth.</p>
 <p>For the Sea Water Temperature Loggers dataset, series is synonymous with the variable called subsite. For the Weather Station dataset, it is the combination of subsite and parameter.</p>
 <p>This vignette gives an overview of how one would go about discovering the overall information contained in the datasets. For dataset-specific vignettes, see our other <a href="https://open-aims.github.io/dataaimsr/articles">vignette pages</a>.</p>
 </div>
@@ -126,43 +129,35 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># see ?aims_data_doi for argument names</span>
 <span class="va">ssts_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"temp_loggers"</span><span class="op">)</span>
-<span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>,
-                   api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+<span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
                    summary <span class="op">=</span> <span class="st">"summary-by-series"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span></code></pre></div>
 <pre><code>##   site_id                    site subsite_id    subsite series_id     series
 ## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1
 ## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
-## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
-## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
-## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
-## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1
-##           parameter parameter_id  from_date  thru_date      lat      lon
-## 1 Water Temperature            1 1996-03-30 2008-12-11 -15.9903 145.8212
-## 2 Water Temperature            1 1996-03-30 2011-07-21 -15.9905 145.8213
-## 3 Water Temperature            1 2004-05-13 2008-05-03 -19.1557 146.8813
-## 4 Water Temperature            1 2005-09-15 2005-12-22 -19.1557 146.8813
-## 5 Water Temperature            1 1997-08-26 2019-06-10 -18.8065 147.6688
-## 6 Water Temperature            1 1996-05-02 2017-05-07 -18.8060 147.6686
-##   uncal_obs cal_obs qc_obs
-## 1     23130  110480 110480
-## 2    114450  216794 216794
-## 3     11951   53231  53231
-## 4         0    4656   4656
-## 5    437544  566585 566585
-## 6    369317  495663 495608</code></pre>
-<p>The output of <code>aims_data</code> (here, <code>sdata</code>) is a list containing four elements:</p>
-<ul>
-<li><p><code>metadata</code> a doi link containing the metadata record for the data series</p></li>
-<li><p><code>citation</code> the citation information for the particular dataset</p></li>
-<li><p><code>links</code> the link returning the data query</p></li>
-<li><p><code>data</code> an output <code>data.frame</code></p></li>
-</ul>
-<p>The summary argument here is key. It should only be flagged when the user wants an overview of the available data. Again, this currently implemented for the Sea Water Temperature Loggers dataset. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>.</p>
-<p>Notice that <code>sdata$data</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>from_date</code> and <code>thru_date</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
+## 3       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
+## 4       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
+## 5       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
+## 6       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
+##           parameter parameter_id time_coverage_start time_coverage_end      lat
+## 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903
+## 2 Water Temperature            1          1996-03-30        2010-02-02 -15.9905
+## 3 Water Temperature            1          2010-11-30        2011-07-21 -15.9905
+## 4 Water Temperature            1          2004-05-13        2008-05-03 -19.1557
+## 5 Water Temperature            1          2005-09-15        2005-12-22 -19.1557
+## 6 Water Temperature            1          1997-08-26        2009-12-08 -18.8065
+##        lon depth uncal_obs cal_obs qc_obs
+## 1 145.8212   0.2     23130  110480 110480
+## 2 145.8213   5.0     81042  183386 183386
+## 3 145.8213   5.5     33408   33408  33408
+## 4 146.8813   7.0     11951   53231  53231
+## 5 146.8813   1.0         0    4656   4656
+## 6 147.6688   1.0     72073  201114 201114</code></pre>
+<p>The <code>summary</code> argument here is key. It should only be flagged when the user wants an overview of the available data. Again, this currently implemented for the Sea Water Temperature Loggers dataset. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>. The output of <code>aims_data</code> when summary is <code>NA</code> (the default) is a <code>data.frame</code>.</p>
+<p>Notice that <code>sdata</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
 <p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same, and currently there is no public information on AIMS quality-control methods and algorithms. However, if this is crucial information to you, please reach out to the <a href="adc@aims.gov.au">Data Manager from the AIMS Data Centre</a>. So let’s go ahead and plot these data on a map of Australia, while colouring based on the total amount of calibrated observations:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sdata</span><span class="op">$</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">sdata</span><span class="op">$</span><span class="va">data</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="va">sdata</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">cal_obs</span> <span class="op">*</span> <span class="fl">1e-3</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>
 <span class="va">lab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">atop</a></span><span class="op">(</span><span class="st">"# Calibrated obs."</span>,
@@ -172,7 +167,7 @@
                               zoom <span class="op">=</span> <span class="fl">4</span>, maptype <span class="op">=</span> <span class="st">"watercolor"</span><span class="op">)</span>
 <span class="fu">ggmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">ozmap</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme_void</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">sdata</span><span class="op">$</span><span class="va">data</span>,
+  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">sdata</span>,
              mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span>,
                            colour <span class="op">=</span> <span class="va">cols</span>,
                            fill <span class="op">=</span> <span class="va">cols</span><span class="op">)</span>,
@@ -200,7 +195,7 @@
 ## 4      2639
 ## 5     10243
 ## 6       258
-##                                                              series_name
+##                                                                   series
 ## 1        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) 
 ## 2                            Saibai Island Weather Station Hail Duration
 ## 3 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
@@ -225,34 +220,47 @@
 ## [1] NA
 ## 
 ## $filters
-##  [1] "site-name"     "series"        "size"          "parameter"    
-##  [5] "min-latitude"  "max-latitude"  "min-longitude" "max-longitude"
-##  [9] "from-date"     "thru-date"     "version"       "cursor"</code></pre>
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"     
+##  [7] "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date"
+## [13] "version"   "cursor"</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/expose_attributes.html">expose_attributes</a></span><span class="op">(</span><span class="va">ssts_doi</span><span class="op">)</span></code></pre></div>
 <pre><code>## $summary
 ## [1] "summary-by-series"     "summary-by-deployment"
 ## 
 ## $filters
-##  [1] "site"      "subsite"   "series"    "size"      "parameter" "min_lat"  
-##  [7] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"  
-## [13] "cursor"</code></pre>
-<p>Notice that they are not (yet!) consistent across datasets, so pay attention to the nuances. The help file (see <code><a href="../reference/expose_attributes.html">?expose_attributes</a></code>) contains the details about what each filter targets. So, having an understanding of the summaries and what filters are available provide the user with a great head start.</p>
-<p>Downloading the data is achieved using the same <code>aims_data</code> function, however now we do not specify a <code>summary</code> argument, and instead implement filters. For example, let’s say we want to download all the data collected at the Yongala for a specific time window:</p>
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"     
+##  [7] "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date"
+## [13] "version"   "cursor"</code></pre>
+<p>The help file (see <code><a href="../reference/expose_attributes.html">?expose_attributes</a></code>) contains the details about what each filter targets. So, having an understanding of the summaries and what filters are available provide the user with a great head start.</p>
+<p>Downloading the data is achieved using the same <code>aims_data</code> function, however now we do not specify a <code>summary</code> argument, and instead implement filters. For example, let’s say we want to download all the data collected at the <a href="https://en.wikipedia.org/wiki/SS_Yongala">Yongala</a> for a specific time window:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">weather_doi</span>,
                      api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"site-name"</span> <span class="op">=</span> <span class="st">"Yongala"</span>,
-                                    <span class="st">"from-date"</span> <span class="op">=</span> <span class="st">"2018-01-01"</span>,
-                                    <span class="st">"thru-date"</span> <span class="op">=</span> <span class="st">"2018-01-02"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">data</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">)</span></code></pre></div>
-<pre><code>##   deployment_id site_name    location_name depth  latitude longitude
-## 1        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
-## 2        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
-## 3        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
-## 4        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
-## 5        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
-## 6        472564   Yongala Yongala NRS Buoy    NA -19.30372  147.6205
+                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>site <span class="op">=</span> <span class="st">"Yongala"</span>,
+                                    from_date <span class="op">=</span> <span class="st">"2018-01-01"</span>,
+                                    thru_date <span class="op">=</span> <span class="st">"2018-01-02"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>The output of <code>aims_data</code> when summary is <code>NA</code> (the default) is a list containing three elements:</p>
+<ul>
+<li><p><code>metadata</code> a doi link containing the metadata record for the data series</p></li>
+<li><p><code>citation</code> the citation information for the particular dataset</p></li>
+<li><p><code>data</code> an output <code>data.frame</code></p></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wdata_a</span><span class="op">$</span><span class="va">metadata</span></code></pre></div>
+<pre><code>## [1] "Metadata record https://doi.org/10.25845/5c09bf93f315d"</code></pre>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wdata_a</span><span class="op">$</span><span class="va">citation</span></code></pre></div>
+<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 10 February 2021.  Time period: 2018-01-01 to 2018-01-02.  Site: Yongala."</code></pre>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<pre><code>##   deployment_id    site          subsite depth       lat      lon
+## 1        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
+## 2        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
+## 3        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
+## 4        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
+## 5        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
+## 6        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205
 ##                        parameter serial_num    data_id                time
 ## 1 Wind Speed (Scalar avg 10 min)   E0810017 1002524661 2018-01-01 00:00:00
 ## 2 Wind Speed (Scalar avg 10 min)   E0810017 1002525035 2018-01-01 00:10:00
@@ -260,16 +268,16 @@
 ## 4 Wind Speed (Scalar avg 10 min)   E0810017 1002525892 2018-01-01 00:30:00
 ## 5 Wind Speed (Scalar avg 10 min)   E0810017 1002526278 2018-01-01 00:40:00
 ## 6 Wind Speed (Scalar avg 10 min)   E0810017 1002526524 2018-01-01 00:50:00
-##   raw_value qc_value series_id                                     series_name
-## 1   21.8412  21.8412      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 2   22.4100  22.4100      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 3   22.4496  22.4496      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 4   23.1876  23.1876      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 5   22.1364  22.1364      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 6   22.0104  22.0104      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)</code></pre>
+##   cal_val  qc_val series_id                                          series
+## 1 21.8412 21.8412      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
+## 2 22.4100 22.4100      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
+## 3 22.4496 22.4496      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
+## 4 23.1876 23.1876      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
+## 5 22.1364 22.1364      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
+## 6 22.0104 22.0104      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)</code></pre>
 <p>We see that there a bunch of parameters available for this site at the specified time:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">$</span><span class="va">parameter</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">parameter</span><span class="op">)</span></code></pre></div>
 <pre><code>##  [1] "Wind Speed (Scalar avg 10 min)"             
 ##  [2] "Wind Direction (Scalar Average 10 Minutes)" 
 ##  [3] "Wind Direction (Scalar Standard 10 Minutes)"
@@ -302,25 +310,25 @@
 ## [30] "Depth"                                      
 ## [31] "Dissolved Oxygen (mole)"</code></pre>
 <p>And the actual measurements are either raw or quality-controlled. Let’s plot wind speed data as an example</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wdata_a</span> <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wdata_a</span><span class="op">$</span><span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"Wind Speed"</span>, <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">qc_value</span>, colour <span class="op">=</span> <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">qc_val</span>, colour <span class="op">=</span> <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
          y <span class="op">=</span> <span class="st">"Wind speed (km / h)"</span>,
          colour <span class="op">=</span> <span class="st">"Site"</span>,
          title <span class="op">=</span> <span class="st">"AIMS Weather stations"</span>,
          subtitle <span class="op">=</span> <span class="st">"Yongala (2018)"</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><img src="navigating_files/figure-html/unnamed-chunk-10-1.png" width="710.4"></p>
+<p><img src="navigating_files/figure-html/unnamed-chunk-13-1.png" width="710.4"></p>
 <p>We could refine even further by including a time window to download the data:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">weather_doi</span>,
                      api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"series"</span> <span class="op">=</span> <span class="fl">64</span>,
-                                    <span class="st">"from-date"</span> <span class="op">=</span> <span class="st">"1991-10-18T06:00:00"</span>,
-                                    <span class="st">"thru-date"</span> <span class="op">=</span> <span class="st">"1991-10-18T12:00:00"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">data</span>
+                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">64</span>,
+                                    from_date <span class="op">=</span> <span class="st">"1991-10-18T06:00:00"</span>,
+                                    thru_date <span class="op">=</span> <span class="st">"1991-10-18T12:00:00"</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">data</span>
 <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">wdata_b</span><span class="op">$</span><span class="va">time</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "1991-10-18 06:00:00 UTC" "1991-10-18 12:00:00 UTC"</code></pre>
 </div>

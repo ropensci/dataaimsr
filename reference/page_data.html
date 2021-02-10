@@ -55,6 +55,8 @@ via the AIMS Data Platform API" />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -102,7 +104,10 @@ via the AIMS Data Platform API" />
       <a href="../articles/navigating.html">Navigating dataaimsr</a>
     </li>
     <li>
-      <a href="../articles/weather.html">AIMS weather time series data sets</a>
+      <a href="../articles/tloggers.html">Sea Water Temperature Loggers time series dataset</a>
+    </li>
+    <li>
+      <a href="../articles/weather.html">AIMS Weather Station time series datasets</a>
     </li>
   </ul>
 </li>
@@ -113,7 +118,7 @@ via the AIMS Data Platform API" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/open-aims/dataaimsr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -156,7 +161,8 @@ via the AIMS Data Platform API</p>
     <tr>
       <th>doi</th>
       <td><p>A <a href='https://www.doi.org/'>Digital Object Identifier</a>
-for a chosen <a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
+for a chosen
+<a href='https://open-aims.github.io/data-platform'>AIMS data series</a></p></td>
     </tr>
     <tr>
       <th>filters</th>
@@ -187,13 +193,16 @@ If none is provided, then "-v2.0" (the most recent) is used.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code> <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>
-containing four elements:</p><ul>
+    <p>If <code>summary</code> is passed as an additional argument (see code
+example below), <code>aims_data</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>
+containing the summary information for the dataset (NB: currently,
+<code>summary</code> only works for the temperature logger dataset).</p>
+<p>Otherwise, if actual data is downloaded, a <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code>
+<code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing three elements:</p><ul>
 <li><p><code>metadata</code>a <a href='https://www.doi.org/'>DOI</a> link
 containing the metadata record for the data series.</p></li>
 <li><p><code>citation</code>the citation information for the particular
 dataset.</p></li>
-<li><p><code>links</code>the link from which the data query was retrieved.</p></li>
 <li><p><code>data</code>an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p></li>
 </ul>
 
@@ -203,7 +212,8 @@ dataset.</p></li>
 data sets for R applications to the
 <a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this <a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
+be obtained at this
+<a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
 permanently under the user's <code>.Renviron</code> file in order to load
@@ -230,7 +240,8 @@ time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='expose_attributes.html'>expose_attributes</a></code>, <code><a href='filter_values.html'>filter_values</a></code>, <code><a href='aims_data.html'>aims_data</a></code></p></div>
+    <div class='dont-index'><p><code><a href='expose_attributes.html'>expose_attributes</a></code>, <code><a href='filter_values.html'>filter_values</a></code>,
+<code><a href='aims_data.html'>aims_data</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
