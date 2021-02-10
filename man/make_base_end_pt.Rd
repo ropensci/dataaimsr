@@ -8,7 +8,8 @@ make_base_end_pt(doi, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
+for a chosen
+\href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{aims_version}{A \code{\link[base]{character}} string
 defining the version of database. Must be "/v1.0" or "-v2.0".

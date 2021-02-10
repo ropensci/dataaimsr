@@ -8,11 +8,12 @@ expose_attributes(doi)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
+for a chosen
+\href{https://open-aims.github.io/data-platform}{AIMS data series}}
 }
 \value{
-A \code{\link[base]{list}} of a \code{\link[base]{character}} vector
-each: one detailing summary modes, another detailing filters.
+A \code{\link[base]{list}} of two \code{\link[base]{character}}
+vectors: one detailing summary modes, another detailing filters.
 }
 \description{
 Expose available query filters which are allowed to be parsed either
@@ -37,29 +38,33 @@ parameter.}
 deployments.}
 }
 
-Currently we are working on standardising all filter names
-across datasets. However, for the moment they might differ depending on
-whether the user is downloading temperature logger data or weather station
-data. Below the valid parameter names should be read as
-temperature-logger / weather-station (NA means that the particular filter
-name is not available for the dataset.
+We offer a list of valid filter names:
 
 \itemize{
-\item{site/site-name}{Filter by a particular site.}
-\item{subsite/NA}{Filter by a particular subsite.}
-\item{series/series_name}{Filter by a particular series.}
-\item{parameter/parameter}{Parameter of interest. Only used for weather
-station data.}
-\item{min_lat/min-latitude}{Minimum latitude; used to filter by a lat-lon box.}
-\item{max_lat/max-latitude}{Maximum latitude; used to filter by a lat-lon box.}
-\item{min_lon/min-longitude}{Minimum longitude; used to filter by a lat-lon box.}
-\item{max_lon/max-longitude}{Maximum longitude; used to filter by a lat-lon box.}
-\item{from_date/from-date}{Filter from time (string of format YYYY-MM-DD).}
-\item{thru_date/thru-date}{Filter until time (string of format YYYY-MM-DD).}
+\item{site}{Filter by a particular site.}
+\item{subsite}{Filter by a particular subsite.}
+\item{series}{Filter by a particular series.}
+\item{series_id}{A unique identifier for the series - it should be
+unique within a dataset. An alternative to looking up a series by name.}
+\item{parameter}{Parameter of interest. Only relevant for
+weather station data because temperature logger is always water
+temperature.}
+\item{min_lat}{Minimum latitude; used to filter by a
+lat-lon box.}
+\item{max_lat}{Maximum latitude; used to filter by a
+lat-lon box.}
+\item{min_lon}{Minimum longitude; used to filter by a
+lat-lon box.}
+\item{max_lon}{Maximum longitude; used to filter by a
+lat-lon box.}
+\item{from_date}{Filter from time (string of format
+YYYY-MM-DD).}
+\item{thru_date}{Filter until time (string of format
+YYYY-MM-DD).}
 }
 
-Some additional options for the actual download, which should be passed as additional
-arguments to the function,  are:
+Some additional options for the actual download, which should be passed as
+additional arguments to the function, are:
 \itemize{
 \item{size}{Set a page size for large queries
 (only for the \code{data} and \code{data-no-key} endpoints).}
@@ -76,6 +81,7 @@ ssts_doi <- aims_data_doi("temp_loggers")
 expose_attributes(weather_doi)
 expose_attributes(ssts_doi)
 }
+
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

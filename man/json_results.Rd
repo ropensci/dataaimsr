@@ -10,14 +10,18 @@ json_results(dt_req)
 \item{dt_req}{An URL \code{\link[httr]{GET}} output}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
-containing four elements:
+If \code{summary} is passed as an additional argument (see code
+example below), \code{aims_data} returns a \code{\link[base]{data.frame}}
+containing the summary information for the dataset (NB: currently,
+\code{summary} only works for the temperature logger dataset).
+
+Otherwise, if actual data is downloaded, a \code{\link[jsonlite]{fromJSON}}
+\code{\link[base]{list}} containing three elements:
 \itemize{
 \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
 containing the metadata record for the data series.}
 \item{\code{citation}}{the citation information for the particular
 dataset.}
-\item{\code{links}}{the link from which the data query was retrieved.}
 \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
 }
 }
@@ -25,8 +29,8 @@ dataset.}
 Wrapper function
 }
 \details{
-This function submits a \code{dt_req}
-data request via \code{\link[jsonlite]{fromJSON}}.
+This function submits a \code{dt_req} data request via
+\code{\link[jsonlite]{fromJSON}}.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

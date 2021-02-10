@@ -16,9 +16,8 @@ A \code{\link[base]{character}} vector conveying the error message.
 Displays error status
 }
 \details{
-This function retrieves the
-status and content of \code{dt_req} via the
-\pkg{httr} package.
+This function retrieves the status and content of \code{dt_req}
+via the \pkg{httr} package.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

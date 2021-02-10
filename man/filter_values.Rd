@@ -2,45 +2,58 @@
 % Please edit documentation in R/dataaimsr.R
 \name{filter_values}
 \alias{filter_values}
-\title{Retrieve existing list of data attributes}
+\title{Retrieve vector of existing filter values}
 \usage{
 filter_values(doi, filter_name, aims_version = NA)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
+for a chosen
+\href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
-\item{filter_name}{A \code{\link[base]{character}} string containing the name of
-the filter. Must be "sites" or "series". It could also be "parameters" for the
-weather data (i.e. doi = aims_data_doi("weather")).}
+\item{filter_name}{A \code{\link[base]{character}} string containing the
+name of the filter. Must be "site", "subsite", "series", or
+"parameter". See details.}
 
 \item{aims_version}{A \code{\link[base]{character}} string
 defining the version of database. Must be "/v1.0" or "-v2.0".
 If none is provided, then "-v2.0" (the most recent) is used.}
 }
 \value{
-Either a \code{\link[base]{data.frame}} or a \code{\link[base]{character}} vector.
+Either a \code{\link[base]{data.frame}} if
+\code{filter_name = "series"}, else a \code{\link[base]{character}}
+vector.
 }
 \description{
 This is a utility function which allows to user
 to query about the existing possibilities of
 a given filter name
 }
+\details{
+For a full description of each valid filter_name see
+?\code{\link{expose_attributes}}. In the temperature logger dataset,
+"subsite" is equivalent to "series"; moreover, note that there is only one
+parameter being measured (i.e. water temperature), so the "parameter" filter
+contains one single value.
+}
 \examples{
 \dontrun{
 library(dataaimsr)
 weather_doi <- aims_data_doi("weather")
 ssts_doi <- aims_data_doi("temp_loggers")
-filter_values(weather_doi, filter_name = "sites")
+filter_values(weather_doi, filter_name = "site")
+filter_values(weather_doi, filter_name = "subsite")
 filter_values(weather_doi, filter_name = "series")
-filter_values(weather_doi, filter_name = "parameters")
-filter_values(ssts_doi, filter_name = "sites")
-filter_values(ssts_doi, filter_name = "series")
+filter_values(weather_doi, filter_name = "parameter")
+filter_values(ssts_doi, filter_name = "site")
+filter_values(ssts_doi, filter_name = "subsite")
+filter_values(ssts_doi, filter_name = "series") # same as subsite
+filter_values(ssts_doi, filter_name = "parameter")
 }
 
 }
 \seealso{
-\code{\link{aims_data}}
+\code{\link{aims_data}}, \code{\link{expose_attributes}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

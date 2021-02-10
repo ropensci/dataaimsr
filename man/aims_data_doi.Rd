@@ -7,9 +7,9 @@
 aims_data_doi(target)
 }
 \arguments{
-\item{target}{A \code{\link[base]{character}} vector of length 1
-specifying the dataset. Only \code{weather} or
-\code{temp_loggers} are currently allowed.}
+\item{target}{A \code{\link[base]{character}} vector of length 1 specifying
+the dataset. Only \code{weather} or #' \code{temp_loggers} are currently
+allowed.}
 }
 \value{
 A \code{\link[base]{character}} vector

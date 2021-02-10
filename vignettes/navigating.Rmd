@@ -12,6 +12,7 @@ The very first thing to do is read the documentation on our
 installed, and that your personal [AIMS Data Platform API Key][1] has 
 been downloaded.
 
+[0]: https://www.aims.gov.au/
 [1]: https://open-aims.github.io/data-platform/key-request
 
 Once you have obtained your API Key, you can either place it 
@@ -44,8 +45,9 @@ library(dataaimsr)
 
 ## How this package works
 
-`dataaimsr` contains two sets of monitoring data collected by AIMS
-since the 1980's: the [Weather Station][2] dataset which contains 
+`dataaimsr` contains two sets of monitoring data collected by AIMS---[the
+Australian Institute of Marine Science][0]---since the 1980's: the
+[Weather Station][2] dataset which contains 
 encompasses data for different parameters (e.g. Air Temperature, Air 
 Pressure, Chlorophyll, and many others); and the
 [Sea Water Temperature Loggers][3] dataset which contains records of 
@@ -61,7 +63,9 @@ hover over the data links above to see the actual DOI codes). The
 datasets are structured by sites, series and parameters. A series is a 
 continuing time-series, i.e. a collection of deployments measuring the 
 same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the 
-same site.
+same subsite. So, for a given site and parameter, there might exist multiple
+subsites and therefore series, in which case they are most likely 
+distinguishable by depth.
 
 For the Sea Water Temperature Loggers dataset, series is synonymous 
 with the variable called subsite. For the Weather Station dataset, it 
@@ -98,37 +102,26 @@ Loggers dataset using the main function called `aims_data`:
 ```{r, message = FALSE, warning = FALSE}
 # see ?aims_data_doi for argument names
 ssts_doi <- aims_data_doi("temp_loggers")
-sdata <- aims_data(ssts_doi,
-                   api_key = my_api_key,
+sdata <- aims_data(ssts_doi, api_key = my_api_key,
                    summary = "summary-by-series")
-head(sdata$data)
+head(sdata)
 ```
 
-The output of `aims_data` (here, `sdata`) is a list containing four
-elements:
-
-- `metadata` a doi link containing the metadata record for the data series
-
-- `citation` the citation information for the particular dataset
-
-- `links` the link returning the data query
-
-- `data` an output `data.frame`
-
-The summary argument here is key. It should only be flagged when the
+The `summary` argument here is key. It should only be flagged when the
 user wants an overview of the available data. Again, this currently
 implemented for the Sea Water Temperature Loggers dataset. One can
-visualise `summary-by-series` or `summary-by-deployment`.
+visualise `summary-by-series` or `summary-by-deployment`. The output of
+`aims_data` when summary is `NA` (the default) is a `data.frame`.
 
-Notice that `sdata$data` contains a lot of information, most of which is
+Notice that `sdata` contains a lot of information, most of which is
 related to site / series / parameter ID. Each row corresponds to a
 unique series, and a certain site may contain multiple series; in such
 cases, series generally differ from one another by depth. The columns 
-`from_date` and `thru_date` are probably one of the most valuable 
-pieces of information. They provide the user with the window of data 
-collection for a particular series, which is probably crucial to decide 
-whether that particular series is of relevance to the specific question
-in hand.
+`time_coverage_start` and `time_coverage_end` are probably one of the most
+valuable pieces of information. They provide the user with the window of data
+collection for a particular series, which is probably crucial to decide
+whether that particular series is of relevance to the specific question in
+hand.
 
 Also note that there are three columns containing the total number of 
 observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
@@ -142,7 +135,7 @@ go ahead and plot these data on a map of Australia, while colouring
 based on the total amount of calibrated observations:
 
 ```{r, fig.width = 7, fig.height = 4.36, message = FALSE, warning = FALSE}
-sdata$data <- sdata$data %>%
+sdata <- sdata %>%
   dplyr::mutate(cols = cal_obs * 1e-3) %>%
   tidyr::drop_na(lon, lat)
 lab <- expression(atop("# Calibrated obs.",
@@ -152,7 +145,7 @@ ozmap <- ggmap::get_stamenmap(bbox = c(left = 94, bottom = -45,
                               zoom = 4, maptype = "watercolor")
 ggmap::ggmap(ozmap) +
   theme_void() +
-  geom_point(data = sdata$data,
+  geom_point(data = sdata,
              mapping = aes(x = lon, y = lat,
                            colour = cols,
                            fill = cols),
@@ -207,41 +200,60 @@ expose_attributes(weather_doi)
 expose_attributes(ssts_doi)
 ```
 
-Notice that they are not (yet!) consistent across datasets, so pay 
-attention to the nuances. The help file (see `?expose_attributes`)
-contains the details about what each filter targets. So, having
-an understanding of the summaries and what filters are available
-provide the user with a great head start.
+The help file (see `?expose_attributes`) contains the details about what
+each filter targets. So, having an understanding of the summaries and what
+filters are available provide the user with a great head start.
 
 Downloading the data is achieved using the same `aims_data` function, 
 however now we do not specify a `summary` argument, and instead 
 implement filters. For example, let's say we want to download all the
-data collected at the Yongala for a specific time window:
+data collected at the [Yongala](https://en.wikipedia.org/wiki/SS_Yongala) for
+a specific time window:
 
 ```{r, message = FALSE, warning = FALSE}
 wdata_a <- aims_data(weather_doi,
                      api_key = my_api_key,
-                     filters = list("site-name" = "Yongala",
-                                    "from-date" = "2018-01-01",
-                                    "thru-date" = "2018-01-02"))$data
-head(wdata_a)
+                     filters = list(site = "Yongala",
+                                    from_date = "2018-01-01",
+                                    thru_date = "2018-01-02"))
+```
+
+The output of `aims_data` when summary is `NA` (the default) is a list
+containing three elements:
+
+- `metadata` a doi link containing the metadata record for the data series
+
+- `citation` the citation information for the particular dataset
+
+- `data` an output `data.frame`
+
+```{r}
+wdata_a$metadata
+```
+
+```{r}
+wdata_a$citation
+```
+
+```{r}
+head(wdata_a$data)
 ```
 
 We see that there a bunch of parameters available for this site at the
 specified time:
 
 ```{r}
-unique(wdata_a$parameter)
+unique(wdata_a$data$parameter)
 ```
 
 And the actual measurements are either raw or quality-controlled. Let's
 plot wind speed data as an example
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 7.4, fig.height = 5.2}
-wdata_a %>%
+wdata_a$data %>%
   dplyr::filter(grepl("Wind Speed", parameter)) %>%
   ggplot(data = .) +
-    geom_line(aes(x = time, y = qc_value, colour = parameter)) +
+    geom_line(aes(x = time, y = qc_val, colour = parameter)) +
     labs(x = "Date",
          y = "Wind speed (km / h)",
          colour = "Site",
@@ -256,9 +268,9 @@ data:
 ```{r, message = FALSE, warning = FALSE}
 wdata_b <- aims_data(weather_doi,
                      api_key = my_api_key,
-                     filters = list("series" = 64,
-                                    "from-date" = "1991-10-18T06:00:00",
-                                    "thru-date" = "1991-10-18T12:00:00"))$data
+                     filters = list(series_id = 64,
+                                    from_date = "1991-10-18T06:00:00",
+                                    thru_date = "1991-10-18T12:00:00"))$data
 range(wdata_b$time)
 ```
 

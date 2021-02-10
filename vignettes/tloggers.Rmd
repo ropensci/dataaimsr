@@ -1,0 +1,218 @@
+---
+title: "Sea Water Temperature Loggers time series dataset"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sea Water Temperature Loggers time series dataset}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Please check our [intro vignette][1] first to implement the installation
+requirements, and to learn the general approach to navigating the different
+datasets. This vignette assumes you have obtained an
+[AIMS Data Platform API Key][2].
+
+[1]: https://open-aims.github.io/dataaimsr/articles/navigating.html
+[2]: https://open-aims.github.io/data-platform/key-request
+
+Let's start by loading some packages that we are going to need down the track,
+and store the API key as an object---if you successfully placed your API Key
+permanently to the `.Renviron`, then just set the object `my_api_key` to `NULL`
+in the chunk below:
+
+```{r, eval = FALSE}
+library(plyr)
+library(tidyverse)
+library(dataaimsr)
+# set my_api_key to NULL if successfully placed in .Renviron
+# paste your key where it says api-key-for-r-notebook
+my_api_key <- "api-key-for-r-notebook"
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(plyr)
+library(tidyverse)
+library(dataaimsr)
+my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
+```
+
+## Discovering the dataset
+
+The [Sea Water Temperature Loggers][3] dataset is less extensive than the
+[AIMS Weather Station][4] dataset because it comprises one single
+*"parameter"*---water temperature---that is measured at multiple sites. Not 
+all sites have the same temporal coverage; some loggers are still actively 
+collecting data, others have been discontinued. So the key distinctive 
+variables in this instance are the "site", and the "series". A "series" 
+represents a continuing time-series, i.e. a collection of deployments 
+measuring the same parameter at the same subsite. Because there is only one
+parameter (water temperature), subsite and series are synonymous in the
+[Sea Water Temperature Loggers][3] dataset. So a series will comprise a
+continuing time-series at a specific site and depth.
+
+Essentially, for the user who has limited knowledge about where the data are,
+and of what they are consisted, they would need to do some prior exploration 
+to learn more about what can be downloaded. Suppose the goal is to download all
+time-series from a particular site. The general procedure would be:
+
+1. Examine documentation and establish query filters
+2. Perform data download using `aims_data`
+3. Create an exploratory time-series chart
+
+For all datasets, a list of available filters can be retrieved with the 
+function `expose_attributes`. Knowing the filters is important because some 
+time series are quite extensive, with parameters being measured at very high 
+frequency (e.g. every 5 minutes), so downloading the dataset for an entire 
+year or more my take quite some time (it's possible though if that is the true 
+goal of the user).
+
+```{r}
+ssts_doi <- aims_data_doi("temp_loggers")
+expose_attributes(ssts_doi)
+```
+
+In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
+[intro vignette][1], we have a convenience `summary` method which facilitates 
+learning more about what data is available. We can download the summary 
+information for all sites using the main function called `aims_data`:
+
+[3]: https://doi.org/10.25845/5b4eb0f9bb848
+[4]: https://doi.org/10.25845/5c09bf93f315d
+
+```{r}
+sdata <- aims_data(ssts_doi, api_key = my_api_key,
+                   summary = "summary-by-series")
+head(sdata)
+```
+
+The `summary` argument here is key. It should only be flagged when the
+user wants an overview of the available data. One can visualise
+`summary-by-series` or `summary-by-deployment`.
+
+```{r}
+ddata <- aims_data(ssts_doi, api_key = my_api_key,
+                   summary = "summary-by-deployment")
+head(ddata)
+```
+
+Notice that `sdata$data` contains a lot of information, most of which is
+related to site / series / parameter ID. Each row corresponds to a
+unique series. The columns `time_coverage_start` and `time_coverage_end` are
+probably one of the most valuable pieces of information. They provide the user
+with the window of data collection for a particular series, which is probably
+crucial to decide whether that particular series is of relevance to the
+specific question in hand.
+
+Also note that there are three columns containing the total number of 
+observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
+respectively stand for uncalibrated, calibrated, and quality-controlled 
+observations. Calibrated and quality-controlled are generally the same,
+and currently there is no public information on AIMS quality-control
+methods and algorithms. However, if this is crucial information to you,
+please reach out to the
+[Data Manager from the AIMS Data Centre](adc@aims.gov.au). So let's
+go ahead and plot these data on a map of Australia, while colouring
+based on the total amount of calibrated observations:
+
+The benefits to choosing a data `series` (or the numeric equivalent,
+`series_id`) is that it comes from one location and parameter type (here only
+water temperature), making the data easy to plot. If we did not choose a
+data series from the [Sea Water Temperature Loggers][4] dataset, we would have
+to specify additional arguments to ensure the data is downloaded as expected.
+
+Our values and filters might look like the following:
+
+Variable  | Value                  | Description
+----------|------------------------|-------------------------------------------------------
+series_id | 2687                   | Found [here][6], Agincourt Reef Number 3
+from_date | "2005-01-01"           | We want to start charting on 1/1/2005
+thru_date | "2005-01-10"           | We are plotting 10 days of data
+
+[5]: https://open-aims.github.io/data-platform
+[6]: https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e
+
+## Query and Plot Dataset
+
+After deciding on query parameters, we plug the series id into a `aims_data` function:
+
+```{r, message = FALSE, warning = FALSE}
+agincourt <- aims_data(ssts_doi, api_key = my_api_key,
+                       filters = list(series_id = 2687,
+                                      from_date = "2005-01-01",
+                                      thru_date = "2005-01-10"))
+```
+
+We can check that the query filters worked:
+
+```{r}
+range(agincourt$data$time)
+```
+
+We can even visually compare multiple series at once. For instance, let's
+compare the air temperature data from Davies Reef and Bramble Cay for the
+same period of time:
+
+```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
+target_series <- c("Agincourt" = 2687, "Cleveland Bay" = 3007)
+aims_data_per_series <- function(series_number, my_api_key, ...) {
+  aims_data(ssts_doi, api_key = my_api_key,
+            filters = list(series_id = series_number, ...))
+}
+results <- plyr::llply(target_series, aims_data_per_series,
+                       my_api_key = my_api_key,
+                       from_date = "2005-01-01",
+                       thru_date = "2005-01-10")
+sst_data <- plyr::ldply(results, "[[", "data")
+
+ggplot(data = sst_data) +
+  geom_line(mapping = aes(x = time, y = qc_val,
+                          colour = site)) +
+  labs(x = "Date",
+       y = "Water temperature (˚C)",
+       colour = "Site",
+       title = "AIMS",
+       subtitle = "Water temperature loggers") +
+  theme_bw() +
+  theme(axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12),
+        legend.position = "bottom")
+```
+
+One could also download data for a particular time of day throughout
+the year, e.g. for Davies Reef at 1 m of depth (`series_id` is 2629):
+
+```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
+days <- seq(as.Date("2005-01-01"), as.Date("2005-12-31"), by = "day")
+out <- numeric(length = length(days))
+for (i in seq_along(days)) {
+  hour_in <- paste0(days[i], "T06:00:00")
+  hour_out <- paste0(days[i], "T12:00:00")
+  df <- aims_data(ssts_doi, api_key = my_api_key,
+                  filters = list(series_id = 2629, from_date = hour_in,
+                                 thru_date = hour_out))$data
+  out[i] <- mean(df$qc_val)
+}
+
+data.frame(date = days,
+           temps = out) %>%
+  ggplot(data = .) +
+    geom_line(mapping = aes(x = date, y = temps)) +
+    labs(x = "Date",
+         y = "Water temperature (˚C)",
+         title = "Davies Reef @ 1 m (2005)",
+         subtitle = "mean 6 A.M. – 12 P.M.") +
+    theme_bw() +
+    theme(axis.title.x = element_text(size = 12),
+          axis.title.y = element_text(size = 12),
+          legend.position = "bottom")
+```
+
+## Bibliography
+
+```{r, message = FALSE, warning = FALSE}
+plyr::ldply(results, "[[", "citation") %>%
+  dplyr::rename("citation" = "[[") %>%
+  dplyr::select(citation) %>%
+  unlist %>%
+  unname
+```

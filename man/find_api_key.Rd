@@ -7,8 +7,8 @@
 find_api_key(api_key)
 }
 \arguments{
-\item{api_key}{An API Key obtained from
-\href{https://open-aims.github.io/data-platform/key-request}{AIMS DataPlatform}.}
+\item{api_key}{An AIMS Data Platform
+\href{https://open-aims.github.io/data-platform/key-request}{API Key}}
 }
 \value{
 Either a \code{\link[base]{character}} vector API Key found
@@ -22,11 +22,35 @@ The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
 \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
+be obtained at this
+\href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
 the API Key automatically.
+
+There are two types of data currently available through the
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}:
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e}{Sea Water Temperature Loggers}.
+They are searched internally via unique DOI identifiers which
+can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
+Only one DOI at a time can be passed to the argument \code{doi}.
+
+A list of arguments for \code{filters} can be exposed for both
+\href{https://weather.aims.gov.au/#/overview}{Weather} and
+\href{https://weather.aims.gov.au/#/overview}{Sea Water Temperature Loggers}
+using function \code{\link{expose_attributes}}.
+
+Note that at present the user can inspect the range of dates for
+the temperature loggers data only (see usage of argument \code{summary} in
+\code{\link{aims_data}}). Details about available dates for each dataset
+and time series can be accessed via Metadata on
+\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+We raise this caveat here because these time boundaries are very important;
+data are collected at very small time intervals, so just a few days of
+time interval can yield massive datasets. The query will return and error
+if it reaches the system's memory capacity.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

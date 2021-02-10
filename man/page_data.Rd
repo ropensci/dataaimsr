@@ -15,7 +15,8 @@ page_data(
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
+for a chosen
+\href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{filters}{A \code{\link[base]{list}} containing a set of
 filters for the data query (see Details)}
@@ -33,14 +34,18 @@ If none is provided, then "-v2.0" (the most recent) is used.}
 \item{verbose}{Should links be printed to screen? Used for debugging only}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
-containing four elements:
+If \code{summary} is passed as an additional argument (see code
+example below), \code{aims_data} returns a \code{\link[base]{data.frame}}
+containing the summary information for the dataset (NB: currently,
+\code{summary} only works for the temperature logger dataset).
+
+Otherwise, if actual data is downloaded, a \code{\link[jsonlite]{fromJSON}}
+\code{\link[base]{list}} containing three elements:
 \itemize{
 \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
 containing the metadata record for the data series.}
 \item{\code{citation}}{the citation information for the particular
 dataset.}
-\item{\code{links}}{the link from which the data query was retrieved.}
 \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
 }
 }
@@ -54,7 +59,8 @@ The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
 \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
+be obtained at this
+\href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
@@ -84,7 +90,8 @@ time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.
 }
 \seealso{
-\code{\link{expose_attributes}}, \code{\link{filter_values}}, \code{\link{aims_data}}
+\code{\link{expose_attributes}}, \code{\link{filter_values}},
+\code{\link{aims_data}}
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

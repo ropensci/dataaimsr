@@ -25,4 +25,4 @@ VignetteBuilder: knitr
 URL: https://open-aims.github.io/dataaimsr
 BugReports: https://github.com/open-aims/dataaimsr/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1

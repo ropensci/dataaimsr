@@ -10,7 +10,4 @@ README.Rmd
 ^build-instructions.txt$
 ^LICENSE.md$
 ^TODO.md$
-^tmp_docs$
-^tmp_examples.R$
-^tmp_new_dev.R$
-^tmp_new_tests.R$
+^tmp_*$

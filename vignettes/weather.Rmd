@@ -1,8 +1,8 @@
 ---
-title: "AIMS weather time series data sets"
+title: "AIMS Weather Station time series datasets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{AIMS weather time series data sets}
+  %\VignetteIndexEntry{AIMS Weather Station time series datasets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -12,7 +12,7 @@ requirements, and to learn the general approach to navigating the different
 datasets. This vignette assumes you have obtained an
 [AIMS Data Platform API Key][2].
 
-[1]: https://open-aims.github.io/dataaimsr/articles
+[1]: https://open-aims.github.io/dataaimsr/articles/navigating.html
 [2]: https://open-aims.github.io/data-platform/key-request
 
 Let's start by loading some packages that we are going to need down the track,
@@ -39,50 +39,80 @@ my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
 
 ## Discover a dataset
 
-Suppose we want to query a data series and plot it then the procedure might be:
+The [AIMS Weather Station][3] dataset consists of a series of *"parameters"* 
+that are measured at multiple sites. Those could be, for instance, minimum 
+wind speed, peak wave period, wind direction, water pressure, dissolved 
+oxygen, chlorophyll concentration, etc. Not all parameters are measured for 
+all sites and at all times. Some loggers are still actively collecting data, 
+others have been discontinued.
+
+Essentially, for the user who has limited knowledge about where the data are,
+and of what they are consisted, they would need to do some prior exploration 
+to learn more about what can downloaded. Suppose the goal is to download all
+time-series from a particular site. The general procedure would be:
 
 1. Examine documentation and establish query filters
 2. Perform data download using `aims_data`
-3. Use the Rpackage `ggplot2` to create a time-series chart
+3. Use the Rpackage `ggplot2` to create an exploratory time-series chart
 
-To explore the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d) dataset,
-we use the function `filter_values`. This function takes a DOI and a given
-parameter filter, and returns all the available information regarding the filter.
-For all data sets, a list of available filter parameters can be found with the
-function `expose_attributes`. We recommend exploring the parameter `series`:
+For all datasets, a list of available filters can be retrieved with the 
+function `expose_attributes`. Knowing the filters is important because some 
+time series are quite extensive, with parameters being measured at very high 
+frequency (e.g. every 5 minutes), so downloading the dataset for an entire 
+year or more my take quite some time (it's possible though if that is the true 
+goal of the user).
 
 ```{r}
 weather_doi <- aims_data_doi("weather")
+expose_attributes(weather_doi)
+```
+
+In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
+[intro vignette][1], we have a convenience `summary` method which facilitates 
+learning more about what data is available. The back-end for this is currently 
+being developed for the AIMS Weather Station as well. In the meantime, to 
+explore the [AIMS Weather Station][3] dataset, we use the function
+`filter_values`. This function takes a DOI and a given filter, and returns all 
+the available information regarding the filter.  We recommend exploring the
+`series` filter---a series is a continuing time-series, i.e. a collection of 
+deployments measuring the same parameter (e.g. air temperature, air pressure, 
+chlorophyll) at the same subsite. So, for a given site and parameter, there 
+might exist multiple subsites and therefore series, in which case they are 
+most likely distinguishable by depth.
+
+[3]: https://doi.org/10.25845/5c09bf93f315d
+[4]: https://doi.org/10.25845/5b4eb0f9bb848
+
+```{r}
 filter_values(weather_doi, filter_name = "series") %>%
   head()
-expose_attributes(weather_doi)  
 ```
 
 The benefits to choosing a data `series` is that it comes from one location
 and parameter type, making the data easy to plot. If we did not choose a
-data series from the [AIMS Weather](https://doi.org/10.25845/5c09bf93f315d)
-dataset, we would have to specify additional parameters to ensure the data
-is downloaded as expected.
+data series from the [AIMS Weather Station][3] dataset, we would have to 
+specify additional arguments to ensure the data is downloaded as expected.
 
-Finally our values and filters might look like the following:
+Our values and filters might look like the following:
 
 Variable  | Value                  | Description
 ----------|------------------------|-------------------------------------------------------
-doi       | 10.25845/5c09bf93f315d | DOI for AIMS Weather found [here](https://open-aims.github.io/data-platform)
-series    | 64                     | Found [here](https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e), Davies Reef Air Temperature data series
-from-date | '2018-01-01'           | We want to start charting on 1/1/2018
-thru-date | '2018-01-10'           | We are plotting 10 days of data
+series_id | 64                     | Found [here][6], Davies Reef Air Temperature data series
+from_date | "2018-01-01"           | We want to start charting on 1/1/2018
+thru_date | "2018-01-10"           | We are plotting 10 days of data
+
+[5]: https://open-aims.github.io/data-platform
+[6]: https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e
 
 ## Query and Plot Dataset
 
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
 ```{r, message = FALSE, warning = FALSE}
-davies <- aims_data(weather_doi,
-                    api_key = my_api_key,
-                    filters = list("series" = 64,
-                                   "from-date" = "2018-01-01",
-                                   "thru-date" = "2018-01-10"))
+davies <- aims_data(weather_doi, api_key = my_api_key,
+                    filters = list(series_id = 64,
+                                   from_date = "2018-01-01",
+                                   thru_date = "2018-01-10"))
 ```
 
 We can even visually compare multiple series at once. For instance, let's
@@ -91,16 +121,19 @@ same period of time:
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
-results <- plyr::llply(target_series, function(series_number, my_api_key, ...) {
-  aims_data(weather_doi, api_key = my_api_key, 
-            filters = list("series" = series_number, ...))
-}, my_api_key = my_api_key, "from-date" = "2018-01-01", "thru-date" = "2018-01-10")
-
+aims_data_per_series <- function(series_number, my_api_key, ...) {
+  aims_data(weather_doi, api_key = my_api_key,
+            filters = list(series_id = series_number, ...))
+}
+results <- plyr::llply(target_series, aims_data_per_series,
+                       my_api_key = my_api_key,
+                       from_date = "2018-01-01",
+                       thru_date = "2018-01-10")
 weather_data <- plyr::ldply(results, "[[", "data")
 
 ggplot(data = weather_data) +
-  geom_line(mapping = aes(x = time, y = raw_value,
-                          colour = site_name)) +
+  geom_line(mapping = aes(x = time, y = qc_val,
+                          colour = site)) +
   labs(x = "Date",
        y = "Air temperature (˚C)",
        colour = "Site",
@@ -124,10 +157,10 @@ for (i in seq_along(days)) {
   hour_out <- paste0(days[i], "T12:00:00")
   df <- aims_data(weather_doi,
                   api_key = my_api_key,
-                  filters = list("series" = 10394,
-                                 "from-date" = hour_in,
-                                 "thru-date" = hour_out))$data
-  out[i] <- mean(df$raw_value)
+                  filters = list(series_id = 10394,
+                                 from_date = hour_in,
+                                 thru_date = hour_out))$data
+  out[i] <- mean(df$qc_val)
 }
 
 data.frame(date = days,

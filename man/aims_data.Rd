@@ -8,7 +8,8 @@ aims_data(doi, filters = NULL, ...)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen \href{https://open-aims.github.io/data-platform}{AIMS data series}}
+for a chosen
+\href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{filters}{A \code{\link[base]{list}} containing a set of
 filters for the data query (see Details)}
@@ -17,14 +18,18 @@ filters for the data query (see Details)}
 \code{\link{page_data}} and \code{\link{next_page_data}}}
 }
 \value{
-A \code{\link[jsonlite]{fromJSON}} \code{\link[base]{list}}
-containing four elements:
+If \code{summary} is passed as an additional argument (see code
+example below), \code{aims_data} returns a \code{\link[base]{data.frame}}
+containing the summary information for the dataset (NB: currently,
+\code{summary} only works for the temperature logger dataset).
+
+Otherwise, if actual data is downloaded, a \code{\link[jsonlite]{fromJSON}}
+\code{\link[base]{list}} containing three elements:
 \itemize{
 \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
 containing the metadata record for the data series.}
 \item{\code{citation}}{the citation information for the particular
 dataset.}
-\item{\code{links}}{the link from which the data query was retrieved.}
 \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
 }
 }
@@ -38,7 +43,8 @@ The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
 \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
-be obtained at this \href{https://open-aims.github.io/data-platform/key-request}{link}.
+be obtained at this
+\href{https://open-aims.github.io/data-platform/key-request}{link}.
 It is preferred that API Keys are not stored in code. We recommend
 storing the environment variable \code{AIMS_DATAPLATFORM_API_KEY}
 permanently under the user's \code{.Renviron} file in order to load
@@ -73,94 +79,88 @@ library(dataaimsr)
 # assumes that user already has API key saved to
 # .Renviron
 
-# first we retrieve the correct DOI
-# for each dataset
 weather_doi <- aims_data_doi("weather")
 ssts_doi <- aims_data_doi("temp_loggers")
-
-# first notice that most filter names
-# are not the same across datasets
-# to discover what is allowed
-expose_attributes(weather_doi)
 
 # start downloads:
 # 1. downloads weather data from
 # site Yongala
 # within a defined date range
-wdata_a <- aims_data(weather_doi,
-                     api_key = NULL,
-                     filters = list("site-name" = "Yongala",
-                                    "from-date" = "2018-01-01",
-                                    "thru-date" = "2018-01-02"))$data
+wdf_a <- aims_data(weather_doi, api_key = NULL,
+                   filters = list(site = "Yongala",
+                                  from_date = "2018-01-01",
+                                  thru_date = "2018-01-02"))$data
 
 # 2. downloads weather data from all sites
-# under series 64 from Davies Reef
+# under series_id 64 from Davies Reef
 # within a defined date range
-# ignores summary argument
-wdata_b <- aims_data(weather_doi,
-                     api_key = NULL,
-                     summary = "summary-by-series",
-                     filters = list("series" = 64,
-                                    "from-date" = "1991-10-18",
-                                    "thru-date" = "1991-10-19"))$data
-head(wdata_b)
-range(wdata_b$time)
+wdf_b <- aims_data(weather_doi, api_key = NULL,
+                   filters = list(series_id = 64,
+                                  from_date = "1991-10-18",
+                                  thru_date = "1991-10-19"))$data
+head(wdf_b)
+range(wdf_b$time)
 
 # 3. downloads weather data from all sites
-# under series 64 from Davies Reef
+# under series_id 64 from Davies Reef
 # within defined date AND time range
-wdata_c <- aims_data(weather_doi,
-                     api_key = NULL,
-                     filters = list("series" = 64,
-                                    "from-date" = "1991-10-18T06:00:00",
-                                    "thru-date" = "1991-10-18T12:00:00"))$data
+wdf_c <- aims_data(weather_doi, api_key = NULL,
+                   filters = list(series_id = 64,
+                                  from_date = "1991-10-18T06:00:00",
+                                  thru_date = "1991-10-18T12:00:00"))$data
+head(wdf_c)
+range(wdf_c$time)
 
 # 4. downloads all parameters from all sites
 # within a defined date range
-cdata_a <- aims_data(weather_doi,
-                     api_key = NULL,
-                     filters = list("from-date" = "2003-01-01",
-                                    "thru-date" = "2003-01-02"))$data
+wdf_d <- aims_data(weather_doi, api_key = NULL,
+                   filters = list(from_date = "2003-01-01",
+                                  thru_date = "2003-01-02"))$data
 # note that there are multiple sites and series
 # so in this case, because we did not specify a specific
 # parameter, series within sites could differ by both
 # parameter and depth
-head(cdata_a)
-unique(cdata_a[, c("site_name", "series_id", "series_name")])
-unique(cdata_a$parameter)
-range(cdata_a$time)
+head(wdf_d)
+unique(wdf_d[, c("site", "series_id", "series")])
+unique(wdf_d$parameter)
+range(wdf_d$time)
 
 # 5. downloads chlorophyll from all sites
 # within a defined date range
-cdata_b <- aims_data(weather_doi,
-                     api_key = NULL,
-                     filters = list("parameter" = "Chlorophyll",
-                                    "from-date" = "2018-01-01",
-                                    "thru-date" = "2018-01-02"))$data
+wdf_e <- aims_data(weather_doi, api_key = NULL,
+                   filters = list(parameter = "Chlorophyll",
+                                  from_date = "2018-01-01",
+                                  thru_date = "2018-01-02"))$data
 # note again that there are multiple sites and series
 # however in this case because we did specify a specific
 # parameter, series within sites differ by depth only
-head(cdata_b)
-unique(cdata_b[, c("site_name", "series_id", "series_name", "depth")])
-unique(cdata_b$parameter)
-range(cdata_b$time)
+head(wdf_e)
+unique(wdf_e[, c("site", "series_id", "series", "depth")])
+unique(wdf_e$parameter)
+range(wdf_e$time)
 
-# 6. downloads summarised temperature data
+# 6. downloads temperature data
+# summarised by series
+sdf_a <- aims_data(ssts_doi, api_key = NULL, summary = "summary-by-series")
+head(sdf_a)
+dim(sdf_a)
+
+# 7. downloads temperature data
+# summarised by series
 # for all sites that contain data
-# within a defined date range; note that
-# from_date and thru_date column in the output
-# contain the entire coverage of the series
-# and does not necessarily correspond to the
-# input from_date and thru_date
-sdata <- aims_data(ssts_doi,
-                   api_key = NULL,
-                   summary = "summary-by-series",
+# within a defined date range
+sdf_b <- aims_data(ssts_doi, api_key = NULL, summary = "summary-by-series",
                    filters = list("from_date" = "2018-01-01",
-                                  "thru_date" = "2018-12-31"))$data
-head(sdata)
-unique(sdata$site)
-min(sdata$from_date)
-max(sdata$thru_date)
+                                  "thru_date" = "2018-12-31"))
+head(sdf_b)
+dim(sdf_b) # a subset of sdf_a
+
+# 8. downloads temperature data
+# summarised by deployment
+sdf_c <- aims_data(ssts_doi, api_key = NULL,
+                   summary = "summary-by-deployment")
+head(sdf_c)
+dim(sdf_c)
 }
 
 }
