@@ -34,7 +34,7 @@ my_api_key <- "api-key-for-r-notebook"
 library(plyr)
 library(tidyverse)
 library(dataaimsr)
-my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
+my_api_key <- "bvolT2767E9XBDV5dCFTh4kl17iGd7YzincbTOjg"
 ```
 
 ## Discover a dataset

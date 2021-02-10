@@ -25,7 +25,7 @@ just paste it to the object `my_api_key` below.
 library(tidyverse)
 library(ggmap)
 library(dataaimsr)
-my_api_key <- "x78NRh0XrH9Irtju5OoOdTYBhG0pklw2w6o7eos6"
+my_api_key <- "bvolT2767E9XBDV5dCFTh4kl17iGd7YzincbTOjg"
 ```
 
 ```{r, eval = FALSE}
