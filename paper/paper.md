@@ -24,7 +24,7 @@ authors:
 affiliations:
  - name: Australian Institute of Marine Science, Crawley, WA 6009, Australia
    index: 1
- - names: The Indian Ocean Marine Research Centre, The University of Western Australia, Crawley, WA 6009, Australia
+ - name: The Indian Ocean Marine Research Centre, The University of Western Australia, Crawley, WA 6009, Australia
    index: 2
  - name: Australian Institute of Marine Science, Townsville, Qld 4810, Australia
    index: 3

@@ -1,5 +1,5 @@
 ---
-title: 'dataaimsr: A Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform'
+title: 'dataaimsr: An R Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform'
 tags:
   - R
   - sea surface temperature
