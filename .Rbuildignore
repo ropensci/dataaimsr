@@ -10,4 +10,4 @@ README.Rmd
 ^\.github$
 ^LICENSE.md$
 ^TODO.md$
-^tmp_*$
+^tmp_.*$
