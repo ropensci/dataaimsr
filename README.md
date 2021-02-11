@@ -9,6 +9,8 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
 status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/dataaimsr/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/open-AIMS/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/open-AIMS/dataaimsr?branch=master)
 ![pkgdown](https://github.com/open-AIMS/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.2-orange.svg)](commits/master)
@@ -18,25 +20,18 @@ status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)]
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
 
-Warning
--------
-
-**This package and its API dependency are a work in progress. So we
-advise not installing this package just yet as many of the
-functionalities may change or simply become deprecated.**
-
 Overview
 --------
 
 `dataaimsr` is the **AIMS Data Platform R package**, and will provide
 you with easy access to data sets from the [AIMS Data Platform
-API](https://open-aims.github.io/data-platform).
+API](https://open-AIMS.github.io/data-platform).
 
 Usage of AIMS Data Platform API Key
 -----------------------------------
 
 **AIMS Data Platform** requires an API Key for requests, [get a key
-here.](https://open-aims.github.io/data-platform/key-request)
+here.](https://open-AIMS.github.io/data-platform/key-request)
 
 The API Key can be passed to the package functions as an additional
 `api_key = "XXXX"` argument, however it is preferred that API Keys are
@@ -98,14 +93,14 @@ Available Data Sets
 
 The **AIMS Data Platform API** is a *REST API* providing *JSON*
 formatted data. Documentation about available data sets can be found on
-the [AIMS Data Platform API](https://open-aims.github.io/data-platform).
+the [AIMS Data Platform API](https://open-AIMS.github.io/data-platform).
 
 Further Information
 -------------------
 
 Further information about `dataaimsr` and the **AIMS Data Platform API**
 can be seen on the [project
-page](https://open-aims.github.io/dataaimsr).
+page](https://open-AIMS.github.io/dataaimsr).
 
 `dataaimsr` is provided by the [Australian Institute of Marine
 Science](https://www.aims.gov.au) under the MIT License
