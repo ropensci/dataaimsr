@@ -42,7 +42,7 @@
 #' }
 #'
 #' @export
-filter_values <- function(doi, filter_name, aims_version = NA) {
+filter_values <- function(doi, filter_name) {
   if (length(filter_name) != 1) {
     stop("Argument \"filter_name\" should contain one single value")
   }
@@ -50,7 +50,7 @@ filter_values <- function(doi, filter_name, aims_version = NA) {
     stop("\"filter_name\" must be \"site\", \"subsite\", \"series\", ",
          "or \"parameter\"")
   }
-  base_end_pt <- make_base_end_pt(doi, aims_version)
+  base_end_pt <- make_base_end_pt(doi)
   end_pt <- paste(base_end_pt, doi, filter_name, sep = "/")
   dt_req <- GET(end_pt)
   if (http_error(dt_req)) {

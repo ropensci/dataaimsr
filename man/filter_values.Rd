@@ -4,7 +4,7 @@
 \alias{filter_values}
 \title{Retrieve vector of existing filter values}
 \usage{
-filter_values(doi, filter_name, aims_version = NA)
+filter_values(doi, filter_name)
 }
 \arguments{
 \item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
@@ -14,10 +14,6 @@ for a chosen
 \item{filter_name}{A \code{\link[base]{character}} string containing the
 name of the filter. Must be "site", "subsite", "series", or
 "parameter". See details.}
-
-\item{aims_version}{A \code{\link[base]{character}} string
-defining the version of database. Must be "/v1.0" or "-v2.0".
-If none is provided, then "-v2.0" (the most recent) is used.}
 }
 \value{
 Either a \code{\link[base]{data.frame}} if
