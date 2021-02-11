@@ -97,20 +97,30 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>dataaimsr</code> is the <strong>AIMS Data Platform R package</strong>, and will provide you with easy access to data sets from the <a href="https://open-AIMS.github.io/data-platform">AIMS Data Platform API</a>.</p>
+<p>The Australian Institute of Marine Science (AIMS) has a long tradition in measuring and monitoring a series of environmental parameters along the tropical coast of Australia. These parameters include long-term record of sea surface temperature, wind characteristics, atmospheric temperature, pressure, chlorophyll-a data, among many others. The AIMS Data Centre team has recently developed the <a href="https://open-aims.github.io/data-platform/">AIMS Data Platform API</a> which is a <em>REST API</em> providing JSON-formatted data to users. <code>dataaimsr</code> is the an <strong>R package</strong> written to allow users to communicate with the AIMS Data Platform API using an API key and a few convenience functions to interrogate and understand the datasets that are available to download.</p>
+<p>Currently, there are two AIMS long-term monitoring datasets available to be downloaded through <code>dataaimsr</code>:</p>
+</div>
+<div id="northern-australia-automated-marine-weather-and-oceanographic-stations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#northern-australia-automated-marine-weather-and-oceanographic-stations" class="anchor"></a>Northern Australia Automated Marine Weather And Oceanographic Stations</h2>
+<p>Automatic weather stations have been deployed by AIMS since 1980. Most of the stations are along the Great Barrier Reef (GBR) including the Torres Strait in North-Eastern Australia but there is also a station in Darwin and one in Ningaloo Reef in Western Australia. Many of the stations are located on the reef itself either on poles located in the reef lagoon or on tourist pontoons or other structures. A list of the weather stations which have been deployed by AIMS and the period of time for which data may be available can be found on the <a href="https://apps.aims.gov.au/metadata/view/0887cb5b-b443-4e08-a169-038208109466">metadata</a> webpage. <strong>NB:</strong> Records may not be continuous for the time spans given.</p>
+</div>
+<div id="aims-sea-water-temperature-observing-system-aims-temperature-logger-program" class="section level2">
+<h2 class="hasAnchor">
+<a href="#aims-sea-water-temperature-observing-system-aims-temperature-logger-program" class="anchor"></a>AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)</h2>
+<p>The data provided here are from a number of sea water temperature monitoring programs conducted in tropical and subtropical coral reefs environments around Australia. Data are available from approximately 80 GBR sites, 16 Coral Sea sites, 7 sites in North West Western Australia (WA), 8 Queensland regional ports, 13 sites in the Solitary Islands, 4 sites in Papua New Guinea and 10 sites in the Cocos (Keeling) Islands. Data are obtained from in-situ data loggers deployed on the reef. Temperature instruments sample water temperatures every 5-10 minutes (typically) and are exchanged and downloaded approximately every 12 months. Temperature loggers on the reef-flat are generally placed just below Lowest Astronomical Tide level. Reef-slope (or where specified as Upper reef-slope) generally refers to depths 5–9 m while Deep reef-slope refers to depths of ~20 m. For more information on the dataset and its usage, please visit the <a href="https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e">metadata</a> webpage.</p>
 </div>
 <div id="usage-of-aims-data-platform-api-key" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage-of-aims-data-platform-api-key" class="anchor"></a>Usage of AIMS Data Platform API Key</h2>
-<p><strong>AIMS Data Platform</strong> requires an API Key for requests, <a href="https://open-AIMS.github.io/data-platform/key-request">get a key here.</a></p>
-<p>The API Key can be passed to the package functions as an additional <code>api_key = "XXXX"</code> argument, however it is preferred that API Keys are not stored permanently in your machine.</p>
-<p>If the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code> is stored in the user’s <code>.Renviron</code> file then that will be loaded and used automatically. In that case the users <code>.Renviron</code> file might look like:</p>
+<p><strong>AIMS Data Platform</strong> requires an API Key for data requests, <a href="https://open-AIMS.github.io/data-platform/key-request">get a key here</a>.</p>
+<p>The API Key can be passed to the package functions as an additional <code>api_key = "XXXX"</code> argument. alternatively, the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code> can be stored in the user’s <code>.Renviron</code> file for automatic loading at the start of an R session. In that case the users can modify their <code>.Renviron</code> file by adding the following line:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX</span></code></pre></div>
-<p>The <code>.Renviron</code> file is usually stored in each users home directory.</p>
 </div>
 <div id="possible-renviron-file-locations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#possible-renviron-file-locations" class="anchor"></a>Possible .Renviron file locations</h2>
+<p>The <code>.Renviron</code> file is usually stored in each users home directory:</p>
 <table class="table">
 <colgroup>
 <col style="width: 35%">
@@ -147,17 +157,12 @@ Linux / MacOs
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>At this stage <code>dataaimsr</code> is not hosted on CRAN R package network. An alternative method of installation is to use the R <code>devtools</code> package.</p>
-<p>R <code>devtools</code> can be installed using the following command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</span></code></pre></div>
-<p>After <code>devtools</code> has been installed <code>dataaimsr</code> can be installed directly from GitHub using the following command:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/open-AIMS/dataaimsr"</span>)</span></code></pre></div>
-<p>This command will also install 2 dependencies <code>httr</code> and <code>jsonlite</code>.</p>
-</div>
-<div id="available-data-sets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#available-data-sets" class="anchor"></a>Available Data Sets</h2>
-<p>The <strong>AIMS Data Platform API</strong> is a <em>REST API</em> providing <em>JSON</em> formatted data. Documentation about available data sets can be found on the <a href="https://open-AIMS.github.io/data-platform">AIMS Data Platform API</a>.</p>
+<p>At this stage <code>dataaimsr</code> is not hosted on CRAN R package network. An alternative method of installation is to use the R <code>remotes</code> package.</p>
+<p>R <code>remotes</code> can be installed using the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span></code></pre></div>
+<p>After <code>remotes</code> has been installed <code>dataaimsr</code> can be installed directly from GitHub using the following command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/open-AIMS/dataaimsr"</span>)</span></code></pre></div>
+<p>This command will also install the three package dependencies: <code>httr</code>, <code>jsonlite</code> and <code>parsedate</code>.</p>
 </div>
 <div id="further-information" class="section level2">
 <h2 class="hasAnchor">
@@ -193,8 +198,8 @@ Linux / MacOs
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Barneche Diego R. <br><small class="roles"> Author, maintainer </small>  </li>
-<li> AIMS Datacentre <br><small class="roles"> Author </small>  </li>
+<li>Diego R. Barneche <br><small class="roles"> Author, maintainer </small>  </li>
+<li>AIMS Datacentre <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
@@ -214,7 +219,7 @@ Linux / MacOs
 
 
       <footer><div class="copyright">
-  <p>Developed by Barneche Diego R.,  AIMS Datacentre.</p>
+  <p>Developed by Diego R. Barneche, AIMS Datacentre.</p>
 </div>
 
 <div class="pkgdown">
