@@ -35,10 +35,6 @@ version <- gsub("-", ".", version)
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
 
-## Warning
-
-**This package and its API dependency are a work in progress. So we advise not installing this package just yet as many of the functionalities may change or simply become deprecated.**
-
 ## Overview 
 
 `dataaimsr` is the **AIMS Data Platform R package**, and will provide you with easy access to data sets from the [AIMS Data Platform API](https://open-AIMS.github.io/data-platform).
