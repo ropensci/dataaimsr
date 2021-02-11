@@ -76,6 +76,10 @@
 expose_attributes <- function(doi) {
   w_doi <- aims_data_doi("weather")
   tl_doi <- aims_data_doi("temp_loggers")
+  if (!is.character(doi) | (is.character(doi) &&
+        !any(doi %in% c(w_doi, tl_doi)))) {
+    stop("Incorrect input doi. Please see ?aims_data_doi")
+  }
   if (doi == tl_doi) {
     list(summary = c("summary-by-series", "summary-by-deployment"),
          filters = c("site", "subsite", "series", "series_id", "parameter",
