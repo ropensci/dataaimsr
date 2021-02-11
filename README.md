@@ -30,21 +30,20 @@ record of sea surface temperature, wind characteristics, atmospheric
 temperature, pressure, chlorophyll-a data, among many others. The AIMS
 Data Centre team has recently developed the [AIMS Data Platform
 API](https://open-aims.github.io/data-platform/) which is a *REST API*
-providing JSON-formatted data to users. `dataaimsr` is the an **R
-package** written to allow users to communicate with the AIMS Data
-Platform API using an API key and a few convenience functions to
-interrogate and understand the datasets that are available to download.
+providing JSON-formatted data to users. `dataaimsr` is an **R package**
+written to allow users to communicate with the AIMS Data Platform API
+using an API key and a few convenience functions to interrogate and
+understand the datasets that are available to download.
 
 Currently, there are two AIMS long-term monitoring datasets available to
 be downloaded through `dataaimsr`:
 
-Northern Australia Automated Marine Weather And Oceanographic Stations
-----------------------------------------------------------------------
+### Northern Australia Automated Marine Weather And Oceanographic Stations
 
 Automatic weather stations have been deployed by AIMS since 1980. Most
 of the stations are along the Great Barrier Reef (GBR) including the
 Torres Strait in North-Eastern Australia but there is also a station in
-Darwin and one in Ningaloo Reef in Western Australia. Many of the
+Darwin and one at Ningaloo Reef in Western Australia. Many of the
 stations are located on the reef itself either on poles located in the
 reef lagoon or on tourist pontoons or other structures. A list of the
 weather stations which have been deployed by AIMS and the period of time
@@ -52,8 +51,7 @@ for which data may be available can be found on the
 [metadata](https://apps.aims.gov.au/metadata/view/0887cb5b-b443-4e08-a169-038208109466)
 webpage. **NB:** Records may not be continuous for the time spans given.
 
-AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)
------------------------------------------------------------------------------
+### AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)
 
 The data provided here are from a number of sea water temperature
 monitoring programs conducted in tropical and subtropical coral reefs
@@ -72,8 +70,8 @@ usage, please visit the
 [metadata](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e)
 webpage.
 
-Usage of AIMS Data Platform API Key
------------------------------------
+Requesting an AIMS Data Platform API Key
+----------------------------------------
 
 **AIMS Data Platform** requires an API Key for data requests, [get a key
 here](https://open-AIMS.github.io/data-platform/key-request).
@@ -85,9 +83,6 @@ for automatic loading at the start of an R session. In that case the
 users can modify their `.Renviron` file by adding the following line:
 
     AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
-
-Possible .Renviron file locations
----------------------------------
 
 The `.Renviron` file is usually stored in each users home directory:
 
@@ -132,12 +127,15 @@ from GitHub using the following command:
 This command will also install the three package dependencies: `httr`,
 `jsonlite` and `parsedate`.
 
-Further Information
--------------------
+Usage
+-----
 
-Further information about `dataaimsr` and the **AIMS Data Platform API**
-can be seen on the [project
-page](https://open-AIMS.github.io/dataaimsr).
+Examples about how to navigate `dataaimsr` and interrogate the datasets
+can be found on our [online
+vignettes](https://open-AIMS.github.io/dataaimsr/articles).
+
+License
+-------
 
 `dataaimsr` is provided by the [Australian Institute of Marine
 Science](https://www.aims.gov.au) under the MIT License
