@@ -3,8 +3,7 @@ Type: Package
 Title: AIMS Data Platform API Client
 Version: 1.0.2
 Authors@R: c(person("Barneche", "Diego R.", email = "d.barneche@aims.gov.au", role = c("aut", "cre")), person("","AIMS Datacentre", role = "aut", email = "adc@aims.gov.au"))
-Description: AIMS Data Platform API Client provides easy access to AIMS Data Platform
-   scientific data and information.
+Description: AIMS Data Platform API Client which provides easy access to AIMS Data Platform scientific data and information.
 Depends:
     R (>= 3.6.0)
 Imports:
