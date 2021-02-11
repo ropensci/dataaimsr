@@ -136,7 +136,7 @@ a given filter name" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Retrieve vector of existing filter values</h1>
-    <small class="dont-index">Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/R/dataaimsr.R'><code>R/dataaimsr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/R/filter_values.R'><code>R/filter_values.R</code></a></small>
     <div class="hidden name"><code>filter_values.Rd</code></div>
     </div>
 
@@ -146,7 +146,7 @@ to query about the existing possibilities of
 a given filter name</p>
     </div>
 
-    <pre class="usage"><span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>doi</span>, <span class='va'>filter_name</span>, aims_version <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>filter_values</span><span class='op'>(</span><span class='va'>doi</span>, <span class='va'>filter_name</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,12 +162,6 @@ for a chosen
       <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string containing the
 name of the filter. Must be "site", "subsite", "series", or
 "parameter". See details.</p></td>
-    </tr>
-    <tr>
-      <th>aims_version</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string
-defining the version of database. Must be "/v1.0" or "-v2.0".
-If none is provided, then "-v2.0" (the most recent) is used.</p></td>
     </tr>
     </table>
 
@@ -217,7 +211,7 @@ contains one single value.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by AIMS Datacentre.</p>
+  <p>Developed by Barneche Diego R.,  AIMS Datacentre.</p>
 </div>
 
 <div class="pkgdown">
