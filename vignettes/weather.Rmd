@@ -150,7 +150,7 @@ the year, e.g. for Heron Island Relay Pole 8 at 5.4 m of depth (series
 10394):
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
-days <- seq(as.Date("2018-01-01"), as.Date("2018-12-31"), by = "day")
+days <- seq(as.Date("2018-01-01"), as.Date("2018-12-31"), by = "month")
 out <- numeric(length = length(days))
 for (i in seq_along(days)) {
   hour_in <- paste0(days[i], "T06:00:00")

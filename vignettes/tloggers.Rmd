@@ -182,7 +182,7 @@ One could also download data for a particular time of day throughout
 the year, e.g. for Davies Reef at 1 m of depth (`series_id` is 2629):
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
-days <- seq(as.Date("2005-01-01"), as.Date("2005-12-31"), by = "day")
+days <- seq(as.Date("2005-01-01"), as.Date("2005-12-31"), by = "month")
 out <- numeric(length = length(days))
 for (i in seq_along(days)) {
   hour_in <- paste0(days[i], "T06:00:00")
