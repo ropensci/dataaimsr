@@ -17,6 +17,8 @@ paper/*
 !paper/render.R
 !paper/apa.csl
 !paper/template.tex
+!paper/summary.png
+!paper/wind.png
 
 dataaimsr.Rcheck/
 
