@@ -40,10 +40,11 @@ test_that("Correct structure", {
 })
 
 test_that("Wrong filters", {
-  expect_error(page_data(weather_doi, filters = w_filters_c,
-                         api_key = my_api_key))
-  expect_error(page_data(weather_doi, filters = w_filters_d,
-                         api_key = my_api_key))
+  texpect <- function(...) expect_message(expect_error(expect_is(...)))
+  texpect(page_data(weather_doi, filters = w_filters_c, api_key = my_api_key),
+          "data.frame")
+  texpect(page_data(weather_doi, filters = w_filters_d, api_key = my_api_key),
+          "data.frame")
 })
 
 test_that("summary requests", {
