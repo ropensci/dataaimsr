@@ -10,6 +10,14 @@ TODO.md
 inst/doc
 docs/
 
+paper/*
+!paper/paper.Rmd
+!paper/paper.md
+!paper/paper.bib
+!paper/render.R
+!paper/apa.csl
+!paper/template.tex
+
 dataaimsr.Rcheck/
 
 build-instructions.txt

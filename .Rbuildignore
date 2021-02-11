@@ -2,12 +2,12 @@
 ^\.Rproj\.user$
 README.Rmd
 ^_pkgdown\.yml$
-^.travis\.yml$
+^codecov\.yml$
+^.*Rcheck$
 ^docs$
 ^pkgdown$
+^paper$
 ^\.github$
-^travis_tool$
-^build-instructions.txt$
 ^LICENSE.md$
 ^TODO.md$
 ^tmp_*$
