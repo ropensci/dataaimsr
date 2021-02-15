@@ -5,6 +5,7 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 
 <!-- badges: start -->
 
+[![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
