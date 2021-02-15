@@ -23,6 +23,7 @@ version <- gsub("-", ".", version)
 # dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
 
 <!-- badges: start -->
+[![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/dataaimsr/actions)
 [![Codecov test coverage](https://codecov.io/gh/open-AIMS/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/open-AIMS/dataaimsr?branch=master)
