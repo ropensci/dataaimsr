@@ -26,7 +26,7 @@
 #' There are two types of data currently available through the
 #' [AIMS Data Platform API](https://open-aims.github.io/data-platform):
 #' [Weather](https://weather.aims.gov.au/#/overview) and
-#' [Sea Water Temperature Loggers](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e).
+#' [Sea Water Temperature Loggers](https://tinyurl.com/h93mcojk).
 #' They are searched internally via unique DOI identifiers which
 #' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
 #' Only one DOI at a time can be passed to the argument \code{doi}.
