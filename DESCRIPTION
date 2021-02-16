@@ -13,8 +13,10 @@ Imports:
 Suggests:
     knitr,
     rmarkdown,
-    plyr,
-    tidyverse,
+    dplyr,
+    tidyr,
+    purrr,
+    ggplot2,
     ggmap,
     testthat
 License: MIT + file LICENSE

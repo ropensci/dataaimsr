@@ -22,10 +22,12 @@ difficulty placing your API Key permanently to the `.Renviron`, then
 just paste it to the object `my_api_key` below.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(ggmap)
 library(dataaimsr)
-my_api_key <- "dFpi9Qum8Q8cNAxnK4Q8Q4PoRrd7SBp9asHISDnI"
+my_api_key <- "1NIik2HDo36shE3FG3MfFMLlNBfEOL945FIH7fX0"
 ```
 
 ```{r, eval = FALSE}
@@ -38,7 +40,9 @@ Then install `dataaimsr` following the documentation on our
 [README](../index.html) page. Once that's out of the way, we load the packages needed for this vignette:
 
 ```{r, eval = FALSE}
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 library(ggmap)
 library(dataaimsr)
 ```
@@ -136,14 +140,13 @@ based on the total amount of calibrated observations:
 
 ```{r, fig.width = 7, fig.height = 4.36, message = FALSE, warning = FALSE}
 sdata <- sdata %>%
-  dplyr::mutate(cols = cal_obs * 1e-3) %>%
-  tidyr::drop_na(lon, lat)
+  mutate(cols = cal_obs * 1e-3) %>%
+  drop_na(lon, lat)
 lab <- expression(atop("# Calibrated obs.",
                        paste("(" %*% 10^3, ")")))
-ozmap <- ggmap::get_stamenmap(bbox = c(left = 94, bottom = -45,
-                                       right = 162, top = 0),
-                              zoom = 4, maptype = "watercolor")
-ggmap::ggmap(ozmap) +
+ozmap <- get_stamenmap(bbox = c(left = 94, bottom = -45, right = 162, top = 0),
+                       zoom = 4, maptype = "watercolor")
+ggmap(ozmap) +
   theme_void() +
   geom_point(data = sdata,
              mapping = aes(x = lon, y = lat,
@@ -251,7 +254,7 @@ plot wind speed data as an example
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 7.4, fig.height = 5.2}
 wdata_a$data %>%
-  dplyr::filter(grepl("Wind Speed", parameter)) %>%
+  filter(grepl("Wind Speed", parameter)) %>%
   ggplot(data = .) +
     geom_line(aes(x = time, y = qc_val, colour = parameter)) +
     labs(x = "Date",

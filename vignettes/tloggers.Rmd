@@ -21,8 +21,8 @@ permanently to the `.Renviron`, then just set the object `my_api_key` to `NULL`
 in the chunk below:
 
 ```{r, eval = FALSE}
-library(plyr)
-library(tidyverse)
+library(purrr)
+library(ggplot2)
 library(dataaimsr)
 # set my_api_key to NULL if successfully placed in .Renviron
 # paste your key where it says api-key-for-r-notebook
@@ -30,10 +30,10 @@ my_api_key <- "api-key-for-r-notebook"
 ```
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library(plyr)
-library(tidyverse)
+library(purrr)
+library(ggplot2)
 library(dataaimsr)
-my_api_key <- "dFpi9Qum8Q8cNAxnK4Q8Q4PoRrd7SBp9asHISDnI"
+my_api_key <- "1NIik2HDo36shE3FG3MfFMLlNBfEOL945FIH7fX0"
 ```
 
 ## Discovering the dataset
@@ -158,11 +158,11 @@ aims_data_per_series <- function(series_number, my_api_key, ...) {
   aims_data(ssts_doi, api_key = my_api_key,
             filters = list(series_id = series_number, ...))
 }
-results <- plyr::llply(target_series, aims_data_per_series,
-                       my_api_key = my_api_key,
-                       from_date = "2005-01-01",
-                       thru_date = "2005-01-10")
-sst_data <- plyr::ldply(results, "[[", "data")
+results <- purrr::map(target_series, aims_data_per_series,
+                      my_api_key = my_api_key,
+                      from_date = "2005-01-01",
+                      thru_date = "2005-01-10")
+sst_data <- purrr::map_dfr(results, "data")
 
 ggplot(data = sst_data) +
   geom_line(mapping = aes(x = time, y = qc_val,
@@ -210,9 +210,7 @@ data.frame(date = days,
 ## Bibliography
 
 ```{r, message = FALSE, warning = FALSE}
-plyr::ldply(results, "[[", "citation") %>%
-  dplyr::rename("citation" = "[[") %>%
-  dplyr::select(citation) %>%
+purrr::map_dfr(results, `[`, "citation") %>%
   unlist %>%
   unname
 ```
