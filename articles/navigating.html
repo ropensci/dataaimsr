@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -107,7 +109,9 @@
 <span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">"api-key-for-r-notebook"</span></code></pre></div>
 <p>Then install <code>dataaimsr</code> following the documentation on our <a href="../index.html">README</a> page. Once that’s out of the way, we load the packages needed for this vignette:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dkahle/ggmap">ggmap</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span></code></pre></div>
 <div id="how-this-package-works" class="section level2">
@@ -135,47 +139,46 @@
 <pre><code>##   site_id                    site subsite_id    subsite series_id     series
 ## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1
 ## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
-## 3       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
-## 4       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
-## 5       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
-## 6       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
+## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
+## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
+## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
+## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1
 ##           parameter parameter_id time_coverage_start time_coverage_end      lat
 ## 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903
-## 2 Water Temperature            1          1996-03-30        2010-02-02 -15.9905
-## 3 Water Temperature            1          2010-11-30        2011-07-21 -15.9905
-## 4 Water Temperature            1          2004-05-13        2008-05-03 -19.1557
-## 5 Water Temperature            1          2005-09-15        2005-12-22 -19.1557
-## 6 Water Temperature            1          1997-08-26        2009-12-08 -18.8065
+## 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905
+## 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557
+## 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557
+## 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065
+## 6 Water Temperature            1          1996-05-02        2017-05-07 -18.8060
 ##        lon depth uncal_obs cal_obs qc_obs
-## 1 145.8212   0.2     23130  110480 110480
-## 2 145.8213   5.0     81042  183386 183386
-## 3 145.8213   5.5     33408   33408  33408
-## 4 146.8813   7.0     11951   53231  53231
-## 5 146.8813   1.0         0    4656   4656
-## 6 147.6688   1.0     72073  201114 201114</code></pre>
+## 1 145.8212     0     23130  110480 110480
+## 2 145.8213     5    114450  216794 216794
+## 3 146.8813     7     11951   53231  53231
+## 4 146.8813     1         0    4656   4656
+## 5 147.6688     1    437544  566585 566585
+## 6 147.6686     8    369317  495663 495608</code></pre>
 <p>The <code>summary</code> argument here is key. It should only be flagged when the user wants an overview of the available data. Again, this currently implemented for the Sea Water Temperature Loggers dataset. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>. The output of <code>aims_data</code> when summary is <code>NA</code> (the default) is a <code>data.frame</code>.</p>
 <p>Notice that <code>sdata</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
 <p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same, and currently there is no public information on AIMS quality-control methods and algorithms. However, if this is crucial information to you, please reach out to the <a href="adc@aims.gov.au">Data Manager from the AIMS Data Centre</a>. So let’s go ahead and plot these data on a map of Australia, while colouring based on the total amount of calibrated observations:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="va">sdata</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">cal_obs</span> <span class="op">*</span> <span class="fl">1e-3</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">cal_obs</span> <span class="op">*</span> <span class="fl">1e-3</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">lon</span>, <span class="va">lat</span><span class="op">)</span>
 <span class="va">lab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">atop</a></span><span class="op">(</span><span class="st">"# Calibrated obs."</span>,
                        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"("</span> <span class="op">%*%</span> <span class="fl">10</span><span class="op">^</span><span class="fl">3</span>, <span class="st">")"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">ozmap</span> <span class="op">&lt;-</span> <span class="fu">ggmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="fl">94</span>, bottom <span class="op">=</span> <span class="op">-</span><span class="fl">45</span>,
-                                       right <span class="op">=</span> <span class="fl">162</span>, top <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
-                              zoom <span class="op">=</span> <span class="fl">4</span>, maptype <span class="op">=</span> <span class="st">"watercolor"</span><span class="op">)</span>
-<span class="fu">ggmap</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">ozmap</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_void</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">sdata</span>,
-             mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span>,
+<span class="va">ozmap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/get_stamenmap.html">get_stamenmap</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>left <span class="op">=</span> <span class="fl">94</span>, bottom <span class="op">=</span> <span class="op">-</span><span class="fl">45</span>, right <span class="op">=</span> <span class="fl">162</span>, top <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,
+                       zoom <span class="op">=</span> <span class="fl">4</span>, maptype <span class="op">=</span> <span class="st">"watercolor"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ggmap/man/ggmap.html">ggmap</a></span><span class="op">(</span><span class="va">ozmap</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sdata</span>,
+             mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">lon</span>, y <span class="op">=</span> <span class="va">lat</span>,
                            colour <span class="op">=</span> <span class="va">cols</span>,
                            fill <span class="op">=</span> <span class="va">cols</span><span class="op">)</span>,
              shape <span class="op">=</span> <span class="fl">16</span>, alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_colour_gradient</span><span class="op">(</span>name <span class="op">=</span> <span class="va">lab</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_colour_gradient</a></span><span class="op">(</span>name <span class="op">=</span> <span class="va">lab</span>,
                         low <span class="op">=</span> <span class="st">"dodgerblue4"</span>,
                         high <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_gradient</span><span class="op">(</span>name <span class="op">=</span> <span class="va">lab</span>,
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient</a></span><span class="op">(</span>name <span class="op">=</span> <span class="va">lab</span>,
                       low <span class="op">=</span> <span class="st">"dodgerblue4"</span>,
                       high <span class="op">=</span> <span class="st">"darkred"</span><span class="op">)</span></code></pre></div>
 <p><img src="navigating_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
@@ -251,7 +254,7 @@
 <pre><code>## [1] "Metadata record https://doi.org/10.25845/5c09bf93f315d"</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_a</span><span class="op">$</span><span class="va">citation</span></code></pre></div>
-<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 11 February 2021.  Time period: 2018-01-01 to 2018-01-02.  Site: Yongala."</code></pre>
+<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 16 February 2021.  Time period: 2018-01-01 to 2018-01-02.  Site: Yongala."</code></pre>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>##   deployment_id    site          subsite depth       lat      lon
@@ -312,15 +315,15 @@
 <p>And the actual measurements are either raw or quality-controlled. Let’s plot wind speed data as an example</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_a</span><span class="op">$</span><span class="va">data</span> <span class="op">%&gt;%</span>
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"Wind Speed"</span>, <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">qc_val</span>, colour <span class="op">=</span> <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"Wind Speed"</span>, <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">qc_val</span>, colour <span class="op">=</span> <span class="va">parameter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
          y <span class="op">=</span> <span class="st">"Wind speed (km / h)"</span>,
          colour <span class="op">=</span> <span class="st">"Site"</span>,
          title <span class="op">=</span> <span class="st">"AIMS Weather stations"</span>,
          subtitle <span class="op">=</span> <span class="st">"Yongala (2018)"</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="navigating_files/figure-html/unnamed-chunk-13-1.png" width="710.4"></p>
 <p>We could refine even further by including a time window to download the data:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
@@ -363,6 +366,8 @@
 
   
 
+
+  
 
   </body>
 </html>
