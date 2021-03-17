@@ -66,12 +66,12 @@
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' expose_attributes("weather")
-#' expose_attributes("temp_loggers")
+#' aims_expose_attributes("weather")
+#' aims_expose_attributes("temp_loggers")
 #' }
 #'
 #' @export
-expose_attributes <- function(target) {
+aims_expose_attributes <- function(target) {
   # used to evaluate input only
   invisible(data_doi(target = target))
   if (target == "temp_loggers") {

@@ -11,7 +11,7 @@
 #' "parameter". See details.
 #'
 #' @details For a full description of each valid filter_name see
-#' ?\code{\link{expose_attributes}}. In the temperature logger dataset,
+#' ?\code{\link{aims_expose_attributes}}. In the temperature logger dataset,
 #' "subsite" is equivalent to "series"; moreover, note that there is only one
 #' parameter being measured (i.e. water temperature), so the "parameter" filter
 #' contains one single value.
@@ -20,7 +20,7 @@
 #' \code{filter_name = "series"}, else a \code{\link[base]{character}}
 #' vector.
 #'
-#' @seealso \code{\link{aims_data}}, \code{\link{expose_attributes}}
+#' @seealso \code{\link{aims_data}}, \code{\link{aims_expose_attributes}}
 #'
 #' @importFrom httr GET http_error
 #'
@@ -29,12 +29,12 @@
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' filter_values("weather", filter_name = "site")
-#' filter_values("temp_loggers", filter_name = "subsite")
+#' aims_filter_values("weather", filter_name = "site")
+#' aims_filter_values("temp_loggers", filter_name = "subsite")
 #' }
 #'
 #' @export
-filter_values <- function(target, filter_name) {
+aims_filter_values <- function(target, filter_name) {
   doi <- data_doi(target)
   if (length(filter_name) != 1) {
     stop("Argument \"filter_name\" should contain one single value")

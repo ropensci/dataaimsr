@@ -60,14 +60,14 @@ time-series from a particular site. The general procedure would be:
 3. Create an exploratory time-series chart
 
 For all datasets, a list of available filters can be retrieved with the 
-function `expose_attributes`. Knowing the filters is important because some 
-time series are quite extensive, with parameters being measured at very high 
-frequency (e.g. every 5 minutes), so downloading the dataset for an entire 
-year or more my take quite some time (it's possible though if that is the true 
-goal of the user).
+function `aims_expose_attributes`. Knowing the filters is important because
+some time series are quite extensive, with parameters being measured at very
+high frequency (e.g. every 5 minutes), so downloading the dataset for an
+entire year or more my take quite some time (it's possible though if that is
+the true goal of the user).
 
 ```{r}
-expose_attributes("temp_loggers")
+aims_expose_attributes("temp_loggers")
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our

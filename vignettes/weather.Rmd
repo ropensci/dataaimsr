@@ -56,14 +56,14 @@ time-series from a particular site. The general procedure would be:
 3. Use the Rpackage `ggplot2` to create an exploratory time-series chart
 
 For all datasets, a list of available filters can be retrieved with the 
-function `expose_attributes`. Knowing the filters is important because some 
-time series are quite extensive, with parameters being measured at very high 
-frequency (e.g. every 5 minutes), so downloading the dataset for an entire 
-year or more my take quite some time (it's possible though if that is the true 
-goal of the user).
+function `aims_expose_attributes`. Knowing the filters is important because
+some time series are quite extensive, with parameters being measured at very
+high frequency (e.g. every 5 minutes), so downloading the dataset for an
+entire year or more my take quite some time (it's possible though if that is
+the true goal of the user).
 
 ```{r}
-expose_attributes("weather")
+aims_expose_attributes("weather")
 ```
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
@@ -71,7 +71,7 @@ In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
 learning more about what data is available. The back-end for this is currently
 being developed for the AIMS Weather Station as well. In the meantime, to
 explore the [AIMS Weather Station][3] dataset, we use the function
-`filter_values`. This function takes a target dataset and a given filter,
+`aims_filter_values`. This function takes a target dataset and a given filter,
 and returns all the available information regarding the filter. We recommend
 exploring the `series` filter---a series is a continuing time-series, i.e. a
 collection of deployments measuring the same parameter (e.g. air temperature,
@@ -83,7 +83,7 @@ case they are most likely distinguishable by depth.
 [4]: https://doi.org/10.25845/5b4eb0f9bb848
 
 ```{r}
-filter_values("weather", filter_name = "series") %>%
+aims_filter_values("weather", filter_name = "series") %>%
   head()
 ```
 

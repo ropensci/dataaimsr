@@ -39,7 +39,7 @@ Only one data type at a time can be passed to the argument \code{target}.
 A list of arguments for \code{filters} can be exposed for both
 \href{https://weather.aims.gov.au/#/overview}{Weather} and
 \href{https://weather.aims.gov.au/#/overview}{Sea Water Temperature Loggers}
-using function \code{\link{expose_attributes}}.
+using function \code{\link{aims_expose_attributes}}.
 
 Note that at present the user can inspect the range of dates for
 the temperature loggers data only (see usage of argument \code{summary} in

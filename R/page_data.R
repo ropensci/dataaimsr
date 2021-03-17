@@ -12,7 +12,7 @@
 #' @param api_key An AIMS Data Platform
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' @param summary Should summary tables be printed instead of full data?
-#' Details in ?\code{\link{expose_attributes}}
+#' Details in ?\code{\link{aims_expose_attributes}}
 #' @param aims_version A \code{\link[base]{character}} string
 #' defining the version of database. Must be "/v1.0" or "-v2.0".
 #' If none is provided, then "-v2.0" (the most recent) is used.
@@ -20,8 +20,8 @@
 #'
 #' @inherit aims_data details return
 #'
-#' @seealso \code{\link{expose_attributes}}, \code{\link{filter_values}},
-#' \code{\link{aims_data}}
+#' @seealso \code{\link{aims_expose_attributes}},
+#' \code{\link{aims_filter_values}}, \code{\link{aims_data}}
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #'
@@ -63,7 +63,7 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
 #'
 #' @inherit aims_data details return
 #'
-#' @seealso \code{\link{filter_values}}, \code{\link{page_data}},
+#' @seealso \code{\link{aims_filter_values}}, \code{\link{page_data}},
 #' \code{\link{aims_data}}
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}

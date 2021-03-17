@@ -9,8 +9,8 @@
 #' allowed.
 #' @param filters A \code{\link[base]{list}} containing a set of
 #' filters for the data query (see Details)
-#' @param ... Additional arguments to be passed to internal functions
-#' \code{\link{page_data}} and \code{\link{next_page_data}}
+#' @param ... Additional arguments to be passed to non-exported internal
+#' functions \code{\link{page_data}} and \code{\link{next_page_data}}
 #'
 #' @details The AIMS Data Platform R Client provides easy access to
 #' data sets for R applications to the
@@ -33,7 +33,7 @@
 #' A list of arguments for \code{filters} can be exposed for both
 #' [Weather](https://weather.aims.gov.au/#/overview) and
 #' [Sea Water Temperature Loggers](https://weather.aims.gov.au/#/overview)
-#' using function \code{\link{expose_attributes}}.
+#' using function \code{\link{aims_expose_attributes}}.
 #'
 #' Note that at present the user can inspect the range of dates for
 #' the temperature loggers data only (see usage of argument \code{summary} in
@@ -155,26 +155,27 @@
 aims_data <- function(target, filters = NULL, ...) {
   doi <- data_doi(target = target)
   w_doi <- data_doi(target = "weather")
-  allowed <- expose_attributes(target = target)
+  allowed <- aims_expose_attributes(target = target)
   add_args <- list(...)
   if ("summary" %in% names(add_args)) {
     if (doi == w_doi) {
       message("Argument \"summary\" is currently only available",
               " for the temperature logger (\"temp_loggers\") dataset.\n",
-              " Ignoring \"summary\" entry. See details in ?expose_attributes")
+              " Ignoring \"summary\" entry. See details in",
+              " ?aims_expose_attributes")
       add_args$summary <- NA
     }
     if (!all(add_args$summary %in% allowed$summary)) {
       wrong_s <- setdiff(add_args$summary, allowed$summary)
       stop("summary string \"", paste(wrong_s, sep = "; "),
-           "\" not allowed; please check ?expose_attributes")
+           "\" not allowed; please check ?aims_expose_attributes")
     }
   }
   if (!is.null(filters)) {
     if (!all(names(filters) %in% allowed$filters)) {
       wrong_f <- setdiff(names(filters), allowed$filters)
       stop("filter string \"", paste(wrong_f, sep = "; "),
-           "\" not allowed; please check ?expose_attributes")
+           "\" not allowed; please check ?aims_expose_attributes")
     }
   }
   all_args <- c(doi = doi, filters = list(filters), add_args)

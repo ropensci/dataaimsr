@@ -161,11 +161,11 @@ ggmap(ozmap) +
 
 In the case of the Weather Station dataset, knowing what sites are
 out there is a bit tricky. However, currently we have a convenience
-function called `filter_values` which allows one to query what
+function called `aims_filter_values` which allows one to query what
 sites, series and parameters are available for both datasets:
 
 ```{r, message = FALSE, warning = FALSE}
-filter_values("weather", filter_name = "series") %>%
+aims_filter_values("weather", filter_name = "series") %>%
   head()
 ```
 
@@ -191,14 +191,14 @@ slices of data at a time, and for that we need filters.
 
 Filters are the last important information the user needs to know to 
 master the navigation and download of AIMS monitoring datasets. Each 
-dataset can filtered by attributes which can be exposed with the function `expose_attributes`:
+dataset can filtered by attributes which can be exposed with the function `aims_expose_attributes`:
 
 ```{r, message = FALSE, warning = FALSE}
-expose_attributes("weather")
-expose_attributes("temp_loggers")
+aims_expose_attributes("weather")
+aims_expose_attributes("temp_loggers")
 ```
 
-The help file (see `?expose_attributes`) contains the details about what
+The help file (see `?aims_expose_attributes`) contains the details about what
 each filter targets. So, having an understanding of the summaries and what
 filters are available provide the user with a great head start.
 
