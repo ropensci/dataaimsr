@@ -4,12 +4,12 @@
 \alias{expose_attributes}
 \title{Expose available query filters}
 \usage{
-expose_attributes(doi)
+expose_attributes(target)
 }
 \arguments{
-\item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen
-\href{https://open-aims.github.io/data-platform}{AIMS data series}}
+\item{target}{A \code{\link[base]{character}} vector of length 1 specifying
+the dataset. Only \code{weather} or \code{temp_loggers} are currently
+allowed.}
 }
 \value{
 A \code{\link[base]{list}} of two \code{\link[base]{character}}
@@ -76,10 +76,8 @@ additional arguments to the function, are:
 \examples{
 \dontrun{
 library(dataaimsr)
-weather_doi <- aims_data_doi("weather")
-ssts_doi <- aims_data_doi("temp_loggers")
-expose_attributes(weather_doi)
-expose_attributes(ssts_doi)
+expose_attributes("weather")
+expose_attributes("temp_loggers")
 }
 
 }

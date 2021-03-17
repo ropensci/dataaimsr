@@ -4,7 +4,7 @@
 #' to query about the existing possibilities of
 #' a given filter name
 #'
-#' @inheritParams page_data
+#' @inheritParams aims_data
 #'
 #' @param filter_name A \code{\link[base]{character}} string containing the
 #' name of the filter. Must be "site", "subsite", "series", or
@@ -29,20 +29,13 @@
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi <- aims_data_doi("weather")
-#' ssts_doi <- aims_data_doi("temp_loggers")
-#' filter_values(weather_doi, filter_name = "site")
-#' filter_values(weather_doi, filter_name = "subsite")
-#' filter_values(weather_doi, filter_name = "series")
-#' filter_values(weather_doi, filter_name = "parameter")
-#' filter_values(ssts_doi, filter_name = "site")
-#' filter_values(ssts_doi, filter_name = "subsite")
-#' filter_values(ssts_doi, filter_name = "series") # same as subsite
-#' filter_values(ssts_doi, filter_name = "parameter")
+#' filter_values("weather", filter_name = "site")
+#' filter_values("temp_loggers", filter_name = "subsite")
 #' }
 #'
 #' @export
-filter_values <- function(doi, filter_name) {
+filter_values <- function(target, filter_name) {
+  doi <- data_doi(target)
   if (length(filter_name) != 1) {
     stop("Argument \"filter_name\" should contain one single value")
   }

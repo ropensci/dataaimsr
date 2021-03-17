@@ -4,12 +4,12 @@
 \alias{filter_values}
 \title{Retrieve vector of existing filter values}
 \usage{
-filter_values(doi, filter_name)
+filter_values(target, filter_name)
 }
 \arguments{
-\item{doi}{A \href{https://www.doi.org/}{Digital Object Identifier}
-for a chosen
-\href{https://open-aims.github.io/data-platform}{AIMS data series}}
+\item{target}{A \code{\link[base]{character}} vector of length 1 specifying
+the dataset. Only \code{weather} or \code{temp_loggers} are currently
+allowed.}
 
 \item{filter_name}{A \code{\link[base]{character}} string containing the
 name of the filter. Must be "site", "subsite", "series", or
@@ -35,16 +35,8 @@ contains one single value.
 \examples{
 \dontrun{
 library(dataaimsr)
-weather_doi <- aims_data_doi("weather")
-ssts_doi <- aims_data_doi("temp_loggers")
-filter_values(weather_doi, filter_name = "site")
-filter_values(weather_doi, filter_name = "subsite")
-filter_values(weather_doi, filter_name = "series")
-filter_values(weather_doi, filter_name = "parameter")
-filter_values(ssts_doi, filter_name = "site")
-filter_values(ssts_doi, filter_name = "subsite")
-filter_values(ssts_doi, filter_name = "series") # same as subsite
-filter_values(ssts_doi, filter_name = "parameter")
+filter_values("weather", filter_name = "site")
+filter_values("temp_loggers", filter_name = "subsite")
 }
 
 }

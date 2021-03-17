@@ -6,6 +6,9 @@
 #'
 #' @inheritParams aims_data
 #'
+#' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
+#' for a chosen
+#' \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' @param api_key An AIMS Data Platform
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' @param summary Should summary tables be printed instead of full data?

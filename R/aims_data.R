@@ -4,9 +4,9 @@
 #' the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
 #' via the AIMS Data Platform API
 #'
-#' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
-#' for a chosen
-#' \href{https://open-aims.github.io/data-platform}{AIMS data series}
+#' @param target A \code{\link[base]{character}} vector of length 1 specifying
+#' the dataset. Only \code{weather} or \code{temp_loggers} are currently
+#' allowed.
 #' @param filters A \code{\link[base]{list}} containing a set of
 #' filters for the data query (see Details)
 #' @param ... Additional arguments to be passed to internal functions
@@ -27,9 +27,8 @@
 #' [AIMS Data Platform API](https://open-aims.github.io/data-platform):
 #' [Weather](https://weather.aims.gov.au/#/overview) and
 #' [Sea Water Temperature Loggers](https://tinyurl.com/h93mcojk).
-#' They are searched internally via unique DOI identifiers which
-#' can be obtained by the function \code{\link{aims_data_doi}} (see Examples).
-#' Only one DOI at a time can be passed to the argument \code{doi}.
+#' They are searched internally via unique DOI identifiers.
+#' Only one data type at a time can be passed to the argument \code{target}.
 #'
 #' A list of arguments for \code{filters} can be exposed for both
 #' [Weather](https://weather.aims.gov.au/#/overview) and
@@ -69,14 +68,11 @@
 #' # assumes that user already has API key saved to
 #' # .Renviron
 #'
-#' weather_doi <- aims_data_doi("weather")
-#' ssts_doi <- aims_data_doi("temp_loggers")
-#'
 #' # start downloads:
 #' # 1. downloads weather data from
 #' # site Yongala
 #' # within a defined date range
-#' wdf_a <- aims_data(weather_doi, api_key = NULL,
+#' wdf_a <- aims_data("weather", api_key = NULL,
 #'                    filters = list(site = "Yongala",
 #'                                   from_date = "2018-01-01",
 #'                                   thru_date = "2018-01-02"))$data
@@ -84,7 +80,7 @@
 #' # 2. downloads weather data from all sites
 #' # under series_id 64 from Davies Reef
 #' # within a defined date range
-#' wdf_b <- aims_data(weather_doi, api_key = NULL,
+#' wdf_b <- aims_data("weather", api_key = NULL,
 #'                    filters = list(series_id = 64,
 #'                                   from_date = "1991-10-18",
 #'                                   thru_date = "1991-10-19"))$data
@@ -94,7 +90,7 @@
 #' # 3. downloads weather data from all sites
 #' # under series_id 64 from Davies Reef
 #' # within defined date AND time range
-#' wdf_c <- aims_data(weather_doi, api_key = NULL,
+#' wdf_c <- aims_data("weather", api_key = NULL,
 #'                    filters = list(series_id = 64,
 #'                                   from_date = "1991-10-18T06:00:00",
 #'                                   thru_date = "1991-10-18T12:00:00"))$data
@@ -103,7 +99,7 @@
 #'
 #' # 4. downloads all parameters from all sites
 #' # within a defined date range
-#' wdf_d <- aims_data(weather_doi, api_key = NULL,
+#' wdf_d <- aims_data("weather", api_key = NULL,
 #'                    filters = list(from_date = "2003-01-01",
 #'                                   thru_date = "2003-01-02"))$data
 #' # note that there are multiple sites and series
@@ -117,7 +113,7 @@
 #'
 #' # 5. downloads chlorophyll from all sites
 #' # within a defined date range
-#' wdf_e <- aims_data(weather_doi, api_key = NULL,
+#' wdf_e <- aims_data("weather", api_key = NULL,
 #'                    filters = list(parameter = "Chlorophyll",
 #'                                   from_date = "2018-01-01",
 #'                                   thru_date = "2018-01-02"))$data
@@ -131,7 +127,8 @@
 #'
 #' # 6. downloads temperature data
 #' # summarised by series
-#' sdf_a <- aims_data(ssts_doi, api_key = NULL, summary = "summary-by-series")
+#' sdf_a <- aims_data("temp_loggers", api_key = NULL,
+#'                    summary = "summary-by-series")
 #' head(sdf_a)
 #' dim(sdf_a)
 #'
@@ -139,7 +136,8 @@
 #' # summarised by series
 #' # for all sites that contain data
 #' # within a defined date range
-#' sdf_b <- aims_data(ssts_doi, api_key = NULL, summary = "summary-by-series",
+#' sdf_b <- aims_data("temp_loggers", api_key = NULL,
+#'                    summary = "summary-by-series",
 #'                    filters = list("from_date" = "2018-01-01",
 #'                                   "thru_date" = "2018-12-31"))
 #' head(sdf_b)
@@ -147,16 +145,17 @@
 #'
 #' # 8. downloads temperature data
 #' # summarised by deployment
-#' sdf_c <- aims_data(ssts_doi, api_key = NULL,
+#' sdf_c <- aims_data("temp_loggers", api_key = NULL,
 #'                    summary = "summary-by-deployment")
 #' head(sdf_c)
 #' dim(sdf_c)
 #' }
 #'
 #' @export
-aims_data <- function(doi, filters = NULL, ...) {
-  w_doi <- aims_data_doi("weather")
-  allowed <- expose_attributes(doi)
+aims_data <- function(target, filters = NULL, ...) {
+  doi <- data_doi(target = target)
+  w_doi <- data_doi(target = "weather")
+  allowed <- expose_attributes(target = target)
   add_args <- list(...)
   if ("summary" %in% names(add_args)) {
     if (doi == w_doi) {

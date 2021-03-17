@@ -63,28 +63,27 @@ year or more my take quite some time (it's possible though if that is the true
 goal of the user).
 
 ```{r}
-weather_doi <- aims_data_doi("weather")
-expose_attributes(weather_doi)
+expose_attributes("weather")
 ```
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
-[intro vignette][1], we have a convenience `summary` method which facilitates 
-learning more about what data is available. The back-end for this is currently 
-being developed for the AIMS Weather Station as well. In the meantime, to 
+[intro vignette][1], we have a convenience `summary` method which facilitates
+learning more about what data is available. The back-end for this is currently
+being developed for the AIMS Weather Station as well. In the meantime, to
 explore the [AIMS Weather Station][3] dataset, we use the function
-`filter_values`. This function takes a DOI and a given filter, and returns all 
-the available information regarding the filter.  We recommend exploring the
-`series` filter---a series is a continuing time-series, i.e. a collection of 
-deployments measuring the same parameter (e.g. air temperature, air pressure, 
-chlorophyll) at the same subsite. So, for a given site and parameter, there 
-might exist multiple subsites and therefore series, in which case they are 
-most likely distinguishable by depth.
+`filter_values`. This function takes a target dataset and a given filter,
+and returns all the available information regarding the filter. We recommend
+exploring the `series` filter---a series is a continuing time-series, i.e. a
+collection of deployments measuring the same parameter (e.g. air temperature,
+air pressure, chlorophyll) at the same subsite. So, for a given site and
+parameter, there might exist multiple subsites and therefore series, in which
+case they are most likely distinguishable by depth.
 
 [3]: https://doi.org/10.25845/5c09bf93f315d
 [4]: https://doi.org/10.25845/5b4eb0f9bb848
 
 ```{r}
-filter_values(weather_doi, filter_name = "series") %>%
+filter_values("weather", filter_name = "series") %>%
   head()
 ```
 
@@ -109,7 +108,7 @@ thru_date | "2018-01-10"           | We are plotting 10 days of data
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
 ```{r, message = FALSE, warning = FALSE}
-davies <- aims_data(weather_doi, api_key = my_api_key,
+davies <- aims_data("weather", api_key = my_api_key,
                     filters = list(series_id = 64,
                                    from_date = "2018-01-01",
                                    thru_date = "2018-01-10"))
@@ -122,7 +121,7 @@ same period of time:
 ```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 aims_data_per_series <- function(series_number, my_api_key, ...) {
-  aims_data(weather_doi, api_key = my_api_key,
+  aims_data("weather", api_key = my_api_key,
             filters = list(series_id = series_number, ...))
 }
 results <- purrr::map(target_series, aims_data_per_series,
@@ -155,7 +154,7 @@ out <- numeric(length = length(days))
 for (i in seq_along(days)) {
   hour_in <- paste0(days[i], "T06:00:00")
   hour_out <- paste0(days[i], "T12:00:00")
-  df <- aims_data(weather_doi,
+  df <- aims_data("weather",
                   api_key = my_api_key,
                   filters = list(series_id = 10394,
                                  from_date = hour_in,

@@ -1,5 +1,8 @@
 library(dataaimsr)
 
+weather_doi <- data_doi("weather")
+ssts_doi <- data_doi("temp_loggers")
+
 # default to 1000 returns next_page link
 check_wa <- page_data(weather_doi, filters = w_filters, api_key = my_api_key)
 check_sa <- page_data(ssts_doi, filters = s_filters, api_key = my_api_key)

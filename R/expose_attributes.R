@@ -66,26 +66,20 @@
 #' @examples
 #' \dontrun{
 #' library(dataaimsr)
-#' weather_doi <- aims_data_doi("weather")
-#' ssts_doi <- aims_data_doi("temp_loggers")
-#' expose_attributes(weather_doi)
-#' expose_attributes(ssts_doi)
+#' expose_attributes("weather")
+#' expose_attributes("temp_loggers")
 #' }
 #'
 #' @export
-expose_attributes <- function(doi) {
-  w_doi <- aims_data_doi("weather")
-  tl_doi <- aims_data_doi("temp_loggers")
-  if (!is.character(doi) | (is.character(doi) &&
-        !any(doi %in% c(w_doi, tl_doi)))) {
-    stop("Incorrect input doi. Please see ?aims_data_doi")
-  }
-  if (doi == tl_doi) {
+expose_attributes <- function(target) {
+  # used to evaluate input only
+  invisible(data_doi(target = target))
+  if (target == "temp_loggers") {
     list(summary = c("summary-by-series", "summary-by-deployment"),
          filters = c("site", "subsite", "series", "series_id", "parameter",
                      "size", "min_lat", "max_lat", "min_lon", "max_lon",
                      "from_date", "thru_date", "version", "cursor"))
-  } else if (doi == w_doi) {
+  } else if (target == "weather") {
     list(summary = NA,
          filters = c("site", "subsite", "series", "series_id", "parameter",
                      "size", "min_lat", "max_lat", "min_lon", "max_lon",

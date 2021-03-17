@@ -1,11 +1,14 @@
 library(dataaimsr)
 
 # default to 1000 returns next_page link
-check_wa <- aims_data(weather_doi, filters = w_filters, api_key = my_api_key)
-check_sa <- aims_data(ssts_doi, filters = s_filters, api_key = my_api_key)
+check_wa <- aims_data("weather", filters = w_filters, api_key = my_api_key)
+check_sa <- aims_data("temp_loggers", filters = s_filters,
+                      api_key = my_api_key)
 # larger size removed links from output
-check_wb <- aims_data(weather_doi, filters = w_filters_b, api_key = my_api_key)
-check_sb <- aims_data(ssts_doi, filters = s_filters_b, api_key = my_api_key)
+check_wb <- aims_data("weather", filters = w_filters_b,
+                      api_key = my_api_key)
+check_sb <- aims_data("temp_loggers", filters = s_filters_b,
+                      api_key = my_api_key)
 
 test_that("Correct structure", {
   expect_is(check_wa, "list")
@@ -22,10 +25,10 @@ test_that("Correct structure", {
   expect_true(all(c("metadata", "citation", "data") %in% names(check_sb)))
 })
 
-check_wc <- aims_data(weather_doi, filters = w_filters_c, api_key = my_api_key)
-check_wd <- aims_data(weather_doi, filters = w_filters_d, api_key = my_api_key)
-check_sc <- aims_data(ssts_doi, filters = s_filters_c, api_key = my_api_key)
-check_sd <- aims_data(ssts_doi, filters = s_filters_d, api_key = my_api_key)
+check_wc <- aims_data("weather", filters = w_filters_c, api_key = my_api_key)
+check_wd <- aims_data("weather", filters = w_filters_d, api_key = my_api_key)
+check_sc <- aims_data("temp_loggers", filters = s_filters_c, api_key = my_api_key)
+check_sd <- aims_data("temp_loggers", filters = s_filters_d, api_key = my_api_key)
 
 test_that("Wrong filters", {
   expect_is(check_wc, "list")
@@ -47,14 +50,14 @@ test_that("Wrong filters", {
 })
 
 test_that("summary requests", {
-  expect_message(aims_data(weather_doi, api_key = my_api_key,
+  expect_message(aims_data("weather", api_key = my_api_key,
                            summary = "summary-by-series"))
-  expect_message(aims_data(weather_doi, api_key = my_api_key,
+  expect_message(aims_data("weather", api_key = my_api_key,
                            summary = "summary-by-deployment"))
-  expect_message(expect_is(aims_data(ssts_doi, api_key = my_api_key,
+  expect_message(expect_is(aims_data("temp_loggers", api_key = my_api_key,
                                      summary = "summary-by-series"),
                  "data.frame"))
-  expect_message(expect_is(aims_data(ssts_doi, api_key = my_api_key,
+  expect_message(expect_is(aims_data("temp_loggers", api_key = my_api_key,
                                      summary = "summary-by-deployment"),
                  "data.frame"))
 })

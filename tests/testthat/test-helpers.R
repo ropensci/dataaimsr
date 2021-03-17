@@ -1,5 +1,8 @@
 library(dataaimsr)
 
+weather_doi <- data_doi("weather")
+ssts_doi <- data_doi("temp_loggers")
+wrong_doi <- "string"
 base_end_pt <- make_base_end_pt(weather_doi, aims_version = NA)
 good_pt <- paste(base_end_pt, weather_doi, "data", sep = "/")
 bad_pt <- paste(base_end_pt, weather_doi, "wrong", sep = "/")
@@ -82,4 +85,13 @@ test_that("Correctly update request output format", {
   expect_identical(names(update_format(json_out)$links), "next_page")
   expect_identical(update_format(json_out)$links[[1]],
                    json_results(good_dt_req)$links[[1]])
+})
+
+test_that("Correct structure", {
+  expect_identical(data_doi("weather"), "10.25845/5c09bf93f315d")
+  expect_identical(data_doi("temp_loggers"), "10.25845/5b4eb0f9bb848")
+  expect_error(data_doi(wrong_doi))
+  expect_error(data_doi(FALSE))
+  expect_error(data_doi(NA))
+  expect_error(data_doi(NULL))
 })

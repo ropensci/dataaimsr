@@ -98,15 +98,11 @@ download data.
 ### Data summary
 
 The first step would be to visualise the dataset. Let's do this by
-mapping all available sites. First we need to store the DOI for the
-target dataset---this is done via the function `aims_data_doi`. We
-can then download the summary information for the Sea Water Temperature 
+mapping all available sites for the Sea Water Temperature 
 Loggers dataset using the main function called `aims_data`:
 
 ```{r, message = FALSE, warning = FALSE}
-# see ?aims_data_doi for argument names
-ssts_doi <- aims_data_doi("temp_loggers")
-sdata <- aims_data(ssts_doi, api_key = my_api_key,
+sdata <- aims_data(target = "temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
 ```
@@ -169,8 +165,7 @@ function called `filter_values` which allows one to query what
 sites, series and parameters are available for both datasets:
 
 ```{r, message = FALSE, warning = FALSE}
-weather_doi <- aims_data_doi("weather")
-filter_values(weather_doi, filter_name = "series") %>%
+filter_values("weather", filter_name = "series") %>%
   head()
 ```
 
@@ -199,8 +194,8 @@ master the navigation and download of AIMS monitoring datasets. Each
 dataset can filtered by attributes which can be exposed with the function `expose_attributes`:
 
 ```{r, message = FALSE, warning = FALSE}
-expose_attributes(weather_doi)
-expose_attributes(ssts_doi)
+expose_attributes("weather")
+expose_attributes("temp_loggers")
 ```
 
 The help file (see `?expose_attributes`) contains the details about what
@@ -214,8 +209,7 @@ data collected at the [Yongala](https://en.wikipedia.org/wiki/SS_Yongala) for
 a specific time window:
 
 ```{r, message = FALSE, warning = FALSE}
-wdata_a <- aims_data(weather_doi,
-                     api_key = my_api_key,
+wdata_a <- aims_data("weather", api_key = my_api_key,
                      filters = list(site = "Yongala",
                                     from_date = "2018-01-01",
                                     thru_date = "2018-01-02"))
@@ -269,7 +263,7 @@ We could refine even further by including a time window to download the
 data:
 
 ```{r, message = FALSE, warning = FALSE}
-wdata_b <- aims_data(weather_doi,
+wdata_b <- aims_data("weather",
                      api_key = my_api_key,
                      filters = list(series_id = 64,
                                     from_date = "1991-10-18T06:00:00",

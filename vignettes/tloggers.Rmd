@@ -67,8 +67,7 @@ year or more my take quite some time (it's possible though if that is the true
 goal of the user).
 
 ```{r}
-ssts_doi <- aims_data_doi("temp_loggers")
-expose_attributes(ssts_doi)
+expose_attributes("temp_loggers")
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
@@ -80,7 +79,7 @@ information for all sites using the main function called `aims_data`:
 [4]: https://doi.org/10.25845/5c09bf93f315d
 
 ```{r}
-sdata <- aims_data(ssts_doi, api_key = my_api_key,
+sdata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
 ```
@@ -90,7 +89,7 @@ user wants an overview of the available data. One can visualise
 `summary-by-series` or `summary-by-deployment`.
 
 ```{r}
-ddata <- aims_data(ssts_doi, api_key = my_api_key,
+ddata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-deployment")
 head(ddata)
 ```
@@ -136,7 +135,7 @@ thru_date | "2005-01-10"           | We are plotting 10 days of data
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
 ```{r, message = FALSE, warning = FALSE}
-agincourt <- aims_data(ssts_doi, api_key = my_api_key,
+agincourt <- aims_data("temp_loggers", api_key = my_api_key,
                        filters = list(series_id = 2687,
                                       from_date = "2005-01-01",
                                       thru_date = "2005-01-10"))
@@ -155,7 +154,7 @@ same period of time:
 ```{r, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 target_series <- c("Agincourt" = 2687, "Cleveland Bay" = 3007)
 aims_data_per_series <- function(series_number, my_api_key, ...) {
-  aims_data(ssts_doi, api_key = my_api_key,
+  aims_data("temp_loggers", api_key = my_api_key,
             filters = list(series_id = series_number, ...))
 }
 results <- purrr::map(target_series, aims_data_per_series,
@@ -187,7 +186,7 @@ out <- numeric(length = length(days))
 for (i in seq_along(days)) {
   hour_in <- paste0(days[i], "T06:00:00")
   hour_out <- paste0(days[i], "T12:00:00")
-  df <- aims_data(ssts_doi, api_key = my_api_key,
+  df <- aims_data("temp_loggers", api_key = my_api_key,
                   filters = list(series_id = 2629, from_date = hour_in,
                                  thru_date = hour_out))$data
   out[i] <- mean(df$qc_val)
