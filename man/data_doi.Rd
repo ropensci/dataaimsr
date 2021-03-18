@@ -28,3 +28,4 @@ ssts_doi <- data_doi("temp_loggers")
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}
 }
+\keyword{internal}

@@ -12,6 +12,7 @@
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #'
 #' @importFrom httr http_status content
+#' @keywords internal
 handle_error <- function(dt_req) {
   stop(paste("Error", http_status(dt_req), content(dt_req)))
 }
@@ -31,6 +32,7 @@ handle_error <- function(dt_req) {
 #'
 #' @importFrom httr content
 #' @importFrom jsonlite fromJSON
+#' @keywords internal
 json_results <- function(dt_req) {
   json_resp <- content(dt_req, "text", encoding = "UTF-8")
   fromJSON(json_resp, simplifyDataFrame = TRUE)
@@ -55,6 +57,7 @@ json_results <- function(dt_req) {
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #'
 #' @importFrom httr http_error
+#' @keywords internal
 process_request <- function(dt_req, next_page = FALSE, ...) {
   if (http_error(dt_req)) {
     handle_error(dt_req)
@@ -80,6 +83,7 @@ process_request <- function(dt_req, next_page = FALSE, ...) {
 #' @inheritParams page_data
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
+#' @keywords internal
 make_base_end_pt <- function(doi, aims_version = NA) {
   base_end_pt <- getOption("dataaimsr.base_end_point")
   if (is.na(aims_version)) {
@@ -102,6 +106,7 @@ make_base_end_pt <- function(doi, aims_version = NA) {
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #'
 #' @importFrom parsedate parse_iso_8601
+#' @keywords internal
 update_format <- function(results, doi) {
   if ("links" %in% names(results) &&
       "next" %in% names(results$links)) {
@@ -127,6 +132,7 @@ update_format <- function(results, doi) {
 #' in .Renviron or, if missing entirely, an error message.
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
+#' @keywords internal
 find_api_key <- function(api_key) {
   if (is.null(api_key)) {
     r_env_api_key <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
@@ -160,6 +166,7 @@ find_api_key <- function(api_key) {
 #' weather_doi <- data_doi("weather")
 #' ssts_doi <- data_doi("temp_loggers")
 #' }
+#' @keywords internal
 data_doi <- function(target) {
   if (!(target %in% c("weather", "temp_loggers"))) {
     stop("Wrong type of data target, only \"weather\"",

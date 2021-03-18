@@ -14,3 +14,4 @@ make_pretty_colour(x, alpha_ = 0.55)
 \description{
 Internal
 }
+\keyword{internal}

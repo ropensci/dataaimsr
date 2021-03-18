@@ -12,3 +12,4 @@ make_pretty_data_label(x)
 \description{
 Internal
 }
+\keyword{internal}

@@ -14,3 +14,4 @@ extract_map_coord(x, ...)
 \description{
 Internal
 }
+\keyword{internal}

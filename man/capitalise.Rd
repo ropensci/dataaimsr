@@ -12,3 +12,4 @@ capitalise(x)
 \description{
 Internal
 }
+\keyword{internal}

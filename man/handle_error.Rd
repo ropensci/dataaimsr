@@ -22,3 +22,4 @@ via the \pkg{httr} package.
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}
 }
+\keyword{internal}

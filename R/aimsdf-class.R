@@ -20,6 +20,6 @@ NULL
 #' @param x An \R object
 #'
 #' @export
-is.aimsdf <- function(x) {
+is_aimsdf <- function(x) {
   inherits(x, "aimsdf")
 }
