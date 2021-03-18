@@ -136,8 +136,29 @@ This command will also install the three package dependencies: `httr`,
 
 ## Usage
 
-Examples about how to navigate `dataaimsr` and interrogate the datasets can
-be found on our [online vignettes][4].
+```{r, eval = FALSE}
+# assumes that user already has API key saved to
+# .Renviron
+library(dataaimsr)
+
+# summarised by series
+# for all sites that contain data
+# within a defined date range
+sdf_b <- aims_data("temp_loggers", api_key = NULL,
+                   summary = "summary-by-series",
+                   filters = list("from_date" = "2018-01-01",
+                                  "thru_date" = "2018-12-31"))
+
+# downloads weather data from site Yongala
+# within a defined date range
+wdf_a <- aims_data("weather", api_key = NULL,
+                   filters = list(site = "Yongala",
+                                  from_date = "2018-01-01",
+                                  thru_date = "2018-01-02"))
+```
+
+More comprehensive examples about how to navigate `dataaimsr` and interrogate
+the datasets can be found on our [online vignettes][4].
 
 [4]: https://open-AIMS.github.io/dataaimsr/articles
 
