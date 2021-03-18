@@ -1,7 +1,7 @@
 Package: dataaimsr
 Type: Package
 Title: AIMS Data Platform API Client
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: c(person("Diego R.", "Barneche", email = "d.barneche@aims.gov.au", role = c("aut", "cre")), person("AIMS Datacentre", role = "aut", email = "adc@aims.gov.au"), person("Sam", "Albers", role = "rev", email = "sam.albers@gov.bc.ca"), person("Elizabeth", "Stark", role = "rev", email = "estark@symbolix.com.au"), person("Laura", "DeCicco", role = "rev", email = "ldecicco@usgs.gov"))
 Description: AIMS Data Platform API Client which provides easy access to AIMS Data Platform scientific data and information.
 Depends: 
