@@ -7,7 +7,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "vignette-fig-",
+  out.width = "100%",
+  dpi = 400
+)
+```
 
 Please check our [intro vignette][1] first to implement the installation
 requirements, and to learn the general approach to navigating the different
@@ -22,16 +32,14 @@ API Key permanently in your `.Renviron` file and set the object `my_api_key` to
 `NULL` in the chunk below. You can read more about why that is important
 [here](https://CRAN.R-project.org/package=httr/vignettes/secrets.html).
 
-
-```r
+```{r}
 # set my_api_key to NULL after successfully placing it in .Renviron
 my_api_key <- NULL
 ```
 
 Let's start by loading the packages needed for this vignette:
 
-
-```r
+```{r}
 library(purrr)
 library(dataaimsr)
 library(ggplot2)
@@ -62,14 +70,8 @@ high frequency (e.g. every 5 minutes), so downloading the dataset for an
 entire year or more my take quite some time (it's possible though if that is
 the true goal of the user).
 
-
-```r
+```{r}
 aims_expose_attributes("weather")
-#> $summary
-#> [1] NA
-#> 
-#> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
@@ -88,16 +90,8 @@ case they are most likely distinguishable by depth.
 [3]: https://doi.org/10.25845/5c09bf93f315d
 [4]: https://doi.org/10.25845/5b4eb0f9bb848
 
-
-```r
+```{r}
 head(aims_filter_values("weather", filter_name = "series"))
-#>   series_id                                                                 series
-#> 1    104918        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) 
-#> 2    100686                            Saibai Island Weather Station Hail Duration
-#> 3       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
-#> 4      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
-#> 5     10243                           Raine Island Weather Station Air Temperature
-#> 6       258             Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)
 ```
 
 The benefits to choosing a data `series` is that it comes from one location
@@ -120,8 +114,7 @@ thru_date | "2018-01-10"           | We are plotting 10 days of data
 
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
-
-```r
+```{r, message = FALSE, warning = FALSE}
 davies <- aims_data("weather", api_key = my_api_key,
                     filters = list(series_id = 64,
                                    from_date = "2018-01-01",
@@ -132,8 +125,7 @@ We can even visually compare multiple series at once. For instance, let's
 compare the air temperature data from Davies Reef and Bramble Cay for the
 same period of time:
 
-
-```r
+```{r wfa, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 5}
 target_series <- c("Davies Reef" = 64, "Bramble Cay" = 87929)
 aims_data_per_series <- function(series_number, my_api_key, ...) {
   aims_data("weather", api_key = my_api_key,
@@ -147,14 +139,11 @@ weather_data <- purrr::map_dfr(results, rbind)
 plot(weather_data, ptype = "time_series")
 ```
 
-<img src="vignette-fig-wfa-1.png" title="plot of chunk wfa" alt="plot of chunk wfa" width="100%" />
-
 One could also download data for a particular time of day throughout
 the year, e.g. for Heron Island Relay Pole 8 at 5.4 m of depth (series
 10394):
 
-
-```r
+```{r wfb, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 days <- seq(as.Date("2018-01-01"), as.Date("2018-12-31"), by = "month")
 out <- numeric(length = length(days))
 for (i in seq_along(days)) {
@@ -179,15 +168,10 @@ ggplot(data = data.frame(date = days, temps = out)) +
         legend.position = "bottom")
 ```
 
-<img src="vignette-fig-wfb-1.png" title="plot of chunk wfb" alt="plot of chunk wfb" width="100%" />
-
 ## Bibliography
 
-
-```r
+```{r, message = FALSE, warning = FALSE}
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
-#> [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"
 ```

@@ -7,7 +7,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "vignette-fig-",
+  out.width = "100%",
+  dpi = 400
+)
+```
 
 Please check our [intro vignette][1] first to implement the installation
 requirements, and to learn the general approach to navigating the different
@@ -22,16 +32,14 @@ API Key permanently in your `.Renviron` file and set the object `my_api_key` to
 `NULL` in the chunk below. You can read more about why that is important
 [here](https://CRAN.R-project.org/package=httr/vignettes/secrets.html).
 
-
-```r
+```{r}
 # set my_api_key to NULL after successfully placing it in .Renviron
 my_api_key <- NULL
 ```
 
 Let's start by loading the packages needed for this vignette:
 
-
-```r
+```{r}
 library(purrr)
 library(dataaimsr)
 library(ggplot2)
@@ -67,14 +75,8 @@ high frequency (e.g. every 5 minutes), so downloading the dataset for an
 entire year or more my take quite some time (it's possible though if that is
 the true goal of the user).
 
-
-```r
+```{r}
 aims_expose_attributes("temp_loggers")
-#> $summary
-#> [1] "summary-by-series"     "summary-by-deployment"
-#> 
-#> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
@@ -85,36 +87,20 @@ information for all sites using the main function called `aims_data`:
 [3]: https://doi.org/10.25845/5b4eb0f9bb848
 [4]: https://doi.org/10.25845/5c09bf93f315d
 
-
-```r
+```{r}
 sdata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
-#>   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
-#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
-#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
-#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
-#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
-#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
 ```
 
 The `summary` argument here is key. It should only be flagged when the
 user wants an overview of the available data. One can visualise
 `summary-by-series` or `summary-by-deployment`.
 
-
-```r
+```{r}
 ddata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-deployment")
 head(ddata)
-#>   deployment_id serial_num site_id          site subsite_id subsite series_id  series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-#> 1         39691   SU-11424       4   Davies Reef       2630  DAVSL1      2630  DAVSL1 Water Temperature            1          2012-11-10        2013-05-21 -18.8060 147.6686   8.3     27504   27504  27504
-#> 2          3319 SST-905242     865 Hayman Island       2644  HAYSL1      2644  HAYSL1 Water Temperature            1          1999-06-03        2000-05-15 -20.0572 148.8997   9.0         0   16590  16590
-#> 3        471410   10048402    3181    Enderby Is      14056 ENDERBY     14056 ENDERBY Water Temperature            1          2015-05-24        2016-02-06 -20.5689 116.5550    NA     12292   12292  12292
-#> 4         15923   SU-10088     986   Pine Island       3080 PINESL1      3080 PINESL1 Water Temperature            1          2011-09-28        2012-02-13 -20.3780 148.8884   6.6     19728   19728  19728
-#> 5        479464     355088     896    Turner Cay       2664  TURSL1      2664  TURSL1 Water Temperature            1          2014-08-27        2017-01-25 -21.7031 152.5605    NA    125856  125856 125856
-#> 6        450497   SU-11021     743      Rib Reef      13478  RIBCH2     13478  RIBCH2 Water Temperature            1          2014-10-04        2015-04-15 -18.4901 146.8709   3.4     27648   27648  27648
 ```
 
 Notice that `sdata` contains a lot of information, most of which is
@@ -146,8 +132,7 @@ thru_date | "2005-01-10"           | We are plotting 10 days of data
 
 After deciding on query parameters, we plug the series id into a `aims_data` function:
 
-
-```r
+```{r, message = FALSE, warning = FALSE}
 agincourt <- aims_data("temp_loggers", api_key = my_api_key,
                        filters = list(series_id = 2687,
                                       from_date = "2005-01-01",
@@ -156,27 +141,21 @@ agincourt <- aims_data("temp_loggers", api_key = my_api_key,
 
 We can check that the query filters worked:
 
-
-```r
+```{r}
 range(agincourt$time)
-#> [1] "2005-01-01 UTC" "2005-01-10 UTC"
 ```
 
 We can then visualise where in Australia that data is placed:
 
-
-```r
+```{r tlfa, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 plot(agincourt, ptype = "map")
 ```
-
-<img src="vignette-fig-tlfa-1.png" title="plot of chunk tlfa" alt="plot of chunk tlfa" width="100%" />
 
 We can also visually compare multiple series at once. For instance, let's
 compare the air temperature data from Davies Reef and Bramble Cay for the
 same period of time:
 
-
-```r
+```{r tlfb, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 5}
 target_series <- c("Agincourt" = 2687, "Cleveland Bay" = 3007)
 aims_data_per_series <- function(series_number, my_api_key, ...) {
   aims_data("temp_loggers", api_key = my_api_key,
@@ -190,13 +169,10 @@ sst_data <- purrr::map_dfr(results, rbind)
 plot(sst_data, ptype = "time_series")
 ```
 
-<img src="vignette-fig-tlfb-1.png" title="plot of chunk tlfb" alt="plot of chunk tlfb" width="100%" />
-
 One could also download data for a particular time of day throughout
 the year, e.g. for Davies Reef at 1 m of depth (`series_id` is 2629):
 
-
-```r
+```{r tlfc, message = FALSE, warning = FALSE, fig.width = 5, fig.height = 5}
 days <- seq(as.Date("2005-01-01"), as.Date("2005-12-31"), by = "month")
 out <- numeric(length = length(days))
 for (i in seq_along(days)) {
@@ -220,15 +196,10 @@ ggplot(data = data.frame(date = days, temps = out)) +
         legend.position = "bottom")
 ```
 
-<img src="vignette-fig-tlfc-1.png" title="plot of chunk tlfc" alt="plot of chunk tlfc" width="100%" />
-
 ## Bibliography
 
-
-```r
+```{r, message = FALSE, warning = FALSE}
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."
-#> [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."
 ```
