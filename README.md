@@ -14,7 +14,7 @@ status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)]
 coverage](https://codecov.io/gh/open-AIMS/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/open-AIMS/dataaimsr?branch=master)
 ![pkgdown](https://github.com/open-AIMS/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
-[![packageversion](https://img.shields.io/badge/Package%20version-1.0.2-orange.svg)](commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-1.0.3-orange.svg)](commits/master)
 [![Ask Us Anything
 !](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/dataaimsr/issues/new)
 ![Open Source
@@ -34,7 +34,104 @@ API](https://open-aims.github.io/data-platform/) which is a *REST API*
 providing JSON-formatted data to users. `dataaimsr` is an **R package**
 written to allow users to communicate with the AIMS Data Platform API
 using an API key and a few convenience functions to interrogate and
-understand the datasets that are available to download.
+understand the datasets that are available to download. In doing so, it
+allows the user to fully explore these datasets in R in whichever
+capacity they want (e.g. data visualisation, statistical analyses, etc).
+The package itself contains a `plot` method which allows the user to
+plot summaries of the different types of dataset made available by the
+API. Below we provide a brief context about the existing
+\[Datasets\]\[\#datasets\] that can be explored through `dataaimsr`.
+
+Installation
+------------
+
+### Requesting an AIMS Data Platform API Key
+
+**AIMS Data Platform** requires an API Key for data requests, [get a key
+here](https://open-AIMS.github.io/data-platform/key-request).
+
+The API Key can be passed to the package functions as an additional
+`api_key = "XXXX"` argument. **However**, we strongly encourage users to
+maintain their API key as a private locally hidden environment variable
+(`AIMS_DATAPLATFORM_API_KEY`) in the `.Renviron` file for automatic
+loading at the start of an R session. Please read this
+[article](https://CRAN.R-project.org/package=httr/vignettes/secrets.html)
+which details why keeping your API private is extremely important.
+
+Users can modify their `.Renviron` file by adding the following line:
+
+    AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
+
+The `.Renviron` file is usually stored in each users home directory:
+
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>.Renviron file locations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MS Windows</td>
+<td><code>C:\Users\‹username›\.Renviron</code> or <code>C:\Users\‹username›\Documents\.Renviron</code></td>
+</tr>
+<tr class="even">
+<td>Linux / MacOs</td>
+<td><code>/home/‹username›/.Renviron</code></td>
+</tr>
+</tbody>
+</table>
+
+### Package
+
+At this stage `dataaimsr` is not hosted on CRAN R package network,
+although we re aiming to submit it there very soon. For the moment, an
+alternative method of installation is to use the R `remotes` package. R
+`remotes` can be installed using the following command:
+
+    install.packages("remotes")
+
+After `remotes` has been installed `dataaimsr` can be installed directly
+from GitHub using the following command:
+
+    remotes::install_github("https://github.com/open-AIMS/dataaimsr")
+
+This command will also install the three package dependencies: `httr`,
+`jsonlite` and `parsedate`.
+
+Usage
+-----
+
+    # assumes that user already has API key saved to
+    # .Renviron
+    library(dataaimsr)
+
+    # summarised by series
+    # for all sites that contain data
+    # within a defined date range
+    sdf_b <- aims_data("temp_loggers", api_key = NULL,
+                       summary = "summary-by-series",
+                       filters = list("from_date" = "2018-01-01",
+                                      "thru_date" = "2018-12-31"))
+
+    # downloads weather data from site Yongala
+    # within a defined date range
+    wdf_a <- aims_data("weather", api_key = NULL,
+                       filters = list(site = "Yongala",
+                                      from_date = "2018-01-01",
+                                      thru_date = "2018-01-02"))
+
+More comprehensive examples about how to navigate `dataaimsr` and
+interrogate the datasets can be found on our [online
+vignettes](https://open-AIMS.github.io/dataaimsr/articles).
+
+Datasets
+--------
 
 Currently, there are two AIMS long-term monitoring datasets available to
 be downloaded through `dataaimsr`:
@@ -70,70 +167,6 @@ refers to depths of ~20 m. For more information on the dataset and its
 usage, please visit the
 [metadata](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e)
 webpage.
-
-Requesting an AIMS Data Platform API Key
-----------------------------------------
-
-**AIMS Data Platform** requires an API Key for data requests, [get a key
-here](https://open-AIMS.github.io/data-platform/key-request).
-
-The API Key can be passed to the package functions as an additional
-`api_key = "XXXX"` argument. alternatively, the environment variable
-`AIMS_DATAPLATFORM_API_KEY` can be stored in the user’s `.Renviron` file
-for automatic loading at the start of an R session. In that case the
-users can modify their `.Renviron` file by adding the following line:
-
-    AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
-
-The `.Renviron` file is usually stored in each users home directory:
-
-<table>
-<colgroup>
-<col style="width: 35%" />
-<col style="width: 64%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>System</th>
-<th>.Renviron file locations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MS Windows</td>
-<td><code>C:\Users\‹username›\.Renviron</code> or <code>C:\Users\‹username›\Documents\.Renviron</code></td>
-</tr>
-<tr class="even">
-<td>Linux / MacOs</td>
-<td><code>/home/‹username›/.Renviron</code></td>
-</tr>
-</tbody>
-</table>
-
-Installation
-------------
-
-At this stage `dataaimsr` is not hosted on CRAN R package network. An
-alternative method of installation is to use the R `remotes` package.
-
-R `remotes` can be installed using the following command:
-
-    install.packages("remotes")
-
-After `remotes` has been installed `dataaimsr` can be installed directly
-from GitHub using the following command:
-
-    remotes::install_github("https://github.com/open-AIMS/dataaimsr")
-
-This command will also install the three package dependencies: `httr`,
-`jsonlite` and `parsedate`.
-
-Usage
------
-
-Examples about how to navigate `dataaimsr` and interrogate the datasets
-can be found on our [online
-vignettes](https://open-AIMS.github.io/dataaimsr/articles).
 
 License
 -------
