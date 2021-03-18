@@ -15,19 +15,27 @@ for a chosen
 \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 }
 \value{
-If \code{summary} is passed as an additional argument (see code
-example below), \code{aims_data} returns a \code{\link[base]{data.frame}}
-containing the summary information for the dataset (NB: currently,
-\code{summary} only works for the temperature logger dataset).
+\code{aims_data} returns a \code{\link[base]{data.frame}} of class
+\code{\link{aimsdf}}.
 
-Otherwise, if actual data is downloaded, a \code{\link[jsonlite]{fromJSON}}
-\code{\link[base]{list}} containing three elements:
+If \code{summary} is passed as an additional argument,
+the output shows the summary information for the target dataset (i.e.
+weather or temperature loggers)
+(NB: currently, \code{summary} only works for the temperature logger
+database). If \code{summary} is \emph{not} passed as an additional argument, then
+the output contains monitoring data.
+The output also contains five attributes (empty strings if
+\code{summary} is passed as an additional argument):
 \itemize{
 \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
 containing the metadata record for the data series.}
 \item{\code{citation}}{the citation information for the particular
 dataset.}
-\item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+\item{\code{parameters}}{The measured parameters comprised in the
+output.}
+\item{\code{type}}{The type of dataset. Either "monitoring" if
+\code{summary} is not specified, or a "summary-by-" otherwise.}
+\item{\code{target}}{The input target.}
 }
 }
 \description{
