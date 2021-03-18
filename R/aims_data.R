@@ -45,22 +45,35 @@
 #' time interval can yield massive datasets. The query will return and error
 #' if it reaches the system's memory capacity.
 #'
-#' @return If \code{summary} is passed as an additional argument (see code
-#' example below), \code{aims_data} returns a \code{\link[base]{data.frame}}
-#' containing the summary information for the dataset (NB: currently,
-#' \code{summary} only works for the temperature logger dataset).
+#' @return \code{aims_data} returns a \code{\link[base]{data.frame}} of class
+#' \code{\link{aimsdf}}.
 #'
-#' Otherwise, if actual data is downloaded, a \code{\link[jsonlite]{fromJSON}}
-#' \code{\link[base]{list}} containing three elements:
+#' If \code{summary} is passed as an additional argument,
+#' the output shows the summary information for the target dataset (i.e.
+#' weather or temperature loggers)
+#' (NB: currently, \code{summary} only works for the temperature logger
+#' database). If \code{summary} is *not* passed as an additional argument, then
+#' the output contains monitoring data.
+#' The output also contains five attributes (empty strings if
+#' \code{summary} is passed as an additional argument):
 #' \itemize{
 #'    \item{\code{metadata}}{a \href{https://www.doi.org/}{DOI} link
 #'          containing the metadata record for the data series.}
 #'    \item{\code{citation}}{the citation information for the particular
 #'          dataset.}
-#'    \item{\code{data}}{an output \code{\link[base]{data.frame}}.}
+#'    \item{\code{parameters}}{The measured parameters comprised in the
+#'          output.}
+#'    \item{\code{type}}{The type of dataset. Either "monitoring" if
+#'          \code{summary} is not specified, or a "summary-by-" otherwise.}
+#'    \item{\code{target}}{The input target.}
 #' }
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
+#'
+#' @importFrom curl has_internet
+#'
+#' @seealso \code{\link{aims_citation}}, \code{\link{aims_metadata}},
+#' \code{\link{aims_parameters}}
 #'
 #' @examples
 #' \dontrun{
@@ -75,7 +88,7 @@
 #' wdf_a <- aims_data("weather", api_key = NULL,
 #'                    filters = list(site = "Yongala",
 #'                                   from_date = "2018-01-01",
-#'                                   thru_date = "2018-01-02"))$data
+#'                                   thru_date = "2018-01-02"))
 #'
 #' # 2. downloads weather data from all sites
 #' # under series_id 64 from Davies Reef
@@ -83,7 +96,7 @@
 #' wdf_b <- aims_data("weather", api_key = NULL,
 #'                    filters = list(series_id = 64,
 #'                                   from_date = "1991-10-18",
-#'                                   thru_date = "1991-10-19"))$data
+#'                                   thru_date = "1991-10-19"))
 #' head(wdf_b)
 #' range(wdf_b$time)
 #'
@@ -93,7 +106,7 @@
 #' wdf_c <- aims_data("weather", api_key = NULL,
 #'                    filters = list(series_id = 64,
 #'                                   from_date = "1991-10-18T06:00:00",
-#'                                   thru_date = "1991-10-18T12:00:00"))$data
+#'                                   thru_date = "1991-10-18T12:00:00"))
 #' head(wdf_c)
 #' range(wdf_c$time)
 #'
@@ -101,7 +114,7 @@
 #' # within a defined date range
 #' wdf_d <- aims_data("weather", api_key = NULL,
 #'                    filters = list(from_date = "2003-01-01",
-#'                                   thru_date = "2003-01-02"))$data
+#'                                   thru_date = "2003-01-02"))
 #' # note that there are multiple sites and series
 #' # so in this case, because we did not specify a specific
 #' # parameter, series within sites could differ by both
@@ -116,7 +129,7 @@
 #' wdf_e <- aims_data("weather", api_key = NULL,
 #'                    filters = list(parameter = "Chlorophyll",
 #'                                   from_date = "2018-01-01",
-#'                                   thru_date = "2018-01-02"))$data
+#'                                   thru_date = "2018-01-02"))
 #' # note again that there are multiple sites and series
 #' # however in this case because we did specify a specific
 #' # parameter, series within sites differ by depth only
@@ -153,6 +166,11 @@
 #'
 #' @export
 aims_data <- function(target, filters = NULL, ...) {
+  if (!has_internet()) {
+    message("It seems that your internet connection is down. You need an ",
+            "internet connection to successfully download AIMS data.")
+    return(invisible())
+  }
   doi <- data_doi(target = target)
   w_doi <- data_doi(target = "weather")
   allowed <- aims_expose_attributes(target = target)
@@ -199,12 +217,29 @@ aims_data <- function(target, filters = NULL, ...) {
     }, error = function(err) {
       more_data <<- FALSE
     })
-    message(paste("Result count:",
-                  nrow(results$data)))
+    message(paste("Result count:", nrow(results$data)))
   }
   if ("summary" %in% names(add_args)) {
-    results
+    attr(results, "citation") <- ""
+    attr(results, "metadata") <- ""
+    attr(results, "parameters") <- ""
+    summ <- grep("summary", names(add_args), value = TRUE)
+    attr(results, "type") <- add_args[[summ]]
+    attr(results, "target") <- target
   } else {
-    results[c("metadata", "citation", "data")]
+    if (!inherits(results$data, "data.frame") |
+          (inherits(results$data, "data.frame") && nrow(results$data) == 0)) {
+      message("Failed to download monitoring data; Did you specify ",
+              "appropriate filter values for your chosen filters?")
+      return(invisible())
+    }
+    attr(results$data, "citation") <- results$citation
+    attr(results$data, "metadata") <- results$metadata
+    attr(results$data, "parameters") <- unique(results$data$parameter)
+    attr(results$data, "type") <- "monitoring"
+    attr(results$data, "target") <- target
+    results <- results$data
   }
+  class(results) <- c("aimsdf", class(results))
+  results
 }
