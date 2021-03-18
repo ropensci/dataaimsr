@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -73,7 +73,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/open-aims/dataaimsr/">
+  <a href="https://github.com/open-aims/dataaimsr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -94,26 +94,27 @@
       <h1 data-toc-skip>Sea Water Temperature Loggers time series dataset</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/open-aims/dataaimsr/blob/master/vignettes/tloggers.Rmd"><code>vignettes/tloggers.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/open-aims/dataaimsr/blob/master/vignettes/tloggers.Rmd" class="external-link"><code>vignettes/tloggers.Rmd</code></a></small>
       <div class="hidden name"><code>tloggers.Rmd</code></div>
 
     </div>
 
     
     
-<p>Please check our <a href="https://open-aims.github.io/dataaimsr/articles/navigating.html">intro vignette</a> first to implement the installation requirements, and to learn the general approach to navigating the different datasets. This vignette assumes you have obtained an <a href="https://open-aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a>.</p>
-<p>Let’s start by loading some packages that we are going to need down the track, and store the API key as an object—if you successfully placed your API Key permanently to the <code>.Renviron</code>, then just set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below:</p>
+<p>Please check our <a href="https://open-aims.github.io/dataaimsr/articles/navigating.html" class="external-link">intro vignette</a> first to implement the installation requirements, and to learn the general approach to navigating the different datasets. This vignette assumes you have obtained an <a href="https://open-aims.github.io/data-platform/key-request" class="external-link">AIMS Data Platform API Key</a>.</p>
+<p>As per the installation instructions, we strongly suggest that you hide your API Key permanently in your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. You can read more about why that is important <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">here</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr">dataaimsr</a></span><span class="op">)</span>
-<span class="co"># set my_api_key to NULL if successfully placed in .Renviron</span>
-<span class="co"># paste your key where it says api-key-for-r-notebook</span>
-<span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">"api-key-for-r-notebook"</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># set my_api_key to NULL after successfully placing it in .Renviron</span>
+<span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
+<p>Let’s start by loading the packages needed for this vignette:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org" class="external-link">purrr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://open-aims.github.io/dataaimsr" class="external-link">dataaimsr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
 <div id="discovering-the-dataset" class="section level2">
 <h2 class="hasAnchor">
 <a href="#discovering-the-dataset" class="anchor"></a>Discovering the dataset</h2>
-<p>The <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset is less extensive than the <a href="https://doi.org/10.25845/5c09bf93f315d">AIMS Weather Station</a> dataset because it comprises one single <em>“parameter”</em>—water temperature—that is measured at multiple sites. Not all sites have the same temporal coverage; some loggers are still actively collecting data, others have been discontinued. So the key distinctive variables in this instance are the “site”, and the “series”. A “series” represents a continuing time-series, i.e. a collection of deployments measuring the same parameter at the same subsite. Because there is only one parameter (water temperature), subsite and series are synonymous in the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset. So a series will comprise a continuing time-series at a specific site and depth.</p>
+<p>The <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset is less extensive than the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset because it comprises one single <em>“parameter”</em>—water temperature—that is measured at multiple sites. Not all sites have the same temporal coverage; some loggers are still actively collecting data, others have been discontinued. So the key distinctive variables in this instance are the “site”, and the “series”. A “series” represents a continuing time-series, i.e. a collection of deployments measuring the same parameter at the same subsite. Because there is only one parameter (water temperature), subsite and series are synonymous in the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset. So a series will comprise a continuing time-series at a specific site and depth.</p>
 <p>Essentially, for the user who has limited knowledge about where the data are, and of what they are consisted, they would need to do some prior exploration to learn more about what can be downloaded. Suppose the goal is to download all time-series from a particular site. The general procedure would be:</p>
 <ol style="list-style-type: decimal">
 <li>Examine documentation and establish query filters</li>
@@ -121,80 +122,40 @@
 </li>
 <li>Create an exploratory time-series chart</li>
 </ol>
-<p>For all datasets, a list of available filters can be retrieved with the function <code>expose_attributes</code>. Knowing the filters is important because some time series are quite extensive, with parameters being measured at very high frequency (e.g. every 5 minutes), so downloading the dataset for an entire year or more my take quite some time (it’s possible though if that is the true goal of the user).</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ssts_doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data_doi.html">aims_data_doi</a></span><span class="op">(</span><span class="st">"temp_loggers"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/expose_attributes.html">expose_attributes</a></span><span class="op">(</span><span class="va">ssts_doi</span><span class="op">)</span></code></pre></div>
-<pre><code>## $summary
-## [1] "summary-by-series"     "summary-by-deployment"
-## 
-## $filters
-##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"     
-##  [7] "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date"
-## [13] "version"   "cursor"</code></pre>
-<p>In the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset, as demonstrated in our <a href="https://open-aims.github.io/dataaimsr/articles/navigating.html">intro vignette</a>, we have a convenience <code>summary</code> method which facilitates learning more about what data is available. We can download the summary information for all sites using the main function called <code>aims_data</code>:</p>
+<p>For all datasets, a list of available filters can be retrieved with the function <code>aims_expose_attributes</code>. Knowing the filters is important because some time series are quite extensive, with parameters being measured at very high frequency (e.g. every 5 minutes), so downloading the dataset for an entire year or more my take quite some time (it’s possible though if that is the true goal of the user).</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/aims_expose_attributes.html">aims_expose_attributes</a></span><span class="op">(</span><span class="st">"temp_loggers"</span><span class="op">)</span>
+<span class="co">#&gt; $summary</span>
+<span class="co">#&gt; [1] "summary-by-series"     "summary-by-deployment"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $filters</span>
+<span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></code></pre></div>
+<p>In the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset, as demonstrated in our <a href="https://open-aims.github.io/dataaimsr/articles/navigating.html" class="external-link">intro vignette</a>, we have a convenience <code>summary</code> method which facilitates learning more about what data is available. We can download the summary information for all sites using the main function called <code>aims_data</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                   summary <span class="op">=</span> <span class="st">"summary-by-series"</span><span class="op">)</span></code></pre></div>
-<pre><code>## Cite this data as:</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Result count:</code></pre>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span></code></pre></div>
-<pre><code>##   site_id                    site subsite_id    subsite series_id     series
-## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1
-## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
-## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
-## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
-## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
-## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1
-##           parameter parameter_id time_coverage_start time_coverage_end      lat
-## 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903
-## 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905
-## 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557
-## 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557
-## 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065
-## 6 Water Temperature            1          1996-05-02        2017-05-07 -18.8060
-##        lon depth uncal_obs cal_obs qc_obs
-## 1 145.8212     0     23130  110480 110480
-## 2 145.8213     5    114450  216794 216794
-## 3 146.8813     7     11951   53231  53231
-## 4 146.8813     1         0    4656   4656
-## 5 147.6688     1    437544  566585 566585
-## 6 147.6686     8    369317  495663 495608</code></pre>
+<code class="sourceCode R"><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+                   summary <span class="op">=</span> <span class="st">"summary-by-series"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span>
+<span class="co">#&gt;   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs</span>
+<span class="co">#&gt; 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480</span>
+<span class="co">#&gt; 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794</span>
+<span class="co">#&gt; 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231</span>
+<span class="co">#&gt; 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656</span>
+<span class="co">#&gt; 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585</span>
+<span class="co">#&gt; 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608</span></code></pre></div>
 <p>The <code>summary</code> argument here is key. It should only be flagged when the user wants an overview of the available data. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                   summary <span class="op">=</span> <span class="st">"summary-by-deployment"</span><span class="op">)</span></code></pre></div>
-<pre><code>## Cite this data as:</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Result count:</code></pre>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ddata</span><span class="op">)</span></code></pre></div>
-<pre><code>##   deployment_id serial_num site_id          site subsite_id subsite series_id
-## 1         39691   SU-11424       4   Davies Reef       2630  DAVSL1      2630
-## 2          3319 SST-905242     865 Hayman Island       2644  HAYSL1      2644
-## 3        471410   10048402    3181    Enderby Is      14056 ENDERBY     14056
-## 4         15923   SU-10088     986   Pine Island       3080 PINESL1      3080
-## 5        479464     355088     896    Turner Cay       2664  TURSL1      2664
-## 6        450497   SU-11021     743      Rib Reef      13478  RIBCH2     13478
-##    series         parameter parameter_id time_coverage_start time_coverage_end
-## 1  DAVSL1 Water Temperature            1          2012-11-10        2013-05-21
-## 2  HAYSL1 Water Temperature            1          1999-06-03        2000-05-15
-## 3 ENDERBY Water Temperature            1          2015-05-24        2016-02-06
-## 4 PINESL1 Water Temperature            1          2011-09-28        2012-02-13
-## 5  TURSL1 Water Temperature            1          2014-08-27        2017-01-25
-## 6  RIBCH2 Water Temperature            1          2014-10-04        2015-04-15
-##        lat      lon depth uncal_obs cal_obs qc_obs
-## 1 -18.8060 147.6686   8.3     27504   27504  27504
-## 2 -20.0572 148.8997   9.0         0   16590  16590
-## 3 -20.5689 116.5550    NA     12292   12292  12292
-## 4 -20.3780 148.8884   6.6     19728   19728  19728
-## 5 -21.7031 152.5605    NA    125856  125856 125856
-## 6 -18.4901 146.8709   3.4     27648   27648  27648</code></pre>
-<p>Notice that <code>sdata$data</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
-<p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same, and currently there is no public information on AIMS quality-control methods and algorithms. However, if this is crucial information to you, please reach out to the <a href="adc@aims.gov.au">Data Manager from the AIMS Data Centre</a>. So let’s go ahead and plot these data on a map of Australia, while colouring based on the total amount of calibrated observations:</p>
-<p>The benefits to choosing a data <code>series</code> (or the numeric equivalent, <code>series_id</code>) is that it comes from one location and parameter type (here only water temperature), making the data easy to plot. If we did not choose a data series from the <a href="https://doi.org/10.25845/5c09bf93f315d">Sea Water Temperature Loggers</a> dataset, we would have to specify additional arguments to ensure the data is downloaded as expected.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ddata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+                   summary <span class="op">=</span> <span class="st">"summary-by-deployment"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ddata</span><span class="op">)</span>
+<span class="co">#&gt;   deployment_id serial_num site_id          site subsite_id subsite series_id  series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs</span>
+<span class="co">#&gt; 1         39691   SU-11424       4   Davies Reef       2630  DAVSL1      2630  DAVSL1 Water Temperature            1          2012-11-10        2013-05-21 -18.8060 147.6686   8.3     27504   27504  27504</span>
+<span class="co">#&gt; 2          3319 SST-905242     865 Hayman Island       2644  HAYSL1      2644  HAYSL1 Water Temperature            1          1999-06-03        2000-05-15 -20.0572 148.8997   9.0         0   16590  16590</span>
+<span class="co">#&gt; 3        471410   10048402    3181    Enderby Is      14056 ENDERBY     14056 ENDERBY Water Temperature            1          2015-05-24        2016-02-06 -20.5689 116.5550    NA     12292   12292  12292</span>
+<span class="co">#&gt; 4         15923   SU-10088     986   Pine Island       3080 PINESL1      3080 PINESL1 Water Temperature            1          2011-09-28        2012-02-13 -20.3780 148.8884   6.6     19728   19728  19728</span>
+<span class="co">#&gt; 5        479464     355088     896    Turner Cay       2664  TURSL1      2664  TURSL1 Water Temperature            1          2014-08-27        2017-01-25 -21.7031 152.5605    NA    125856  125856 125856</span>
+<span class="co">#&gt; 6        450497   SU-11021     743      Rib Reef      13478  RIBCH2     13478  RIBCH2 Water Temperature            1          2014-10-04        2015-04-15 -18.4901 146.8709   3.4     27648   27648  27648</span></code></pre></div>
+<p>Notice that <code>sdata</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
+<p>The benefits to choosing a data <code>series</code> (or the numeric equivalent, <code>series_id</code>) is that it comes from one location and parameter type (here only water temperature), making the data easy to plot. If we did not choose a data series from the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">Sea Water Temperature Loggers</a> dataset, we would have to specify additional arguments to ensure the data is downloaded as expected.</p>
 <p>Our values and filters might look like the following:</p>
 <table class="table">
 <thead><tr class="header">
@@ -206,7 +167,7 @@
 <tr class="odd">
 <td>series_id</td>
 <td>2687</td>
-<td>Found <a href="https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e">here</a>, Agincourt Reef Number 3</td>
+<td>Found <a href="https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e" class="external-link">here</a>, Agincourt Reef Number 3</td>
 </tr>
 <tr class="even">
 <td>from_date</td>
@@ -225,77 +186,67 @@
 <h2 class="hasAnchor">
 <a href="#query-and-plot-dataset" class="anchor"></a>Query and Plot Dataset</h2>
 <p>After deciding on query parameters, we plug the series id into a <code>aims_data</code> function:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">agincourt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                       filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">2687</span>,
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">agincourt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+                       filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">2687</span>,
                                       from_date <span class="op">=</span> <span class="st">"2005-01-01"</span>,
                                       thru_date <span class="op">=</span> <span class="st">"2005-01-10"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We can check that the query filters worked:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">agincourt</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">time</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] "2005-01-01 UTC" "2005-01-10 UTC"</code></pre>
-<p>We can even visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">target_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Agincourt"</span> <span class="op">=</span> <span class="fl">2687</span>, <span class="st">"Cleveland Bay"</span> <span class="op">=</span> <span class="fl">3007</span><span class="op">)</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">agincourt</span><span class="op">$</span><span class="va">time</span><span class="op">)</span>
+<span class="co">#&gt; [1] "2005-01-01 UTC" "2005-01-10 UTC"</span></code></pre></div>
+<p>We can then visualise where in Australia that data is placed:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">agincourt</span>, ptype <span class="op">=</span> <span class="st">"map"</span><span class="op">)</span></code></pre></div>
+<p><img src="vignette-fig-tlfa-1.png" title="plot of chunk tlfa" alt="plot of chunk tlfa" width="100%"></p>
+<p>We can also visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">target_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Agincourt"</span> <span class="op">=</span> <span class="fl">2687</span>, <span class="st">"Cleveland Bay"</span> <span class="op">=</span> <span class="fl">3007</span><span class="op">)</span>
 <span class="va">aims_data_per_series</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">series_number</span>, <span class="va">my_api_key</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-            filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="va">series_number</span>, <span class="va">...</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+            filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="va">series_number</span>, <span class="va">...</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span>
-<span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">target_series</span>, <span class="va">aims_data_per_series</span>,
+<span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">target_series</span>, <span class="va">aims_data_per_series</span>,
                       my_api_key <span class="op">=</span> <span class="va">my_api_key</span>,
                       from_date <span class="op">=</span> <span class="st">"2005-01-01"</span>,
                       thru_date <span class="op">=</span> <span class="st">"2005-01-10"</span><span class="op">)</span>
-<span class="va">sst_data</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">results</span>, <span class="st">"data"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sst_data</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">qc_val</span>,
-                          colour <span class="op">=</span> <span class="va">site</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
-       y <span class="op">=</span> <span class="st">"Water temperature (˚C)"</span>,
-       colour <span class="op">=</span> <span class="st">"Site"</span>,
-       title <span class="op">=</span> <span class="st">"AIMS"</span>,
-       subtitle <span class="op">=</span> <span class="st">"Water temperature loggers"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-        legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="tloggers_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
+<span class="va">sst_data</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">rbind</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sst_data</span>, ptype <span class="op">=</span> <span class="st">"time_series"</span><span class="op">)</span></code></pre></div>
+<p><img src="vignette-fig-tlfb-1.png" title="plot of chunk tlfb" alt="plot of chunk tlfb" width="100%"></p>
 <p>One could also download data for a particular time of day throughout the year, e.g. for Davies Reef at 1 m of depth (<code>series_id</code> is 2629):</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2005-01-01"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2005-12-31"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"month"</span><span class="op">)</span>
-<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span>length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">)</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">hour_in</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">days</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"T06:00:00"</span><span class="op">)</span>
-  <span class="va">hour_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">days</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"T12:00:00"</span><span class="op">)</span>
-  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="va">ssts_doi</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">2629</span>, from_date <span class="op">=</span> <span class="va">hour_in</span>,
-                                 thru_date <span class="op">=</span> <span class="va">hour_out</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">data</span>
-  <span class="va">out</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">qc_val</span><span class="op">)</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2005-01-01"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2005-12-31"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"month"</span><span class="op">)</span>
+<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span>length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_along</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">hour_in</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">days</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"T06:00:00"</span><span class="op">)</span>
+  <span class="va">hour_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">days</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="st">"T12:00:00"</span><span class="op">)</span>
+  <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
+                  filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">2629</span>, from_date <span class="op">=</span> <span class="va">hour_in</span>,
+                                 thru_date <span class="op">=</span> <span class="va">hour_out</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">out</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">qc_val</span><span class="op">)</span>
 <span class="op">}</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>date <span class="op">=</span> <span class="va">days</span>,
-           temps <span class="op">=</span> <span class="va">out</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">temps</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
-         y <span class="op">=</span> <span class="st">"Water temperature (˚C)"</span>,
-         title <span class="op">=</span> <span class="st">"Davies Reef @ 1 m (2005)"</span>,
-         subtitle <span class="op">=</span> <span class="st">"mean 6 A.M. – 12 P.M."</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-          axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-          legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
-<p><img src="tloggers_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>date <span class="op">=</span> <span class="va">days</span>, temps <span class="op">=</span> <span class="va">out</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">temps</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>,
+       y <span class="op">=</span> <span class="st">"Water temperature (˚C)"</span>,
+       title <span class="op">=</span> <span class="st">"Davies Reef @ 1 m (2005)"</span>,
+       subtitle <span class="op">=</span> <span class="st">"mean 6 A.M. – 12 P.M."</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
+        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
+        legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></code></pre></div>
+<p><img src="vignette-fig-tlfc-1.png" title="plot of chunk tlfc" alt="plot of chunk tlfc" width="100%"></p>
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h2>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">`[`</span>, <span class="st">"citation"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">aims_citation</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="va">unlist</span> <span class="op">%&gt;%</span>
-  <span class="va">unname</span></code></pre></div>
-<pre><code>## [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 16 Feb 2021."
-## [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 16 Feb 2021."</code></pre>
+  <span class="va">unname</span>
+<span class="co">#&gt; [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."</span>
+<span class="co">#&gt; [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."</span></code></pre></div>
 </div>
   </div>
 
@@ -310,11 +261,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Diego R. Barneche, AIMS Datacentre.</p>
+  <p></p>
+<p>Developed by Diego R. Barneche, AIMS Datacentre.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

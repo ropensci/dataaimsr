@@ -87,7 +87,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -142,12 +142,29 @@
       <small>Source: <a href='https://github.com/open-aims/dataaimsr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="dataaimsr-103" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.3">
+<a href="#dataaimsr-103" class="anchor"></a>dataaimsr 1.0.3</h1>
+<ul>
+<li><p>Added <code>aims_*</code> prefix to all exported functions</p></li>
+<li><p><code>aims_data</code>, <code>aims_filter_values</code> and <code>aims_expose_attributes</code> now take a string target rather than a string DOI as input argument</p></li>
+<li><p><code>aims_data</code> and <code>aims_filter_values</code> fail gracefully now if the input filter parameters are incorrect or there is no internet connection</p></li>
+<li><p><code>aims_data_doi</code> is now the non-exported <code>data_doi</code></p></li>
+<li><p>Important changes pertaining to <code>aims_data</code>:</p></li>
+<li><p>Always returns a data.frame</p></li>
+<li><p>Contains it’s own class called <code>aimsdf</code> which contains print, summary and plot methods</p></li>
+<li><p>Contains three additional exposed helper functions which allow the user to extract metadata/citation/parameter attributes.</p></li>
+<li><p>Example set has been reduced to a minimal amount</p></li>
+<li><p>plot method for class <code>aimsdf</code> displays either a map or a time series</p></li>
+<li><p>improved test coverage</p></li>
+</ul>
+</div>
     <div id="dataaimsr-102" class="section level1">
 <h1 class="page-header" data-toc-text="1.0.2">
 <a href="#dataaimsr-102" class="anchor"></a>dataaimsr 1.0.2</h1>
 <ul>
 <li><p>Implemented <code>summary</code> datasets for the Temperature Loggers dataset via <code>aims_data</code></p></li>
-<li><p>Implemented <code><a href="../reference/expose_attributes.html">expose_attributes()</a></code> to show which filters are accepted by the different datasets</p></li>
+<li><p>Implemented <code>expose_attributes()</code> to show which filters are accepted by the different datasets</p></li>
 <li><p>restrict <code>filter_values</code> to expel info on sites, series and parameters only</p></li>
 <li><p>Using <code>parsedate</code> to standardise date strings and account for time zone</p></li>
 <li><p>Created new vignette explaining basic usage of package</p></li>
@@ -166,11 +183,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Diego R. Barneche, AIMS Datacentre.</p>
+  <p><p>Developed by Diego R. Barneche, AIMS Datacentre.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>

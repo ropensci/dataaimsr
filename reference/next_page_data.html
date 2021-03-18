@@ -89,7 +89,7 @@ multiple URLs for data retrieval" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -173,17 +173,25 @@ multiple URLs for data retrieval</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>summary</code> is passed as an additional argument (see code
-example below), <code>aims_data</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>
-containing the summary information for the dataset (NB: currently,
-<code>summary</code> only works for the temperature logger dataset).</p>
-<p>Otherwise, if actual data is downloaded, a <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>fromJSON</a></code>
-<code><a href='https://rdrr.io/r/base/list.html'>list</a></code> containing three elements:</p><ul>
+    <p><code>aims_data</code> returns a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> of class
+<code><a href='aimsdf-class.html'>aimsdf</a></code>.</p>
+<p>If <code>summary</code> is passed as an additional argument,
+the output shows the summary information for the target dataset (i.e.
+weather or temperature loggers)
+(NB: currently, <code>summary</code> only works for the temperature logger
+database). If <code>summary</code> is <em>not</em> passed as an additional argument, then
+the output contains monitoring data.
+The output also contains five attributes (empty strings if
+<code>summary</code> is passed as an additional argument):</p><ul>
 <li><p><code>metadata</code>a <a href='https://www.doi.org/'>DOI</a> link
 containing the metadata record for the data series.</p></li>
 <li><p><code>citation</code>the citation information for the particular
 dataset.</p></li>
-<li><p><code>data</code>an output <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>.</p></li>
+<li><p><code>parameters</code>The measured parameters comprised in the
+output.</p></li>
+<li><p><code>type</code>The type of dataset. Either "monitoring" if
+<code>summary</code> is not specified, or a "summary-by-" otherwise.</p></li>
+<li><p><code>target</code>The input target.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -202,13 +210,12 @@ the API Key automatically.</p>
 <a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>:
 <a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
 <a href='https://tinyurl.com/h93mcojk'>Sea Water Temperature Loggers</a>.
-They are searched internally via unique DOI identifiers which
-can be obtained by the function <code><a href='aims_data_doi.html'>aims_data_doi</a></code> (see Examples).
-Only one DOI at a time can be passed to the argument <code>doi</code>.</p>
+They are searched internally via unique DOI identifiers.
+Only one data type at a time can be passed to the argument <code>target</code>.</p>
 <p>A list of arguments for <code>filters</code> can be exposed for both
 <a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
 <a href='https://weather.aims.gov.au/#/overview'>Sea Water Temperature Loggers</a>
-using function <code><a href='expose_attributes.html'>expose_attributes</a></code>.</p>
+using function <code><a href='aims_expose_attributes.html'>aims_expose_attributes</a></code>.</p>
 <p>Note that at present the user can inspect the range of dates for
 the temperature loggers data only (see usage of argument <code>summary</code> in
 <code><a href='aims_data.html'>aims_data</a></code>). Details about available dates for each dataset
@@ -220,7 +227,7 @@ time interval can yield massive datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='filter_values.html'>filter_values</a></code>, <code><a href='page_data.html'>page_data</a></code>,
+    <div class='dont-index'><p><code><a href='aims_filter_values.html'>aims_filter_values</a></code>, <code><a href='page_data.html'>page_data</a></code>,
 <code><a href='aims_data.html'>aims_data</a></code></p></div>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
@@ -237,11 +244,11 @@ if it reaches the system's memory capacity.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Diego R. Barneche, AIMS Datacentre.</p>
+  <p><p>Developed by Diego R. Barneche, AIMS Datacentre.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
