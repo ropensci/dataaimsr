@@ -16,6 +16,7 @@ json_out <- json_results(good_dt_req)
 test_that("API key finder", {
   expect_error(find_api_key())
   expect_is(find_api_key(my_api_key), "character")
+  key_ <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
   Sys.setenv(AIMS_DATAPLATFORM_API_KEY = "empty")
   expect_is(find_api_key(NULL), "character")
   expect_identical(find_api_key(NULL), "empty")
@@ -23,6 +24,7 @@ test_that("API key finder", {
   expect_identical(find_api_key(10), 10)
   expect_identical(find_api_key(NA), NA)
   expect_identical(find_api_key("something"), "something")
+  Sys.setenv(AIMS_DATAPLATFORM_API_KEY = key_)
 })
 
 test_that("http error handling", {
@@ -94,4 +96,36 @@ test_that("Correct structure", {
   expect_error(data_doi(FALSE))
   expect_error(data_doi(NA))
   expect_error(data_doi(NULL))
+})
+
+test_that("Correct structure", {
+  expect_identical(make_pretty_data_label("weather"), "Weather Station")
+  expect_identical(make_pretty_data_label("temp_loggers"),
+                   "Temperature loggers")
+  expect_identical(make_pretty_data_label(10),
+                   "Temperature loggers")
+  expect_identical(make_pretty_data_label(TRUE),
+                   "Temperature loggers")
+  expect_identical(make_pretty_data_label(NA), NA)
+  expect_vector(make_pretty_data_label(NULL))
+})
+
+test_that("Correct structure", {
+  expect_identical(make_pretty_colour("blue"), "#0000FF8C")
+  expect_identical(make_pretty_colour(NA), "#FFFFFF8C")
+  expect_error(make_pretty_colour(NA, NA))
+})
+
+test_that("Correct structure", {
+  expect_identical(capitalise("abc"), "Abc")
+  expect_identical(capitalise(NA), "NANA")
+  expect_vector(capitalise(NULL))
+})
+
+my_list <- list(a = list(k = 1, l = 2), b = list(k = "A", l = "b"))
+test_that("Correct structure", {
+  expect_identical(unname(extract_map_coord(my_list, 1)), c("1", "A"))
+  expect_identical(unname(extract_map_coord(my_list, 2)), c("2", "b"))
+  expect_is(extract_map_coord(my_list, NA), "list")
+  expect_null(extract_map_coord(my_list, NA)[[1]])
 })

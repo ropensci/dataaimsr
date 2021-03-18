@@ -23,6 +23,10 @@ test_that("Correct structure", {
   expect_is(check_sb, "data.frame")
   expect_true(all(c("metadata", "citation", "parameters") %in%
                       names(attributes(check_sb))))
+  expect_s3_class(check_wa, "aimsdf")
+  expect_s3_class(check_sa, "aimsdf")
+  expect_s3_class(check_wb, "aimsdf")
+  expect_s3_class(check_sb, "aimsdf")
 })
 
 check_wc <- aims_data("weather", filters = w_filters_c, api_key = my_api_key)

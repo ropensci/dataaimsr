@@ -174,3 +174,48 @@ data_doi <- function(target) {
   }
   getOption(paste0("dataaimsr.", target))
 }
+
+#' make_pretty_data_label
+#'
+#' Internal
+#'
+#' @param x A character
+#' @keywords internal
+make_pretty_data_label <- function(x) {
+  ifelse(x == "weather", "Weather Station", "Temperature loggers")
+}
+
+#' make_pretty_colour
+#'
+#' Internal
+#'
+#' @param x A character
+#' @param alpha_ A numeric
+#'
+#' @importFrom grDevices col2rgb rgb
+#' @keywords internal
+make_pretty_colour <- function(x, alpha_ = 0.55) {
+  col <- col2rgb(x)
+  rgb(col[1], col[2], col[3], alpha = alpha_ * 255, maxColorValue = 255)
+}
+
+#' capitalise
+#'
+#' Internal
+#'
+#' @param x A character
+#' @keywords internal
+capitalise <- function(x) {
+  paste0(toupper(substr(x, 1, 1)), substr(x, 2, nchar(x)))
+}
+
+#' extract_map_coord
+#'
+#' Internal
+#'
+#' @param x An sfc_POINT
+#' @param ... Additional argument "pos" to internal function
+#' @keywords internal
+extract_map_coord <- function(x, ...) {
+  sapply(x, function(z, pos)z[[pos]], ...)
+}

@@ -129,12 +129,12 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
               " instead")
     }
     map_bd <- ne_countries(continent = "oceania", returnclass = "sf") %>%
-      st_transform(crs = 4326)
+      st_transform(crs = 3112)
     y <- x %>%
       mutate(cols = cal_obs * 1e-3) %>%
       drop_na(lon, lat) %>%
       st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
-      st_transform(crs = 4326)
+      st_transform(crs = 3112)
     p_bkg <- make_pretty_colour("lightblue")
     name_leg <- "# Calibrated obs. (thousands)"
     ggplot(data = map_bd) +
@@ -173,7 +173,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
               axis.title.y = element_text(size = 12))
     } else if (ptype == "map") {
       map_bd <- ne_countries(continent = "oceania", returnclass = "sf") %>%
-        st_transform(crs = 4326)
+        st_transform(crs = 3112)
       y_l <- x %>%
         group_by(site) %>%
         summarise(n_obs = length(qc_val), lon = unique(lon),
@@ -183,7 +183,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         drop_na(lon, lat)
       y_p <- y_l %>%
         st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
-        st_transform(crs = 4326)
+        st_transform(crs = 3112)
       y_l <- y_l %>%
         mutate(lon = extract_map_coord(y_p$geometry, 1),
                lat = extract_map_coord(y_p$geometry, 2))
@@ -204,49 +204,4 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
                                        label = par_l))
     }
   }
-}
-
-#' make_pretty_data_label
-#'
-#' Internal
-#'
-#' @param x A character
-#' @keywords internal
-make_pretty_data_label <- function(x) {
-  ifelse(x == "weather", "Weather Station", "Temperature loggers")
-}
-
-#' make_pretty_colour
-#'
-#' Internal
-#'
-#' @param x A character
-#' @param alpha_ A numeric
-#'
-#' @importFrom grDevices col2rgb rgb
-#' @keywords internal
-make_pretty_colour <- function(x, alpha_ = 0.55) {
-  col <- col2rgb(x)
-  rgb(col[1], col[2], col[3], alpha = alpha_ * 255, maxColorValue = 255)
-}
-
-#' capitalise
-#'
-#' Internal
-#'
-#' @param x A character
-#' @keywords internal
-capitalise <- function(x) {
-  paste0(toupper(substr(x, 1, 1)), substr(x, 2, nchar(x)))
-}
-
-#' extract_map_coord
-#'
-#' Internal
-#'
-#' @param x An sfc_POINT
-#' @param ... Additional argument "pos" to internal function
-#' @keywords internal
-extract_map_coord <- function(x, ...) {
-  sapply(x, function(z, pos)z[[pos]], ...)
 }
