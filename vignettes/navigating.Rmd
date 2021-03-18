@@ -209,8 +209,8 @@ quality-controlled. For monitoring data (i.e. when `summary = NA` in a
 `aims_data` call), we can either visualise the data as a time series broken
 down by parameter, or a map showing the sites with some summary info. If the
 parameters are not specified, then `dataaimsr` will plot a maximum of 4
-parameters chosen at random. Alternatively the user can specify which
-parameters are to be plotted.
+parameters chosen at random for a time series plot. Alternatively the user can
+specify which parameters are to be plotted.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 8.5, fig.height = 3.9}
 # check parameters with aims_parameters(wdata_a)

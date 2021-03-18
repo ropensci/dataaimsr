@@ -19,6 +19,8 @@ paper/*
 !paper/template.tex
 !paper/summary.png
 !paper/wind.png
+!paper/tssa.png
+!paper/tssb.png
 
 dataaimsr.Rcheck/
 

@@ -1,5 +1,5 @@
 ---
-title: 'dataaimsr: A Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform'
+title: 'dataaimsr: An R Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform'
 tags:
   - R
   - sea surface temperature
@@ -13,9 +13,23 @@ authors:
     affiliation: "1, 2"
   - name: Greg Coleman
     affiliation: "3"
+  - name: Duncan Fermor
+    affiliation: "3"
+  - name: Eduardo Klein
+    affiliation: "3"
+  - name: Tobias Robinson
+    affiliation: "3"
+  - name: Jason Smith
+    affiliation: "3"
   - name: Jeffrey L. Sheehan
     affiliation: "3"
-  - name: Duncan Fermor
+  - name: Shannon Dowley
+    affiliation: "3"
+  - name: Dean Ditton
+    affiliation: "3"
+  - name: Kevin Gunn
+    affiliation: "3"
+  - name: Gavin Ericson
     affiliation: "3"
   - name: Murray Logan
     affiliation: "3"
@@ -30,7 +44,7 @@ affiliations:
    index: 3
 
 citation_author: Barneche et al.
-date: "2021-02-11"
+date: "2021-03-18"
 bibliography: paper.bib
 output:
   my_modified_joss:
@@ -61,7 +75,11 @@ developed the [AIMS Data Platform API][1] which is a *REST API* providing
 JSON-formatted data to users. `dataaimsr` is an **R package** written to
 allow users to communicate with the AIMS Data Platform API using an API key
 and a few convenience functions to interrogate and understand the datasets
-that are available to download.
+that are available to download. In doing so, it allows the user to
+fully explore these datasets in R in whichever capacity they want (e.g.
+data visualisation, statistical analyses, etc). The package itself contains
+a `plot` method which allows the user to plot summaries of the different types
+of dataset made available by the API.
 
 [1]: https://open-aims.github.io/data-platform/
 
@@ -103,9 +121,17 @@ and its usage, please visit the [AIMS metadata][3] webpage.
 # Technical details and Usage
 
 Before loading the package, a user needs to download and store their personal
-[AIMS Data Platform API Key][4]---we recommend it storing it in `.Renviron`.
+[AIMS Data Platform API Key][4]---we strongly encourage users to
+maintain their API key as a private, locally hidden environment variable
+(`AIMS_DATAPLATFORM_API_KEY`) in the `.Renviron` file for
+automatic loading at the start of an R session.
 
 [4]: https://open-aims.github.io/data-platform/key-request
+
+`dataaimsr` imports the packages *httr* [@httrcit], *jsonlite* [@jsonlitecit],
+*parsedate* [@parsedatecit], *dplyr* [@dplyrcit], *tidyr* [@tidyrcit],
+*rnaturalearth* [@rnaturalearthcit], *sf* [@sfcit], *ggplot2* [@ggplot2cit],
+*ggrepel* [@ggrepelcit] and *curl* [@curlcit].
 
 The [Weather Station][2] and [Sea Water Temperature Loggers][3] datasets are
 very large (terabytes in size), and as such they are not locally stored.
@@ -136,29 +162,26 @@ download data.
 ### Data summaries
 
 The first step would be to visualise the dataset. We do this by
-mapping all available sites. First we need to store the DOI for the
-target dataset---this is done via the function `aims_data_doi`. We
-can then download the summary information for the Sea Water Temperature 
-Loggers dataset using the main function called `aims_data`:
+mapping all available sites. For example, we download the summary information
+for the Sea Water Temperature Loggers dataset using the main function called
+`aims_data`:
 
 
 ```r
 library(dataaimsr)
-# see ?aims_data_doi for argument names
-ssts_doi <- aims_data_doi("temp_loggers")
-sdata <- aims_data(ssts_doi, api_key = NULL,
+sdata <- aims_data("temp_loggers", api_key = NULL,
                    summary = "summary-by-series")
 head(sdata)
 ```
 
 ```
 ##   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212   0.2     23130  110480 110480
-## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2010-02-02 -15.9905 145.8213   5.0     81042  183386 183386
-## 3       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          2010-11-30        2011-07-21 -15.9905 145.8213   5.5     33408   33408  33408
-## 4       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813   7.0     11951   53231  53231
-## 5       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813   1.0         0    4656   4656
-## 6       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2009-12-08 -18.8065 147.6688   1.0     72073  201114 201114
+## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
+## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
+## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
+## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
+## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
+## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
 ```
 
 Setting the argument `api_key = NULL` means that `dataaimsr` will
@@ -167,7 +190,7 @@ The `summary` argument here is key. It should only be flagged when the
 user wants an overview of the available data. Again, this currently
 implemented for the Sea Water Temperature Loggers dataset. One can
 visualise `summary-by-series` or `summary-by-deployment`. The output of
-`aims_data` when summary is `NA` (the default) is a `data.frame`.
+`aims_data` is a `data.frame` of class `aimsdf`.
 
 Notice that `sdata` contains a lot of information, most of which is
 related to site / series / parameter ID. Each row corresponds to a
@@ -182,10 +205,26 @@ hand.
 Also note that there are three columns containing the total number of 
 observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
 respectively stand for uncalibrated, calibrated, and quality-controlled 
-observations. **Mark, we need a few sentences explaining the quality control**
-**procdure**. One can visualise this data, for instance, by plotting them
+observations. Calibrated and quality-controlled are generally the same.
+Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After
+calibration, all data records are quality controlled based on the following
+tests: 1) clip to in-water only data, using deployment's metadata, 2)
+impossible value check: data outside a fixed temperature range (14˚C – 40˚C)
+is flagged as bad data, 3) spike test: individual extreme values are flagged
+as probably bad according to the algorithm presented in @morelo2014methods and
+4) Excessive gradient test: pairs of data that present a sudden change in the
+slope are flagged as probably bad [@toma2016acta]. If any data record fails at
+least one of the tests, a QC flag equal to 2 is returned, otherwise, the QC
+flag is set to 1.
+
+One can visualise this data, for instance, by plotting them
 on a map of Australia, while colouring based on the total amount of calibrated
 observations (Fig. \@ref(fig:summary)).
+
+`aimsdf` objects can be plotted using the `plot` function. For summary data
+such as `sdata`, plot will always generate a map with the points around
+Australia and associated regions, coloured by the number of calibrated
+observations:
 
 
 
@@ -196,13 +235,12 @@ observations (Fig. \@ref(fig:summary)).
 \end{figure}
 
 In the case of the Weather Station dataset, the user can call a
-the `filter_values` function which allows one to query what
+the `aims_filter_values` function which allows one to query what
 sites, series and parameters are available for both datasets:
 
 
 ```r
-weather_doi <- aims_data_doi("weather")
-filter_values(weather_doi, filter_name = "series") %>%
+aims_filter_values("weather", filter_name = "series") %>%
   head()
 ```
 
@@ -234,11 +272,12 @@ needs to apply filters to their query.
 
 Filters are the last important information the user needs to know to 
 master the navigation and download of AIMS monitoring datasets. Each 
-dataset can filtered by attributes which can be exposed with the function `expose_attributes`:
+dataset can filtered by attributes which can be exposed with the function
+`aims_expose_attributes`:
 
 
 ```r
-expose_attributes(weather_doi)
+aims_expose_attributes("weather")
 ```
 
 ```
@@ -250,7 +289,7 @@ expose_attributes(weather_doi)
 ```
 
 ```r
-expose_attributes(ssts_doi)
+aims_expose_attributes("temp_loggers")
 ```
 
 ```
@@ -261,7 +300,7 @@ expose_attributes(ssts_doi)
 ##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
-The help file (see `?expose_attributes`) contains the details about what
+The help file (see `?aims_expose_attributes`) contains the details about what
 each filter targets. So, having an understanding of the summaries and what
 filters are available provide the user with a great head start.
 
@@ -274,78 +313,45 @@ implement filters. For example, to download all the data collected at the
 
 
 ```r
-wdata_a <- aims_data(weather_doi, api_key = NULL,
+wdata_a <- aims_data("weather", api_key = NULL,
                      filters = list(site = "Yongala",
                                     from_date = "2018-01-01",
                                     thru_date = "2018-01-02"))
 ```
 
-The output of `aims_data` when summary is omitted (the default) is a list
-containing three elements:
+The returned `aimsdf` object in this case has attributes which give us
+summary crucial information:
 
 - `metadata` a doi link containing the metadata record for the data series
 
 - `citation` the citation information for the particular dataset
 
-- `data` an output `data.frame`
+- `parameters` an output `data.frame`
+
+These can be directly extracted using the convenience functions
+`aims_metadata`, `aims_citation` and `aims_parameters`, e.g.:
 
 
 ```r
-wdata_a$metadata
+aims_metadata(wdata_a)
 ```
 
 ```
 ## [1] "Metadata record https://doi.org/10.25845/5c09bf93f315d"
 ```
 
-
-```r
-wdata_a$citation
-```
-
-```
-## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 11 February 2021.  Time period: 2018-01-01 to 2018-01-02.  Site: Yongala."
-```
-
-
-```r
-head(wdata_a$data)
-```
-
-```
-##   deployment_id    site          subsite depth       lat      lon                      parameter serial_num    data_id                time cal_val  qc_val series_id                                          series
-## 1        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002524661 2018-01-01 00:00:00 21.8412 21.8412      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 2        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002525035 2018-01-01 00:10:00 22.4100 22.4100      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 3        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002525436 2018-01-01 00:20:00 22.4496 22.4496      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 4        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002525892 2018-01-01 00:30:00 23.1876 23.1876      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 5        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002526278 2018-01-01 00:40:00 22.1364 22.1364      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-## 6        472564 Yongala Yongala NRS Buoy    NA -19.30372 147.6205 Wind Speed (Scalar avg 10 min)   E0810017 1002526524 2018-01-01 00:50:00 22.0104 22.0104      4103 Yongala NRS Buoy Wind Speed (Scalar avg 10 min)
-```
-
-Note that there are numerous parameters available for this site at the
-specified time:
-
-
-```r
-unique(wdata_a$data$parameter)
-```
-
-```
-##  [1] "Wind Speed (Scalar avg 10 min)"              "Wind Direction (Scalar Average 10 Minutes)"  "Wind Direction (Scalar Standard 10 Minutes)" "Wind Speed (scalar avg b 10 min) "          
-##  [5] "Wind Speed (vector avg 10 min)"              "Wind Direction (Vector Average 10 Minutes)"  "Wind Direction (Vector Standard 10 Minutes)" "Maximum Wind Speed 10 Minutes"              
-##  [9] "Minimum Wind Speed 10 Minutes"               "Air Temperature"                             "Humidity"                                    "Air Pressure"                               
-## [13] "Rain Duration"                               "Rain Intensity"                              "Wind Speed (Scalar avg 30 min)"              "Wind Direction (Scalar Average 30 Minutes)" 
-## [17] "Wind Direction (Scalar Standard 30 Minutes)" "Wind Speed (scalar avg b 30 min)"            "Wind Speed (vector avg 30 min)"              "Wind Direction (Vector Average 30 Minutes)" 
-## [21] "Wind Direction (Vector Standard 30 Minutes)" "Maximum Wind Speed 30 Minutes"               "Minimum Wind Speed 30 Minutes"               "Rain Accumulation"                          
-## [25] "Water Temperature"                           "Water Pressure"                              "Salinity"                                    "Chlorophyll"                                
-## [29] "Turbidity"                                   "Depth"                                       "Dissolved Oxygen (mole)"
-```
-
-And the actual measurements are either raw or quality-controlled (Fig. \@ref(fig:wind)).
+This example data contains multiple parameters available for this site at the
+specified time, and the actual measurements are either raw or
+quality-controlled. For monitoring data (i.e. when `summary = NA` in a
+`aims_data` call), we can either visualise the data as a time series broken
+down by parameter, or a map showing the sites with some summary info. If the
+parameters are not specified, then `dataaimsr` will plot a maximum of 4
+parameters chosen at random for a time series plot. Alternatively the user can
+specify which parameters are to be plotted (Fig. \@ref(fig:wind)).
 
 
 
-(ref:fig-wind) Yongala wreck wind speed profiles between the first and second of January 2018.
+(ref:fig-wind) Yongala wreck profiles for water pressure and chlorophyll-a between the first and second of January 2018.
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{wind} \caption{(ref:fig-wind)}(\#fig:wind)
@@ -356,11 +362,10 @@ time window to download the data:
 
 
 ```r
-wdata_b <- aims_data(weather_doi,
-                     api_key = NULL,
+wdata_b <- aims_data("weather", api_key = NULL,
                      filters = list(series_id = 64,
                                     from_date = "1991-10-18T06:00:00",
-                                    thru_date = "1991-10-18T12:00:00"))$data
+                                    thru_date = "1991-10-18T12:00:00"))
 range(wdata_b$time)
 ```
 
@@ -368,10 +373,62 @@ range(wdata_b$time)
 ## [1] "1991-10-18 06:00:00 UTC" "1991-10-18 12:00:00 UTC"
 ```
 
-# Future directions
-  
-# Acknowledgements
+### Methods
 
-The development of `dataimsr` was supported by ... Names to be added to the list.
+Objects of class `aimsdf` have associated `plot`, `print` and `summary`
+methods.
+
+### Data citation
+
+Whenever using `dataaimsr`, we ask the user to not only cite this paper, but
+also any data used in an eventual publication. Citation data can be extracted
+from a dataset using the function `aims_citation`:
+
+
+```r
+aims_citation(wdata_b)
+```
+
+```
+## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
+```
+
+## Sister web tool
+
+The Time Series Explorer (https://apps.aims.gov.au/ts-explorer/) is an
+interactive web-based application that visualises large time series datasets.
+The application utilises the AIMS Data Platform API to dynamically query data
+according to user selection and visualise the data as line graphs. Series are
+able to be compared visually. For large series, data are aggregated to daily
+averages and displayed as minimum, maximum and mean. When the user 'zooms in'
+sufficiently, the data will be displayed as non-aggregate values
+(Fig. \@ref(fig:tssa)). This technique is being used to ensure the application
+performs well with large time series.
+
+(ref:fig-tssa) Interactive discovery and visualisation of data series.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{tssa} \caption{(ref:fig-tssa)}(\#fig:tssa)
+\end{figure}
+
+The user can then download the displayed data as CSV or obtain a R code
+snippet that shows how to obtain the data using the dataaimsr package
+(Fig. \@ref(fig:tssb)). In this way, a user can easily explore and discover
+datasets and then quickly and easily have this data in their R environment for
+additional analysis.
+
+(ref:fig-tssb) Download/Export displayed data via R snippet.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{tssb} \caption{(ref:fig-tssb)}(\#fig:tssb)
+\end{figure}
+
+# Future directions
+
+The API is still a work in progress. We are working on ways to better
+facilitate data visualisation and retrieval, and also we are trying to
+standardise the outputs from the different datasets as much as possible. In the
+future, we envision that `dataaimsr` will also provide access to other
+monitoring datasets collected by AIMS.
 
 # References
