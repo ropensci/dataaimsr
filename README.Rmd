@@ -86,15 +86,21 @@ and its usage, please visit the [metadata][3] webpage.
 
 [3]: https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e 
 
-## Requesting an AIMS Data Platform API Key
+## Installation
+
+### Requesting an AIMS Data Platform API Key
 
 **AIMS Data Platform** requires an API Key for data requests, [get a key here](https://open-AIMS.github.io/data-platform/key-request).
 
 The API Key can be passed to the package functions as an additional
-`api_key = "XXXX"` argument. alternatively, the environment variable
-`AIMS_DATAPLATFORM_API_KEY` can be stored in the user's `.Renviron` file for
-automatic loading at the start of an R session. In that case the users can 
-modify their `.Renviron` file by adding the following line:
+`api_key = "XXXX"` argument. **However**, we strongly encourage users to
+maintain their API key as a private locally hidden environment variable
+(`AIMS_DATAPLATFORM_API_KEY`) in the `.Renviron` file for
+automatic loading at the start of an R session. Please read this
+[article](https://CRAN.R-project.org/package=httr/vignettes/secrets.html)
+which details why keeping your API private is extremely important.
+
+Users can modify their `.Renviron` file by adding the following line:
 
 ```
 AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX
@@ -107,12 +113,12 @@ System        | .Renviron file locations
 MS Windows    | <code>C:&#92;Users&#92;&#8249;username&#8250;&#92;.Renviron</code>  or <code>C:&#92;Users&#92;&#8249;username&#8250;&#92;Documents&#92;.Renviron</code>
 Linux / MacOs | <code>&#47;home&#47;&#8249;username&#8250;&#47;.Renviron</code>
 
-## Installation
+### Package
 
-At this stage `dataaimsr` is not hosted on CRAN R package network.
-An alternative method of installation is to use the R `remotes` package.
-
-R `remotes` can be installed using the following command:
+At this stage `dataaimsr` is not hosted on CRAN R package network, although
+we re aiming to submit it there very soon. For the moment, an alternative
+method of installation is to use the R `remotes` package. R `remotes` can be
+installed using the following command:
 
 ```{r, eval = FALSE}
 install.packages("remotes")
