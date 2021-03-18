@@ -56,8 +56,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck", "tidyverse", "anytime"))
-          remotes::install_deps(dependencies = TRUE)
+          install.packages(c("ps", "remotes", "tidyverse", "anytime", "sf",
+                             "units"), type = "binary")
+          remotes::install_deps(dependencies = TRUE, type = "binary")
         shell: Rscript {0}
 
       - name: Check
