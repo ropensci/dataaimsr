@@ -51,3 +51,11 @@ test_that("summary requests", {
                                      summary = "summary-by-deployment"),
                  "data.frame"))
 })
+
+test_that("Fake bad connection", {
+  Sys.setenv("NETWORK_UP" = FALSE)
+  expect_message(aims_data("weather", api_key = my_api_key,
+                           summary = "summary-by-deployment"),
+                 "internet connection")
+  Sys.setenv("NETWORK_UP" = TRUE)
+})

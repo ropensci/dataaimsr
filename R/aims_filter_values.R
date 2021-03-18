@@ -36,7 +36,9 @@
 #'
 #' @export
 aims_filter_values <- function(target, filter_name) {
-  if (!has_internet()) {
+  # dummy variable to allow testing of network
+  network <- as.logical(Sys.getenv("NETWORK_UP", unset = TRUE))
+  if (!has_internet() | !network) {
     message("It seems that your internet connection is down. You need an ",
             "internet connection to successfully download AIMS data.")
     return(invisible())

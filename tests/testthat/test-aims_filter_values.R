@@ -22,4 +22,15 @@ test_that("Wrong inputs", {
   expect_error(aims_filter_values("string", filter_name = "site-name"))
   expect_error(aims_filter_values("string", filter_name = "site_name"))
   expect_error(aims_filter_values("temp_loggers"))
+  expect_error(aims_filter_values("weather",
+                                  filter_name = c("site", "series")))
+  expect_error(aims_filter_values("temp_loggers",
+                                  filter_name = c("site", "series")))
+})
+
+test_that("Fake bad connection", {
+  Sys.setenv("NETWORK_UP" = FALSE)
+  expect_message(aims_filter_values("weather", filter_name = "parameter"),
+                 "internet connection")
+  Sys.setenv("NETWORK_UP" = TRUE)
 })
