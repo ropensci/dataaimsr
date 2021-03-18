@@ -186,7 +186,7 @@ ggplot(data = data.frame(date = days, temps = out)) +
 
 ## Bibliography
 
-```{r, message = FALSE, warning = FALSE, eval = FALSE}
+```{r, message = FALSE, warning = FALSE}
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
