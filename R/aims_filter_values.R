@@ -23,6 +23,7 @@
 #' @seealso \code{\link{aims_data}}, \code{\link{aims_expose_attributes}}
 #'
 #' @importFrom httr GET http_error
+#' @importFrom curl has_internet
 #'
 #' @author AIMS Datacentre \email{adc@aims.gov.au}
 #'
@@ -35,6 +36,11 @@
 #'
 #' @export
 aims_filter_values <- function(target, filter_name) {
+  if (!has_internet()) {
+    message("It seems that your internet connection is down. You need an ",
+            "internet connection to successfully download AIMS data.")
+    return(invisible())
+  }
   doi <- data_doi(target)
   if (length(filter_name) != 1) {
     stop("Argument \"filter_name\" should contain one single value")
