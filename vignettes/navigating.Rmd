@@ -15,35 +15,19 @@ been downloaded.
 [0]: https://www.aims.gov.au/
 [1]: https://open-aims.github.io/data-platform/key-request
 
-Once you have obtained your API Key, you can either place it 
-permanently on your `.Renviron` file and set the object `my_api_key` to 
-`NULL` in the chunk below, or if for some reason you are having 
-difficulty placing your API Key permanently to the `.Renviron`, then 
-just paste it to the object `my_api_key` below.
+As per the installation instructions, we strongly suggest that you hide your
+API Key permanently in your `.Renviron` file and set the object `my_api_key` to
+`NULL` in the chunk below. You can read more about why that is important
+[here](https://CRAN.R-project.org/package=httr/vignettes/secrets.html).
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(ggmap)
-library(dataaimsr)
-my_api_key <- "1NIik2HDo36shE3FG3MfFMLlNBfEOL945FIH7fX0"
+```{r}
+# set my_api_key to NULL after successfully placing it in .Renviron
+my_api_key <- NULL
 ```
 
-```{r, eval = FALSE}
-# set my_api_key to NULL if successfully placed in .Renviron
-# paste your key where it says api-key-for-r-notebook
-my_api_key <- "api-key-for-r-notebook"
-```
+We now load `dataaimsr`:
 
-Then install `dataaimsr` following the documentation on our
-[README](../index.html) page. Once that's out of the way, we load the packages needed for this vignette:
-
-```{r, eval = FALSE}
-library(dplyr)
-library(tidyr)
-library(ggplot2)
-library(ggmap)
+```{r}
 library(dataaimsr)
 ```
 
@@ -111,7 +95,7 @@ The `summary` argument here is key. It should only be flagged when the
 user wants an overview of the available data. Again, this currently
 implemented for the Sea Water Temperature Loggers dataset. One can
 visualise `summary-by-series` or `summary-by-deployment`. The output of
-`aims_data` when summary is `NA` (the default) is a `data.frame`.
+`aims_data` is a `data.frame` of class `aimsdf`.
 
 Notice that `sdata` contains a lot of information, most of which is
 related to site / series / parameter ID. Each row corresponds to a
@@ -126,35 +110,24 @@ hand.
 Also note that there are three columns containing the total number of 
 observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
 respectively stand for uncalibrated, calibrated, and quality-controlled 
-observations. Calibrated and quality-controlled are generally the same,
-and currently there is no public information on AIMS quality-control
-methods and algorithms. However, if this is crucial information to you,
-please reach out to the
-[Data Manager from the AIMS Data Centre](adc@aims.gov.au). So let's
-go ahead and plot these data on a map of Australia, while colouring
-based on the total amount of calibrated observations:
+observations. Calibrated and quality-controlled are generally the same.
+Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After
+calibration, all data records are quality controlled based on the following
+tests: 1) clip to in-water only data, using deployment's metadata, 2)
+impossible value check: data outside a fixed temperature range (14˚C – 40˚C)
+is flagged as bad data, 3) spike test: individual extreme values are flagged
+as probably bad and 4) Excessive gradient test: pairs of data that present a
+sudden change in the slope are flagged as probably bad. If any data record
+fails at least one of the tests, a QC flag equal to 2 is returned, otherwise,
+the QC flag is set to 1.
+
+`aimsdf` objects can be plotted using the `plot` function. For summary data
+such as `sdata`, plot will always generate a map with the points around
+Australia and associated regions, coloured by the number of calibrated
+observations:
 
 ```{r, fig.width = 7, fig.height = 4.36, message = FALSE, warning = FALSE}
-sdata <- sdata %>%
-  mutate(cols = cal_obs * 1e-3) %>%
-  drop_na(lon, lat)
-lab <- expression(atop("# Calibrated obs.",
-                       paste("(" %*% 10^3, ")")))
-ozmap <- get_stamenmap(bbox = c(left = 94, bottom = -45, right = 162, top = 0),
-                       zoom = 4, maptype = "watercolor")
-ggmap(ozmap) +
-  theme_void() +
-  geom_point(data = sdata,
-             mapping = aes(x = lon, y = lat,
-                           colour = cols,
-                           fill = cols),
-             shape = 16, alpha = 0.8) +
-  scale_colour_gradient(name = lab,
-                        low = "dodgerblue4",
-                        high = "darkred") +
-  scale_fill_gradient(name = lab,
-                      low = "dodgerblue4",
-                      high = "darkred")
+plot(sdata, ptype = "map")
 ```
 
 ### Filter values
@@ -165,8 +138,7 @@ function called `aims_filter_values` which allows one to query what
 sites, series and parameters are available for both datasets:
 
 ```{r, message = FALSE, warning = FALSE}
-aims_filter_values("weather", filter_name = "series") %>%
-  head()
+head(aims_filter_values("weather", filter_name = "series"))
 ```
 
 The downside is that one cannot know what time window is available
@@ -180,12 +152,12 @@ above the user should refer to the [online metadata][5].
 
 Now that we know how to explore the datasets and what data is out there,
 we finish this vignette by showing an example of how one would go about
-downloading actual data.
+downloading actual monitoring data.
 
 We say slices of datasets because AIMS monitoring datasets are of very 
 high temporal resolution and if one tries to download the entire thing
-it might take hours if not days. Generally that is why we download
-slices of data at a time, and for that we need filters.
+it might take hours. Generally that is why we download slices of data at a
+time, and for that we need filters.
 
 ### Data filters
 
@@ -215,51 +187,38 @@ wdata_a <- aims_data("weather", api_key = my_api_key,
                                     thru_date = "2018-01-02"))
 ```
 
-The output of `aims_data` when summary is `NA` (the default) is a list
-containing three elements:
+The returned `aimsdf` object in this case has attributes which give us
+summary crucial information:
 
 - `metadata` a doi link containing the metadata record for the data series
 
 - `citation` the citation information for the particular dataset
 
-- `data` an output `data.frame`
+- `parameters` an output `data.frame`
+
+These can be directly extracted using the convenience functions
+`aims_metadata`, `aims_citation` and `aims_parameters`, e.g.:
 
 ```{r}
-wdata_a$metadata
+aims_metadata(wdata_a)
 ```
 
-```{r}
-wdata_a$citation
+This example data contains multiple parameters available for this site at the
+specified time, and the actual measurements are either raw or
+quality-controlled. For monitoring data (i.e. when `summary = NA` in a
+`aims_data` call), we can either visualise the data as a time series broken
+down by parameter, or a map showing the sites with some summary info. If the
+parameters are not specified, then `dataaimsr` will plot a maximum of 4
+parameters chosen at random. Alternatively the user can specify which
+parameters are to be plotted.
+
+```{r, message = FALSE, warning = FALSE, fig.width = 8.5, fig.height = 3.9}
+# check parameters with aims_parameters(wdata_a)
+plot(wdata_a, ptype = "time_series",
+     pars = c("Water Pressure", "Chlorophyll"))
 ```
 
-```{r}
-head(wdata_a$data)
-```
-
-We see that there a bunch of parameters available for this site at the
-specified time:
-
-```{r}
-unique(wdata_a$data$parameter)
-```
-
-And the actual measurements are either raw or quality-controlled. Let's
-plot wind speed data as an example
-
-```{r, message = FALSE, warning = FALSE, fig.width = 7.4, fig.height = 5.2}
-wdata_a$data %>%
-  filter(grepl("Wind Speed", parameter)) %>%
-  ggplot(data = .) +
-    geom_line(aes(x = time, y = qc_val, colour = parameter)) +
-    labs(x = "Date",
-         y = "Wind speed (km / h)",
-         colour = "Site",
-         title = "AIMS Weather stations",
-         subtitle = "Yongala (2018)") +
-    theme_bw()
-```
-
-We could refine even further by including a time window to download the 
+We can also refine even further by including a time window to download the
 data:
 
 ```{r, message = FALSE, warning = FALSE}
@@ -267,7 +226,7 @@ wdata_b <- aims_data("weather",
                      api_key = my_api_key,
                      filters = list(series_id = 64,
                                     from_date = "1991-10-18T06:00:00",
-                                    thru_date = "1991-10-18T12:00:00"))$data
+                                    thru_date = "1991-10-18T12:00:00"))
 range(wdata_b$time)
 ```
 
