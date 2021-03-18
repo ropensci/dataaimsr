@@ -16,5 +16,8 @@
 #'
 #' @export
 aims_parameters <- function(df_) {
+  if (!is_aimsdf(df_)) {
+    stop("Input data is not of class aimsdf")
+  }
   attr(df_, "parameters")
 }
