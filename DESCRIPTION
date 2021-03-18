@@ -4,9 +4,9 @@ Title: AIMS Data Platform API Client
 Version: 1.0.2
 Authors@R: c(person("Diego R.", "Barneche", email = "d.barneche@aims.gov.au", role = c("aut", "cre")), person("AIMS Datacentre", role = "aut", email = "adc@aims.gov.au"), person("Sam", "Albers", role = "rev", email = "sam.albers@gov.bc.ca"), person("Elizabeth", "Stark", role = "rev", email = "estark@symbolix.com.au"), person("Laura", "DeCicco", role = "rev", email = "ldecicco@usgs.gov"))
 Description: AIMS Data Platform API Client which provides easy access to AIMS Data Platform scientific data and information.
-Depends:
+Depends: 
     R (>= 3.3.0)
-Imports:
+Imports: 
     httr,
     jsonlite,
     parsedate,
@@ -17,10 +17,11 @@ Imports:
     ggplot2,
     ggrepel,
     curl
-Suggests:
+Suggests: 
+    httptest,
     knitr,
-    rmarkdown,
     purrr,
+    rmarkdown,
     testthat
 License: MIT + file LICENSE
 Encoding: UTF-8

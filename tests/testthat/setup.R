@@ -1,3 +1,4 @@
+library(httptest)
 library(dataaimsr)
 
 add_attr <- function(x, ...) {
@@ -5,7 +6,7 @@ add_attr <- function(x, ...) {
   c(x, add_args)
 }
 
-my_api_key <- find_api_key(NULL)
+my_api_key <- NULL
 w_filters <- list(series_id = 64, from_date = "2018-01-01",
                   thru_date = "2018-01-10")
 w_filters_b <- add_attr(w_filters, size = 1e4)

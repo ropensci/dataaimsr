@@ -1,0 +1,2454 @@
+[
+    {
+        "series_id": 3237,
+        "series": "100THSITE"
+    },
+    {
+        "series_id": 9912,
+        "series": "14MLELGER"
+    },
+    {
+        "series_id": 12195,
+        "series": "19131FL1"
+    },
+    {
+        "series_id": 12196,
+        "series": "19131SL1"
+    },
+    {
+        "series_id": 12197,
+        "series": "19138FL1"
+    },
+    {
+        "series_id": 12198,
+        "series": "19138SL1"
+    },
+    {
+        "series_id": 12199,
+        "series": "19159FL1"
+    },
+    {
+        "series_id": 12200,
+        "series": "19159SL1"
+    },
+    {
+        "series_id": 12203,
+        "series": "20104FL1"
+    },
+    {
+        "series_id": 3706,
+        "series": "20-344FL1"
+    },
+    {
+        "series_id": 3699,
+        "series": "20-344SL1"
+    },
+    {
+        "series_id": 12417,
+        "series": "21062FL1"
+    },
+    {
+        "series_id": 12422,
+        "series": "21062SL1"
+    },
+    {
+        "series_id": 12418,
+        "series": "21139FL1"
+    },
+    {
+        "series_id": 12435,
+        "series": "21139SL1"
+    },
+    {
+        "series_id": 12419,
+        "series": "21187FL1"
+    },
+    {
+        "series_id": 12436,
+        "series": "21187SL1"
+    },
+    {
+        "series_id": 12397,
+        "series": "21245FL1"
+    },
+    {
+        "series_id": 12398,
+        "series": "21245SL1"
+    },
+    {
+        "series_id": 12437,
+        "series": "21278SL1"
+    },
+    {
+        "series_id": 12416,
+        "series": "21296SL1"
+    },
+    {
+        "series_id": 12475,
+        "series": "21550FL1"
+    },
+    {
+        "series_id": 12586,
+        "series": "21550SL1"
+    },
+    {
+        "series_id": 12757,
+        "series": "21591SL1"
+    },
+    {
+        "series_id": 2915,
+        "series": "21-5FL1"
+    },
+    {
+        "series_id": 2914,
+        "series": "21-5SL1"
+    },
+    {
+        "series_id": 2674,
+        "series": "ABBFL1"
+    },
+    {
+        "series_id": 2675,
+        "series": "ABBSL1"
+    },
+    {
+        "series_id": 14836,
+        "series": "AG1FL1"
+    },
+    {
+        "series_id": 14835,
+        "series": "AG1SL1"
+    },
+    {
+        "series_id": 2687,
+        "series": "AG3FL1"
+    },
+    {
+        "series_id": 14276,
+        "series": "AG3SL1old"
+    },
+    {
+        "series_id": 3791,
+        "series": "AHCHONGFL1"
+    },
+    {
+        "series_id": 6354,
+        "series": "AHCHONGFL2"
+    },
+    {
+        "series_id": 6355,
+        "series": "AHCHONGSL1"
+    },
+    {
+        "series_id": 10275,
+        "series": "AHCHONGSL2"
+    },
+    {
+        "series_id": 10496,
+        "series": "AIMSWHARFP1"
+    },
+    {
+        "series_id": 5338,
+        "series": "ALGALSL1"
+    },
+    {
+        "series_id": 14915,
+        "series": "AQUILFL1"
+    },
+    {
+        "series_id": 2739,
+        "series": "ARLFL1"
+    },
+    {
+        "series_id": 2738,
+        "series": "ARLSL1"
+    },
+    {
+        "series_id": 10315,
+        "series": "ASHDSL5"
+    },
+    {
+        "series_id": 5473,
+        "series": "ASHSL1"
+    },
+    {
+        "series_id": 5474,
+        "series": "ASHSL2"
+    },
+    {
+        "series_id": 6341,
+        "series": "ASHSL3"
+    },
+    {
+        "series_id": 5905,
+        "series": "ASHSL4"
+    },
+    {
+        "series_id": 14099,
+        "series": "BALFOUR1"
+    },
+    {
+        "series_id": 14735,
+        "series": "BANUBANU1"
+    },
+    {
+        "series_id": 3183,
+        "series": "BANYAK"
+    },
+    {
+        "series_id": 14736,
+        "series": "BARRBIRA1"
+    },
+    {
+        "series_id": 3119,
+        "series": "BARRFL1"
+    },
+    {
+        "series_id": 9862,
+        "series": "BARROWSHOALFL1"
+    },
+    {
+        "series_id": 3262,
+        "series": "BARRSL1"
+    },
+    {
+        "series_id": 9864,
+        "series": "BATMANFL1"
+    },
+    {
+        "series_id": 10240,
+        "series": "BAUDISSONDSL1"
+    },
+    {
+        "series_id": 10238,
+        "series": "BAUDISSONSL1A"
+    },
+    {
+        "series_id": 13595,
+        "series": "BDRAFL1"
+    },
+    {
+        "series_id": 13596,
+        "series": "BDRASL1"
+    },
+    {
+        "series_id": 12055,
+        "series": "BECHER"
+    },
+    {
+        "series_id": 14816,
+        "series": "BICKERTON1"
+    },
+    {
+        "series_id": 13215,
+        "series": "BIRD"
+    },
+    {
+        "series_id": 2616,
+        "series": "BLAFL1"
+    },
+    {
+        "series_id": 2618,
+        "series": "BLASL1"
+    },
+    {
+        "series_id": 14755,
+        "series": "BONNER1"
+    },
+    {
+        "series_id": 10915,
+        "series": "BOOBYFL1"
+    },
+    {
+        "series_id": 10916,
+        "series": "BOOBYSL1"
+    },
+    {
+        "series_id": 12209,
+        "series": "BORDERFL1"
+    },
+    {
+        "series_id": 12210,
+        "series": "BORDERSL1"
+    },
+    {
+        "series_id": 5366,
+        "series": "BOUGAINVILLEFL1"
+    },
+    {
+        "series_id": 12461,
+        "series": "BOULTFL1"
+    },
+    {
+        "series_id": 12462,
+        "series": "BOULTSL1"
+    },
+    {
+        "series_id": 11955,
+        "series": "BRAMBLEFL1"
+    },
+    {
+        "series_id": 11956,
+        "series": "BRAMBLESL1"
+    },
+    {
+        "series_id": 9872,
+        "series": "BRIDLEDSL1"
+    },
+    {
+        "series_id": 14458,
+        "series": "BUFFON"
+    },
+    {
+        "series_id": 14858,
+        "series": "BUNDEGI_BR"
+    },
+    {
+        "series_id": 11975,
+        "series": "BUNDFL1"
+    },
+    {
+        "series_id": 3466,
+        "series": "BUNSL1"
+    },
+    {
+        "series_id": 3444,
+        "series": "BUNSL2"
+    },
+    {
+        "series_id": 13375,
+        "series": "BURNSFL1"
+    },
+    {
+        "series_id": 3193,
+        "series": "CABBAGEFL1"
+    },
+    {
+        "series_id": 3236,
+        "series": "CABBAGESL1"
+    },
+    {
+        "series_id": 14318,
+        "series": "CAMEFL1"
+    },
+    {
+        "series_id": 13356,
+        "series": "CANALFL1"
+    },
+    {
+        "series_id": 14456,
+        "series": "CAPVOLT"
+    },
+    {
+        "series_id": 5472,
+        "series": "CARFL1"
+    },
+    {
+        "series_id": 5477,
+        "series": "CARFL2"
+    },
+    {
+        "series_id": 5904,
+        "series": "CARSL1"
+    },
+    {
+        "series_id": 12700,
+        "series": "CARTSL1"
+    },
+    {
+        "series_id": 2782,
+        "series": "CBFL1"
+    },
+    {
+        "series_id": 2612,
+        "series": "CBFL2"
+    },
+    {
+        "series_id": 2789,
+        "series": "CBFL3"
+    },
+    {
+        "series_id": 4017,
+        "series": "CBFL4"
+    },
+    {
+        "series_id": 2784,
+        "series": "CBSL1"
+    },
+    {
+        "series_id": 2626,
+        "series": "CBSL2"
+    },
+    {
+        "series_id": 2794,
+        "series": "CBSL3"
+    },
+    {
+        "series_id": 4018,
+        "series": "CBSL4"
+    },
+    {
+        "series_id": 14116,
+        "series": "CENTAUR1"
+    },
+    {
+        "series_id": 12495,
+        "series": "CENTFL1"
+    },
+    {
+        "series_id": 12776,
+        "series": "CENTSL1"
+    },
+    {
+        "series_id": 2701,
+        "series": "CFLFL1"
+    },
+    {
+        "series_id": 2702,
+        "series": "CFLSL1"
+    },
+    {
+        "series_id": 10917,
+        "series": "CHEREPOFL1"
+    },
+    {
+        "series_id": 2724,
+        "series": "CHIFL1"
+    },
+    {
+        "series_id": 12585,
+        "series": "CHINAMANFL1"
+    },
+    {
+        "series_id": 10876,
+        "series": "CHINAMANSL1"
+    },
+    {
+        "series_id": 2635,
+        "series": "CHISL1"
+    },
+    {
+        "series_id": 3307,
+        "series": "CHISL2"
+    },
+    {
+        "series_id": 12702,
+        "series": "CHRISTMASDSL1"
+    },
+    {
+        "series_id": 4013,
+        "series": "CHRISTMASFL1"
+    },
+    {
+        "series_id": 9680,
+        "series": "CHRISTMASSL1"
+    },
+    {
+        "series_id": 15006,
+        "series": "CLERKE_C13_BB"
+    },
+    {
+        "series_id": 15005,
+        "series": "CLERKE_C13_BT"
+    },
+    {
+        "series_id": 15035,
+        "series": "CLERKE_C20_BB"
+    },
+    {
+        "series_id": 15007,
+        "series": "CLERKE_C20_BT"
+    },
+    {
+        "series_id": 3675,
+        "series": "CLERKELAGSL1"
+    },
+    {
+        "series_id": 4016,
+        "series": "CLERKEOUTSL1"
+    },
+    {
+        "series_id": 15002,
+        "series": "CLERKE_RS2_1_3m"
+    },
+    {
+        "series_id": 15001,
+        "series": "CLERKE_RS2_1_6m"
+    },
+    {
+        "series_id": 15016,
+        "series": "CLERKE_RS2_S_3m"
+    },
+    {
+        "series_id": 15017,
+        "series": "CLERKE_RS2_S_6m"
+    },
+    {
+        "series_id": 3069,
+        "series": "CLEVAWSFL1"
+    },
+    {
+        "series_id": 3007,
+        "series": "CLEVAWSSL1"
+    },
+    {
+        "series_id": 2617,
+        "series": "COCFL1"
+    },
+    {
+        "series_id": 2615,
+        "series": "COCSL1"
+    },
+    {
+        "series_id": 3070,
+        "series": "CODGRD"
+    },
+    {
+        "series_id": 5331,
+        "series": "COMETSFL1"
+    },
+    {
+        "series_id": 3641,
+        "series": "COOK"
+    },
+    {
+        "series_id": 14859,
+        "series": "CORALBAY_2"
+    },
+    {
+        "series_id": 11976,
+        "series": "CORALFL1"
+    },
+    {
+        "series_id": 13357,
+        "series": "COWBAYFL1"
+    },
+    {
+        "series_id": 5451,
+        "series": "CREALFL1"
+    },
+    {
+        "series_id": 14457,
+        "series": "CRYHEAD"
+    },
+    {
+        "series_id": 14595,
+        "series": "CURDFL1"
+    },
+    {
+        "series_id": 14596,
+        "series": "CURDSL1"
+    },
+    {
+        "series_id": 3391,
+        "series": "DAVAWS"
+    },
+    {
+        "series_id": 4010,
+        "series": "DAVAWSL1"
+    },
+    {
+        "series_id": 3272,
+        "series": "DAVAWSL2"
+    },
+    {
+        "series_id": 3271,
+        "series": "DAVAWSL3"
+    },
+    {
+        "series_id": 14179,
+        "series": "DAVCHN3M"
+    },
+    {
+        "series_id": 14183,
+        "series": "DAVCHS12M"
+    },
+    {
+        "series_id": 14181,
+        "series": "DAVCHS3M"
+    },
+    {
+        "series_id": 14182,
+        "series": "DAVCHS6M"
+    },
+    {
+        "series_id": 2629,
+        "series": "DAVFL1"
+    },
+    {
+        "series_id": 13479,
+        "series": "DAVIESCH1"
+    },
+    {
+        "series_id": 13480,
+        "series": "DAVIESCH2"
+    },
+    {
+        "series_id": 2630,
+        "series": "DAVSL1"
+    },
+    {
+        "series_id": 2949,
+        "series": "DAYFL1"
+    },
+    {
+        "series_id": 2622,
+        "series": "DAYSL1"
+    },
+    {
+        "series_id": 3084,
+        "series": "DBLCFL1"
+    },
+    {
+        "series_id": 3085,
+        "series": "DBLCSL1"
+    },
+    {
+        "series_id": 13515,
+        "series": "DENHAM1"
+    },
+    {
+        "series_id": 2720,
+        "series": "DIPFL1"
+    },
+    {
+        "series_id": 2633,
+        "series": "DIPSL1"
+    },
+    {
+        "series_id": 2634,
+        "series": "DIPSL2"
+    },
+    {
+        "series_id": 3088,
+        "series": "DNTFL1"
+    },
+    {
+        "series_id": 3089,
+        "series": "DNTSL1"
+    },
+    {
+        "series_id": 10362,
+        "series": "DOBUSL1"
+    },
+    {
+        "series_id": 10363,
+        "series": "DOBUSL2"
+    },
+    {
+        "series_id": 13255,
+        "series": "DOBUSL3"
+    },
+    {
+        "series_id": 10115,
+        "series": "DOUBLEFL1"
+    },
+    {
+        "series_id": 10921,
+        "series": "DUGONGFL1"
+    },
+    {
+        "series_id": 12536,
+        "series": "DUGONGSL1"
+    },
+    {
+        "series_id": 3168,
+        "series": "DUNKFL1"
+    },
+    {
+        "series_id": 3169,
+        "series": "DUNKSL1"
+    },
+    {
+        "series_id": 2661,
+        "series": "EASDSL1"
+    },
+    {
+        "series_id": 2663,
+        "series": "EASFL1"
+    },
+    {
+        "series_id": 2662,
+        "series": "EASSL1"
+    },
+    {
+        "series_id": 9858,
+        "series": "EDUGONGSL1"
+    },
+    {
+        "series_id": 9908,
+        "series": "ELIZLAGFL1"
+    },
+    {
+        "series_id": 3182,
+        "series": "ELIZLAGSL1"
+    },
+    {
+        "series_id": 9913,
+        "series": "ELIZOUTFL2"
+    },
+    {
+        "series_id": 3149,
+        "series": "ELIZOUTSL2"
+    },
+    {
+        "series_id": 14862,
+        "series": "ELLES_MA"
+    },
+    {
+        "series_id": 5446,
+        "series": "ELUSIVEFL1"
+    },
+    {
+        "series_id": 5447,
+        "series": "ELUSIVESL1"
+    },
+    {
+        "series_id": 14056,
+        "series": "ENDERBY"
+    },
+    {
+        "series_id": 13896,
+        "series": "ERSKFL1"
+    },
+    {
+        "series_id": 13895,
+        "series": "ERSKSL1"
+    },
+    {
+        "series_id": 10361,
+        "series": "ESAALAFL1"
+    },
+    {
+        "series_id": 12584,
+        "series": "FAFTFL1"
+    },
+    {
+        "series_id": 12755,
+        "series": "FAFTSL1"
+    },
+    {
+        "series_id": 12515,
+        "series": "FARQFL1"
+    },
+    {
+        "series_id": 13637,
+        "series": "FARQSL1"
+    },
+    {
+        "series_id": 12516,
+        "series": "FEATHFL1"
+    },
+    {
+        "series_id": 12655,
+        "series": "FEATHSL1"
+    },
+    {
+        "series_id": 3212,
+        "series": "FISHRK"
+    },
+    {
+        "series_id": 4007,
+        "series": "FISHRK-W"
+    },
+    {
+        "series_id": 3175,
+        "series": "FITZFL2"
+    },
+    {
+        "series_id": 2898,
+        "series": "FITZSL1"
+    },
+    {
+        "series_id": 3174,
+        "series": "FITZSL2"
+    },
+    {
+        "series_id": 13517,
+        "series": "FLINDERSBAY1"
+    },
+    {
+        "series_id": 3725,
+        "series": "FLINDERSSL1"
+    },
+    {
+        "series_id": 14617,
+        "series": "FLINDERSSL2"
+    },
+    {
+        "series_id": 2636,
+        "series": "FLOFL1"
+    },
+    {
+        "series_id": 2637,
+        "series": "FLOSL1"
+    },
+    {
+        "series_id": 3746,
+        "series": "FREDERICKFL1"
+    },
+    {
+        "series_id": 5445,
+        "series": "FREDERICKFL2"
+    },
+    {
+        "series_id": 2748,
+        "series": "FRNKFL1"
+    },
+    {
+        "series_id": 3176,
+        "series": "FRNKFL2"
+    },
+    {
+        "series_id": 2749,
+        "series": "FRNKSL1"
+    },
+    {
+        "series_id": 3177,
+        "series": "FRNKSL2"
+    },
+    {
+        "series_id": 2985,
+        "series": "FT"
+    },
+    {
+        "series_id": 12582,
+        "series": "GANNETFL1"
+    },
+    {
+        "series_id": 13639,
+        "series": "GANNETSL1"
+    },
+    {
+        "series_id": 2778,
+        "series": "GBFL1"
+    },
+    {
+        "series_id": 2777,
+        "series": "GBFL2"
+    },
+    {
+        "series_id": 2695,
+        "series": "GBFL3"
+    },
+    {
+        "series_id": 14475,
+        "series": "GBMMPFL"
+    },
+    {
+        "series_id": 9105,
+        "series": "GBMMPSL"
+    },
+    {
+        "series_id": 2779,
+        "series": "GBSL1"
+    },
+    {
+        "series_id": 2781,
+        "series": "GBSL2"
+    },
+    {
+        "series_id": 2767,
+        "series": "GBSL3"
+    },
+    {
+        "series_id": 13355,
+        "series": "GEOBAYFL1"
+    },
+    {
+        "series_id": 11977,
+        "series": "GNARFL1"
+    },
+    {
+        "series_id": 3707,
+        "series": "GOBFL1"
+    },
+    {
+        "series_id": 3698,
+        "series": "GOBSL1"
+    },
+    {
+        "series_id": 3213,
+        "series": "GREEN"
+    },
+    {
+        "series_id": 2671,
+        "series": "GREFL1"
+    },
+    {
+        "series_id": 2672,
+        "series": "GRESL1"
+    },
+    {
+        "series_id": 2990,
+        "series": "GROM"
+    },
+    {
+        "series_id": 12555,
+        "series": "GRUBFL1"
+    },
+    {
+        "series_id": 12758,
+        "series": "GRUBSL1"
+    },
+    {
+        "series_id": 14498,
+        "series": "GURFL1"
+    },
+    {
+        "series_id": 14499,
+        "series": "GURFL2"
+    },
+    {
+        "series_id": 3032,
+        "series": "HALAWS"
+    },
+    {
+        "series_id": 2652,
+        "series": "HALFL1"
+    },
+    {
+        "series_id": 2651,
+        "series": "HALSL1"
+    },
+    {
+        "series_id": 13358,
+        "series": "HAMBAYFL1"
+    },
+    {
+        "series_id": 14058,
+        "series": "HAMMERSLEY"
+    },
+    {
+        "series_id": 12596,
+        "series": "HAMPOOLFL1"
+    },
+    {
+        "series_id": 3499,
+        "series": "HARAWS"
+    },
+    {
+        "series_id": 13978,
+        "series": "HASTFL1"
+    },
+    {
+        "series_id": 13898,
+        "series": "HASTSL1"
+    },
+    {
+        "series_id": 3749,
+        "series": "HAVFL1"
+    },
+    {
+        "series_id": 3748,
+        "series": "HAVSL1"
+    },
+    {
+        "series_id": 14975,
+        "series": "HAVSL2"
+    },
+    {
+        "series_id": 2621,
+        "series": "HAYFL1"
+    },
+    {
+        "series_id": 2644,
+        "series": "HAYSL1"
+    },
+    {
+        "series_id": 12556,
+        "series": "HEDLFL1"
+    },
+    {
+        "series_id": 13638,
+        "series": "HEDLSL1"
+    },
+    {
+        "series_id": 12557,
+        "series": "HELIXFL1"
+    },
+    {
+        "series_id": 12656,
+        "series": "HELIXSL1"
+    },
+    {
+        "series_id": 14898,
+        "series": "HenderFL1"
+    },
+    {
+        "series_id": 14897,
+        "series": "HenderSL1"
+    },
+    {
+        "series_id": 2650,
+        "series": "HERFL1"
+    },
+    {
+        "series_id": 2638,
+        "series": "HERFL2"
+    },
+    {
+        "series_id": 2641,
+        "series": "HERFL3"
+    },
+    {
+        "series_id": 2640,
+        "series": "HERFL4"
+    },
+    {
+        "series_id": 2639,
+        "series": "HERFL5"
+    },
+    {
+        "series_id": 2668,
+        "series": "HERSL1"
+    },
+    {
+        "series_id": 3173,
+        "series": "HIGHFL1"
+    },
+    {
+        "series_id": 3179,
+        "series": "HIGHFL2"
+    },
+    {
+        "series_id": 3172,
+        "series": "HIGHSL1"
+    },
+    {
+        "series_id": 3180,
+        "series": "HIGHSL2"
+    },
+    {
+        "series_id": 14315,
+        "series": "HOLEFL1"
+    },
+    {
+        "series_id": 14316,
+        "series": "HOLESL1"
+    },
+    {
+        "series_id": 5364,
+        "series": "HOLMESFL1"
+    },
+    {
+        "series_id": 3678,
+        "series": "HOOKFL1"
+    },
+    {
+        "series_id": 3717,
+        "series": "HOOKSL1"
+    },
+    {
+        "series_id": 3191,
+        "series": "HORSBURGHSL1"
+    },
+    {
+        "series_id": 13295,
+        "series": "HORSESHOEFL1"
+    },
+    {
+        "series_id": 12583,
+        "series": "HORSESHOESL1"
+    },
+    {
+        "series_id": 2673,
+        "series": "HPTFL1"
+    },
+    {
+        "series_id": 2759,
+        "series": "HPTSL1"
+    },
+    {
+        "series_id": 3259,
+        "series": "HUMPFL1"
+    },
+    {
+        "series_id": 3260,
+        "series": "HUMPSL1"
+    },
+    {
+        "series_id": 5918,
+        "series": "HUMPSL2"
+    },
+    {
+        "series_id": 12201,
+        "series": "HYDEFL1"
+    },
+    {
+        "series_id": 12202,
+        "series": "HYDESL1"
+    },
+    {
+        "series_id": 10364,
+        "series": "ILISL1"
+    },
+    {
+        "series_id": 10365,
+        "series": "ILISL2"
+    },
+    {
+        "series_id": 10366,
+        "series": "ILISL3"
+    },
+    {
+        "series_id": 10367,
+        "series": "ILISL4"
+    },
+    {
+        "series_id": 15015,
+        "series": "IMPERIEUSE_I13_BT"
+    },
+    {
+        "series_id": 9127,
+        "series": "IMPERIEUSELAGSL1"
+    },
+    {
+        "series_id": 10156,
+        "series": "IMPERIEUSEOUTSL1"
+    },
+    {
+        "series_id": 15003,
+        "series": "IMPERIEUSE_RS3_1_3m"
+    },
+    {
+        "series_id": 15004,
+        "series": "IMPERIEUSE_RS3_1_6m"
+    },
+    {
+        "series_id": 15136,
+        "series": "JALAN_WAMSI"
+    },
+    {
+        "series_id": 14136,
+        "series": "JBRCH10M"
+    },
+    {
+        "series_id": 14188,
+        "series": "JBRCHN2M"
+    },
+    {
+        "series_id": 14187,
+        "series": "JBRCHN9M"
+    },
+    {
+        "series_id": 14186,
+        "series": "JBRCHS2M"
+    },
+    {
+        "series_id": 14184,
+        "series": "JBRCHS6M"
+    },
+    {
+        "series_id": 14185,
+        "series": "JBRCHS9M"
+    },
+    {
+        "series_id": 2722,
+        "series": "JBRFL1"
+    },
+    {
+        "series_id": 14135,
+        "series": "JBRFL2"
+    },
+    {
+        "series_id": 2723,
+        "series": "JBRSL1"
+    },
+    {
+        "series_id": 15135,
+        "series": "JORROL_WAMSI"
+    },
+    {
+        "series_id": 3210,
+        "series": "JULN"
+    },
+    {
+        "series_id": 2660,
+        "series": "KELDSL1"
+    },
+    {
+        "series_id": 2619,
+        "series": "KELFL1"
+    },
+    {
+        "series_id": 2890,
+        "series": "KELFL2"
+    },
+    {
+        "series_id": 2620,
+        "series": "KELSL1"
+    },
+    {
+        "series_id": 3958,
+        "series": "KELSL2"
+    },
+    {
+        "series_id": 2905,
+        "series": "KEPFL1"
+    },
+    {
+        "series_id": 2906,
+        "series": "KEPSL1"
+    },
+    {
+        "series_id": 4003,
+        "series": "KIMFL1"
+    },
+    {
+        "series_id": 4004,
+        "series": "KIMSL1"
+    },
+    {
+        "series_id": 6347,
+        "series": "KINGFL1"
+    },
+    {
+        "series_id": 3681,
+        "series": "KINGSL1"
+    },
+    {
+        "series_id": 12558,
+        "series": "KNIFEFL1"
+    },
+    {
+        "series_id": 12775,
+        "series": "KNIFESL1"
+    },
+    {
+        "series_id": 10924,
+        "series": "KUBINSL1"
+    },
+    {
+        "series_id": 3046,
+        "series": "KURFL1"
+    },
+    {
+        "series_id": 3045,
+        "series": "KURSL1"
+    },
+    {
+        "series_id": 13656,
+        "series": "LADYFL1"
+    },
+    {
+        "series_id": 13657,
+        "series": "LADYSL1"
+    },
+    {
+        "series_id": 14577,
+        "series": "LAGDSL1"
+    },
+    {
+        "series_id": 14575,
+        "series": "LAGFL1"
+    },
+    {
+        "series_id": 14576,
+        "series": "LAGSL1"
+    },
+    {
+        "series_id": 12205,
+        "series": "LANGFORDFL1"
+    },
+    {
+        "series_id": 12206,
+        "series": "LANGFORDSL1"
+    },
+    {
+        "series_id": 3214,
+        "series": "LAURTN"
+    },
+    {
+        "series_id": 3714,
+        "series": "LELLFL1"
+    },
+    {
+        "series_id": 3715,
+        "series": "LELLSL1"
+    },
+    {
+        "series_id": 3638,
+        "series": "LENNOX"
+    },
+    {
+        "series_id": 3967,
+        "series": "LIMDSL1"
+    },
+    {
+        "series_id": 3965,
+        "series": "LIMFL1"
+    },
+    {
+        "series_id": 3959,
+        "series": "LIMSL1"
+    },
+    {
+        "series_id": 3960,
+        "series": "LIMVDSL1"
+    },
+    {
+        "series_id": 10196,
+        "series": "LINNETFL1"
+    },
+    {
+        "series_id": 10195,
+        "series": "LINNETSL1"
+    },
+    {
+        "series_id": 4021,
+        "series": "LIONFL1"
+    },
+    {
+        "series_id": 4022,
+        "series": "LIONSL1"
+    },
+    {
+        "series_id": 12015,
+        "series": "LISSENUNGLAG"
+    },
+    {
+        "series_id": 2649,
+        "series": "LIZFL1"
+    },
+    {
+        "series_id": 2684,
+        "series": "LIZSL1"
+    },
+    {
+        "series_id": 9860,
+        "series": "LOWENDALFL1"
+    },
+    {
+        "series_id": 9850,
+        "series": "LOWENDALSL1"
+    },
+    {
+        "series_id": 10775,
+        "series": "LOWENDALSL1S"
+    },
+    {
+        "series_id": 9870,
+        "series": "LOWENDALSL2"
+    },
+    {
+        "series_id": 2685,
+        "series": "LOWFL1"
+    },
+    {
+        "series_id": 2686,
+        "series": "LOWSL1"
+    },
+    {
+        "series_id": 2676,
+        "series": "LUCFL1"
+    },
+    {
+        "series_id": 2677,
+        "series": "LUCSL1"
+    },
+    {
+        "series_id": 10925,
+        "series": "MABUIAGFL1"
+    },
+    {
+        "series_id": 10926,
+        "series": "MABUIAGSL1"
+    },
+    {
+        "series_id": 12696,
+        "series": "MACGSL1"
+    },
+    {
+        "series_id": 12375,
+        "series": "MACKAYFL1"
+    },
+    {
+        "series_id": 12376,
+        "series": "MACKAYSL1"
+    },
+    {
+        "series_id": 14655,
+        "series": "MAIZABFL1"
+    },
+    {
+        "series_id": 14656,
+        "series": "MAIZABSL1"
+    },
+    {
+        "series_id": 5337,
+        "series": "MALABARDSL1"
+    },
+    {
+        "series_id": 14236,
+        "series": "MANNINGFL1"
+    },
+    {
+        "series_id": 5362,
+        "series": "MARIONFL1"
+    },
+    {
+        "series_id": 12697,
+        "series": "MARTSL1"
+    },
+    {
+        "series_id": 12915,
+        "series": "MASIGFL1"
+    },
+    {
+        "series_id": 12459,
+        "series": "MASTHEADFL1"
+    },
+    {
+        "series_id": 12460,
+        "series": "MASTHEADSL1"
+    },
+    {
+        "series_id": 13635,
+        "series": "MCCULLFL1"
+    },
+    {
+        "series_id": 12777,
+        "series": "MCCULLSL1"
+    },
+    {
+        "series_id": 10933,
+        "series": "MERFL1"
+    },
+    {
+        "series_id": 3673,
+        "series": "MERMAIDLAGSL1"
+    },
+    {
+        "series_id": 14998,
+        "series": "MERMAID_M11_BT"
+    },
+    {
+        "series_id": 14995,
+        "series": "MERMAID_M12_BB"
+    },
+    {
+        "series_id": 14996,
+        "series": "MERMAID_M12_BT"
+    },
+    {
+        "series_id": 3674,
+        "series": "MERMAIDOUTSL1"
+    },
+    {
+        "series_id": 15000,
+        "series": "MERMAID_RS1_1_3m"
+    },
+    {
+        "series_id": 14999,
+        "series": "MERMAID_RS1_1_6m"
+    },
+    {
+        "series_id": 15019,
+        "series": "MERMAID_RS1_S_6m"
+    },
+    {
+        "series_id": 10934,
+        "series": "MERSL1"
+    },
+    {
+        "series_id": 3077,
+        "series": "MI"
+    },
+    {
+        "series_id": 9854,
+        "series": "MIALLFL1"
+    },
+    {
+        "series_id": 13536,
+        "series": "MICHAELMASFL1"
+    },
+    {
+        "series_id": 12580,
+        "series": "MICHAELMASSL1"
+    },
+    {
+        "series_id": 12703,
+        "series": "MIDTONLAGFL1"
+    },
+    {
+        "series_id": 3148,
+        "series": "MIDTONLAGSL1"
+    },
+    {
+        "series_id": 9910,
+        "series": "MIDTONLAGSL1WTEMP"
+    },
+    {
+        "series_id": 3742,
+        "series": "MIDTONOUTFL2"
+    },
+    {
+        "series_id": 3144,
+        "series": "MIDTONOUTSL2"
+    },
+    {
+        "series_id": 2909,
+        "series": "MIIFL1"
+    },
+    {
+        "series_id": 2930,
+        "series": "MIISL1"
+    },
+    {
+        "series_id": 2698,
+        "series": "MIRSL1"
+    },
+    {
+        "series_id": 10155,
+        "series": "MIRSL2"
+    },
+    {
+        "series_id": 14615,
+        "series": "MOOREFL1"
+    },
+    {
+        "series_id": 14616,
+        "series": "MOORESL1"
+    },
+    {
+        "series_id": 2709,
+        "series": "MORFL1"
+    },
+    {
+        "series_id": 2708,
+        "series": "MORSL1"
+    },
+    {
+        "series_id": 4019,
+        "series": "MOTOFL1"
+    },
+    {
+        "series_id": 4020,
+        "series": "MOTOSL1"
+    },
+    {
+        "series_id": 2689,
+        "series": "MOUFL1"
+    },
+    {
+        "series_id": 2690,
+        "series": "MOUSL1"
+    },
+    {
+        "series_id": 14496,
+        "series": "MURFL1"
+    },
+    {
+        "series_id": 14497,
+        "series": "MURFL2"
+    },
+    {
+        "series_id": 2632,
+        "series": "MYRDSL1"
+    },
+    {
+        "series_id": 2631,
+        "series": "MYRFL1"
+    },
+    {
+        "series_id": 2726,
+        "series": "MYRSL1"
+    },
+    {
+        "series_id": 3962,
+        "series": "MYRSL2A"
+    },
+    {
+        "series_id": 3969,
+        "series": "MYRSL2B"
+    },
+    {
+        "series_id": 3966,
+        "series": "MYRSL3A"
+    },
+    {
+        "series_id": 3963,
+        "series": "MYRSL3B"
+    },
+    {
+        "series_id": 12635,
+        "series": "NAMBUNGFL1"
+    },
+    {
+        "series_id": 3170,
+        "series": "NBARFL1"
+    },
+    {
+        "series_id": 3171,
+        "series": "NBARSL1"
+    },
+    {
+        "series_id": 10198,
+        "series": "NDIRECTIONFL1"
+    },
+    {
+        "series_id": 10197,
+        "series": "NDIRECTIONSL1"
+    },
+    {
+        "series_id": 10955,
+        "series": "NDIRECTIONSL3"
+    },
+    {
+        "series_id": 5332,
+        "series": "NEDSSL1"
+    },
+    {
+        "series_id": 3682,
+        "series": "NEFL1"
+    },
+    {
+        "series_id": 14455,
+        "series": "NEHATPOINT"
+    },
+    {
+        "series_id": 3048,
+        "series": "NEHERALDFL1"
+    },
+    {
+        "series_id": 3049,
+        "series": "NEHERALDFL2"
+    },
+    {
+        "series_id": 14817,
+        "series": "NEISLAND1"
+    },
+    {
+        "series_id": 2697,
+        "series": "NELFL1"
+    },
+    {
+        "series_id": 3106,
+        "series": "NELIHOUFL1"
+    },
+    {
+        "series_id": 3107,
+        "series": "NELIHOUFL2"
+    },
+    {
+        "series_id": 2696,
+        "series": "NELSL1"
+    },
+    {
+        "series_id": 14057,
+        "series": "NEREGNARD"
+    },
+    {
+        "series_id": 3038,
+        "series": "NESL1"
+    },
+    {
+        "series_id": 15115,
+        "series": "Ngamagoon"
+    },
+    {
+        "series_id": 2762,
+        "series": "NIGFL1"
+    },
+    {
+        "series_id": 2680,
+        "series": "NIGSL1"
+    },
+    {
+        "series_id": 3726,
+        "series": "NINGSL1"
+    },
+    {
+        "series_id": 3208,
+        "series": "NKEPPFL1"
+    },
+    {
+        "series_id": 3209,
+        "series": "NKEPPSL1"
+    },
+    {
+        "series_id": 11979,
+        "series": "NMUIRFL1"
+    },
+    {
+        "series_id": 14376,
+        "series": "NONAMEFL1"
+    },
+    {
+        "series_id": 12701,
+        "series": "NONAMESL1"
+    },
+    {
+        "series_id": 2628,
+        "series": "NORFL1"
+    },
+    {
+        "series_id": 2669,
+        "series": "NORSL1"
+    },
+    {
+        "series_id": 5339,
+        "series": "NORTHBAYFL1"
+    },
+    {
+        "series_id": 12457,
+        "series": "NORTHFL1"
+    },
+    {
+        "series_id": 3192,
+        "series": "NORTHPOINT"
+    },
+    {
+        "series_id": 12458,
+        "series": "NORTHSL1"
+    },
+    {
+        "series_id": 2988,
+        "series": "NSAB"
+    },
+    {
+        "series_id": 2987,
+        "series": "NSEC"
+    },
+    {
+        "series_id": 12637,
+        "series": "NTHFISHFL1"
+    },
+    {
+        "series_id": 2989,
+        "series": "NWMA"
+    },
+    {
+        "series_id": 14875,
+        "series": "OBSDSL1"
+    },
+    {
+        "series_id": 12575,
+        "series": "OPALFL1"
+    },
+    {
+        "series_id": 12579,
+        "series": "OPALSL1"
+    },
+    {
+        "series_id": 13476,
+        "series": "ORPHCH1"
+    },
+    {
+        "series_id": 14957,
+        "series": "ORPHCH2"
+    },
+    {
+        "series_id": 11297,
+        "series": "ORPHFL1"
+    },
+    {
+        "series_id": 11298,
+        "series": "ORPHFL2"
+    },
+    {
+        "series_id": 11299,
+        "series": "ORPHFL3"
+    },
+    {
+        "series_id": 2714,
+        "series": "OSPSL1"
+    },
+    {
+        "series_id": 2710,
+        "series": "OSPSL2"
+    },
+    {
+        "series_id": 15215,
+        "series": "OTIT1"
+    },
+    {
+        "series_id": 15216,
+        "series": "OTIT2"
+    },
+    {
+        "series_id": 15217,
+        "series": "OTIT3"
+    },
+    {
+        "series_id": 13475,
+        "series": "PANCH1"
+    },
+    {
+        "series_id": 3246,
+        "series": "PANFL1"
+    },
+    {
+        "series_id": 10295,
+        "series": "PANFL2"
+    },
+    {
+        "series_id": 3247,
+        "series": "PANSL1"
+    },
+    {
+        "series_id": 10016,
+        "series": "PANSL2"
+    },
+    {
+        "series_id": 2624,
+        "series": "PBSL1"
+    },
+    {
+        "series_id": 10095,
+        "series": "PBSL2"
+    },
+    {
+        "series_id": 3284,
+        "series": "PEAKFL1"
+    },
+    {
+        "series_id": 3190,
+        "series": "PEAKSL1"
+    },
+    {
+        "series_id": 12576,
+        "series": "PEARTFL1"
+    },
+    {
+        "series_id": 12657,
+        "series": "PEARTSL1"
+    },
+    {
+        "series_id": 3120,
+        "series": "PELFL1"
+    },
+    {
+        "series_id": 3709,
+        "series": "PELSL1"
+    },
+    {
+        "series_id": 12057,
+        "series": "PENGUIN"
+    },
+    {
+        "series_id": 12759,
+        "series": "PENRITHFL1"
+    },
+    {
+        "series_id": 12760,
+        "series": "PENRITHSL1"
+    },
+    {
+        "series_id": 2625,
+        "series": "PIFL1"
+    },
+    {
+        "series_id": 2991,
+        "series": "PIMP"
+    },
+    {
+        "series_id": 3079,
+        "series": "PINEFL1"
+    },
+    {
+        "series_id": 14896,
+        "series": "PinePkFL1"
+    },
+    {
+        "series_id": 14895,
+        "series": "PinePkSL1"
+    },
+    {
+        "series_id": 3080,
+        "series": "PINESL1"
+    },
+    {
+        "series_id": 2627,
+        "series": "PISL1"
+    },
+    {
+        "series_id": 9103,
+        "series": "PISL2"
+    },
+    {
+        "series_id": 12455,
+        "series": "POMPEY1FL1"
+    },
+    {
+        "series_id": 12456,
+        "series": "POMPEY1SL1"
+    },
+    {
+        "series_id": 3184,
+        "series": "PULU CHEPELOK"
+    },
+    {
+        "series_id": 12636,
+        "series": "PUMPKINFL1"
+    },
+    {
+        "series_id": 2613,
+        "series": "RAIDSL1"
+    },
+    {
+        "series_id": 2681,
+        "series": "RAIFL1"
+    },
+    {
+        "series_id": 2682,
+        "series": "RAISL1"
+    },
+    {
+        "series_id": 14495,
+        "series": "RAP1"
+    },
+    {
+        "series_id": 14235,
+        "series": "RATFL1"
+    },
+    {
+        "series_id": 12207,
+        "series": "REBEFL1"
+    },
+    {
+        "series_id": 12208,
+        "series": "REBESL1"
+    },
+    {
+        "series_id": 13516,
+        "series": "REDCLIFFE1"
+    },
+    {
+        "series_id": 13955,
+        "series": "REPUSL1"
+    },
+    {
+        "series_id": 13477,
+        "series": "RIBCH1"
+    },
+    {
+        "series_id": 13478,
+        "series": "RIBCH2"
+    },
+    {
+        "series_id": 14178,
+        "series": "RIBCHS2M"
+    },
+    {
+        "series_id": 14177,
+        "series": "RIBCHS6M"
+    },
+    {
+        "series_id": 14176,
+        "series": "RIBCHS9M"
+    },
+    {
+        "series_id": 10199,
+        "series": "RIBFL1"
+    },
+    {
+        "series_id": 10200,
+        "series": "RIBSL1"
+    },
+    {
+        "series_id": 12577,
+        "series": "ROXFL1"
+    },
+    {
+        "series_id": 12761,
+        "series": "ROXSL1"
+    },
+    {
+        "series_id": 14055,
+        "series": "SAILFISH"
+    },
+    {
+        "series_id": 13975,
+        "series": "SANDPT1"
+    },
+    {
+        "series_id": 3015,
+        "series": "SANDSL1"
+    },
+    {
+        "series_id": 14556,
+        "series": "SANFL1"
+    },
+    {
+        "series_id": 2683,
+        "series": "SANSL1"
+    },
+    {
+        "series_id": 15075,
+        "series": "SCOTT_NL_M23_BB"
+    },
+    {
+        "series_id": 15076,
+        "series": "SCOTT_NL_M23_BT"
+    },
+    {
+        "series_id": 13275,
+        "series": "SCOTTNR1"
+    },
+    {
+        "series_id": 6220,
+        "series": "SCOTT_RPO_1"
+    },
+    {
+        "series_id": 6219,
+        "series": "SCOTT_RPO_2"
+    },
+    {
+        "series_id": 3974,
+        "series": "SCOTT_RPO_3"
+    },
+    {
+        "series_id": 3975,
+        "series": "SCOTT_RPO_4"
+    },
+    {
+        "series_id": 3976,
+        "series": "SCOTT_RPO_5"
+    },
+    {
+        "series_id": 3988,
+        "series": "SCOTTSL1"
+    },
+    {
+        "series_id": 15095,
+        "series": "SCOTT_SL1_1_3m"
+    },
+    {
+        "series_id": 12075,
+        "series": "SCOTTSL1-TIDEGUAGE1"
+    },
+    {
+        "series_id": 12076,
+        "series": "SCOTTSL1-TIDEGUAGE2"
+    },
+    {
+        "series_id": 12077,
+        "series": "SCOTTSL1-TIDEGUAGE3"
+    },
+    {
+        "series_id": 3993,
+        "series": "SCOTTSL2"
+    },
+    {
+        "series_id": 15096,
+        "series": "SCOTT_SL2_1_3m"
+    },
+    {
+        "series_id": 12078,
+        "series": "SCOTTSL2-TIDEGUAGE1"
+    },
+    {
+        "series_id": 12079,
+        "series": "SCOTTSL2-TIDEGUAGE2"
+    },
+    {
+        "series_id": 3989,
+        "series": "SCOTTSL3"
+    },
+    {
+        "series_id": 15079,
+        "series": "SCOTT_SL3_1_3m"
+    },
+    {
+        "series_id": 12080,
+        "series": "SCOTTSL3-TIDEGUAGE1"
+    },
+    {
+        "series_id": 3992,
+        "series": "SCOTT_SL4"
+    },
+    {
+        "series_id": 15082,
+        "series": "SCOTT_SL4_1_3m"
+    },
+    {
+        "series_id": 12081,
+        "series": "SCOTTSL4-TIDEGUAGE1"
+    },
+    {
+        "series_id": 12082,
+        "series": "SCOTTSL4-TIDEGUAGE2"
+    },
+    {
+        "series_id": 12083,
+        "series": "SCOTTSL4-TIDEGUAGE3"
+    },
+    {
+        "series_id": 15084,
+        "series": "SCOTT_SR5_LG"
+    },
+    {
+        "series_id": 15078,
+        "series": "SCOTT_SRLGA"
+    },
+    {
+        "series_id": 15077,
+        "series": "SCOTT_SRLGB"
+    },
+    {
+        "series_id": 3991,
+        "series": "SCOTTSS1"
+    },
+    {
+        "series_id": 15080,
+        "series": "SCOTT_SS1_1_3m"
+    },
+    {
+        "series_id": 3990,
+        "series": "SCOTTSS2"
+    },
+    {
+        "series_id": 15081,
+        "series": "SCOTT_SS2_1_3m"
+    },
+    {
+        "series_id": 12115,
+        "series": "SCOTTSS2-3"
+    },
+    {
+        "series_id": 12035,
+        "series": "SCOTT_SS3"
+    },
+    {
+        "series_id": 15083,
+        "series": "SCOTT_SS3_1_3m"
+    },
+    {
+        "series_id": 3086,
+        "series": "SEAFFL1"
+    },
+    {
+        "series_id": 3087,
+        "series": "SEAFSL1"
+    },
+    {
+        "series_id": 14237,
+        "series": "SEALFL1"
+    },
+    {
+        "series_id": 12155,
+        "series": "SHARKFL1"
+    },
+    {
+        "series_id": 15137,
+        "series": "SHENTONBLUFF_WAMSI"
+    },
+    {
+        "series_id": 3716,
+        "series": "SHTANFL1"
+    },
+    {
+        "series_id": 3679,
+        "series": "SHTANSL1"
+    },
+    {
+        "series_id": 12395,
+        "series": "SMLLAGFL1"
+    },
+    {
+        "series_id": 12396,
+        "series": "SMLLAGSL1"
+    },
+    {
+        "series_id": 14355,
+        "series": "SNAKEFL1"
+    },
+    {
+        "series_id": 10877,
+        "series": "SNAKESL1"
+    },
+    {
+        "series_id": 3293,
+        "series": "SNAPISFL1"
+    },
+    {
+        "series_id": 3291,
+        "series": "SNAPISSL1"
+    },
+    {
+        "series_id": 5320,
+        "series": "SQUAREAWS"
+    },
+    {
+        "series_id": 2986,
+        "series": "SS"
+    },
+    {
+        "series_id": 12420,
+        "series": "STCRISPFL1"
+    },
+    {
+        "series_id": 12421,
+        "series": "STCRISPSL1"
+    },
+    {
+        "series_id": 10695,
+        "series": "STEPHCHA1"
+    },
+    {
+        "series_id": 5333,
+        "series": "SUGARLOAFSL1"
+    },
+    {
+        "series_id": 3187,
+        "series": "SWHERALDFL2"
+    },
+    {
+        "series_id": 5334,
+        "series": "SYLPHSFL1"
+    },
+    {
+        "series_id": 11978,
+        "series": "TANDFL1"
+    },
+    {
+        "series_id": 14857,
+        "series": "TANTABIDDI_3"
+    },
+    {
+        "series_id": 14856,
+        "series": "TANTABIDDI_SL1"
+    },
+    {
+        "series_id": 12578,
+        "series": "TAYLORFL1"
+    },
+    {
+        "series_id": 13636,
+        "series": "TAYLORSL1"
+    },
+    {
+        "series_id": 9909,
+        "series": "TEMBOH-MERAH"
+    },
+    {
+        "series_id": 12762,
+        "series": "TERNFL1"
+    },
+    {
+        "series_id": 12763,
+        "series": "TERNSL1"
+    },
+    {
+        "series_id": 13535,
+        "series": "THETFL1"
+    },
+    {
+        "series_id": 10635,
+        "series": "THETSL1"
+    },
+    {
+        "series_id": 2691,
+        "series": "THUFL1"
+    },
+    {
+        "series_id": 2692,
+        "series": "THUSL1"
+    },
+    {
+        "series_id": 5476,
+        "series": "TRIMOUILLEDSL1"
+    },
+    {
+        "series_id": 5471,
+        "series": "TRIMOUILLEFL1"
+    },
+    {
+        "series_id": 5475,
+        "series": "TRIMOUILLESL1"
+    },
+    {
+        "series_id": 2642,
+        "series": "TRYFL1"
+    },
+    {
+        "series_id": 2643,
+        "series": "TRYSL1"
+    },
+    {
+        "series_id": 3764,
+        "series": "TUARFL1"
+    },
+    {
+        "series_id": 3971,
+        "series": "TUARSL1"
+    },
+    {
+        "series_id": 14675,
+        "series": "TUESDAYFL1"
+    },
+    {
+        "series_id": 14676,
+        "series": "TUESDAYSL1"
+    },
+    {
+        "series_id": 2665,
+        "series": "TURDSL1"
+    },
+    {
+        "series_id": 2755,
+        "series": "TURFL1"
+    },
+    {
+        "series_id": 2664,
+        "series": "TURSL1"
+    },
+    {
+        "series_id": 13976,
+        "series": "TURTLEFL1"
+    },
+    {
+        "series_id": 10919,
+        "series": "TWINFL1"
+    },
+    {
+        "series_id": 10920,
+        "series": "TWINSL1"
+    },
+    {
+        "series_id": 2614,
+        "series": "TYDDSL1"
+    },
+    {
+        "series_id": 14555,
+        "series": "TYDFL1"
+    },
+    {
+        "series_id": 2678,
+        "series": "TYDSL1"
+    },
+    {
+        "series_id": 3970,
+        "series": "VANDSL1"
+    },
+    {
+        "series_id": 3973,
+        "series": "VANFL1"
+    },
+    {
+        "series_id": 3961,
+        "series": "VANSL1"
+    },
+    {
+        "series_id": 9868,
+        "series": "WAHCHONGSL1"
+    },
+    {
+        "series_id": 2667,
+        "series": "WALFL1"
+    },
+    {
+        "series_id": 2666,
+        "series": "WALSL1"
+    },
+    {
+        "series_id": 10931,
+        "series": "WARRABERFL1"
+    },
+    {
+        "series_id": 10932,
+        "series": "WARRABERSL1"
+    },
+    {
+        "series_id": 3044,
+        "series": "WEIFL1"
+    },
+    {
+        "series_id": 2699,
+        "series": "WEISL1"
+    },
+    {
+        "series_id": 2700,
+        "series": "WEISL2"
+    },
+    {
+        "series_id": 10015,
+        "series": "WHEATSHEATHSL1"
+    },
+    {
+        "series_id": 3096,
+        "series": "WILKFL1"
+    },
+    {
+        "series_id": 3097,
+        "series": "WILKSL1"
+    },
+    {
+        "series_id": 3727,
+        "series": "WILLFL1"
+    },
+    {
+        "series_id": 3215,
+        "series": "WILLFL2"
+    },
+    {
+        "series_id": 14855,
+        "series": "WINDERABANDI"
+    },
+    {
+        "series_id": 10935,
+        "series": "WOIZFL1"
+    },
+    {
+        "series_id": 10936,
+        "series": "WOIZSL1"
+    },
+    {
+        "series_id": 2734,
+        "series": "WONFL1"
+    },
+    {
+        "series_id": 11916,
+        "series": "WONNFL1"
+    },
+    {
+        "series_id": 2733,
+        "series": "WONSL1"
+    },
+    {
+        "series_id": 10878,
+        "series": "WRECKSL1"
+    },
+    {
+        "series_id": 10929,
+        "series": "YAMFL1"
+    },
+    {
+        "series_id": 14815,
+        "series": "YINGINDIYUMANJA1"
+    },
+    {
+        "series_id": 3146,
+        "series": "YONFL1"
+    },
+    {
+        "series_id": 12699,
+        "series": "YONFL2"
+    },
+    {
+        "series_id": 3147,
+        "series": "YONSL1"
+    },
+    {
+        "series_id": 14695,
+        "series": "YORKEFL1"
+    },
+    {
+        "series_id": 14696,
+        "series": "YORKESL1"
+    },
+    {
+        "series_id": 5480,
+        "series": "YORKSL1"
+    },
+    {
+        "series_id": 5481,
+        "series": "YORKSL3"
+    },
+    {
+        "series_id": 5482,
+        "series": "YORKSL6"
+    }
+]
