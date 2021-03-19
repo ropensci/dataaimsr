@@ -6,6 +6,7 @@
 #'
 #' @return A list containing summary info from the input data.frame.
 #'
+#' @importFrom utils head
 #' @export
 summary.aimsdf <- function(object, ...) {
   x <- list(
@@ -54,28 +55,6 @@ summary.aimsdf <- function(object, ...) {
 #'
 #' @export
 print.aimsdf <- function(x, ...) {
-  NextMethod()
-}
-
-#' head.aimsdf
-#'
-#' @param x An object of class \code{\link{aimsdf}} as
-#' returned by \code{\link{aims_data}}.
-#' @param ... Not used.
-#'
-#' @export
-head.aimsdf <- function(x, ...) {
-  NextMethod()
-}
-
-#' tail.aimsdf
-#'
-#' @param x An object of class \code{\link{aimsdf}} as
-#' returned by \code{\link{aims_data}}.
-#' @param ... Not used.
-#'
-#' @export
-tail.aimsdf <- function(x, ...) {
   NextMethod()
 }
 
@@ -143,7 +122,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
       theme_classic() +
       theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
                                             linetype = "solid"),
-            legend.pos = "bottom") +
+            legend.position = "bottom") +
       labs(x = "Longitude",
            y = "Latitude",
            title = target,
@@ -195,7 +174,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         theme_classic() +
         theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
                                               linetype = "solid"),
-              legend.pos = "bottom") +
+              legend.position = "bottom") +
         labs(x = "Longitude", y = "Latitude", title = target,
              subtitle = d_type) +
         geom_sf(data = y_p, colour = "grey30") +

@@ -48,6 +48,7 @@ jobs:
       - name: Install macOS dependencies
         if: runner.os == 'macOS'
         run: |
+          brew install proj
           brew install gdal
           brew install udunits
 
