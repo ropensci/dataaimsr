@@ -9,6 +9,8 @@ TODO.md
 *tmp*
 inst/doc
 docs/
+check/
+.*Rcheck/
 
 paper/*
 !paper/paper.Rmd
