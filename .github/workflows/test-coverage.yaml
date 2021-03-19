@@ -38,7 +38,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("remotes"))
+          install.packages(c("ps", "remotes", "tidyverse", "anytime", "sf",
+                             "units"), type = "binary")
           remotes::install_deps(dependencies = TRUE, type = "binary")
           remotes::install_cran("covr")
         shell: Rscript {0}
