@@ -45,7 +45,13 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Install system dependencies
+      - name: Install macOS dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install gdal
+          brew install udunits
+
+      - name: Install Linux dependencies
         if: runner.os == 'Linux'
         env:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
@@ -55,20 +61,11 @@ jobs:
           sudo -s eval "$sysreqs"
           sudo apt-get install gdal-bin proj-bin libgdal-dev libproj-dev
 
-      - name: Install dependencies OS_Win
-        if: runner.os != 'Linux'
+      - name: Install package dependencies
         run: |
-          install.packages(c("ps", "remotes", "tidyverse", "anytime", "sf",
-                             "units"), type = "binary")
-          remotes::install_deps(dependencies = TRUE, type = "binary")
-        shell: Rscript {0}
-
-      - name: Install dependencies Linux
-        if: runner.os == 'Linux'
-        run: |
-          install.packages(c("ps", "remotes", "tidyverse", "anytime", "sf",
-                             "units"))
-          remotes::install_deps(dependencies = TRUE, type = "binary")
+          install.packages(c("ps", "remotes", "tidyverse", "anytime", "rgdal",
+                             "rgeos", "sf", "units"))
+          remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
 
       - name: Check

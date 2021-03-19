@@ -36,11 +36,17 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
+      - name: Install macOS dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install gdal
+          brew install udunits
+
       - name: Install dependencies
         run: |
-          install.packages(c("ps", "remotes", "tidyverse", "anytime", "sf",
-                             "units"), type = "binary")
-          remotes::install_deps(dependencies = TRUE, type = "binary")
+          install.packages(c("ps", "remotes", "tidyverse", "anytime", "rgdal",
+                             "rgeos", "sf", "units"))
+          remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("covr")
         shell: Rscript {0}
 
