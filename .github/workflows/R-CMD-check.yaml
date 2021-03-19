@@ -66,7 +66,10 @@ jobs:
 
       - name: "[Custom block] [Linux] Install spatial libraries"
         if: runner.os == 'Linux'
-        run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev
+        run: |
+          sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+          sudo apt-get update
+          sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev
 
       - name: "[Custom block] [macOS] Install spatial libraries"
         if: runner.os == 'macOS'
@@ -75,11 +78,24 @@ jobs:
           rm '/usr/local/bin/gfortran'
           brew install pkg-config gdal proj geos udunits
 
-      - name: Install package dependencies
+      - name: "[All] Install package dependencies"
         run: |
-          install.packages(c("ps", "remotes", "tidyverse", "anytime", "rgdal",
-                             "rgeos", "sf", "units"))
+          install.packages(c("ps", "remotes", "tidyverse", "anytime"))
           remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+
+      - name: "[Linux Win] Install package dependencies"
+        if: runner.os != 'macOS'
+        run: |
+          install.packages(c("rgdal", "rgeos", "sf", "units"))
+        shell: Rscript {0}
+
+      - name: "[MacOs] Install package dependencies"
+        if: runner.os == 'macOS'
+        run: |
+          install.packages(c("rgeos", "units"))
+          remotes::install_github("r-spatial/sf", configure.args = "--with-proj-lib=/usr/local/lib/")
+          install.packages("rgdal", configure.args = c("--with-proj-lib=/usr/local/lib/", "--with-proj-include=/usr/local/include/"))
         shell: Rscript {0}
 
       - name: Check
