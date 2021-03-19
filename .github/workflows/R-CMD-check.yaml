@@ -45,13 +45,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Install macOS dependencies
-        if: runner.os == 'macOS'
-        run: |
-          brew install proj
-          brew install gdal
-          brew install udunits
-
       - name: Install Linux dependencies
         if: runner.os == 'Linux'
         env:
@@ -60,7 +53,27 @@ jobs:
           Rscript -e "remotes::install_github('r-hub/sysreqs')"
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
-          sudo apt-get install gdal-bin proj-bin libgdal-dev libproj-dev
+
+      # for some strange Windows reason this step and the next one need to be decoupled
+      - name: "[Stage] Prepare"
+        run: |
+          Rscript -e "if (!requireNamespace('remotes')) install.packages('remotes', type = 'source')"
+          Rscript -e "if (getRversion() < '3.2' && !requireNamespace('curl')) install.packages('curl', type = 'source')"
+      
+      - name: "[Stage] [Linux] Install curl"
+        if: runner.os == 'Linux'
+        run: sudo apt-get install libcurl4-openssl-dev libgit2-dev
+
+      - name: "[Custom block] [Linux] Install spatial libraries"
+        if: runner.os == 'Linux'
+        run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev
+
+      - name: "[Custom block] [macOS] Install spatial libraries"
+        if: runner.os == 'macOS'
+        run: |
+          # conflicts with gfortran from r-lib/actions when linking gcc
+          rm '/usr/local/bin/gfortran'
+          brew install pkg-config gdal proj geos udunits
 
       - name: Install package dependencies
         run: |
