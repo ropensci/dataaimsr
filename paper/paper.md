@@ -44,7 +44,7 @@ affiliations:
    index: 3
 
 citation_author: Barneche et al.
-date: "2021-03-18"
+date: "2021-03-19"
 bibliography: paper.bib
 output:
   my_modified_joss:
@@ -175,13 +175,20 @@ head(sdata)
 ```
 
 ```
-##   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
-## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
-## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
-## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
-## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
-## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
+##   site_id                    site subsite_id    subsite series_id     series         parameter
+## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature
+## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature
+## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature
+## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature
+## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature
+## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature
+##   parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
+## 1            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
+## 2            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
+## 3            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
+## 4            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
+## 5            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
+## 6            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
 ```
 
 Setting the argument `api_key = NULL` means that `dataaimsr` will
@@ -240,8 +247,7 @@ sites, series and parameters are available for both datasets:
 
 
 ```r
-aims_filter_values("weather", filter_name = "series") %>%
-  head()
+head(aims_filter_values("weather", filter_name = "series"))
 ```
 
 ```
@@ -285,7 +291,8 @@ aims_expose_attributes("weather")
 ## [1] NA
 ## 
 ## $filters
-##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
+##  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 ```r
@@ -297,7 +304,8 @@ aims_expose_attributes("temp_loggers")
 ## [1] "summary-by-series"     "summary-by-deployment"
 ## 
 ## $filters
-##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
+##  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 The help file (see `?aims_expose_attributes`) contains the details about what
@@ -390,7 +398,7 @@ aims_citation(wdata_b)
 ```
 
 ```
-## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
+## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 19 March 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
 ```
 
 ## Sister web tool

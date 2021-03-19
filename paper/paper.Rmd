@@ -232,8 +232,7 @@ the `aims_filter_values` function which allows one to query what
 sites, series and parameters are available for both datasets:
 
 ```{r, message = FALSE, warning = FALSE}
-aims_filter_values("weather", filter_name = "series") %>%
-  head()
+head(aims_filter_values("weather", filter_name = "series"))
 ```
 
 The downside is that one cannot know what time window is available
