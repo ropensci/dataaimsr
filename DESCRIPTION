@@ -19,7 +19,7 @@ Imports:
     curl
 Suggests: 
     httptest,
-    rgeos
+    rgeos,
     knitr,
     purrr,
     rmarkdown,
