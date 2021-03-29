@@ -173,6 +173,12 @@ and its usage, please visit the [metadata][3] webpage.
 
 `dataaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](http://opensource.org/licenses/MIT)).
 
+## Code of Conduct
+
+Please note that this package is released with a
+[Contributor Code of Conduct](https://ropensci.org/code-of-conduct/).
+By contributing to this project, you agree to abide by its terms.
+
 ## AIMS R package logos
 
 Our R package logos use a watercolour map of Australia, obtained with the [ggmap](https://CRAN.R-project.org/package=ggmap) R package, which downloads original map tiles provided by [Stamen Design](http://stamen.com), under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0), with data from [OpenStreetMap](http://openstreetmap.org), under [CC BY SA](http://creativecommons.org/licenses/by-sa/3.0).
