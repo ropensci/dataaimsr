@@ -1,9 +1,9 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1.9001
-pkgdown_sha: 23eb05ceceda1c44573b254dd8b96e92cd91f825
+pkgdown_sha: 5f1ef9785827a976afbdc09a2d2a626d6ef1f2b4
 articles:
   navigating: navigating.html
   tloggers: tloggers.html
   weather: weather.html
-last_built: 2021-03-24T03:00Z
+last_built: 2021-03-29T01:11Z
 
