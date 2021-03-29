@@ -175,6 +175,13 @@ License
 Science](https://www.aims.gov.au) under the MIT License
 ([MIT](http://opensource.org/licenses/MIT)).
 
+Code of Conduct
+---------------
+
+Please note that this package is released with a [Contributor Code of
+Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
+project, you agree to abide by its terms.
+
 AIMS R package logos
 --------------------
 
