@@ -9,14 +9,14 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
-status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/dataaimsr/actions)
+status](https://github.com/ropensci/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/dataaimsr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/open-AIMS/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/open-AIMS/dataaimsr?branch=master)
-![pkgdown](https://github.com/open-AIMS/dataaimsr/workflows/pkgdown/badge.svg)
+coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dataaimsr?branch=master)
+![pkgdown](https://github.com/ropensci/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-1.0.3-orange.svg)](commits/master)
 [![Ask Us Anything
-!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/dataaimsr/issues/new)
+!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/ropensci/dataaimsr/issues/new)
 ![Open Source
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
@@ -99,7 +99,7 @@ alternative method of installation is to use the R `remotes` package. R
 After `remotes` has been installed `dataaimsr` can be installed directly
 from GitHub using the following command:
 
-    remotes::install_github("https://github.com/open-AIMS/dataaimsr")
+    remotes::install_github("https://github.com/ropensci/dataaimsr")
 
 This command will also install the three package dependencies: `httr`,
 `jsonlite` and `parsedate`.
@@ -128,7 +128,7 @@ Usage
 
 More comprehensive examples about how to navigate `dataaimsr` and
 interrogate the datasets can be found on our [online
-vignettes](https://open-AIMS.github.io/dataaimsr/articles).
+vignettes](https://ropensci.github.io/dataaimsr/articles).
 
 Datasets
 --------
