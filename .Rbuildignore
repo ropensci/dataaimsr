@@ -13,3 +13,4 @@ README.Rmd
 ^TODO.md$
 ^tmp_.*$
 ^CONTRIBUTING.md$
+^codemeta\.json$
