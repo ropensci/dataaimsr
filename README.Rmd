@@ -25,13 +25,13 @@ version <- gsub("-", ".", version)
 <!-- badges: start -->
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build status](https://github.com/open-AIMS/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/open-AIMS/dataaimsr/actions)
-[![Codecov test coverage](https://codecov.io/gh/open-AIMS/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/open-AIMS/dataaimsr?branch=master)
-![pkgdown](https://github.com/open-AIMS/dataaimsr/workflows/pkgdown/badge.svg)
+[![R build status](https://github.com/ropensci/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/dataaimsr/actions)
+[![Codecov test coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dataaimsr?branch=master)
+![pkgdown](https://github.com/ropensci/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT + file LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg)](commits/master)
 [![Ask Us Anything
-\!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/open-AIMS/dataaimsr/issues/new)
+\!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/ropensci/dataaimsr/issues/new)
 ![Open Source
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
@@ -98,7 +98,7 @@ After `remotes` has been installed `dataaimsr` can be installed directly from
 GitHub using the following command:
 
 ```{r, eval = FALSE}
-remotes::install_github("https://github.com/open-AIMS/dataaimsr")
+remotes::install_github("https://github.com/ropensci/dataaimsr")
 ```
 
 This command will also install the three package dependencies: `httr`,
@@ -130,7 +130,7 @@ wdf_a <- aims_data("weather", api_key = NULL,
 More comprehensive examples about how to navigate `dataaimsr` and interrogate
 the datasets can be found on our [online vignettes][4].
 
-[4]: https://open-AIMS.github.io/dataaimsr/articles
+[4]: https://ropensci.github.io/dataaimsr/articles
 
 ## Datasets
 
