@@ -85,24 +85,11 @@ Linux / MacOs | <code>&#47;home&#47;&#8249;username&#8250;&#47;.Renviron</code>
 
 ### Package
 
-At this stage `dataaimsr` is not hosted on CRAN R package network, although
-we re aiming to submit it there very soon. For the moment, an alternative
-method of installation is to use the R `remotes` package. R `remotes` can be
-installed using the following command:
-
-```{r, eval = FALSE}
-install.packages("remotes")
-```
-
-After `remotes` has been installed `dataaimsr` can be installed directly from
-GitHub using the following command:
-
-```{r, eval = FALSE}
-remotes::install_github("https://github.com/ropensci/dataaimsr")
-```
-
-This command will also install the three package dependencies: `httr`,
-`jsonlite` and `parsedate`.
+Type | Source | Command
+---|---|---
+Release | CRAN | Not yet available
+Development | GitHub | `remotes::install_github("ropensci/dataaimsr")`
+Development | rOpenSci | `install.packages("dataaimsr", repos = "https://dev.ropensci.org")`
 
 ## Usage
 
