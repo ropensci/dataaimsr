@@ -89,20 +89,37 @@ The `.Renviron` file is usually stored in each users home directory:
 
 ### Package
 
-At this stage `dataaimsr` is not hosted on CRAN R package network,
-although we re aiming to submit it there very soon. For the moment, an
-alternative method of installation is to use the R `remotes` package. R
-`remotes` can be installed using the following command:
-
-    install.packages("remotes")
-
-After `remotes` has been installed `dataaimsr` can be installed directly
-from GitHub using the following command:
-
-    remotes::install_github("https://github.com/ropensci/dataaimsr")
-
-This command will also install the three package dependencies: `httr`,
-`jsonlite` and `parsedate`.
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Source</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Release</td>
+<td>CRAN</td>
+<td>Not yet available</td>
+</tr>
+<tr class="even">
+<td>Development</td>
+<td>GitHub</td>
+<td><code>remotes::install_github("ropensci/dataaimsr")</code></td>
+</tr>
+<tr class="odd">
+<td>Development</td>
+<td>rOpenSci</td>
+<td><code>install.packages("dataaimsr", repos = "https://dev.ropensci.org")</code></td>
+</tr>
+</tbody>
+</table>
 
 Usage
 -----
