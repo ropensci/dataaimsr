@@ -66,8 +66,6 @@
 
 
 
-<!-- dependencies from examples -->
-
 
   
 
@@ -151,8 +149,8 @@
     <p>Plotting options for aimsdf objects</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for aimsdf</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, <span class='va'>ptype</span>, <span class='va'>pars</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='co'># S3 method for aimsdf</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, <span class='va'>ptype</span>, <span class='va'>pars</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,20 +184,20 @@ returned by <code><a href='aims_data.html'>aims_data</a></code>.</p></td>
 be represented by maps.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ropensci.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span>
-<span class='va'>wdf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data.html'>aims_data</a></span><span class='op'>(</span><span class='st'>"weather"</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-                 filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>site <span class='op'>=</span> <span class='st'>"Yongala"</span>,
-                                from_date <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,
-                                thru_date <span class='op'>=</span> <span class='st'>"2018-01-02"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>wdf</span>, ptype <span class='op'>=</span> <span class='st'>"map"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>wdf</span>, ptype <span class='op'>=</span> <span class='st'>"time_series"</span><span class='op'>)</span>
-<span class='co'># summary datasets can only return maps</span>
-<span class='va'>sdf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data.html'>aims_data</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>,
-                 summary <span class='op'>=</span> <span class='st'>"summary-by-deployment"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sdf</span>, ptype <span class='op'>=</span> <span class='st'>"map"</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ropensci.github.io/dataaimsr'>dataaimsr</a></span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>wdf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data.html'>aims_data</a></span><span class='op'>(</span><span class='st'>"weather"</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
+<span class='r-in'>                 filters <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>site <span class='op'>=</span> <span class='st'>"Yongala"</span>,</span>
+<span class='r-in'>                                from_date <span class='op'>=</span> <span class='st'>"2018-01-01"</span>,</span>
+<span class='r-in'>                                thru_date <span class='op'>=</span> <span class='st'>"2018-01-02"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>wdf</span>, ptype <span class='op'>=</span> <span class='st'>"map"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>wdf</span>, ptype <span class='op'>=</span> <span class='st'>"time_series"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'># summary datasets can only return maps</span></span>
+<span class='r-in'><span class='va'>sdf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='aims_data.html'>aims_data</a></span><span class='op'>(</span><span class='st'>"temp_loggers"</span>, api_key <span class='op'>=</span> <span class='cn'>NULL</span>,</span>
+<span class='r-in'>                 summary <span class='op'>=</span> <span class='st'>"summary-by-deployment"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sdf</span>, ptype <span class='op'>=</span> <span class='st'>"map"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -113,7 +113,7 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
 <div id="discovering-the-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#discovering-the-dataset" class="anchor"></a>Discovering the dataset</h2>
+<a href="#discovering-the-dataset" class="anchor" aria-hidden="true"></a>Discovering the dataset</h2>
 <p>The <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset is less extensive than the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset because it comprises one single <em>“parameter”</em>—water temperature—that is measured at multiple sites. Not all sites have the same temporal coverage; some loggers are still actively collecting data, others have been discontinued. So the key distinctive variables in this instance are the “site”, and the “series”. A “series” represents a continuing time-series, i.e. a collection of deployments measuring the same parameter at the same subsite. Because there is only one parameter (water temperature), subsite and series are synonymous in the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset. So a series will comprise a continuing time-series at a specific site and depth.</p>
 <p>Essentially, for the user who has limited knowledge about where the data are, and of what they are consisted, they would need to do some prior exploration to learn more about what can be downloaded. Suppose the goal is to download all time-series from a particular site. The general procedure would be:</p>
 <ol style="list-style-type: decimal">
@@ -184,7 +184,7 @@
 </div>
 <div id="query-and-plot-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#query-and-plot-dataset" class="anchor"></a>Query and Plot Dataset</h2>
+<a href="#query-and-plot-dataset" class="anchor" aria-hidden="true"></a>Query and Plot Dataset</h2>
 <p>After deciding on query parameters, we plug the series id into a <code>aims_data</code> function:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">agincourt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
@@ -240,10 +240,10 @@
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bibliography" class="anchor"></a>Bibliography</h2>
+<a href="#bibliography" class="anchor" aria-hidden="true"></a>Bibliography</h2>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">aims_citation</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">unlist</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">aims_citation</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">unlist</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="va">unname</span>
 <span class="co">#&gt; [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."</span>
 <span class="co">#&gt; [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."</span></code></pre></div>

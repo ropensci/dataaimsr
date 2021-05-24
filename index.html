@@ -92,21 +92,21 @@
   <div class="contents col-md-9">
 <div id="dataaimsr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#dataaimsr-" class="anchor"></a>dataaimsr <img src="reference/figures/logo.png" width="180" alt="dataaimsr Logo" align="right">
+<a href="#dataaimsr-" class="anchor" aria-hidden="true"></a>dataaimsr <img src="reference/figures/logo.png" width="180" alt="dataaimsr Logo" align="right">
 </h1></div>
 <!-- badges: start -->
 
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
+<a href="#overview" class="anchor" aria-hidden="true"></a>Overview</h2>
 <p>The Australian Institute of Marine Science (AIMS) has a long tradition in measuring and monitoring a series of environmental parameters along the tropical coast of Australia. These parameters include long-term record of sea surface temperature, wind characteristics, atmospheric temperature, pressure, chlorophyll-a data, among many others. The AIMS Data Centre team has recently developed the <a href="https://open-aims.github.io/data-platform/" class="external-link">AIMS Data Platform API</a> which is a <em>REST API</em> providing JSON-formatted data to users. <code>dataaimsr</code> is an <strong>R package</strong> written to allow users to communicate with the AIMS Data Platform API using an API key and a few convenience functions to interrogate and understand the datasets that are available to download. In doing so, it allows the user to fully explore these datasets in R in whichever capacity they want (e.g. data visualisation, statistical analyses, etc). The package itself contains a <code>plot</code> method which allows the user to plot summaries of the different types of dataset made available by the API. Below we provide a brief context about the existing [Datasets][#datasets] that can be explored through <code>dataaimsr</code>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <div id="requesting-an-aims-data-platform-api-key" class="section level3">
 <h3 class="hasAnchor">
-<a href="#requesting-an-aims-data-platform-api-key" class="anchor"></a>Requesting an AIMS Data Platform API Key</h3>
+<a href="#requesting-an-aims-data-platform-api-key" class="anchor" aria-hidden="true"></a>Requesting an AIMS Data Platform API Key</h3>
 <p><strong>AIMS Data Platform</strong> requires an API Key for data requests, <a href="https://open-AIMS.github.io/data-platform/key-request" class="external-link">get a key here</a>.</p>
 <p>The API Key can be passed to the package functions as an additional <code>api_key = "XXXX"</code> argument. <strong>However</strong>, we strongly encourage users to maintain their API key as a private locally hidden environment variable (<code>AIMS_DATAPLATFORM_API_KEY</code>) in the <code>.Renviron</code> file for automatic loading at the start of an R session. Please read this <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">article</a> which details why keeping your API private is extremely important.</p>
 <p>Users can modify their <code>.Renviron</code> file by adding the following line:</p>
@@ -147,65 +147,113 @@ Linux / MacOs
 </div>
 <div id="package" class="section level3">
 <h3 class="hasAnchor">
-<a href="#package" class="anchor"></a>Package</h3>
-<p>At this stage <code>dataaimsr</code> is not hosted on CRAN R package network, although we re aiming to submit it there very soon. For the moment, an alternative method of installation is to use the R <code>remotes</code> package. R <code>remotes</code> can be installed using the following command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span></code></pre></div>
-<p>After <code>remotes</code> has been installed <code>dataaimsr</code> can be installed directly from GitHub using the following command:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"https://github.com/ropensci/dataaimsr"</span>)</span></code></pre></div>
-<p>This command will also install the three package dependencies: <code>httr</code>, <code>jsonlite</code> and <code>parsedate</code>.</p>
+<a href="#package" class="anchor" aria-hidden="true"></a>Package</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="header">
+<th>
+Type
+</th>
+<th>
+Source
+</th>
+<th>
+Command
+</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+Release
+</td>
+<td>
+CRAN
+</td>
+<td>
+Not yet available
+</td>
+</tr>
+<tr class="even">
+<td>
+Development
+</td>
+<td>
+GitHub
+</td>
+<td>
+<code>remotes::install_github(“ropensci/dataaimsr”)</code>
+</td>
+</tr>
+<tr class="odd">
+<td>
+Development
+</td>
+<td>
+rOpenSci
+</td>
+<td>
+<code>install.packages(“dataaimsr”, repos = “<a href="https://dev.ropensci.org" class="external-link uri">https://dev.ropensci.org</a>”)</code>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># assumes that user already has API key saved to</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># .Renviron</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">library</span>(dataaimsr)</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># summarised by series</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># for all sites that contain data</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># within a defined date range</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>sdf_b &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"temp_loggers"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
-<span id="cb4-9"><a href="#cb4-9"></a>                   <span class="dt">summary =</span> <span class="st">"summary-by-series"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="st">"from_date"</span> =<span class="st"> "2018-01-01"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11"></a>                                  <span class="st">"thru_date"</span> =<span class="st"> "2018-12-31"</span>))</span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co"># downloads weather data from site Yongala</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="co"># within a defined date range</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>wdf_a &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"weather"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
-<span id="cb4-16"><a href="#cb4-16"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="dt">site =</span> <span class="st">"Yongala"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17"></a>                                  <span class="dt">from_date =</span> <span class="st">"2018-01-01"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18"></a>                                  <span class="dt">thru_date =</span> <span class="st">"2018-01-02"</span>))</span></code></pre></div>
+<a href="#usage" class="anchor" aria-hidden="true"></a>Usage</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># assumes that user already has API key saved to</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># .Renviron</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(dataaimsr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># summarised by series</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># for all sites that contain data</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># within a defined date range</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>sdf_b &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"temp_loggers"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>                   <span class="dt">summary =</span> <span class="st">"summary-by-series"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="st">"from_date"</span> =<span class="st"> "2018-01-01"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>                                  <span class="st">"thru_date"</span> =<span class="st"> "2018-12-31"</span>))</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co"># downloads weather data from site Yongala</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># within a defined date range</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>wdf_a &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"weather"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="dt">site =</span> <span class="st">"Yongala"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>                                  <span class="dt">from_date =</span> <span class="st">"2018-01-01"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>                                  <span class="dt">thru_date =</span> <span class="st">"2018-01-02"</span>))</span></code></pre></div>
 <p>More comprehensive examples about how to navigate <code>dataaimsr</code> and interrogate the datasets can be found on our <a href="https://ropensci.github.io/dataaimsr/articles" class="external-link">online vignettes</a>.</p>
 </div>
 <div id="datasets" class="section level2">
 <h2 class="hasAnchor">
-<a href="#datasets" class="anchor"></a>Datasets</h2>
+<a href="#datasets" class="anchor" aria-hidden="true"></a>Datasets</h2>
 <p>Currently, there are two AIMS long-term monitoring datasets available to be downloaded through <code>dataaimsr</code>:</p>
 <div id="northern-australia-automated-marine-weather-and-oceanographic-stations" class="section level3">
 <h3 class="hasAnchor">
-<a href="#northern-australia-automated-marine-weather-and-oceanographic-stations" class="anchor"></a>Northern Australia Automated Marine Weather And Oceanographic Stations</h3>
+<a href="#northern-australia-automated-marine-weather-and-oceanographic-stations" class="anchor" aria-hidden="true"></a>Northern Australia Automated Marine Weather And Oceanographic Stations</h3>
 <p>Automatic weather stations have been deployed by AIMS since 1980. Most of the stations are along the Great Barrier Reef (GBR) including the Torres Strait in North-Eastern Australia but there is also a station in Darwin and one at Ningaloo Reef in Western Australia. Many of the stations are located on the reef itself either on poles located in the reef lagoon or on tourist pontoons or other structures. A list of the weather stations which have been deployed by AIMS and the period of time for which data may be available can be found on the <a href="https://apps.aims.gov.au/metadata/view/0887cb5b-b443-4e08-a169-038208109466" class="external-link">metadata</a> webpage. <strong>NB:</strong> Records may not be continuous for the time spans given.</p>
 </div>
 <div id="aims-sea-water-temperature-observing-system-aims-temperature-logger-program" class="section level3">
 <h3 class="hasAnchor">
-<a href="#aims-sea-water-temperature-observing-system-aims-temperature-logger-program" class="anchor"></a>AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)</h3>
+<a href="#aims-sea-water-temperature-observing-system-aims-temperature-logger-program" class="anchor" aria-hidden="true"></a>AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)</h3>
 <p>The data provided here are from a number of sea water temperature monitoring programs conducted in tropical and subtropical coral reefs environments around Australia. Data are available from approximately 80 GBR sites, 16 Coral Sea sites, 7 sites in North West Western Australia (WA), 8 Queensland regional ports, 13 sites in the Solitary Islands, 4 sites in Papua New Guinea and 10 sites in the Cocos (Keeling) Islands. Data are obtained from in-situ data loggers deployed on the reef. Temperature instruments sample water temperatures every 5-10 minutes (typically) and are exchanged and downloaded approximately every 12 months. Temperature loggers on the reef-flat are generally placed just below Lowest Astronomical Tide level. Reef-slope (or where specified as Upper reef-slope) generally refers to depths 5–9 m while Deep reef-slope refers to depths of ~20 m. For more information on the dataset and its usage, please visit the <a href="https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e" class="external-link">metadata</a> webpage.</p>
 </div>
 </div>
 <div id="license" class="section level2">
 <h2 class="hasAnchor">
-<a href="#license" class="anchor"></a>License</h2>
+<a href="#license" class="anchor" aria-hidden="true"></a>License</h2>
 <p><code>dataaimsr</code> is provided by the <a href="https://www.aims.gov.au" class="external-link">Australian Institute of Marine Science</a> under the MIT License (<a href="http://opensource.org/licenses/MIT" class="external-link">MIT</a>).</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
 <p>Please note that this package is released with a <a href="https://ropensci.org/code-of-conduct/" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div id="aims-r-package-logos" class="section level2">
 <h2 class="hasAnchor">
-<a href="#aims-r-package-logos" class="anchor"></a>AIMS R package logos</h2>
+<a href="#aims-r-package-logos" class="anchor" aria-hidden="true"></a>AIMS R package logos</h2>
 <p>Our R package logos use a watercolour map of Australia, obtained with the <a href="https://CRAN.R-project.org/package=ggmap" class="external-link">ggmap</a> R package, which downloads original map tiles provided by <a href="http://stamen.com" class="external-link">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0" class="external-link">CC BY 3.0</a>, with data from <a href="http://openstreetmap.org" class="external-link">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0" class="external-link">CC BY SA</a>.</p>
 </div>
 </div>

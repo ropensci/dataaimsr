@@ -113,7 +113,7 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></code></pre></div>
 <div id="discover-a-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#discover-a-dataset" class="anchor"></a>Discover a dataset</h2>
+<a href="#discover-a-dataset" class="anchor" aria-hidden="true"></a>Discover a dataset</h2>
 <p>The <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset consists of a series of <em>“parameters”</em> that are measured at multiple sites. Those could be, for instance, minimum wind speed, peak wave period, wind direction, water pressure, dissolved oxygen, chlorophyll concentration, etc. Not all parameters are measured for all sites and at all times. Some loggers are still actively collecting data, others have been discontinued.</p>
 <p>Essentially, for the user who has limited knowledge about where the data are, and of what they are consisted, they would need to do some prior exploration to learn more about what can downloaded. Suppose the goal is to download all time-series from a particular site. The general procedure would be:</p>
 <ol style="list-style-type: decimal">
@@ -169,7 +169,7 @@
 </div>
 <div id="query-and-plot-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#query-and-plot-dataset" class="anchor"></a>Query and Plot Dataset</h2>
+<a href="#query-and-plot-dataset" class="anchor" aria-hidden="true"></a>Query and Plot Dataset</h2>
 <p>After deciding on query parameters, we plug the series id into a <code>aims_data</code> function:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">davies</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"weather"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
@@ -218,10 +218,10 @@
 </div>
 <div id="bibliography" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bibliography" class="anchor"></a>Bibliography</h2>
+<a href="#bibliography" class="anchor" aria-hidden="true"></a>Bibliography</h2>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">aims_citation</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">unlist</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">aims_citation</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">unlist</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="va">unname</span>
 <span class="co">#&gt; [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"</span>
 <span class="co">#&gt; [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"</span></code></pre></div>
