@@ -6,6 +6,7 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 <!-- badges: start -->
 
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
+[![status](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d/status.svg)](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
