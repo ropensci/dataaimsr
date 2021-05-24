@@ -44,7 +44,7 @@ affiliations:
    index: 3
 
 citation_author: Barneche et al.
-date: "2021-03-19"
+date: "2021-05-24"
 bibliography: paper.bib
 output:
   my_modified_joss:
@@ -64,7 +64,7 @@ describe the available datasets as well as example usage cases.
 
 [0]: https://www.aims.gov.au/
 
-# Background and Statement of need
+# Statement of Need
 
 The Australian Institute of Marine Science (AIMS) has a long tradition in
 measuring and monitoring a series of environmental parameters along the
@@ -84,37 +84,13 @@ of dataset made available by the API.
 [1]: https://open-aims.github.io/data-platform/
 
 Currently, there are two AIMS long-term monitoring datasets available to be
-downloaded through `dataaimsr`:
-
-### Northern Australia Automated Marine Weather And Oceanographic Stations
-
-Automatic weather stations have been deployed by AIMS since 1980. Most of the
-stations are along the Great Barrier Reef (GBR) including the Torres Strait in
-North-Eastern Australia but there is also a station in Darwin and one at
-Ningaloo Reef in Western Australia. Many of the stations are located on the
-reef itself either on poles located in the reef lagoon or on tourist pontoons
-or other structures. A list of the weather stations which have been deployed
-by AIMS and the period of time for which data may be available can be
-found on the [AIMS metadata][2] webpage. **NB:** Records may not be continuous
-for the time spans given.
+downloaded through `dataaimsr`: 1) the Northern Australia Automated Marine
+Weather And Oceanographic Stations---a list of the weather stations which have
+been deployed by AIMS and the period of time for which data may be available
+can be found on the [AIMS metadata][2] webpage; 2) AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)---for more information on
+the dataset and its usage, please visit the [AIMS metadata][3] webpage.
 
 [2]: https://apps.aims.gov.au/metadata/view/0887cb5b-b443-4e08-a169-038208109466
-
-### AIMS Sea Water Temperature Observing System (AIMS Temperature Logger Program)
-
-The data provided here are from a number of sea water temperature monitoring
-programs conducted in tropical and subtropical coral reefs environments around
-Australia. Data are available from approximately 80 GBR sites, 16 Coral Sea
-sites, 7 sites in North West Western Australia (WA), 8 Queensland regional
-ports, 13 sites in the Solitary Islands, 4 sites in Papua New Guinea and 10
-sites in the Cocos (Keeling) Islands. Data are obtained from in-situ data
-loggers deployed on the reef. Temperature instruments sample water
-temperatures every 5-10 minutes (typically) and are exchanged and downloaded
-approximately every 12 months. Temperature loggers on the reef-flat are
-generally placed just below Lowest Astronomical Tide level. Reef-slope (or
-where specified as Upper reef-slope) generally refers to depths 5--9 m while
-Deep reef-slope refers to depths of ~20 m. For more information on the dataset
-and its usage, please visit the [AIMS metadata][3] webpage.
 
 [3]: https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e 
 
@@ -152,86 +128,28 @@ is the combination of subsite and parameter.
 The [AIMS Data Platform API][1] points to the full metadata of each
 dataset. We are currently working on ways to facilitate the 
 visualisation of both datasets and their multiple features directly
-through the R package. At the moment though it is only possible
-to visualise summary information for the Sea Water Temperature Loggers
-dataset. A similar feature for the Weather Station dataset will be 
-implemented in the near future (likely late 2021)---so for now, please
-refer to the online metadata to discover from where (and when) one can 
-download data.
+through the R package. So please consult our [on-line vignettes][35] to obtain
+the most up-to-date instructions on how to navigate the different datasets.
+Future versions of this package might even provide more of AIMS monitoring
+datasets.
+
+[35]: https://docs.ropensci.org/dataaimsr/articles/
 
 ### Data summaries
 
 The first step would be to visualise the dataset. We do this by
 mapping all available sites. For example, we download the summary information
 for the Sea Water Temperature Loggers dataset using the main function called
-`aims_data`:
-
-
-```r
-library(dataaimsr)
-sdata <- aims_data("temp_loggers", api_key = NULL,
-                   summary = "summary-by-series")
-head(sdata)
-```
-
-```
-##   site_id                    site subsite_id    subsite series_id     series         parameter
-## 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature
-## 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature
-## 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature
-## 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature
-## 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature
-## 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature
-##   parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-## 1            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
-## 2            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
-## 3            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
-## 4            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
-## 5            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
-## 6            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
-```
-
-Setting the argument `api_key = NULL` means that `dataaimsr` will
+`aims_data`. Setting the argument `api_key = NULL` means that `dataaimsr` will
 automatically search for the user's API key stored in `.Renviron`.
-The `summary` argument here is key. It should only be flagged when the
-user wants an overview of the available data. Again, this currently
-implemented for the Sea Water Temperature Loggers dataset. One can
+The `summary` argument should only be used when the
+user wants an overview of the available data---this is currently
+implemented for the Sea Water Temperature Loggers dataset only. One can
 visualise `summary-by-series` or `summary-by-deployment`. The output of
-`aims_data` is a `data.frame` of class `aimsdf`.
+`aims_data` is a `data.frame` of class `aimsdf` with its own plotting
+method (Fig. \@ref(fig:summary)):
 
-Notice that `sdata` contains a lot of information, most of which is
-related to site / series / parameter ID. Each row corresponds to a
-unique series, and a certain site may contain multiple series; in such
-cases, series generally differ from one another by depth. The columns 
-`time_coverage_start` and `time_coverage_end` are probably one of the most
-valuable pieces of information. They provide the user with the window of data
-collection for a particular series, which is probably crucial to decide
-whether that particular series is of relevance to the specific question in
-hand.
 
-Also note that there are three columns containing the total number of 
-observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
-respectively stand for uncalibrated, calibrated, and quality-controlled 
-observations. Calibrated and quality-controlled are generally the same.
-Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After
-calibration, all data records are quality controlled based on the following
-tests: 1) clip to in-water only data, using deployment's metadata, 2)
-impossible value check: data outside a fixed temperature range (14˚C – 40˚C)
-is flagged as bad data, 3) spike test: individual extreme values are flagged
-as probably bad according to the algorithm presented in @morelo2014methods and
-4) Excessive gradient test: pairs of data that present a sudden change in the
-slope are flagged as probably bad [@toma2016acta]. If any data record fails at
-least one of the tests, a QC flag equal to 2 is returned, otherwise, the QC
-flag is set to 1.
-
-One can visualise this data, for instance, by plotting them
-on a map of Australia, while colouring based on the total amount of calibrated
-observations (Fig. \@ref(fig:summary)).
-
-`aimsdf` objects can be plotted using the `plot` function. For summary data
-such as `sdata`, plot will always generate a map with the points around
-Australia and associated regions, coloured by the number of calibrated
-observations:
 
 
 
@@ -240,6 +158,25 @@ observations:
 \begin{figure}
 \includegraphics[width=1\linewidth]{summary} \caption{(ref:fig-summary)}(\#fig:summary)
 \end{figure}
+
+For summary data such as `sdata`, plot will always generate a map with the
+points around Australia and associated regions, coloured by the number of
+calibrated observations.
+Observations in a series can be: `uncal_obs`, `cal_obs` and `qc_obs`, which 
+respectively stand for uncalibrated, calibrated, and quality-controlled 
+observations. Calibrated and quality-controlled are generally the same.
+Instruments are routinely calibrated (mostly once a year) in a
+temperature-controlled water bath and corrections applied to the data. After
+calibration, all data records are quality controlled based on the following
+tests: 1) clip to in-water only data, using deployment's metadata, 2)
+impossible value check: data outside a fixed temperature range (14˚C – 40˚C)
+is flagged as bad data, 3) spike test: individual extreme values are flagged
+as probably bad according to the algorithm presented in @morelo2014methods and
+4) Excessive gradient test: pairs of data that present a sudden change in the
+slope are flagged as probably bad [@toma2016acta]. If any data record fails at
+least one of the tests, a QC flag equal to 2 is returned, otherwise, the QC
+flag is set to 1. Please refer to our on-line [on-line vignettes][35] to learn
+details about the entire structure of an `aimsdf` object.
 
 In the case of the Weather Station dataset, the user can call a
 the `aims_filter_values` function which allows one to query what
@@ -265,13 +202,13 @@ for each one of those, nor how they are nested (i.e. series /
 parameter / site). In a way though the series name generally
 gives that information anyway (see code output above). If knowing the 
 available observation window is absolutely crucial, then as mentioned 
-above the user should refer to the [online metadata][3].
+above the user should refer to the [on-line metadata][3].
 
 ## Download slices of datasets
 
 We recommend slicing the datasets because AIMS monitoring datasets are of very 
 high temporal resolution and if one tries to download an entire series
-it might take hours if not days. To slice the datasets properly, the user
+it might take a few hours. To slice the datasets properly, the user
 needs to apply filters to their query.
 
 ### Data filters
@@ -291,8 +228,7 @@ aims_expose_attributes("weather")
 ## [1] NA
 ## 
 ## $filters
-##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
-##  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 ```r
@@ -304,8 +240,7 @@ aims_expose_attributes("temp_loggers")
 ## [1] "summary-by-series"     "summary-by-deployment"
 ## 
 ## $filters
-##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
-##  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+##  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 The help file (see `?aims_expose_attributes`) contains the details about what
@@ -398,7 +333,7 @@ aims_citation(wdata_b)
 ```
 
 ```
-## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 19 March 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
+## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 24 May 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
 ```
 
 ## Sister web tool
