@@ -44,7 +44,7 @@ affiliations:
    index: 3
 
 citation_author: Barneche et al.
-date: "2021-05-24"
+date: "2021-06-02"
 bibliography: paper.bib
 output:
   my_modified_joss:
@@ -147,17 +147,13 @@ user wants an overview of the available data---this is currently
 implemented for the Sea Water Temperature Loggers dataset only. One can
 visualise `summary-by-series` or `summary-by-deployment`. The output of
 `aims_data` is a `data.frame` of class `aimsdf` with its own plotting
-method (Fig. \@ref(fig:summary)):
+method \autoref{fig:summary}:
 
 
 
 
 
-(ref:fig-summary) Distribution of all temperature logger series around Australian waters.
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{summary} \caption{(ref:fig-summary)}(\#fig:summary)
-\end{figure}
+![Distribution of all temperature logger series around Australian waters.\label{fig:summary}](summary.png)
 
 For summary data such as `sdata`, plot will always generate a map with the
 points around Australia and associated regions, coloured by the number of
@@ -290,15 +286,11 @@ quality-controlled. For monitoring data (i.e. when `summary = NA` in a
 down by parameter, or a map showing the sites with some summary info. If the
 parameters are not specified, then `dataaimsr` will plot a maximum of 4
 parameters chosen at random for a time series plot. Alternatively the user can
-specify which parameters are to be plotted (Fig. \@ref(fig:wind)).
+specify which parameters are to be plotted \autoref{fig:wind}.
 
 
 
-(ref:fig-wind) Yongala wreck profiles for water pressure and chlorophyll-a between the first and second of January 2018.
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{wind} \caption{(ref:fig-wind)}(\#fig:wind)
-\end{figure}
+![Yongala wreck profiles for water pressure and chlorophyll-a between the first and second of January 2018.\label{fig:wind}](wind.png)
 
 The filters `from_date` and `thru_date` can be further refined by including a
 time window to download the data:
@@ -333,7 +325,7 @@ aims_citation(wdata_b)
 ```
 
 ```
-## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 24 May 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
+## [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 1 June 2021.  Time period: 1991-10-18T06:00:00 to 1991-10-18T12:00:00.  Series: Davies Reef Weather Station Air Temperature"
 ```
 
 ## Sister web tool
@@ -345,26 +337,18 @@ according to user selection and visualise the data as line graphs. Series are
 able to be compared visually. For large series, data are aggregated to daily
 averages and displayed as minimum, maximum and mean. When the user 'zooms in'
 sufficiently, the data will be displayed as non-aggregate values
-(Fig. \@ref(fig:tssa)). This technique is being used to ensure the application
+\autoref{fig:tssa}. This technique is being used to ensure the application
 performs well with large time series.
 
-(ref:fig-tssa) Interactive discovery and visualisation of data series.
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{tssa} \caption{(ref:fig-tssa)}(\#fig:tssa)
-\end{figure}
+![Interactive discovery and visualisation of data series.\label{fig:tssa}](tssa.png)
 
 The user can then download the displayed data as CSV or obtain a R code
 snippet that shows how to obtain the data using the dataaimsr package
-(Fig. \@ref(fig:tssb)). In this way, a user can easily explore and discover
+\autoref{fig:tssb}. In this way, a user can easily explore and discover
 datasets and then quickly and easily have this data in their R environment for
 additional analysis.
 
-(ref:fig-tssb) Download/Export displayed data via R snippet.
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{tssb} \caption{(ref:fig-tssb)}(\#fig:tssb)
-\end{figure}
+![Download/Export displayed data via R snippet.\label{fig:tssb}](tssb.png)
 
 # Future directions
 

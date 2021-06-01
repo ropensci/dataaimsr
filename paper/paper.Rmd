@@ -147,7 +147,7 @@ user wants an overview of the available data---this is currently
 implemented for the Sea Water Temperature Loggers dataset only. One can
 visualise `summary-by-series` or `summary-by-deployment`. The output of
 `aims_data` is a `data.frame` of class `aimsdf` with its own plotting
-method (Fig. \@ref(fig:summary)):
+method \autoref{fig:summary}:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(dataaimsr)
@@ -164,11 +164,7 @@ ggsave("paper/summary.png", out, width = 7, height = 4.36, units = "in",
        device = "png", dpi = 300)
 ```
 
-(ref:fig-summary) Distribution of all temperature logger series around Australian waters.
-
-```{r summary, echo = FALSE, out.width = "100%", fig.cap="(ref:fig-summary)", cache = TRUE}
-knitr::include_graphics("summary.png")
-```
+![Distribution of all temperature logger series around Australian waters.\label{fig:summary}](summary.png)
 
 For summary data such as `sdata`, plot will always generate a map with the
 points around Australia and associated regions, coloured by the number of
@@ -264,7 +260,7 @@ quality-controlled. For monitoring data (i.e. when `summary = NA` in a
 down by parameter, or a map showing the sites with some summary info. If the
 parameters are not specified, then `dataaimsr` will plot a maximum of 4
 parameters chosen at random for a time series plot. Alternatively the user can
-specify which parameters are to be plotted (Fig. \@ref(fig:wind)).
+specify which parameters are to be plotted \autoref{fig:wind}.
 
 ```{r echo = FALSE, eval = FALSE}
 # check parameters with aims_parameters(wdata_a)
@@ -274,11 +270,7 @@ ggsave("paper/wind.png", out, width = 8.5, height = 3.9, units = "in",
        device = "png", dpi = 300)
 ```
 
-(ref:fig-wind) Yongala wreck profiles for water pressure and chlorophyll-a between the first and second of January 2018.
-
-```{r wind, echo = FALSE, out.width = "100%", fig.cap="(ref:fig-wind)", cache = TRUE}
-knitr::include_graphics("wind.png")
-```
+![Yongala wreck profiles for water pressure and chlorophyll-a between the first and second of January 2018.\label{fig:wind}](wind.png)
 
 The filters `from_date` and `thru_date` can be further refined by including a
 time window to download the data:
@@ -315,26 +307,18 @@ according to user selection and visualise the data as line graphs. Series are
 able to be compared visually. For large series, data are aggregated to daily
 averages and displayed as minimum, maximum and mean. When the user 'zooms in'
 sufficiently, the data will be displayed as non-aggregate values
-(Fig. \@ref(fig:tssa)). This technique is being used to ensure the application
+\autoref{fig:tssa}. This technique is being used to ensure the application
 performs well with large time series.
 
-(ref:fig-tssa) Interactive discovery and visualisation of data series.
-
-```{r tssa, echo = FALSE, out.width = "100%", fig.cap="(ref:fig-tssa)", cache = TRUE}
-knitr::include_graphics("tssa.png")
-```
+![Interactive discovery and visualisation of data series.\label{fig:tssa}](tssa.png)
 
 The user can then download the displayed data as CSV or obtain a R code
 snippet that shows how to obtain the data using the dataaimsr package
-(Fig. \@ref(fig:tssb)). In this way, a user can easily explore and discover
+\autoref{fig:tssb}. In this way, a user can easily explore and discover
 datasets and then quickly and easily have this data in their R environment for
 additional analysis.
 
-(ref:fig-tssb) Download/Export displayed data via R snippet.
-
-```{r tssb, echo = FALSE, out.width = "100%", fig.cap="(ref:fig-tssb)", cache = TRUE}
-knitr::include_graphics("tssb.png")
-```
+![Download/Export displayed data via R snippet.\label{fig:tssb}](tssb.png)
 
 # Future directions
 
