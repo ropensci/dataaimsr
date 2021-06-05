@@ -6,7 +6,7 @@ dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align
 <!-- badges: start -->
 
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
-[![status](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d/status.svg)](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.03282/status.svg)](https://doi.org/10.21105/joss.03282)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build
@@ -41,7 +41,7 @@ capacity they want (e.g. data visualisation, statistical analyses, etc).
 The package itself contains a `plot` method which allows the user to
 plot summaries of the different types of dataset made available by the
 API. Below we provide a brief context about the existing
-\[Datasets\]\[\#datasets\] that can be explored through `dataaimsr`.
+[Datasets](#datasets) that can be explored through `dataaimsr`.
 
 Installation
 ------------
