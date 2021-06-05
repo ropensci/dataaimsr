@@ -24,7 +24,7 @@ version <- gsub("-", ".", version)
 
 <!-- badges: start -->
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
-[![status](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d/status.svg)](https://joss.theoj.org/papers/7980fff63a54453a4e637f185764336d)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.03282/status.svg)](https://doi.org/10.21105/joss.03282)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![R build status](https://github.com/ropensci/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/dataaimsr/actions)
 [![Codecov test coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dataaimsr?branch=master)
@@ -53,7 +53,7 @@ fully explore these datasets in R in whichever capacity they want (e.g.
 data visualisation, statistical analyses, etc). The package itself contains
 a `plot` method which allows the user to plot summaries of the different types
 of dataset made available by the API. Below we provide a brief context about
-the existing [Datasets][#datasets] that can be explored through `dataaimsr`.
+the existing [Datasets](#datasets) that can be explored through `dataaimsr`.
 
 [1]: https://open-aims.github.io/data-platform/
 
