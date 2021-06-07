@@ -22,6 +22,13 @@ coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
 
+**Barneche DR, Coleman G, Fermor D, Klein E, Robinson T, Smith J,
+Sheehan JL, Dowley S, Ditton D, Gunn K, Ericson G, Logan M, Rehbein M**
+(2021). dataaimsr: An R Client for the Australian Institute of Marine
+Science Data Platform API which provides easy access to AIMS Data
+Platform. *Journal of Open Source Software*, **6:** 3282. doi:
+[10.21105/joss.03282](https://doi.org/10.21105/joss.03282).
+
 Overview
 --------
 
