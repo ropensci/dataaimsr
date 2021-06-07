@@ -1,0 +1,14 @@
+citHeader("To cite dataaimsr in publications, please use:")
+
+citEntry(entry = "article",
+  author = c("Diego R. Barneche", "Greg Coleman", "Duncan Fermor", "Eduardo Klein", "Tobias Robinson", "Jason Smith", "Jeffrey L. Sheehan", "Shannon Dowley", "Dean Ditton", "Kevin Gunn", "Gavin Ericson", "Murray Logan", "Mark Rehbein"),
+  title = "dataaimsr: An R Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform",
+  journal = "Journal of Open Source Software",
+  volume = "6",
+  issue = "62",
+  year = "2021",
+  pages = "3282",
+  url = "https://joss.theoj.org/papers/10.21105/joss.03282",
+  doi = "10.21105/joss.03282",
+  textVersion = "Barneche DR, Coleman G, Fermor D, Klein E, Robinson T, Smith J, Sheehan JL, Dowley S, Ditton D, Gunn K, Ericson G, Logan M, Rehbein M (2021) dataaimsr: An R Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform. Journal of Open Source Software, 6(62): 3282."
+)
