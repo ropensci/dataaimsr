@@ -49,6 +49,8 @@ with_mock_api({
 
 with_mock_api({
   test_that("summary requests", {
+    expect_message(aims_data("temp_loggers", filters = s_filters,
+                             api_key = my_api_key, summary = "daily"))
     expect_message(aims_data("weather", api_key = my_api_key,
                              summary = "summary-by-series"))
     expect_message(aims_data("weather", api_key = my_api_key,
