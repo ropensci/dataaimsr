@@ -1,6 +1,10 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-on: [push, pull_request]
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 
 name: R-CMD-check
 
@@ -35,71 +39,20 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Install Linux dependencies
-        if: runner.os == 'Linux'
-        env:
-          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
-        run: |
-          Rscript -e "install.packages('remotes')"
-          Rscript -e "remotes::install_github('r-hub/sysreqs')"
-          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
-          sudo -s eval "$sysreqs"
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: rcmdcheck
 
-      # for some strange Windows reason this step and the next one need to be decoupled
-      - name: "[Stage] Prepare"
-        run: |
-          Rscript -e "if (!requireNamespace('remotes')) install.packages('remotes', type = 'source')"
-          Rscript -e "if (getRversion() < '3.2' && !requireNamespace('curl')) install.packages('curl', type = 'source')"
-      
-      - name: "[Stage] [Linux] Install curl"
-        if: runner.os == 'Linux'
-        run: sudo apt-get install libcurl4-openssl-dev libgit2-dev
+      - uses: r-lib/actions/check-r-package@v1
 
-      - name: "[Custom block] [Linux] Install spatial libraries"
-        if: runner.os == 'Linux'
-        run: |
-          sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-          sudo apt-get update
-          sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev
-
-      - name: "[Custom block] [macOS] Install spatial libraries"
-        if: runner.os == 'macOS'
-        run: |
-          # conflicts with gfortran from r-lib/actions when linking gcc
-          rm '/usr/local/bin/gfortran'
-          brew install pkg-config gdal proj geos udunits
-
-      - name: "[All] Install package dependencies"
-        run: |
-          install.packages(c("ps", "remotes", "tidyverse", "anytime"))
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
-
-      - name: "[Linux Win] Install package dependencies"
-        if: runner.os != 'macOS'
-        run: |
-          install.packages(c("rgdal", "rgeos", "sf", "units"))
-        shell: Rscript {0}
-
-      - name: "[MacOs] Install package dependencies"
-        if: runner.os == 'macOS'
-        run: |
-          install.packages(c("rgeos", "units"))
-          remotes::install_github("r-spatial/sf", configure.args = "--with-proj-lib=/usr/local/lib/")
-          install.packages("rgdal", configure.args = c("--with-proj-lib=/usr/local/lib/", "--with-proj-include=/usr/local/include/"))
-        shell: Rscript {0}
-
-      - name: Check
-        env:
-          _R_CHECK_CRAN_INCOMING_REMOTE_: false
-        run: |
-          install.packages("rcmdcheck")
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
-        shell: Rscript {0}
+      - name: Show testthat output
+        if: always()
+        run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
+        shell: bash
 
       - name: Upload check results
         if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
