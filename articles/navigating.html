@@ -26,8 +26,6 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -40,12 +38,18 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+<li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -73,7 +77,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ropensci/dataaimsr/" class="external-link">
+  <a href="https://github.com/ropensci/dataaimsr/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -94,62 +98,76 @@
       <h1 data-toc-skip>Navigating dataaimsr</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/ropensci/dataaimsr/blob/master/vignettes/navigating.Rmd" class="external-link"><code>vignettes/navigating.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/dataaimsr/blob/master/vignettes/navigating.Rmd"><code>vignettes/navigating.Rmd</code></a></small>
       <div class="hidden name"><code>navigating.Rmd</code></div>
 
     </div>
 
     
     
-<p>The very first thing to do is read the documentation on our <a href="../index.html">README</a> page. Make sure you have the package properly installed, and that your personal <a href="https://open-aims.github.io/data-platform/key-request" class="external-link">AIMS Data Platform API Key</a> has been downloaded.</p>
-<p>As per the installation instructions, we strongly suggest that you hide your API Key permanently in your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. You can read more about why that is important <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">here</a>.</p>
+<p>The very first thing to do is read the documentation on our <a href="../index.html">README</a> page. Make sure you have the package properly installed, and that your personal <a href="https://open-aims.github.io/data-platform/key-request">AIMS Data Platform API Key</a> has been downloaded.</p>
+<p>As per the installation instructions, we strongly suggest that you hide your API Key permanently in your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. You can read more about why that is important <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html">here</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># set my_api_key to NULL after successfully placing it in .Renviron</span>
 <span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
 <p>We now load <code>dataaimsr</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ropensci.github.io/dataaimsr" class="external-link">dataaimsr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ropensci.github.io/dataaimsr/">dataaimsr</a></span><span class="op">)</span></code></pre></div>
 <div id="how-this-package-works" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-this-package-works" class="anchor" aria-hidden="true"></a>How this package works</h2>
-<p><code>dataaimsr</code> contains two sets of monitoring data collected by AIMS—<a href="https://www.aims.gov.au/" class="external-link">the Australian Institute of Marine Science</a>—since the 1980’s: the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">Weather Station</a> dataset which contains encompasses data for different parameters (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others); and the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset which contains records of (you guessed it!) sea water temperature at different sites and water depths.</p>
+<a href="#how-this-package-works" class="anchor"></a>How this package works</h2>
+<p><code>dataaimsr</code> contains two sets of monitoring data collected by AIMS—<a href="https://www.aims.gov.au/">the Australian Institute of Marine Science</a>—since the 1980’s: the <a href="https://doi.org/10.25845/5c09bf93f315d">Weather Station</a> dataset which contains encompasses data for different parameters (e.g. Air Temperature, Air Pressure, Chlorophyll, and many others); and the <a href="https://doi.org/10.25845/5b4eb0f9bb848">Sea Water Temperature Loggers</a> dataset which contains records of (you guessed it!) sea water temperature at different sites and water depths.</p>
 <p>The datasets are very large, and as such they are not locally stored. They are instead downloaded via the API and unique DOI identifier (just hover over the data links above to see the actual DOI codes). The datasets are structured by sites, series and parameters. A series is a continuing time-series, i.e. a collection of deployments measuring the same parameter (e.g. Air Temperature, Air Pressure, Chlorophyll) at the same subsite. So, for a given site and parameter, there might exist multiple subsites and therefore series, in which case they are most likely distinguishable by depth.</p>
 <p>For the Sea Water Temperature Loggers dataset, series is synonymous with the variable called subsite. For the Weather Station dataset, it is the combination of subsite and parameter.</p>
-<p>This vignette gives an overview of how one would go about discovering the overall information contained in the datasets. For dataset-specific vignettes, see our other <a href="https://open-aims.github.io/dataaimsr/articles" class="external-link">vignette pages</a>.</p>
+<p>This vignette gives an overview of how one would go about discovering the overall information contained in the datasets. For dataset-specific vignettes, see our other <a href="https://ropensci.github.io/dataaimsr/articles/">vignette pages</a>.</p>
 </div>
 <div id="discover-a-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#discover-a-dataset" class="anchor" aria-hidden="true"></a>Discover a dataset</h2>
-<p>The <a href="https://open-aims.github.io/data-platform" class="external-link">AIMS Data Platform API</a> points to the full metadata of each dataset. We are currently working on ways to facilitate the visualisation of both datasets and their multiple features directly through the R package. At the moment though it is only possible to visualise summary information for the Sea Water Temperature Loggers dataset. A similar feature for the Weather Station dataset will be implemented in the near future (likely early 2021)—so for now, please refer to the online metadata to discover from where (and when) you can download data.</p>
+<a href="#discover-a-dataset" class="anchor"></a>Discover a dataset</h2>
+<p>The <a href="https://open-aims.github.io/data-platform/">AIMS Data Platform API</a> points to the full metadata of each dataset. We are currently working on ways to facilitate the visualisation of both datasets and their multiple features directly through the R package. At the moment though it is only possible to visualise summary information for the Sea Water Temperature Loggers dataset. A similar feature for the Weather Station dataset will be implemented in the near future (likely early 2021)—so for now, please refer to the online metadata to discover from where (and when) you can download data.</p>
 <div id="data-summary" class="section level3">
 <h3 class="hasAnchor">
-<a href="#data-summary" class="anchor" aria-hidden="true"></a>Data summary</h3>
+<a href="#data-summary" class="anchor"></a>Data summary</h3>
 <p>The first step would be to visualise the dataset. Let’s do this by mapping all available sites for the Sea Water Temperature Loggers dataset using the main function called <code>aims_data</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span>target <span class="op">=</span> <span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
                    summary <span class="op">=</span> <span class="st">"summary-by-series"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span>
-<span class="co">#&gt;   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs</span>
-<span class="co">#&gt; 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480</span>
-<span class="co">#&gt; 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794</span>
-<span class="co">#&gt; 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231</span>
-<span class="co">#&gt; 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656</span>
-<span class="co">#&gt; 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585</span>
-<span class="co">#&gt; 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608</span></code></pre></div>
-<p>The <code>summary</code> argument here is key. It should only be flagged when the user wants an overview of the available data. Again, this currently implemented for the Sea Water Temperature Loggers dataset. One can visualise <code>summary-by-series</code> or <code>summary-by-deployment</code>. The output of <code>aims_data</code> is a <code>data.frame</code> of class <code>aimsdf</code>.</p>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span>
+<span class="co">#&gt;   site_id                    site subsite_id    subsite series_id     series</span>
+<span class="co">#&gt; 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1</span>
+<span class="co">#&gt; 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old</span>
+<span class="co">#&gt; 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1</span>
+<span class="co">#&gt; 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1</span>
+<span class="co">#&gt; 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1</span>
+<span class="co">#&gt; 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1</span>
+<span class="co">#&gt;           parameter parameter_id time_coverage_start time_coverage_end      lat      lon</span>
+<span class="co">#&gt; 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212</span>
+<span class="co">#&gt; 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213</span>
+<span class="co">#&gt; 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813</span>
+<span class="co">#&gt; 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813</span>
+<span class="co">#&gt; 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688</span>
+<span class="co">#&gt; 6 Water Temperature            1          1996-05-02        2021-03-29 -18.8060 147.6686</span>
+<span class="co">#&gt;   depth uncal_obs cal_obs qc_obs</span>
+<span class="co">#&gt; 1     0     23130  110480 110480</span>
+<span class="co">#&gt; 2     5    114450  216794 216794</span>
+<span class="co">#&gt; 3     7     11951   53231  53231</span>
+<span class="co">#&gt; 4     1         0    4656   4656</span>
+<span class="co">#&gt; 5     1    437544  566585 566585</span>
+<span class="co">#&gt; 6     8    463146  589492 589437</span></code></pre></div>
+<p>The <code>summary</code> argument here is key. It should be either <code>"summary-by-series"</code> or <code>"summary-by-deployment"</code> when the user wants an overview of the available data. Again, this is currently implemented for the Sea Water Temperature Loggers dataset only. The output of <code>aims_data</code> is a <code>data.frame</code> of class <code>aimsdf</code>.</p>
 <p>Notice that <code>sdata</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
 <p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same. Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After calibration, all data records are quality controlled based on the following tests: 1) clip to in-water only data, using deployment’s metadata, 2) impossible value check: data outside a fixed temperature range (14˚C – 40˚C) is flagged as bad data, 3) spike test: individual extreme values are flagged as probably bad and 4) Excessive gradient test: pairs of data that present a sudden change in the slope are flagged as probably bad. If any data record fails at least one of the tests, a QC flag equal to 2 is returned, otherwise, the QC flag is set to 1.</p>
-<p><code>aimsdf</code> objects can be plotted using the <code>plot</code> function. For summary data such as <code>sdata</code>, plot will always generate a map with the points around Australia and associated regions, coloured by the number of calibrated observations:</p>
+<p><code>aimsdf</code> objects can be plotted using the <code>plot</code> function. For <code>summary-by-...</code> data such as <code>sdata</code>, <code>plot</code> will always generate a map with the points around Australia and associated regions, coloured by the number of calibrated observations:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sdata</span>, ptype <span class="op">=</span> <span class="st">"map"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sdata</span>, ptype <span class="op">=</span> <span class="st">"map"</span><span class="op">)</span></code></pre></div>
 <p><img src="vignette-fig-summap-1.png" title="plot of chunk summap" alt="plot of chunk summap" width="100%"></p>
 </div>
 <div id="filter-values" class="section level3">
 <h3 class="hasAnchor">
-<a href="#filter-values" class="anchor" aria-hidden="true"></a>Filter values</h3>
+<a href="#filter-values" class="anchor"></a>Filter values</h3>
 <p>In the case of the Weather Station dataset, knowing what sites are out there is a bit tricky. However, currently we have a convenience function called <code>aims_filter_values</code> which allows one to query what sites, series and parameters are available for both datasets:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/aims_filter_values.html">aims_filter_values</a></span><span class="op">(</span><span class="st">"weather"</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/aims_filter_values.html">aims_filter_values</a></span><span class="op">(</span><span class="st">"weather"</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;   series_id                                                                 series</span>
 <span class="co">#&gt; 1    104918        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) </span>
 <span class="co">#&gt; 2    100686                            Saibai Island Weather Station Hail Duration</span>
@@ -157,17 +175,18 @@
 <span class="co">#&gt; 4      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)</span>
 <span class="co">#&gt; 5     10243                           Raine Island Weather Station Air Temperature</span>
 <span class="co">#&gt; 6       258             Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)</span></code></pre></div>
-<p>The downside is that one cannot know what time window is available for each one of those, nor how they are nested (i.e. series / parameter / site). In a way though the series name generally gives that information anyway (see code output above). If knowing the available observation window is absolutely crucial, then as mentioned above the user should refer to the <a href="https://open-aims.github.io/data-platform" class="external-link">online metadata</a>.</p>
+<p>The downside is that one cannot know what time window is available for each one of those, nor how they are nested (i.e. series / parameter / site). In a way though the series name generally gives that information anyway (see code output above). If knowing the available observation window is absolutely crucial, then as mentioned above the user should refer to the <a href="https://open-aims.github.io/data-platform/">online metadata</a>.</p>
 </div>
 </div>
 <div id="download-slices-of-datasets" class="section level2">
 <h2 class="hasAnchor">
-<a href="#download-slices-of-datasets" class="anchor" aria-hidden="true"></a>Download slices of datasets</h2>
+<a href="#download-slices-of-datasets" class="anchor"></a>Download slices of datasets</h2>
 <p>Now that we know how to explore the datasets and what data is out there, we finish this vignette by showing an example of how one would go about downloading actual monitoring data.</p>
-<p>We say slices of datasets because AIMS monitoring datasets are of very high temporal resolution and if one tries to download the entire thing it might take hours. Generally that is why we download slices of data at a time, and for that we need filters.</p>
+<p>We say slices of datasets because AIMS monitoring datasets are of very high temporal resolution and if one tries to download the entire thing it might take hours. Generally that is why we download slices of data at a time, and for that we need filters (see below).</p>
+<p>On the other hand, if all we are interested in are aggregated values (daily means), then we can set <code>summary = "daily"</code> in <code>aims_data</code> in combination with a list of <code>filters</code> to download more concise datasets. So far, aggregated data is only available for the Sea Water Temperature Loggers dataset.</p>
 <div id="data-filters" class="section level3">
 <h3 class="hasAnchor">
-<a href="#data-filters" class="anchor" aria-hidden="true"></a>Data filters</h3>
+<a href="#data-filters" class="anchor"></a>Data filters</h3>
 <p>Filters are the last important information the user needs to know to master the navigation and download of AIMS monitoring datasets. Each dataset can filtered by attributes which can be exposed with the function <code>aims_expose_attributes</code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/aims_expose_attributes.html">aims_expose_attributes</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span>
@@ -175,18 +194,20 @@
 <span class="co">#&gt; [1] NA</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $filters</span>
-<span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span>
+<span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  </span>
+<span class="co">#&gt;  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span>
 <span class="fu"><a href="../reference/aims_expose_attributes.html">aims_expose_attributes</a></span><span class="op">(</span><span class="st">"temp_loggers"</span><span class="op">)</span>
 <span class="co">#&gt; $summary</span>
-<span class="co">#&gt; [1] "summary-by-series"     "summary-by-deployment"</span>
+<span class="co">#&gt; [1] "summary-by-series"     "summary-by-deployment" "daily"                </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $filters</span>
-<span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></code></pre></div>
+<span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  </span>
+<span class="co">#&gt;  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></code></pre></div>
 <p>The help file (see <code><a href="../reference/aims_expose_attributes.html">?aims_expose_attributes</a></code>) contains the details about what each filter targets. So, having an understanding of the summaries and what filters are available provide the user with a great head start.</p>
-<p>Downloading the data is achieved using the same <code>aims_data</code> function, however now we do not specify a <code>summary</code> argument, and instead implement filters. For example, let’s say we want to download all the data collected at the <a href="https://en.wikipedia.org/wiki/SS_Yongala" class="external-link">Yongala</a> for a specific time window:</p>
+<p>Downloading the raw, high-resolution data is achieved using the same <code>aims_data</code> function, however now we ignore the <code>summary</code> argument, and instead implement filters. For example, let’s say we want to download all the data collected at the <a href="https://en.wikipedia.org/wiki/SS_Yongala">Yongala</a> for a specific time window:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"weather"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>site <span class="op">=</span> <span class="st">"Yongala"</span>,
+                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>site <span class="op">=</span> <span class="st">"Yongala"</span>,
                                     from_date <span class="op">=</span> <span class="st">"2018-01-01"</span>,
                                     thru_date <span class="op">=</span> <span class="st">"2018-01-02"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>The returned <code>aimsdf</code> object in this case has attributes which give us summary crucial information:</p>
@@ -199,27 +220,35 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/aims_metadata.html">aims_metadata</a></span><span class="op">(</span><span class="va">wdata_a</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Metadata record https://doi.org/10.25845/5c09bf93f315d"</span></code></pre></div>
-<p>This example data contains multiple parameters available for this site at the specified time, and the actual measurements are either raw or quality-controlled. For monitoring data (i.e. when <code>summary = NA</code> in a <code>aims_data</code> call), we can either visualise the data as a time series broken down by parameter, or a map showing the sites with some summary info. If the parameters are not specified, then <code>dataaimsr</code> will plot a maximum of 4 parameters chosen at random for a time series plot. Alternatively the user can specify which parameters are to be plotted.</p>
+<p>This example data contains multiple parameters available for this site at the specified time, and the actual measurements are either raw or quality-controlled. For monitoring data (both aggregated or non-aggregated, i.e. when <code>summary = NA</code> or <code>summary = "daily"</code> in an <code>aims_data</code> call), we can either visualise the data as a time series broken down by parameter, or a map showing the sites with some summary info. If the parameters are not specified, then <code>dataaimsr</code> will plot a maximum of 4 parameters chosen at random for a time series plot. Alternatively the user can specify which parameters are to be plotted.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># check parameters with aims_parameters(wdata_a)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">wdata_a</span>, ptype <span class="op">=</span> <span class="st">"time_series"</span>,
-     pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Water Pressure"</span>, <span class="st">"Chlorophyll"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">wdata_a</span>, ptype <span class="op">=</span> <span class="st">"time_series"</span>,
+     pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Water Pressure"</span>, <span class="st">"Chlorophyll"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="vignette-fig-monts-1.png" title="plot of chunk monts" alt="plot of chunk monts" width="100%"></p>
 <p>We can also refine even further by including a time window to download the data:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wdata_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"weather"</span>,
                      api_key <span class="op">=</span> <span class="va">my_api_key</span>,
-                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">64</span>,
+                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">64</span>,
                                     from_date <span class="op">=</span> <span class="st">"1991-10-18T06:00:00"</span>,
                                     thru_date <span class="op">=</span> <span class="st">"1991-10-18T12:00:00"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">wdata_b</span><span class="op">$</span><span class="va">time</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">wdata_b</span><span class="op">$</span><span class="va">time</span><span class="op">)</span>
 <span class="co">#&gt; [1] "1991-10-18 06:00:00 UTC" "1991-10-18 12:00:00 UTC"</span></code></pre></div>
+<p>Or simply download and plot daily aggregated data:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sdata_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>, summary <span class="op">=</span> <span class="st">"daily"</span>,
+                     filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>series <span class="op">=</span> <span class="st">"DAVFL1"</span>,
+                                    from_date <span class="op">=</span> <span class="st">"2018-01-01"</span>,
+                                    thru_date <span class="op">=</span> <span class="st">"2018-12-31"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sdata_c</span>, ptype <span class="op">=</span> <span class="st">"time_series"</span>, pars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Water Temperature"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p><img src="vignette-fig-unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="100%"></p>
 </div>
 </div>
 <div id="more-info" class="section level2">
 <h2 class="hasAnchor">
-<a href="#more-info" class="anchor" aria-hidden="true"></a>More info</h2>
-<p>See our other <a href="https://open-aims.github.io/dataaimsr/articles" class="external-link">vignette pages</a> for further dataset-specific explorations.</p>
+<a href="#more-info" class="anchor"></a>More info</h2>
+<p>See our other <a href="https://ropensci.github.io/dataaimsr/articles/">vignette pages</a> for further dataset-specific explorations.</p>
 </div>
   </div>
 
@@ -234,13 +263,11 @@
 
 
       <footer><div class="copyright">
-  <p></p>
-<p>Developed by Diego R. Barneche, AIMS Datacentre, Greg Coleman, Duncan Fermor, Eduardo Klein, Tobias Robinson, Jason Smith, Jeffrey L. Sheehan, Shannon Dowley, Dean Ditton, Kevin Gunn, Gavin Ericson, Murray Logan, Mark Rehbein.</p>
+  <p>Developed by Diego R. Barneche, AIMS Datacentre, Greg Coleman, Duncan Fermor, Eduardo Klein, Tobias Robinson, Jason Smith, Jeffrey L. Sheehan, Shannon Dowley, Dean Ditton, Kevin Gunn, Gavin Ericson, Murray Logan, Mark Rehbein.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -248,8 +275,6 @@
 
   
 
-
-  
 
   </body>
 </html>

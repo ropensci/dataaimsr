@@ -53,8 +53,6 @@
 
 
 
-
-
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -66,15 +64,9 @@
 
 
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -88,13 +80,19 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dataaimsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fas fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -148,7 +146,7 @@
     <p>This function tries to search for an API Key</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>find_api_key</span><span class='op'>(</span><span class='va'>api_key</span><span class='op'>)</span></code></pre></div>
+    <pre class="usage"><span class='fu'>find_api_key</span><span class='op'>(</span><span class='va'>api_key</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,7 +166,7 @@ in .Renviron or, if missing entirely, an error message.</p>
 
     <p>The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
+<a href='https://open-aims.github.io/data-platform/'>AIMS Data Platform API</a>.
 The AIMS Data Platform requires an API Key for requests, which can
 be obtained at this
 <a href='https://open-aims.github.io/data-platform/key-request'>link</a>.
@@ -177,7 +175,7 @@ storing the environment variable <code>AIMS_DATAPLATFORM_API_KEY</code>
 permanently under the user's <code>.Renviron</code> file in order to load
 the API Key automatically.</p>
 <p>There are two types of data currently available through the
-<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>:
+<a href='https://open-aims.github.io/data-platform/'>AIMS Data Platform API</a>:
 <a href='https://weather.aims.gov.au/#/overview'>Weather</a> and
 <a href='https://tinyurl.com/h93mcojk'>Sea Water Temperature Loggers</a>.
 They are searched internally via unique DOI identifiers.
@@ -188,13 +186,20 @@ Only one data type at a time can be passed to the argument <code>target</code>.<
 using function <code><a href='aims_expose_attributes.html'>aims_expose_attributes</a></code>.</p>
 <p>Note that at present the user can inspect the range of dates for
 the temperature loggers data only (see usage of argument <code>summary</code> in
-<code><a href='aims_data.html'>aims_data</a></code>). Details about available dates for each dataset
-and time series can be accessed via Metadata on
-<a href='https://open-aims.github.io/data-platform'>AIMS Data Platform API</a>.
+the examples below). For that, the argument <code>summary</code> must be either
+the string <code>"summary-by-series"</code> or <code>"summary-by-deployment"</code>.
+In those cases, time filters will be ignored.</p>
+<p>Details about available dates for each dataset and time series can be
+accessed via Metadata on
+<a href='https://open-aims.github.io/data-platform/'>AIMS Data Platform API</a>.
 We raise this caveat here because these time boundaries are very important;
-data are collected at very small time intervals, so just a few days of
-time interval can yield massive datasets. The query will return and error
+data are collected at very small time intervals, a window of just a few days
+can yield very large datasets. The query will return and error
 if it reaches the system's memory capacity.</p>
+<p>For that same reason, from version 1.1.0 onwards, we are offering the
+possibility of downloading a mean daily aggregated version. For that, the
+user must set <code>summary = "daily"</code>. In this particular case, query filter
+will be taken into account.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>AIMS Datacentre <a href='mailto:adc@aims.gov.au'>adc@aims.gov.au</a></p>
@@ -210,11 +215,11 @@ if it reaches the system's memory capacity.</p>
 
       <footer>
       <div class="copyright">
-  <p><p>Developed by Diego R. Barneche, AIMS Datacentre, Greg Coleman, Duncan Fermor, Eduardo Klein, Tobias Robinson, Jason Smith, Jeffrey L. Sheehan, Shannon Dowley, Dean Ditton, Kevin Gunn, Gavin Ericson, Murray Logan, Mark Rehbein.</p></p>
+  <p>Developed by Diego R. Barneche, AIMS Datacentre, Greg Coleman, Duncan Fermor, Eduardo Klein, Tobias Robinson, Jason Smith, Jeffrey L. Sheehan, Shannon Dowley, Dean Ditton, Kevin Gunn, Gavin Ericson, Murray Logan, Mark Rehbein.</p>
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
@@ -222,8 +227,6 @@ if it reaches the system's memory capacity.</p>
 
   
 
-
-  
 
   </body>
 </html>
