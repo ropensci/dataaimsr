@@ -1,7 +1,7 @@
 #' Request data via the AIMS Data Platform API
 #'
 #' A function that communicates with the
-#' the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
+#' the \href{https://open-aims.github.io/data-platform/}{AIMS Data Platform}
 #' via the AIMS Data Platform API
 #'
 #' @param target A \code{\link[base]{character}} vector of length 1 specifying
@@ -17,7 +17,7 @@
 #'
 #' @details The AIMS Data Platform R Client provides easy access to
 #' data sets for R applications to the
-#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform/}{AIMS Data Platform API}.
 #' The AIMS Data Platform requires an API Key for requests, which can
 #' be obtained at this
 #' \href{https://open-aims.github.io/data-platform/key-request}{link}.
@@ -27,7 +27,7 @@
 #' the API Key automatically.
 #'
 #' There are two types of data currently available through the
-#' [AIMS Data Platform API](https://open-aims.github.io/data-platform):
+#' [AIMS Data Platform API](https://open-aims.github.io/data-platform/):
 #' [Weather](https://weather.aims.gov.au/#/overview) and
 #' [Sea Water Temperature Loggers](https://tinyurl.com/h93mcojk).
 #' They are searched internally via unique DOI identifiers.
@@ -46,7 +46,7 @@
 #' 
 #' Details about available dates for each dataset and time series can be
 #' accessed via Metadata on
-#' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+#' \href{https://open-aims.github.io/data-platform/}{AIMS Data Platform API}.
 #' We raise this caveat here because these time boundaries are very important;
 #' data are collected at very small time intervals, a window of just a few days
 #' can yield very large datasets. The query will return and error

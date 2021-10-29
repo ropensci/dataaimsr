@@ -67,7 +67,7 @@ This vignette gives an overview of how one would go about discovering
 the overall information contained in the datasets. For dataset-specific 
 vignettes, see our other [vignette pages][4].
 
-[4]: https://open-aims.github.io/dataaimsr/articles
+[4]: https://ropensci.github.io/dataaimsr/articles/
 
 ## Discover a dataset
 
@@ -81,7 +81,7 @@ implemented in the near future (likely early 2021)---so for now, please
 refer to the online metadata to discover from where (and when) you can 
 download data.
 
-[5]: https://open-aims.github.io/data-platform 
+[5]: https://open-aims.github.io/data-platform/
 
 ### Data summary
 
@@ -94,20 +94,27 @@ Loggers dataset using the main function called `aims_data`:
 sdata <- aims_data(target = "temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
-#>   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id
-#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1
-#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1
-#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1
-#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1
-#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1
-#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1
-#>   time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-#> 1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
-#> 2          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
-#> 3          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
-#> 4          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
-#> 5          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
-#> 6          1996-05-02        2021-03-29 -18.8060 147.6686     8    463146  589492 589437
+#>   site_id                    site subsite_id    subsite series_id     series
+#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1
+#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
+#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
+#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
+#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
+#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1
+#>           parameter parameter_id time_coverage_start time_coverage_end      lat      lon
+#> 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212
+#> 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213
+#> 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813
+#> 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813
+#> 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688
+#> 6 Water Temperature            1          1996-05-02        2021-03-29 -18.8060 147.6686
+#>   depth uncal_obs cal_obs qc_obs
+#> 1     0     23130  110480 110480
+#> 2     5    114450  216794 216794
+#> 3     7     11951   53231  53231
+#> 4     1         0    4656   4656
+#> 5     1    437544  566585 566585
+#> 6     8    463146  589492 589437
 ```
 
 The `summary` argument here is key. It should be either `"summary-by-series"`
@@ -208,15 +215,15 @@ aims_expose_attributes("weather")
 #> [1] NA
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"  
-#> [10] "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  
+#>  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 aims_expose_attributes("temp_loggers")
 #> $summary
 #> [1] "summary-by-series"     "summary-by-deployment" "daily"                
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"  
-#> [10] "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  
+#>  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 The help file (see `?aims_expose_attributes`) contains the details about what

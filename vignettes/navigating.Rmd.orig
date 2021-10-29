@@ -75,7 +75,7 @@ This vignette gives an overview of how one would go about discovering
 the overall information contained in the datasets. For dataset-specific 
 vignettes, see our other [vignette pages][4].
 
-[4]: https://open-aims.github.io/dataaimsr/articles
+[4]: https://ropensci.github.io/dataaimsr/articles/
 
 ## Discover a dataset
 
@@ -89,7 +89,7 @@ implemented in the near future (likely early 2021)---so for now, please
 refer to the online metadata to discover from where (and when) you can 
 download data.
 
-[5]: https://open-aims.github.io/data-platform 
+[5]: https://open-aims.github.io/data-platform/
 
 ### Data summary
 

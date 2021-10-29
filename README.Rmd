@@ -25,9 +25,9 @@ version <- gsub("-", ".", version)
 <!-- badges: start -->
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.03282/status.svg)](https://doi.org/10.21105/joss.03282)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R build status](https://github.com/ropensci/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/dataaimsr/actions)
-[![Codecov test coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dataaimsr?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/dataaimsr?branch=master)
 ![pkgdown](https://github.com/ropensci/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT + file LICENSE-lightgrey.svg)](https://choosealicense.com/)
 [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg)](commits/master)
@@ -120,7 +120,7 @@ wdf_a <- aims_data("weather", api_key = NULL,
 More comprehensive examples about how to navigate `dataaimsr` and interrogate
 the datasets can be found on our [online vignettes][4].
 
-[4]: https://ropensci.github.io/dataaimsr/articles
+[4]: https://ropensci.github.io/dataaimsr/articles/
 
 ## Datasets
 
@@ -161,7 +161,7 @@ and its usage, please visit the [metadata][3] webpage.
 
 ## License
 
-`dataaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](http://opensource.org/licenses/MIT)).
+`dataaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](https://opensource.org/licenses/MIT)).
 
 ## Code of Conduct
 
@@ -171,4 +171,4 @@ By contributing to this project, you agree to abide by its terms.
 
 ## AIMS R package logos
 
-Our R package logos use a watercolour map of Australia, obtained with the [ggmap](https://CRAN.R-project.org/package=ggmap) R package, which downloads original map tiles provided by [Stamen Design](http://stamen.com), under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0), with data from [OpenStreetMap](http://openstreetmap.org), under [CC BY SA](http://creativecommons.org/licenses/by-sa/3.0).
+Our R package logos use a watercolour map of Australia, obtained with the [ggmap](https://CRAN.R-project.org/package=ggmap) R package, which downloads original map tiles provided by [Stamen Design](https://stamen.com/), under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0), with data from [OpenStreetMap](https://www.openstreetmap.org/), under [CC BY SA](https://creativecommons.org/licenses/by-sa/3.0).

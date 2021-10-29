@@ -24,7 +24,7 @@ requirements, and to learn the general approach to navigating the different
 datasets. This vignette assumes you have obtained an
 [AIMS Data Platform API Key][2].
 
-[1]: https://open-aims.github.io/dataaimsr/articles/navigating.html
+[1]: https://ropensci.github.io/dataaimsr/articles/navigating.html
 [2]: https://open-aims.github.io/data-platform/key-request
 
 As per the installation instructions, we strongly suggest that you hide your

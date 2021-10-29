@@ -82,6 +82,7 @@ print.aimsdf <- function(x, ...) {
 #' @importFrom ggplot2 aes scale_colour_distiller guides guide_colourbar
 #' @importFrom ggplot2 geom_line theme_bw element_text facet_wrap
 #' @importFrom ggrepel geom_label_repel
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
@@ -110,8 +111,8 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
     map_bd <- ne_countries(continent = "oceania", returnclass = "sf") %>%
       st_transform(crs = 3112)
     y <- x %>%
-      mutate(cols = cal_obs * 1e-3) %>%
-      drop_na(lon, lat) %>%
+      mutate(cols = .data$cal_obs * 1e-3) %>%
+      drop_na(.data$lon, .data$lat) %>%
       st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
       st_transform(crs = 3112)
     p_bkg <- make_pretty_colour("lightblue")
@@ -120,14 +121,12 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
       geom_sf(colour = "grey60", fill = "burlywood2",
               alpha = 0.8, lwd = 0.1) +
       theme_classic() +
-      theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
+      theme(panel.background = element_rect(fill = .data$p_bkg,
+                                            colour = .data$p_bkg,
                                             linetype = "solid"),
             legend.position = "bottom") +
-      labs(x = "Longitude",
-           y = "Latitude",
-           title = target,
-           subtitle = d_type) +
-      geom_sf(data = y, mapping = aes(colour = cols)) +
+      labs(x = "Longitude", y = "Latitude", title = target, subtitle = d_type) +
+      geom_sf(data = y, mapping = aes(colour = .data$cols)) +
       scale_colour_distiller(name = name_leg, palette = 6) +
       guides(colour = guide_colourbar(title.position = "top",
                                       title.hjust = 0.5))
@@ -141,12 +140,13 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         pars <- sample(d_pars)[seq_len(n_)]
       }
       y <- x %>%
-        filter(parameter %in% pars)
+        filter(.data$parameter %in% pars)
       ggplot(data = y) +
-        geom_line(mapping = aes(x = time, y = qc_val, colour = subsite)) +
+        geom_line(mapping = aes(x = .data$time, y = .data$qc_val,
+                                colour = .data$subsite)) +
         labs(x = "Date", y = "Parameter value", colour = "Subsite",
              title = target, subtitle = "Time series") +
-        facet_wrap(~parameter, ncol = 2) +
+        facet_wrap(~.data$parameter, ncol = 2) +
         theme_bw() +
         theme(axis.title.x = element_text(size = 12),
               axis.title.y = element_text(size = 12))
@@ -154,12 +154,13 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
       map_bd <- ne_countries(continent = "oceania", returnclass = "sf") %>%
         st_transform(crs = 3112)
       y_l <- x %>%
-        group_by(site) %>%
-        summarise(n_obs = length(qc_val), lon = unique(lon),
-                  lat = unique(lat), n_ser = length(unique(series))) %>%
-        mutate(par_l = paste0(site, ":\n", n_ser, " series; ", n_obs,
-                              " obs.")) %>%
-        drop_na(lon, lat)
+        group_by(.data$site) %>%
+        summarise(n_obs = length(.data$qc_val), lon = unique(.data$lon),
+                  lat = unique(.data$lat),
+                  n_ser = length(unique(.data$series))) %>%
+        mutate(par_l = paste0(.data$site, ":\n", .data$n_ser, " series; ",
+                              .data$n_obs, " obs.")) %>%
+        drop_na(.data$lon, .data$lat)
       y_p <- y_l %>%
         st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
         st_transform(crs = 3112)
@@ -172,15 +173,16 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         geom_sf(colour = "grey60", fill = "burlywood2",
                 alpha = 0.8, lwd = 0.1) +
         theme_classic() +
-        theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
+        theme(panel.background = element_rect(fill = .data$p_bkg,
+                                              colour = .data$p_bkg,
                                               linetype = "solid"),
               legend.position = "bottom") +
         labs(x = "Longitude", y = "Latitude", title = target,
              subtitle = d_type) +
         geom_sf(data = y_p, colour = "grey30") +
         geom_label_repel(data = y_l, size = 3, hjust = 0, vjust = 0,
-                         mapping = aes(x = lon, y = lat,
-                                       label = par_l))
+                         mapping = aes(x = .data$lon, y = .data$lat,
+                                       label = .data$par_l))
     }
   }
 }

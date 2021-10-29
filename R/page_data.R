@@ -1,14 +1,14 @@
 #' Request data via the AIMS Data Platform API
 #'
 #' A function that communicates with the
-#' the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
+#' the \href{https://open-aims.github.io/data-platform/}{AIMS Data Platform}
 #' via the AIMS Data Platform API
 #'
 #' @inheritParams aims_data
 #'
 #' @param doi A \href{https://www.doi.org/}{Digital Object Identifier}
 #' for a chosen
-#' \href{https://open-aims.github.io/data-platform}{AIMS data series}
+#' \href{https://open-aims.github.io/data-platform/}{AIMS data series}
 #' @param api_key An AIMS Data Platform
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
 #' @param summary Should summary tables (\code{"summary-by-series"} or

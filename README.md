@@ -1,23 +1,23 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
-===========================================================================================
+# dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
 
 <!-- badges: start -->
 
 [![](https://badges.ropensci.org/428_status.svg)](https://github.com/ropensci/software-review/issues/428)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.03282/status.svg)](https://doi.org/10.21105/joss.03282)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R build
 status](https://github.com/ropensci/dataaimsr/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/dataaimsr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dataaimsr?branch=master)
+coverage](https://codecov.io/gh/ropensci/dataaimsr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/dataaimsr?branch=master)
 ![pkgdown](https://github.com/ropensci/dataaimsr/workflows/pkgdown/badge.svg)
 [![license](https://img.shields.io/badge/license-MIT%20+%20file%20LICENSE-lightgrey.svg)](https://choosealicense.com/)
-[![packageversion](https://img.shields.io/badge/Package%20version-1.0.3-orange.svg)](commits/master)
+[![packageversion](https://img.shields.io/badge/Package%20version-1.1.0-orange.svg)](commits/master)
 [![Ask Us Anything
-!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/ropensci/dataaimsr/issues/new)
+\!](https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg)](https://github.com/ropensci/dataaimsr/issues/new)
 ![Open Source
 Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)
 <!-- badges: end -->
@@ -29,8 +29,7 @@ Science Data Platform API which provides easy access to AIMS Data
 Platform. *Journal of Open Source Software*, **6:** 3282. doi:
 [10.21105/joss.03282](https://doi.org/10.21105/joss.03282).
 
-Overview
---------
+## Overview
 
 The Australian Institute of Marine Science (AIMS) has a long tradition
 in measuring and monitoring a series of environmental parameters along
@@ -50,8 +49,7 @@ plot summaries of the different types of dataset made available by the
 API. Below we provide a brief context about the existing
 [Datasets](#datasets) that can be explored through `dataaimsr`.
 
-Installation
-------------
+## Installation
 
 ### Requesting an AIMS Data Platform API Key
 
@@ -72,91 +70,47 @@ Users can modify their `.Renviron` file by adding the following line:
 
 The `.Renviron` file is usually stored in each users home directory:
 
-<table>
-<colgroup>
-<col style="width: 35%" />
-<col style="width: 64%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>System</th>
-<th>.Renviron file locations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>MS Windows</td>
-<td><code>C:\Users\‹username›\.Renviron</code> or <code>C:\Users\‹username›\Documents\.Renviron</code></td>
-</tr>
-<tr class="even">
-<td>Linux / MacOs</td>
-<td><code>/home/‹username›/.Renviron</code></td>
-</tr>
-</tbody>
-</table>
+| System        | .Renviron file locations                                                                                  |
+| ------------- | --------------------------------------------------------------------------------------------------------- |
+| MS Windows    | <code>C:\\Users\\‹username›\\.Renviron</code> or <code>C:\\Users\\‹username›\\Documents\\.Renviron</code> |
+| Linux / MacOs | <code>/home/‹username›/.Renviron</code>                                                                   |
 
 ### Package
 
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Source</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Release</td>
-<td>CRAN</td>
-<td>Not yet available</td>
-</tr>
-<tr class="even">
-<td>Development</td>
-<td>GitHub</td>
-<td><code>remotes::install_github("ropensci/dataaimsr")</code></td>
-</tr>
-<tr class="odd">
-<td>Development</td>
-<td>rOpenSci</td>
-<td><code>install.packages("dataaimsr", repos = "https://dev.ropensci.org")</code></td>
-</tr>
-</tbody>
-</table>
+| Type        | Source   | Command                                                             |
+| ----------- | -------- | ------------------------------------------------------------------- |
+| Release     | CRAN     | Not yet available                                                   |
+| Development | GitHub   | `remotes::install_github("ropensci/dataaimsr")`                     |
+| Development | rOpenSci | `install.packages("dataaimsr", repos = "https://dev.ropensci.org")` |
 
-Usage
------
+## Usage
 
-    # assumes that user already has API key saved to
-    # .Renviron
-    library(dataaimsr)
+``` r
+# assumes that user already has API key saved to
+# .Renviron
+library(dataaimsr)
 
-    # summarised by series
-    # for all sites that contain data
-    # within a defined date range
-    sdf_b <- aims_data("temp_loggers", api_key = NULL,
-                       summary = "summary-by-series",
-                       filters = list("from_date" = "2018-01-01",
-                                      "thru_date" = "2018-12-31"))
+# summarised by series
+# for all sites that contain data
+# within a defined date range
+sdf_b <- aims_data("temp_loggers", api_key = NULL,
+                   summary = "summary-by-series",
+                   filters = list("from_date" = "2018-01-01",
+                                  "thru_date" = "2018-12-31"))
 
-    # downloads weather data from site Yongala
-    # within a defined date range
-    wdf_a <- aims_data("weather", api_key = NULL,
-                       filters = list(site = "Yongala",
-                                      from_date = "2018-01-01",
-                                      thru_date = "2018-01-02"))
+# downloads weather data from site Yongala
+# within a defined date range
+wdf_a <- aims_data("weather", api_key = NULL,
+                   filters = list(site = "Yongala",
+                                  from_date = "2018-01-01",
+                                  thru_date = "2018-01-02"))
+```
 
 More comprehensive examples about how to navigate `dataaimsr` and
 interrogate the datasets can be found on our [online
-vignettes](https://ropensci.github.io/dataaimsr/articles).
+vignettes](https://ropensci.github.io/dataaimsr/articles/).
 
-Datasets
---------
+## Datasets
 
 Currently, there are two AIMS long-term monitoring datasets available to
 be downloaded through `dataaimsr`:
@@ -188,32 +142,29 @@ Temperature instruments sample water temperatures every 5-10 minutes
 months. Temperature loggers on the reef-flat are generally placed just
 below Lowest Astronomical Tide level. Reef-slope (or where specified as
 Upper reef-slope) generally refers to depths 5–9 m while Deep reef-slope
-refers to depths of ~20 m. For more information on the dataset and its
+refers to depths of \~20 m. For more information on the dataset and its
 usage, please visit the
 [metadata](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e)
 webpage.
 
-License
--------
+## License
 
 `dataaimsr` is provided by the [Australian Institute of Marine
 Science](https://www.aims.gov.au) under the MIT License
-([MIT](http://opensource.org/licenses/MIT)).
+([MIT](https://opensource.org/licenses/MIT)).
 
-Code of Conduct
----------------
+## Code of Conduct
 
 Please note that this package is released with a [Contributor Code of
 Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
 project, you agree to abide by its terms.
 
-AIMS R package logos
---------------------
+## AIMS R package logos
 
 Our R package logos use a watercolour map of Australia, obtained with
 the [ggmap](https://CRAN.R-project.org/package=ggmap) R package, which
 downloads original map tiles provided by [Stamen
-Design](http://stamen.com), under [CC BY
-3.0](http://creativecommons.org/licenses/by/3.0), with data from
-[OpenStreetMap](http://openstreetmap.org), under [CC BY
-SA](http://creativecommons.org/licenses/by-sa/3.0).
+Design](https://stamen.com/), under [CC
+BY 3.0](https://creativecommons.org/licenses/by/3.0), with data from
+[OpenStreetMap](https://www.openstreetmap.org/), under [CC BY
+SA](https://creativecommons.org/licenses/by-sa/3.0).

@@ -49,13 +49,13 @@ output.}
 }
 \description{
 A function that communicates with the
-the \href{https://open-aims.github.io/data-platform}{AIMS Data Platform}
+the \href{https://open-aims.github.io/data-platform/}{AIMS Data Platform}
 via the AIMS Data Platform API
 }
 \details{
 The AIMS Data Platform R Client provides easy access to
 data sets for R applications to the
-\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform/}{AIMS Data Platform API}.
 The AIMS Data Platform requires an API Key for requests, which can
 be obtained at this
 \href{https://open-aims.github.io/data-platform/key-request}{link}.
@@ -65,7 +65,7 @@ permanently under the user's \code{.Renviron} file in order to load
 the API Key automatically.
 
 There are two types of data currently available through the
-\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}:
+\href{https://open-aims.github.io/data-platform/}{AIMS Data Platform API}:
 \href{https://weather.aims.gov.au/#/overview}{Weather} and
 \href{https://tinyurl.com/h93mcojk}{Sea Water Temperature Loggers}.
 They are searched internally via unique DOI identifiers.
@@ -84,7 +84,7 @@ In those cases, time filters will be ignored.
 
 Details about available dates for each dataset and time series can be
 accessed via Metadata on
-\href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
+\href{https://open-aims.github.io/data-platform/}{AIMS Data Platform API}.
 We raise this caveat here because these time boundaries are very important;
 data are collected at very small time intervals, a window of just a few days
 can yield very large datasets. The query will return and error
