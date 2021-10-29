@@ -43,13 +43,22 @@ using function \code{\link{aims_expose_attributes}}.
 
 Note that at present the user can inspect the range of dates for
 the temperature loggers data only (see usage of argument \code{summary} in
-\code{\link{aims_data}}). Details about available dates for each dataset
-and time series can be accessed via Metadata on
+the examples below). For that, the argument \code{summary} must be either
+the string \code{"summary-by-series"} or \code{"summary-by-deployment"}.
+In those cases, time filters will be ignored.
+
+Details about available dates for each dataset and time series can be
+accessed via Metadata on
 \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 We raise this caveat here because these time boundaries are very important;
-data are collected at very small time intervals, so just a few days of
-time interval can yield massive datasets. The query will return and error
+data are collected at very small time intervals, a window of just a few days
+can yield very large datasets. The query will return and error
 if it reaches the system's memory capacity.
+
+For that same reason, from version 1.1.0 onwards, we are offering the
+possibility of downloading a mean daily aggregated version. For that, the
+user must set \code{summary = "daily"}. In this particular case, query filter
+will be taken into account.
 }
 \author{
 AIMS Datacentre \email{adc@aims.gov.au}

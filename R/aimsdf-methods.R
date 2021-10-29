@@ -92,7 +92,7 @@ print.aimsdf <- function(x, ...) {
 #'                                 thru_date = "2018-01-02"))
 #' plot(wdf, ptype = "map")
 #' plot(wdf, ptype = "time_series")
-#' # summary datasets can only return maps
+#' # summary-by- datasets can only return maps
 #' sdf <- aims_data("temp_loggers", api_key = NULL,
 #'                  summary = "summary-by-deployment")
 #' plot(sdf, ptype = "map")

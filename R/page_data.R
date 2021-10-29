@@ -11,8 +11,9 @@
 #' \href{https://open-aims.github.io/data-platform}{AIMS data series}
 #' @param api_key An AIMS Data Platform
 #' \href{https://open-aims.github.io/data-platform/key-request}{API Key}
-#' @param summary Should summary tables be printed instead of full data?
-#' Details in ?\code{\link{aims_expose_attributes}}
+#' @param summary Should summary tables (\code{"summary-by-series"} or
+#' \code{"summary-by-deployment"}) or daily aggregated data ("daily") be
+#' returned instead of full data (see Details)?
 #' @param aims_version A \code{\link[base]{character}} string
 #' defining the version of database. Must be "/v1.0" or "-v2.0".
 #' If none is provided, then "-v2.0" (the most recent) is used.

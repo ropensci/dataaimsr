@@ -69,12 +69,14 @@ aims_expose_attributes("weather")
 #> [1] NA
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"  
+#> [10] "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
 [intro vignette][1], we have a convenience `summary` method which facilitates
-learning more about what data is available. The back-end for this is currently
+learning more about what data is available, or downloading daily aggregated
+average data. The back-end for these is currently
 being developed for the AIMS Weather Station as well. In the meantime, to
 explore the [AIMS Weather Station][3] dataset, we use the function
 `aims_filter_values`. This function takes a target dataset and a given filter,
@@ -188,6 +190,6 @@ ggplot(data = data.frame(date = days, temps = out)) +
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
-#> [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 18 March 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"
+#> [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 29 October 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
+#> [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 29 October 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"
 ```

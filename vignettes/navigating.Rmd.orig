@@ -103,11 +103,10 @@ sdata <- aims_data(target = "temp_loggers", api_key = my_api_key,
 head(sdata)
 ```
 
-The `summary` argument here is key. It should only be flagged when the
-user wants an overview of the available data. Again, this currently
-implemented for the Sea Water Temperature Loggers dataset. One can
-visualise `summary-by-series` or `summary-by-deployment`. The output of
-`aims_data` is a `data.frame` of class `aimsdf`.
+The `summary` argument here is key. It should be either `"summary-by-series"`
+or `"summary-by-deployment"` when the user wants an overview of the available
+data. Again, this is currently implemented for the Sea Water Temperature Loggers
+dataset only. The output of `aims_data` is a `data.frame` of class `aimsdf`.
 
 Notice that `sdata` contains a lot of information, most of which is
 related to site / series / parameter ID. Each row corresponds to a
@@ -123,7 +122,8 @@ Also note that there are three columns containing the total number of
 observations in a series: `uncal_obs`, `cal_obs` and `qc_obs`, which 
 respectively stand for uncalibrated, calibrated, and quality-controlled 
 observations. Calibrated and quality-controlled are generally the same.
-Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After
+Instruments are routinely calibrated (mostly once a year) in a
+temperature-controlled water bath and corrections applied to the data. After
 calibration, all data records are quality controlled based on the following
 tests: 1) clip to in-water only data, using deployment's metadata, 2)
 impossible value check: data outside a fixed temperature range (14˚C – 40˚C)
@@ -133,8 +133,8 @@ sudden change in the slope are flagged as probably bad. If any data record
 fails at least one of the tests, a QC flag equal to 2 is returned, otherwise,
 the QC flag is set to 1.
 
-`aimsdf` objects can be plotted using the `plot` function. For summary data
-such as `sdata`, plot will always generate a map with the points around
+`aimsdf` objects can be plotted using the `plot` function. For `summary-by-...`
+data such as `sdata`, `plot` will always generate a map with the points around
 Australia and associated regions, coloured by the number of calibrated
 observations:
 
@@ -169,7 +169,13 @@ downloading actual monitoring data.
 We say slices of datasets because AIMS monitoring datasets are of very 
 high temporal resolution and if one tries to download the entire thing
 it might take hours. Generally that is why we download slices of data at a
-time, and for that we need filters.
+time, and for that we need filters (see below).
+
+On the other hand, if all we are interested in are aggregated values
+(daily means), then we can set `summary = "daily"` in `aims_data` in
+combination with a list of `filters` to download more concise datasets.
+So far, aggregated data is only available for the Sea Water Temperature
+Loggers dataset.
 
 ### Data filters
 
@@ -186,8 +192,8 @@ The help file (see `?aims_expose_attributes`) contains the details about what
 each filter targets. So, having an understanding of the summaries and what
 filters are available provide the user with a great head start.
 
-Downloading the data is achieved using the same `aims_data` function, 
-however now we do not specify a `summary` argument, and instead 
+Downloading the raw, high-resolution data is achieved using the same `aims_data`
+function, however now we ignore the `summary` argument, and instead 
 implement filters. For example, let's say we want to download all the
 data collected at the [Yongala](https://en.wikipedia.org/wiki/SS_Yongala) for
 a specific time window:
@@ -217,12 +223,13 @@ aims_metadata(wdata_a)
 
 This example data contains multiple parameters available for this site at the
 specified time, and the actual measurements are either raw or
-quality-controlled. For monitoring data (i.e. when `summary = NA` in a
-`aims_data` call), we can either visualise the data as a time series broken
-down by parameter, or a map showing the sites with some summary info. If the
-parameters are not specified, then `dataaimsr` will plot a maximum of 4
-parameters chosen at random for a time series plot. Alternatively the user can
-specify which parameters are to be plotted.
+quality-controlled. For monitoring data (both aggregated or non-aggregated,
+i.e. when `summary = NA` or `summary = "daily"` in an `aims_data` call), we can
+either visualise the data as a time series broken down by parameter, or a map
+showing the sites with some summary info. If the parameters are not specified,
+then `dataaimsr` will plot a maximum of 4 parameters chosen at random for a
+time series plot. Alternatively the user can specify which parameters are to be
+plotted.
 
 ```{r monts, message = FALSE, warning = FALSE, fig.width = 8.5, fig.height = 3.9}
 # check parameters with aims_parameters(wdata_a)
@@ -240,6 +247,16 @@ wdata_b <- aims_data("weather",
                                     from_date = "1991-10-18T06:00:00",
                                     thru_date = "1991-10-18T12:00:00"))
 range(wdata_b$time)
+```
+
+Or simply download and plot daily aggregated data:
+
+```{r, message = FALSE, warning = FALSE, fig.width = 7.3, fig.height = 5.35}
+sdata_c <- aims_data("temp_loggers", api_key = my_api_key, summary = "daily",
+                     filters = list(series = "DAVFL1",
+                                    from_date = "2018-01-01",
+                                    thru_date = "2018-12-31"))
+plot(sdata_c, ptype = "time_series", pars = c("Water Temperature"))
 ```
 
 ## More info

@@ -73,14 +73,16 @@ function `aims_expose_attributes`. Knowing the filters is important because
 some time series are quite extensive, with parameters being measured at very
 high frequency (e.g. every 5 minutes), so downloading the dataset for an
 entire year or more my take quite some time (it's possible though if that is
-the true goal of the user).
+the true goal of the user). Otherwise, the Sea Water Temperature Loggers dataset
+can be downloaded at daily average aggregations, which can reduce the size of
+the download by many fold.
 
 ```{r}
 aims_expose_attributes("temp_loggers")
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
-[intro vignette][1], we have a convenience `summary` method which facilitates 
+[intro vignette][1], we have a convenience `summary` argument which facilitates 
 learning more about what data is available. We can download the summary 
 information for all sites using the main function called `aims_data`:
 
@@ -93,9 +95,8 @@ sdata <- aims_data("temp_loggers", api_key = my_api_key,
 head(sdata)
 ```
 
-The `summary` argument here is key. It should only be flagged when the
-user wants an overview of the available data. One can visualise
-`summary-by-series` or `summary-by-deployment`.
+`summary` should be set to either `summary-by-series` or `summary-by-deployment`
+when the user wants an overview of the available data.
 
 ```{r}
 ddata <- aims_data("temp_loggers", api_key = my_api_key,
@@ -194,6 +195,15 @@ ggplot(data = data.frame(date = days, temps = out)) +
   theme(axis.title.x = element_text(size = 12),
         axis.title.y = element_text(size = 12),
         legend.position = "bottom")
+```
+
+Or simply plot the daily aggregated averages:
+
+```{r, message = FALSE, warning = FALSE, fig.width = 7.3, fig.height = 5.35}
+df <- aims_data("temp_loggers", api_key = my_api_key, summary = "daily",
+                filters = list(series_id = 2629, from_date = "2005-01-01",
+                               thru_date = "2005-12-31"))
+plot(df, ptype = "time_series", pars = c("Water Temperature"))
 ```
 
 ## Bibliography

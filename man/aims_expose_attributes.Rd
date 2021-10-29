@@ -25,7 +25,7 @@ filters are allowed.
 
 We are working on implementing summary visualisation methods for weather
 station data. So, for the moment, the options below are only available
-for temperature logger data. Two options are available:
+for temperature logger data. Three options are available:
 
 \itemize{
 \item{summary-by-series}{Expose summary for all available series;
@@ -36,6 +36,7 @@ For weather stations, it is the combination of sub-site and
 parameter.}
 \item{summary-by-deployment}{Expose summary for all available
 deployments.}
+\item{daily}{Return mean daily aggregated monitoring data .}
 }
 
 We offer a list of valid filter names:

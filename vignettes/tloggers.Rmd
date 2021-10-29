@@ -65,20 +65,23 @@ function `aims_expose_attributes`. Knowing the filters is important because
 some time series are quite extensive, with parameters being measured at very
 high frequency (e.g. every 5 minutes), so downloading the dataset for an
 entire year or more my take quite some time (it's possible though if that is
-the true goal of the user).
+the true goal of the user). Otherwise, the Sea Water Temperature Loggers dataset
+can be downloaded at daily average aggregations, which can reduce the size of
+the download by many fold.
 
 
 ```r
 aims_expose_attributes("temp_loggers")
 #> $summary
-#> [1] "summary-by-series"     "summary-by-deployment"
+#> [1] "summary-by-series"     "summary-by-deployment" "daily"                
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"   "min_lon"  
+#> [10] "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
-[intro vignette][1], we have a convenience `summary` method which facilitates 
+[intro vignette][1], we have a convenience `summary` argument which facilitates 
 learning more about what data is available. We can download the summary 
 information for all sites using the main function called `aims_data`:
 
@@ -90,31 +93,44 @@ information for all sites using the main function called `aims_data`:
 sdata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
-#>   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
-#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
-#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
-#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
-#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
-#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1          1996-05-02        2017-05-07 -18.8060 147.6686     8    369317  495663 495608
+#>   site_id                    site subsite_id    subsite series_id     series         parameter parameter_id
+#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature            1
+#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature            1
+#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature            1
+#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature            1
+#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature            1
+#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature            1
+#>   time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
+#> 1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480 110480
+#> 2          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794 216794
+#> 3          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231  53231
+#> 4          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656   4656
+#> 5          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585 566585
+#> 6          1996-05-02        2021-03-29 -18.8060 147.6686     8    463146  589492 589437
 ```
 
-The `summary` argument here is key. It should only be flagged when the
-user wants an overview of the available data. One can visualise
-`summary-by-series` or `summary-by-deployment`.
+`summary` should be set to either `summary-by-series` or `summary-by-deployment`
+when the user wants an overview of the available data.
 
 
 ```r
 ddata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-deployment")
 head(ddata)
-#>   deployment_id serial_num site_id          site subsite_id subsite series_id  series         parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
-#> 1         39691   SU-11424       4   Davies Reef       2630  DAVSL1      2630  DAVSL1 Water Temperature            1          2012-11-10        2013-05-21 -18.8060 147.6686   8.3     27504   27504  27504
-#> 2          3319 SST-905242     865 Hayman Island       2644  HAYSL1      2644  HAYSL1 Water Temperature            1          1999-06-03        2000-05-15 -20.0572 148.8997   9.0         0   16590  16590
-#> 3        471410   10048402    3181    Enderby Is      14056 ENDERBY     14056 ENDERBY Water Temperature            1          2015-05-24        2016-02-06 -20.5689 116.5550    NA     12292   12292  12292
-#> 4         15923   SU-10088     986   Pine Island       3080 PINESL1      3080 PINESL1 Water Temperature            1          2011-09-28        2012-02-13 -20.3780 148.8884   6.6     19728   19728  19728
-#> 5        479464     355088     896    Turner Cay       2664  TURSL1      2664  TURSL1 Water Temperature            1          2014-08-27        2017-01-25 -21.7031 152.5605    NA    125856  125856 125856
-#> 6        450497   SU-11021     743      Rib Reef      13478  RIBCH2     13478  RIBCH2 Water Temperature            1          2014-10-04        2015-04-15 -18.4901 146.8709   3.4     27648   27648  27648
+#>   deployment_id serial_num site_id             site subsite_id subsite series_id  series         parameter
+#> 1          2616 SST-905084     860 Black Rocks Reef       2616  BLAFL1      2616  BLAFL1 Water Temperature
+#> 2          2612 SST-905053     856       Cattle Bay       2612   CBFL2      2612   CBFL2 Water Temperature
+#> 3          2613 SST-905054     857     Raine Island       2613 RAIDSL1      2613 RAIDSL1 Water Temperature
+#> 4          2620 SST-905189     863       Kelso Reef       2620  KELSL1      2620  KELSL1 Water Temperature
+#> 5          2619 SST-905091     863       Kelso Reef       2619  KELFL1      2619  KELFL1 Water Temperature
+#> 6          2621 SST-905068     865    Hayman Island       2621  HAYFL1      2621  HAYFL1 Water Temperature
+#>   parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs qc_obs
+#> 1            1          1996-07-20        1997-01-19 -16.2445 145.4872   0.1      8728    8728   8728
+#> 2            1          1998-11-19        1999-03-02 -18.5719 146.4833   4.0      4896    4896   4896
+#> 3            1          1996-11-28        1997-10-09 -11.5898 144.0309  20.0         0   15062  15062
+#> 4            1          1997-08-25        1998-04-18 -18.4221 146.9846   7.0     11278   11278  11278
+#> 5            1          1997-08-25        1998-04-18 -18.4448 146.9933   2.0     11278   11278  11278
+#> 6            1          1997-05-12        1998-04-21 -20.0413 148.8819   2.0     16460   16460  16460
 ```
 
 Notice that `sdata` contains a lot of information, most of which is
@@ -222,6 +238,18 @@ ggplot(data = data.frame(date = days, temps = out)) +
 
 <img src="vignette-fig-tlfc-1.png" title="plot of chunk tlfc" alt="plot of chunk tlfc" width="100%" />
 
+Or simply plot the daily aggregated averages:
+
+
+```r
+df <- aims_data("temp_loggers", api_key = my_api_key, summary = "daily",
+                filters = list(series_id = 2629, from_date = "2005-01-01",
+                               thru_date = "2005-12-31"))
+plot(df, ptype = "time_series", pars = c("Water Temperature"))
+```
+
+<img src="vignette-fig-unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="100%" />
+
 ## Bibliography
 
 
@@ -229,6 +257,6 @@ ggplot(data = data.frame(date = days, temps = out)) +
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."
-#> [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 18 Mar 2021."
+#> [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 29 Oct 2021."
+#> [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 29 Oct 2021."
 ```

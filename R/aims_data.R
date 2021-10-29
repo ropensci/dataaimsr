@@ -8,9 +8,12 @@
 #' the dataset. Only \code{weather} or \code{temp_loggers} are currently
 #' allowed.
 #' @param filters A \code{\link[base]{list}} containing a set of
-#' filters for the data query (see Details)
-#' @param ... Additional arguments to be passed to non-exported internal
-#' functions \code{\link{page_data}} and \code{\link{next_page_data}}
+#' filters for the data query (see Details).
+#' @param summary Should summary tables (\code{"summary-by-series"} or
+#' \code{"summary-by-deployment"}) or daily aggregated data ("daily") be
+#' returned instead of full data (see Details)?
+#' @param ... Currently unused. Additional arguments to be passed to
+#' non-exported internal functions.
 #'
 #' @details The AIMS Data Platform R Client provides easy access to
 #' data sets for R applications to the
@@ -37,23 +40,33 @@
 #'
 #' Note that at present the user can inspect the range of dates for
 #' the temperature loggers data only (see usage of argument \code{summary} in
-#' \code{\link{aims_data}}). Details about available dates for each dataset
-#' and time series can be accessed via Metadata on
+#' the examples below). For that, the argument \code{summary} must be either
+#' the string \code{"summary-by-series"} or \code{"summary-by-deployment"}.
+#' In those cases, time filters will be ignored.
+#' 
+#' Details about available dates for each dataset and time series can be
+#' accessed via Metadata on
 #' \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 #' We raise this caveat here because these time boundaries are very important;
-#' data are collected at very small time intervals, so just a few days of
-#' time interval can yield massive datasets. The query will return and error
+#' data are collected at very small time intervals, a window of just a few days
+#' can yield very large datasets. The query will return and error
 #' if it reaches the system's memory capacity.
+#'
+#' For that same reason, from version 1.1.0 onwards, we are offering the
+#' possibility of downloading a mean daily aggregated version. For that, the
+#' user must set \code{summary = "daily"}. In this particular case, query filter
+#' will be taken into account.
 #'
 #' @return \code{aims_data} returns a \code{\link[base]{data.frame}} of class
 #' \code{\link{aimsdf}}.
 #'
-#' If \code{summary} is passed as an additional argument,
+#' If \code{summary %in% c("summary-by-series", "summary-by-deployment")},
 #' the output shows the summary information for the target dataset (i.e.
 #' weather or temperature loggers)
 #' (NB: currently, \code{summary} only works for the temperature logger
 #' database). If \code{summary} is *not* passed as an additional argument, then
-#' the output contains monitoring data.
+#' the output contains **raw** monitoring data. If \code{summary = "daily"},
+#' then the output contains **mean daily aggregated** monitoring data.
 #' The output also contains five attributes (empty strings if
 #' \code{summary} is passed as an additional argument):
 #' \itemize{
@@ -64,7 +77,8 @@
 #'    \item{\code{parameters}}{The measured parameters comprised in the
 #'          output.}
 #'    \item{\code{type}}{The type of dataset. Either "monitoring" if
-#'          \code{summary} is not specified, or a "summary-by-" otherwise.}
+#'          \code{summary} is not specified, "monitoring (daily aggregation)" if
+#'          \code{summary = "daily"}, or a "summary-by-" otherwise.}
 #'    \item{\code{target}}{The input target.}
 #' }
 #'
@@ -162,10 +176,24 @@
 #'                    summary = "summary-by-deployment")
 #' head(sdf_c)
 #' dim(sdf_c)
+#'
+#' # 9. downloads temperature data
+#' # within a defined date range, averaged by day
+#' sdf_d <- aims_data("temp_loggers", api_key = NULL, summary = "daily",
+#'                    filters = list(series = "DAVFL1",
+#'                                   from_date = "2018-01-01",
+#'                                   thru_date = "2018-01-10"))
+#' # note again that there are multiple sites and series
+#' # however in this case because we did specify a specific
+#' # parameter, series within sites differ by depth only
+#' head(sdf_d)
+#' unique(sdf_d[, c("site", "series_id", "series", "depth")])
+#' unique(sdf_d$parameter)
+#' range(sdf_d$time)
 #' }
 #'
 #' @export
-aims_data <- function(target, filters = NULL, ...) {
+aims_data <- function(target, filters = NULL, summary = NA, ...) {
   # dummy variable to allow testing of network
   network <- as.logical(Sys.getenv("NETWORK_UP", unset = TRUE))
   if (!has_internet() | !network) {
@@ -177,16 +205,16 @@ aims_data <- function(target, filters = NULL, ...) {
   w_doi <- data_doi(target = "weather")
   allowed <- aims_expose_attributes(target = target)
   add_args <- list(...)
-  if ("summary" %in% names(add_args)) {
+  if (!is.na(summary)) {
     if (doi == w_doi) {
       message("Argument \"summary\" is currently only available",
               " for the temperature logger (\"temp_loggers\") dataset.\n",
               " Ignoring \"summary\" entry. See details in",
               " ?aims_expose_attributes")
-      add_args$summary <- NA
+      summary <- NA
     }
-    if (!all(add_args$summary %in% allowed$summary)) {
-      wrong_s <- setdiff(add_args$summary, allowed$summary)
+    if (!all(summary %in% allowed$summary)) {
+      wrong_s <- setdiff(summary, allowed$summary)
       stop("summary string \"", paste(wrong_s, sep = "; "),
            "\" not allowed; please check ?aims_expose_attributes")
     }
@@ -198,7 +226,7 @@ aims_data <- function(target, filters = NULL, ...) {
            "\" not allowed; please check ?aims_expose_attributes")
     }
   }
-  all_args <- c(doi = doi, filters = list(filters), add_args)
+  all_args <- c(doi = doi, filters = list(filters), summary = summary, add_args)
   results <- do.call(page_data, all_args)
   message(results$links)
   next_url <- results$links$next_page
@@ -221,12 +249,20 @@ aims_data <- function(target, filters = NULL, ...) {
     })
     message(paste("Result count:", nrow(results$data)))
   }
-  if ("summary" %in% names(add_args)) {
+  final_wrap <- "full_data"
+  data_type <- "monitoring"
+  if (!is.na(summary)) {
+    if (summary == "daily") {
+      data_type <- "monitoring (daily aggregation)"
+    } else {
+      final_wrap <- "summary_data"
+    }
+  }
+  if (final_wrap == "summary_data") {
     attr(results, "citation") <- ""
     attr(results, "metadata") <- ""
     attr(results, "parameters") <- ""
-    summ <- grep("summary", names(add_args), value = TRUE)
-    attr(results, "type") <- add_args[[summ]]
+    attr(results, "type") <- summary
     attr(results, "target") <- target
   } else {
     if (!inherits(results$data, "data.frame") |
@@ -238,7 +274,7 @@ aims_data <- function(target, filters = NULL, ...) {
     attr(results$data, "citation") <- results$citation
     attr(results$data, "metadata") <- results$metadata
     attr(results$data, "parameters") <- unique(results$data$parameter)
-    attr(results$data, "type") <- "monitoring"
+    attr(results$data, "type") <- data_type
     attr(results$data, "target") <- target
     results <- results$data
   }

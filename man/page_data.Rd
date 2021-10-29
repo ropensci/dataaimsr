@@ -19,13 +19,14 @@ for a chosen
 \href{https://open-aims.github.io/data-platform}{AIMS data series}}
 
 \item{filters}{A \code{\link[base]{list}} containing a set of
-filters for the data query (see Details)}
+filters for the data query (see Details).}
 
 \item{api_key}{An AIMS Data Platform
 \href{https://open-aims.github.io/data-platform/key-request}{API Key}}
 
-\item{summary}{Should summary tables be printed instead of full data?
-Details in ?\code{\link{aims_expose_attributes}}}
+\item{summary}{Should summary tables (\code{"summary-by-series"} or
+\code{"summary-by-deployment"}) or daily aggregated data ("daily") be
+returned instead of full data (see Details)?}
 
 \item{aims_version}{A \code{\link[base]{character}} string
 defining the version of database. Must be "/v1.0" or "-v2.0".
@@ -37,12 +38,13 @@ If none is provided, then "-v2.0" (the most recent) is used.}
 \code{aims_data} returns a \code{\link[base]{data.frame}} of class
 \code{\link{aimsdf}}.
 
-If \code{summary} is passed as an additional argument,
+If \code{summary \%in\% c("summary-by-series", "summary-by-deployment")},
 the output shows the summary information for the target dataset (i.e.
 weather or temperature loggers)
 (NB: currently, \code{summary} only works for the temperature logger
 database). If \code{summary} is \emph{not} passed as an additional argument, then
-the output contains monitoring data.
+the output contains \strong{raw} monitoring data. If \code{summary = "daily"},
+then the output contains \strong{mean daily aggregated} monitoring data.
 The output also contains five attributes (empty strings if
 \code{summary} is passed as an additional argument):
 \itemize{
@@ -53,7 +55,8 @@ dataset.}
 \item{\code{parameters}}{The measured parameters comprised in the
 output.}
 \item{\code{type}}{The type of dataset. Either "monitoring" if
-\code{summary} is not specified, or a "summary-by-" otherwise.}
+\code{summary} is not specified, "monitoring (daily aggregation)" if
+\code{summary = "daily"}, or a "summary-by-" otherwise.}
 \item{\code{target}}{The input target.}
 }
 }
@@ -88,13 +91,22 @@ using function \code{\link{aims_expose_attributes}}.
 
 Note that at present the user can inspect the range of dates for
 the temperature loggers data only (see usage of argument \code{summary} in
-\code{\link{aims_data}}). Details about available dates for each dataset
-and time series can be accessed via Metadata on
+the examples below). For that, the argument \code{summary} must be either
+the string \code{"summary-by-series"} or \code{"summary-by-deployment"}.
+In those cases, time filters will be ignored.
+
+Details about available dates for each dataset and time series can be
+accessed via Metadata on
 \href{https://open-aims.github.io/data-platform}{AIMS Data Platform API}.
 We raise this caveat here because these time boundaries are very important;
-data are collected at very small time intervals, so just a few days of
-time interval can yield massive datasets. The query will return and error
+data are collected at very small time intervals, a window of just a few days
+can yield very large datasets. The query will return and error
 if it reaches the system's memory capacity.
+
+For that same reason, from version 1.1.0 onwards, we are offering the
+possibility of downloading a mean daily aggregated version. For that, the
+user must set \code{summary = "daily"}. In this particular case, query filter
+will be taken into account.
 }
 \seealso{
 \code{\link{aims_expose_attributes}},

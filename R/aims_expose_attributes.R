@@ -10,7 +10,7 @@
 #'
 #' We are working on implementing summary visualisation methods for weather
 #' station data. So, for the moment, the options below are only available
-#' for temperature logger data. Two options are available:
+#' for temperature logger data. Three options are available:
 #'
 #' \itemize{
 #'    \item{summary-by-series}{Expose summary for all available series;
@@ -21,6 +21,7 @@
 #'          parameter.}
 #'    \item{summary-by-deployment}{Expose summary for all available
 #'          deployments.}
+#'    \item{daily}{Return mean daily aggregated monitoring data .}
 #' }
 #'
 #' We offer a list of valid filter names:
@@ -75,7 +76,7 @@ aims_expose_attributes <- function(target) {
   # used to evaluate input only
   invisible(data_doi(target = target))
   if (target == "temp_loggers") {
-    list(summary = c("summary-by-series", "summary-by-deployment"),
+    list(summary = c("summary-by-series", "summary-by-deployment", "daily"),
          filters = c("site", "subsite", "series", "series_id", "parameter",
                      "size", "min_lat", "max_lat", "min_lon", "max_lon",
                      "from_date", "thru_date", "version", "cursor"))

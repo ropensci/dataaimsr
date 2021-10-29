@@ -18,12 +18,13 @@ process_request(dt_req, next_page = FALSE, ...)
 \code{aims_data} returns a \code{\link[base]{data.frame}} of class
 \code{\link{aimsdf}}.
 
-If \code{summary} is passed as an additional argument,
+If \code{summary \%in\% c("summary-by-series", "summary-by-deployment")},
 the output shows the summary information for the target dataset (i.e.
 weather or temperature loggers)
 (NB: currently, \code{summary} only works for the temperature logger
 database). If \code{summary} is \emph{not} passed as an additional argument, then
-the output contains monitoring data.
+the output contains \strong{raw} monitoring data. If \code{summary = "daily"},
+then the output contains \strong{mean daily aggregated} monitoring data.
 The output also contains five attributes (empty strings if
 \code{summary} is passed as an additional argument):
 \itemize{
@@ -34,7 +35,8 @@ dataset.}
 \item{\code{parameters}}{The measured parameters comprised in the
 output.}
 \item{\code{type}}{The type of dataset. Either "monitoring" if
-\code{summary} is not specified, or a "summary-by-" otherwise.}
+\code{summary} is not specified, "monitoring (daily aggregation)" if
+\code{summary = "daily"}, or a "summary-by-" otherwise.}
 \item{\code{target}}{The input target.}
 }
 }

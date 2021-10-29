@@ -76,7 +76,8 @@ aims_expose_attributes("weather")
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
 [intro vignette][1], we have a convenience `summary` method which facilitates
-learning more about what data is available. The back-end for this is currently
+learning more about what data is available, or downloading daily aggregated
+average data. The back-end for these is currently
 being developed for the AIMS Weather Station as well. In the meantime, to
 explore the [AIMS Weather Station][3] dataset, we use the function
 `aims_filter_values`. This function takes a target dataset and a given filter,
