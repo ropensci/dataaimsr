@@ -1,3 +1,7 @@
+# dataaimsr 1.1.0
+
+* Added the capacity to download daily aggregated Sea Water Temperature Loggers dataset
+
 # dataaimsr 1.0.3
 
 * Added `aims_*` prefix to all exported functions

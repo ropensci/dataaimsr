@@ -1,7 +1,7 @@
 Package: dataaimsr
 Type: Package
 Title: AIMS Data Platform API Client
-Version: 1.0.3
+Version: 1.1.0
 Authors@R: c(person("Diego R.", "Barneche", email = "d.barneche@aims.gov.au", role = c("aut", "cre")), person("AIMS Datacentre", role = "aut", email = "adc@aims.gov.au"), person("Greg", "Coleman", email = "G.Coleman@aims.gov.au", role = "aut"), person("Duncan", "Fermor", email = "D.Fermor@aims.gov.au", role = "aut"), person("Eduardo", "Klein", email = "E.Klein@aims.gov.au", role = "aut"), person("Tobias", "Robinson", email = "T.Robinson@aims.gov.au", role = "aut"), person("Jason", "Smith", email = "jc.smith@aims.gov.au", role = "aut"), person("Jeffrey L.", "Sheehan", email = "JL.Sheehan@aims.gov.au", role = "aut"), person("Shannon", "Dowley", email = "S.Dowley@aims.gov.au", role = "aut"), person("Dean", "Ditton", email = "D.Ditton@aims.gov.au", role = "aut"), person("Kevin", "Gunn", email = "K.Gunn@aims.gov.au", role = "aut"), person("Gavin", "Ericson", email = "G.Ericson@aims.gov.au", role = "aut"), person("Murray", "Logan", email = "M.Logan@aims.gov.au", role = "aut"), person("Mark", "Rehbein", email = "M.Rehbein@aims.gov.au", role = "aut"), person("Sam", "Albers", role = "rev", email = "sam.albers@gov.bc.ca"), person("Elizabeth", "Stark", role = "rev", email = "estark@symbolix.com.au"), person("Laura", "DeCicco", role = "rev", email = "ldecicco@usgs.gov"))
 Description: AIMS Data Platform API Client which provides easy access to AIMS Data Platform scientific data and information.
 Depends: 
@@ -16,7 +16,8 @@ Imports:
     sf,
     ggplot2,
     ggrepel,
-    curl
+    curl,
+    rlang
 Suggests: 
     httptest,
     rgeos,
@@ -28,7 +29,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
-URL: https://ropensci.github.io/dataaimsr, https://open-aims.github.io/data-platform/key-request, https://open-aims.github.io/data-platform/swagger/
+URL: https://ropensci.github.io/dataaimsr/, https://open-aims.github.io/data-platform/key-request, https://open-aims.github.io/data-platform/swagger/
 BugReports: https://github.com/ropensci/dataaimsr/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
