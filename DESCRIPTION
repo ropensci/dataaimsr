@@ -32,4 +32,4 @@ VignetteBuilder: knitr
 URL: https://ropensci.github.io/dataaimsr/, https://open-aims.github.io/data-platform/key-request, https://open-aims.github.io/data-platform/swagger/
 BugReports: https://github.com/ropensci/dataaimsr/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
