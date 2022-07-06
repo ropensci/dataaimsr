@@ -129,27 +129,27 @@
 <code class="sourceCode R"><span><span class="va">sdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span>target <span class="op">=</span> <span class="st">"temp_loggers"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,</span>
 <span>                   summary <span class="op">=</span> <span class="st">"summary-by-series"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sdata</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   site_id                    site subsite_id    subsite series_id     series</span></span>
-<span><span class="co">#&gt; 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1</span></span>
-<span><span class="co">#&gt; 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old</span></span>
-<span><span class="co">#&gt; 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1</span></span>
-<span><span class="co">#&gt; 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1</span></span>
-<span><span class="co">#&gt; 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1</span></span>
-<span><span class="co">#&gt; 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1</span></span>
-<span><span class="co">#&gt;           parameter parameter_id time_coverage_start time_coverage_end      lat      lon</span></span>
-<span><span class="co">#&gt; 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212</span></span>
-<span><span class="co">#&gt; 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213</span></span>
-<span><span class="co">#&gt; 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813</span></span>
-<span><span class="co">#&gt; 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813</span></span>
-<span><span class="co">#&gt; 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688</span></span>
-<span><span class="co">#&gt; 6 Water Temperature            1          1996-05-02        2021-03-29 -18.8060 147.6686</span></span>
-<span><span class="co">#&gt;   depth uncal_obs cal_obs qc_obs</span></span>
-<span><span class="co">#&gt; 1     0     23130  110480 110480</span></span>
-<span><span class="co">#&gt; 2     5    114450  216794 216794</span></span>
-<span><span class="co">#&gt; 3     7     11951   53231  53231</span></span>
-<span><span class="co">#&gt; 4     1         0    4656   4656</span></span>
-<span><span class="co">#&gt; 5     1    437544  566585 566585</span></span>
-<span><span class="co">#&gt; 6     8    463146  589492 589437</span></span></code></pre></div>
+<span><span class="co">#&gt;   site_id                    site subsite_id    subsite series_id     series         parameter</span></span>
+<span><span class="co">#&gt; 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature</span></span>
+<span><span class="co">#&gt; 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature</span></span>
+<span><span class="co">#&gt; 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature</span></span>
+<span><span class="co">#&gt; 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature</span></span>
+<span><span class="co">#&gt; 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature</span></span>
+<span><span class="co">#&gt; 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature</span></span>
+<span><span class="co">#&gt;   parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs</span></span>
+<span><span class="co">#&gt; 1            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480</span></span>
+<span><span class="co">#&gt; 2            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794</span></span>
+<span><span class="co">#&gt; 3            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231</span></span>
+<span><span class="co">#&gt; 4            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656</span></span>
+<span><span class="co">#&gt; 5            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585</span></span>
+<span><span class="co">#&gt; 6            1          1996-05-02        2022-03-05 -18.8060 147.6686     8    512106  638452</span></span>
+<span><span class="co">#&gt;   qc_obs</span></span>
+<span><span class="co">#&gt; 1 110480</span></span>
+<span><span class="co">#&gt; 2 216794</span></span>
+<span><span class="co">#&gt; 3  53231</span></span>
+<span><span class="co">#&gt; 4   4656</span></span>
+<span><span class="co">#&gt; 5 566585</span></span>
+<span><span class="co">#&gt; 6 638397</span></span></code></pre></div>
 <p>The <code>summary</code> argument here is key. It should be either <code>"summary-by-series"</code> or <code>"summary-by-deployment"</code> when the user wants an overview of the available data. Again, this is currently implemented for the Sea Water Temperature Loggers dataset only. The output of <code>aims_data</code> is a <code>data.frame</code> of class <code>aimsdf</code>.</p>
 <p>Notice that <code>sdata</code> contains a lot of information, most of which is related to site / series / parameter ID. Each row corresponds to a unique series, and a certain site may contain multiple series; in such cases, series generally differ from one another by depth. The columns <code>time_coverage_start</code> and <code>time_coverage_end</code> are probably one of the most valuable pieces of information. They provide the user with the window of data collection for a particular series, which is probably crucial to decide whether that particular series is of relevance to the specific question in hand.</p>
 <p>Also note that there are three columns containing the total number of observations in a series: <code>uncal_obs</code>, <code>cal_obs</code> and <code>qc_obs</code>, which respectively stand for uncalibrated, calibrated, and quality-controlled observations. Calibrated and quality-controlled are generally the same. Instruments are routinely calibrated (mostly once a year) in a temperature-controlled water bath and corrections applied to the data. After calibration, all data records are quality controlled based on the following tests: 1) clip to in-water only data, using deployment’s metadata, 2) impossible value check: data outside a fixed temperature range (14˚C – 40˚C) is flagged as bad data, 3) spike test: individual extreme values are flagged as probably bad and 4) Excessive gradient test: pairs of data that present a sudden change in the slope are flagged as probably bad. If any data record fails at least one of the tests, a QC flag equal to 2 is returned, otherwise, the QC flag is set to 1.</p>
@@ -166,11 +166,11 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/aims_filter_values.html">aims_filter_values</a></span><span class="op">(</span><span class="st">"weather"</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   series_id                                                                 series</span></span>
 <span><span class="co">#&gt; 1    104918        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) </span></span>
-<span><span class="co">#&gt; 2    100686                            Saibai Island Weather Station Hail Duration</span></span>
-<span><span class="co">#&gt; 3       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)</span></span>
-<span><span class="co">#&gt; 4      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)</span></span>
-<span><span class="co">#&gt; 5     10243                           Raine Island Weather Station Air Temperature</span></span>
-<span><span class="co">#&gt; 6       258             Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)</span></span></code></pre></div>
+<span><span class="co">#&gt; 2      3509               Lizard Island Relay Pole 2 Maximum Wind Speed 30 Minutes</span></span>
+<span><span class="co">#&gt; 3    100686                            Saibai Island Weather Station Hail Duration</span></span>
+<span><span class="co">#&gt; 4       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)</span></span>
+<span><span class="co">#&gt; 5      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)</span></span>
+<span><span class="co">#&gt; 6     10243                           Raine Island Weather Station Air Temperature</span></span></code></pre></div>
 <p>The downside is that one cannot know what time window is available for each one of those, nor how they are nested (i.e. series / parameter / site). In a way though the series name generally gives that information anyway (see code output above). If knowing the available observation window is absolutely crucial, then as mentioned above the user should refer to the <a href="https://open-aims.github.io/data-platform/" class="external-link">online metadata</a>.</p>
 </div>
 </div>
@@ -190,15 +190,15 @@
 <span><span class="co">#&gt; [1] NA</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $filters</span></span>
-<span><span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  </span></span>
-<span><span class="co">#&gt;  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></span>
+<span><span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  </span></span>
+<span><span class="co">#&gt;  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></span>
 <span><span class="fu"><a href="../reference/aims_expose_attributes.html">aims_expose_attributes</a></span><span class="op">(</span><span class="st">"temp_loggers"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $summary</span></span>
 <span><span class="co">#&gt; [1] "summary-by-series"     "summary-by-deployment" "daily"                </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $filters</span></span>
-<span><span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  </span></span>
-<span><span class="co">#&gt;  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  </span></span>
+<span><span class="co">#&gt;  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></span></code></pre></div>
 <p>The help file (see <code><a href="../reference/aims_expose_attributes.html">?aims_expose_attributes</a></code>) contains the details about what each filter targets. So, having an understanding of the summaries and what filters are available provide the user with a great head start.</p>
 <p>Downloading the raw, high-resolution data is achieved using the same <code>aims_data</code> function, however now we ignore the <code>summary</code> argument, and instead implement filters. For example, let’s say we want to download all the data collected at the <a href="https://en.wikipedia.org/wiki/SS_Yongala" class="external-link">Yongala</a> for a specific time window:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
