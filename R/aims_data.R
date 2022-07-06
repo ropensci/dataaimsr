@@ -207,11 +207,9 @@ aims_data <- function(target, filters = NULL, summary = NA, ...) {
   add_args <- list(...)
   if (!is.na(summary)) {
     if (doi == w_doi) {
-      message("Argument \"summary\" is currently only available",
-              " for the temperature logger (\"temp_loggers\") dataset.\n",
-              " Ignoring \"summary\" entry. See details in",
-              " ?aims_expose_attributes")
-      summary <- NA
+      stop("Argument \"summary\" is currently only available",
+           " for the temperature logger (\"temp_loggers\") dataset.\n",
+           " See details in ?aims_expose_attributes")
     }
     if (!all(summary %in% allowed$summary)) {
       wrong_s <- setdiff(summary, allowed$summary)
