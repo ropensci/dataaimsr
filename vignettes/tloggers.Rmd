@@ -76,8 +76,8 @@ aims_expose_attributes("temp_loggers")
 #> [1] "summary-by-series"     "summary-by-deployment" "daily"                
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  
-#>  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
+#>  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][3] dataset, as demonstrated in our
@@ -93,27 +93,27 @@ information for all sites using the main function called `aims_data`:
 sdata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-series")
 head(sdata)
-#>   site_id                    site subsite_id    subsite series_id     series
-#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1
-#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old
-#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1
-#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1
-#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1
-#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1
-#>           parameter parameter_id time_coverage_start time_coverage_end      lat      lon
-#> 1 Water Temperature            1          1996-03-30        2008-12-11 -15.9903 145.8212
-#> 2 Water Temperature            1          1996-03-30        2011-07-21 -15.9905 145.8213
-#> 3 Water Temperature            1          2004-05-13        2008-05-03 -19.1557 146.8813
-#> 4 Water Temperature            1          2005-09-15        2005-12-22 -19.1557 146.8813
-#> 5 Water Temperature            1          1997-08-26        2019-06-10 -18.8065 147.6688
-#> 6 Water Temperature            1          1996-05-02        2021-03-29 -18.8060 147.6686
-#>   depth uncal_obs cal_obs qc_obs
-#> 1     0     23130  110480 110480
-#> 2     5    114450  216794 216794
-#> 3     7     11951   53231  53231
-#> 4     1         0    4656   4656
-#> 5     1    437544  566585 566585
-#> 6     8    463146  589492 589437
+#>   site_id                    site subsite_id    subsite series_id     series         parameter
+#> 1       1 Agincourt Reef Number 3       2687     AG3FL1      2687     AG3FL1 Water Temperature
+#> 2       1 Agincourt Reef Number 3      14276  AG3SL1old     14276  AG3SL1old Water Temperature
+#> 3       3           Cleveland Bay       3007 CLEVAWSSL1      3007 CLEVAWSSL1 Water Temperature
+#> 4       3           Cleveland Bay       3069 CLEVAWSFL1      3069 CLEVAWSFL1 Water Temperature
+#> 5       4             Davies Reef       2629     DAVFL1      2629     DAVFL1 Water Temperature
+#> 6       4             Davies Reef       2630     DAVSL1      2630     DAVSL1 Water Temperature
+#>   parameter_id time_coverage_start time_coverage_end      lat      lon depth uncal_obs cal_obs
+#> 1            1          1996-03-30        2008-12-11 -15.9903 145.8212     0     23130  110480
+#> 2            1          1996-03-30        2011-07-21 -15.9905 145.8213     5    114450  216794
+#> 3            1          2004-05-13        2008-05-03 -19.1557 146.8813     7     11951   53231
+#> 4            1          2005-09-15        2005-12-22 -19.1557 146.8813     1         0    4656
+#> 5            1          1997-08-26        2019-06-10 -18.8065 147.6688     1    437544  566585
+#> 6            1          1996-05-02        2022-03-05 -18.8060 147.6686     8    512106  638452
+#>   qc_obs
+#> 1 110480
+#> 2 216794
+#> 3  53231
+#> 4   4656
+#> 5 566585
+#> 6 638397
 ```
 
 `summary` should be set to either `summary-by-series` or `summary-by-deployment`
@@ -124,27 +124,27 @@ when the user wants an overview of the available data.
 ddata <- aims_data("temp_loggers", api_key = my_api_key,
                    summary = "summary-by-deployment")
 head(ddata)
-#>   deployment_id serial_num site_id             site subsite_id subsite series_id  series
-#> 1          2616 SST-905084     860 Black Rocks Reef       2616  BLAFL1      2616  BLAFL1
-#> 2          2612 SST-905053     856       Cattle Bay       2612   CBFL2      2612   CBFL2
-#> 3          2613 SST-905054     857     Raine Island       2613 RAIDSL1      2613 RAIDSL1
-#> 4          2620 SST-905189     863       Kelso Reef       2620  KELSL1      2620  KELSL1
-#> 5          2619 SST-905091     863       Kelso Reef       2619  KELFL1      2619  KELFL1
-#> 6          2621 SST-905068     865    Hayman Island       2621  HAYFL1      2621  HAYFL1
-#>           parameter parameter_id time_coverage_start time_coverage_end      lat      lon
-#> 1 Water Temperature            1          1996-07-20        1997-01-19 -16.2445 145.4872
-#> 2 Water Temperature            1          1998-11-19        1999-03-02 -18.5719 146.4833
-#> 3 Water Temperature            1          1996-11-28        1997-10-09 -11.5898 144.0309
-#> 4 Water Temperature            1          1997-08-25        1998-04-18 -18.4221 146.9846
-#> 5 Water Temperature            1          1997-08-25        1998-04-18 -18.4448 146.9933
-#> 6 Water Temperature            1          1997-05-12        1998-04-21 -20.0413 148.8819
-#>   depth uncal_obs cal_obs qc_obs
-#> 1   0.1      8728    8728   8728
-#> 2   4.0      4896    4896   4896
-#> 3  20.0         0   15062  15062
-#> 4   7.0     11278   11278  11278
-#> 5   2.0     11278   11278  11278
-#> 6   2.0     16460   16460  16460
+#>   deployment_id serial_num site_id          site subsite_id subsite series_id  series
+#> 1         39691   SU-11424       4   Davies Reef       2630  DAVSL1      2630  DAVSL1
+#> 2        494247     203112     923  Geoffrey Bay      14475 GBMMPFL     14475 GBMMPFL
+#> 3          3319 SST-905242     865 Hayman Island       2644  HAYSL1      2644  HAYSL1
+#> 4        471410   10048402    3181    Enderby Is      14056 ENDERBY     14056 ENDERBY
+#> 5         15923   SU-10088     986   Pine Island       3080 PINESL1      3080 PINESL1
+#> 6        479464     355088     896    Turner Cay       2664  TURSL1      2664  TURSL1
+#>           parameter parameter_id time_coverage_start time_coverage_end      lat      lon depth
+#> 1 Water Temperature            1          2012-11-10        2013-05-21 -18.8060 147.6686   8.3
+#> 2 Water Temperature            1          2020-04-06        2021-02-22 -19.1548 146.8685   2.0
+#> 3 Water Temperature            1          1999-06-03        2000-05-15 -20.0572 148.8997   9.0
+#> 4 Water Temperature            1          2015-05-24        2016-02-06 -20.5689 116.5550    NA
+#> 5 Water Temperature            1          2011-09-28        2012-02-13 -20.3780 148.8884   6.6
+#> 6 Water Temperature            1          2014-08-27        2017-01-25 -21.7031 152.5605    NA
+#>   uncal_obs cal_obs qc_obs
+#> 1     27504   27504  27504
+#> 2     92448   92448  92448
+#> 3         0   16590  16590
+#> 4     12292   12292  12292
+#> 5     19728   19728  19728
+#> 6    125856  125856 125856
 ```
 
 Notice that `sdata` contains a lot of information, most of which is
@@ -271,6 +271,6 @@ plot(df, ptype = "time_series", pars = c("Water Temperature"))
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 29 Oct 2021."
-#> [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 29 Oct 2021."
+#> [1] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 06 Jul 2022."
+#> [2] "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 06 Jul 2022."
 ```

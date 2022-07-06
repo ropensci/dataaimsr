@@ -69,8 +69,8 @@ aims_expose_attributes("weather")
 #> [1] NA
 #> 
 #> $filters
-#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"  
-#>  [8] "max_lat"   "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
+#>  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  
+#>  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"
 ```
 
 In the [Sea Water Temperature Loggers][4] dataset, as demonstrated in our
@@ -95,11 +95,11 @@ case they are most likely distinguishable by depth.
 head(aims_filter_values("weather", filter_name = "series"))
 #>   series_id                                                                 series
 #> 1    104918        Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) 
-#> 2    100686                            Saibai Island Weather Station Hail Duration
-#> 3       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
-#> 4      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
-#> 5     10243                           Raine Island Weather Station Air Temperature
-#> 6       258             Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)
+#> 2      3509               Lizard Island Relay Pole 2 Maximum Wind Speed 30 Minutes
+#> 3    100686                            Saibai Island Weather Station Hail Duration
+#> 4       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)
+#> 5      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)
+#> 6     10243                           Raine Island Weather Station Air Temperature
 ```
 
 The benefits to choosing a data `series` is that it comes from one location
@@ -190,6 +190,6 @@ ggplot(data = data.frame(date = days, temps = out)) +
 purrr::map_chr(results, aims_citation) %>%
   unlist %>%
   unname
-#> [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 29 October 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
-#> [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 29 October 2021.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"
+#> [1] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 6 July 2022.  Time period: 2018-01-01 to 2018-01-10.  Series: Davies Reef Weather Station Air Temperature"
+#> [2] "Australian Institute of Marine Science (AIMS). 2009, Australian Institute of Marine Science Automatic Weather Stations, https://doi.org/10.25845/5c09bf93f315d, accessed 6 July 2022.  Time period: 2018-01-01 to 2018-01-10.  Series: Bramble Cay Weather Station Air Temperature"
 ```
