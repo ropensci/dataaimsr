@@ -7,8 +7,8 @@ with_mock_api({
               "data.frame")
     expect_is(aims_filter_values("weather", filter_name = "subsite"),
               "character")
-    expect_is(aims_filter_values("weather", filter_name = "parameter"),
-              "character")
+    # expect_is(aims_filter_values("weather", filter_name = "parameter"),
+    #           "character")
     expect_is(aims_filter_values("temp_loggers", filter_name = "site"),
               "character")
     expect_identical(aims_filter_values("temp_loggers",

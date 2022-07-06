@@ -36,14 +36,12 @@ with_mock_api({
                           api_key = my_api_key)
     check_wd <- aims_data("weather", filters = w_filters_d,
                           api_key = my_api_key)
-    check_sc <- aims_data("temp_loggers", filters = s_filters_c,
-                          api_key = my_api_key)
-    check_sd <- aims_data("temp_loggers", filters = s_filters_d,
-                          api_key = my_api_key)
+    expect_error(aims_data("temp_loggers", filters = s_filters_c,
+                           api_key = my_api_key))
+    expect_error(aims_data("temp_loggers", filters = s_filters_d,
+                           api_key = my_api_key))
     expect_null(check_wc)
     expect_null(check_wd)
-    expect_null(check_sc)
-    expect_null(check_sd)
   })
 })
 
@@ -51,16 +49,18 @@ with_mock_api({
   test_that("summary requests", {
     expect_message(aims_data("temp_loggers", filters = s_filters,
                              api_key = my_api_key, summary = "daily"))
-    expect_message(aims_data("weather", api_key = my_api_key,
-                             summary = "summary-by-series"))
-    expect_message(aims_data("weather", api_key = my_api_key,
-                             summary = "summary-by-deployment"))
-    expect_message(expect_is(aims_data("temp_loggers", api_key = my_api_key,
-                                       summary = "summary-by-series"),
-                   "data.frame"))
-    expect_message(expect_is(aims_data("temp_loggers", api_key = my_api_key,
-                                       summary = "summary-by-deployment"),
-                   "data.frame"))
+    expect_error(expect_message(aims_data(
+      "weather", api_key = my_api_key, summary = "summary-by-series"
+    )))
+    expect_error(expect_message(aims_data(
+      "weather", api_key = my_api_key, summary = "summary-by-deployment"
+    )))
+    expect_message(expect_is(aims_data(
+      "temp_loggers", api_key = my_api_key, summary = "summary-by-series"
+    ), "data.frame"))
+    expect_message(expect_is(aims_data(
+      "temp_loggers", api_key = my_api_key, summary = "summary-by-deployment"
+    ), "data.frame"))
   })
 })
 

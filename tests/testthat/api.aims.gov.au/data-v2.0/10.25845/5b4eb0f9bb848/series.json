@@ -16,6 +16,10 @@
         "series": "19131SL1"
     },
     {
+        "series_id": 15438,
+        "series": "19131SL3"
+    },
+    {
         "series_id": 12197,
         "series": "19138FL1"
     },
@@ -34,6 +38,10 @@
     {
         "series_id": 12203,
         "series": "20104FL1"
+    },
+    {
+        "series_id": 12204,
+        "series": "20104SL1"
     },
     {
         "series_id": 3706,
@@ -212,12 +220,12 @@
         "series": "BARRSL1"
     },
     {
-        "series_id": 9864,
-        "series": "BATMANFL1"
+        "series_id": 15415,
+        "series": "BARRSL2"
     },
     {
-        "series_id": 10240,
-        "series": "BAUDISSONDSL1"
+        "series_id": 9864,
+        "series": "BATMANFL1"
     },
     {
         "series_id": 10238,
@@ -414,6 +422,10 @@
     {
         "series_id": 2724,
         "series": "CHIFL1"
+    },
+    {
+        "series_id": 15435,
+        "series": "CHIFL2"
     },
     {
         "series_id": 12585,
@@ -638,10 +650,6 @@
     {
         "series_id": 13255,
         "series": "DOBUSL3"
-    },
-    {
-        "series_id": 10115,
-        "series": "DOUBLEFL1"
     },
     {
         "series_id": 10921,
@@ -952,6 +960,10 @@
         "series": "HAYFL1"
     },
     {
+        "series_id": 15436,
+        "series": "HAYFL2"
+    },
+    {
         "series_id": 2644,
         "series": "HAYSL1"
     },
@@ -1116,10 +1128,6 @@
         "series": "IMPERIEUSE_RS3_1_6m"
     },
     {
-        "series_id": 15136,
-        "series": "JALAN_WAMSI"
-    },
-    {
         "series_id": 14136,
         "series": "JBRCH10M"
     },
@@ -1156,8 +1164,8 @@
         "series": "JBRSL1"
     },
     {
-        "series_id": 15135,
-        "series": "JORROL_WAMSI"
+        "series_id": 15375,
+        "series": "Jorrol"
     },
     {
         "series_id": 3210,
@@ -1772,6 +1780,10 @@
         "series": "OTIT3"
     },
     {
+        "series_id": 15255,
+        "series": "OTIT4"
+    },
+    {
         "series_id": 13475,
         "series": "PANCH1"
     },
@@ -1976,14 +1988,6 @@
         "series": "SANSL1"
     },
     {
-        "series_id": 15075,
-        "series": "SCOTT_NL_M23_BB"
-    },
-    {
-        "series_id": 15076,
-        "series": "SCOTT_NL_M23_BT"
-    },
-    {
         "series_id": 13275,
         "series": "SCOTTNR1"
     },
@@ -2012,10 +2016,6 @@
         "series": "SCOTTSL1"
     },
     {
-        "series_id": 15095,
-        "series": "SCOTT_SL1_1_3m"
-    },
-    {
         "series_id": 12075,
         "series": "SCOTTSL1-TIDEGUAGE1"
     },
@@ -2032,10 +2032,6 @@
         "series": "SCOTTSL2"
     },
     {
-        "series_id": 15096,
-        "series": "SCOTT_SL2_1_3m"
-    },
-    {
         "series_id": 12078,
         "series": "SCOTTSL2-TIDEGUAGE1"
     },
@@ -2048,20 +2044,12 @@
         "series": "SCOTTSL3"
     },
     {
-        "series_id": 15079,
-        "series": "SCOTT_SL3_1_3m"
-    },
-    {
         "series_id": 12080,
         "series": "SCOTTSL3-TIDEGUAGE1"
     },
     {
         "series_id": 3992,
         "series": "SCOTT_SL4"
-    },
-    {
-        "series_id": 15082,
-        "series": "SCOTT_SL4_1_3m"
     },
     {
         "series_id": 12081,
@@ -2076,32 +2064,12 @@
         "series": "SCOTTSL4-TIDEGUAGE3"
     },
     {
-        "series_id": 15084,
-        "series": "SCOTT_SR5_LG"
-    },
-    {
-        "series_id": 15078,
-        "series": "SCOTT_SRLGA"
-    },
-    {
-        "series_id": 15077,
-        "series": "SCOTT_SRLGB"
-    },
-    {
         "series_id": 3991,
         "series": "SCOTTSS1"
     },
     {
-        "series_id": 15080,
-        "series": "SCOTT_SS1_1_3m"
-    },
-    {
         "series_id": 3990,
         "series": "SCOTTSS2"
-    },
-    {
-        "series_id": 15081,
-        "series": "SCOTT_SS2_1_3m"
     },
     {
         "series_id": 12115,
@@ -2110,10 +2078,6 @@
     {
         "series_id": 12035,
         "series": "SCOTT_SS3"
-    },
-    {
-        "series_id": 15083,
-        "series": "SCOTT_SS3_1_3m"
     },
     {
         "series_id": 3086,
@@ -2130,10 +2094,6 @@
     {
         "series_id": 12155,
         "series": "SHARKFL1"
-    },
-    {
-        "series_id": 15137,
-        "series": "SHENTONBLUFF_WAMSI"
     },
     {
         "series_id": 3716,

@@ -4,6 +4,10 @@
         "series": "Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) "
     },
     {
+        "series_id": 3509,
+        "series": "Lizard Island Relay Pole 2 Maximum Wind Speed 30 Minutes"
+    },
+    {
         "series_id": 100686,
         "series": "Saibai Island Weather Station Hail Duration"
     },
@@ -32,12 +36,12 @@
         "series": "Davies Reef Weather Station Hail Duration"
     },
     {
-        "series_id": 34,
-        "series": "Agincourt Reef Weather Station Air Pressure"
-    },
-    {
         "series_id": 189,
         "series": "Heron Island Weather Station Air Temperature"
+    },
+    {
+        "series_id": 34,
+        "series": "Agincourt Reef Weather Station Air Pressure"
     },
     {
         "series_id": 10260,
@@ -76,6 +80,10 @@
         "series": "Darwin NRS Buoy CurrentMagnitude @5m"
     },
     {
+        "series_id": 3502,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (Scalar avg 30 min)"
+    },
+    {
         "series_id": 151,
         "series": "Orpheus Island Weather Station Air Temperature"
     },
@@ -104,12 +112,12 @@
         "series": "Orpheus Island Relay Pole 3 Rain Intensity"
     },
     {
-        "series_id": 8573,
-        "series": "Thursday Island Weather Station Water Temperature @6.8m"
-    },
-    {
         "series_id": 64,
         "series": "Davies Reef Weather Station Air Temperature"
+    },
+    {
+        "series_id": 8573,
+        "series": "Thursday Island Weather Station Water Temperature @6.8m"
     },
     {
         "series_id": 60,
@@ -144,16 +152,12 @@
         "series": "Daintree River Weather Station Historical Wind Direction"
     },
     {
-        "series_id": 4094,
-        "series": "Yongala NRS Buoy Rain Duration"
-    },
-    {
         "series_id": 57,
         "series": "Davies Reef Weather Station Rain Accumulation"
     },
     {
-        "series_id": 33477,
-        "series": "Yongala NRS Buoy ErrorVelocity @22m"
+        "series_id": 4094,
+        "series": "Yongala NRS Buoy Rain Duration"
     },
     {
         "series_id": 14878,
@@ -196,16 +200,16 @@
         "series": "Darwin NRS Buoy Albedo"
     },
     {
-        "series_id": 61,
-        "series": "Davies Reef Weather Station Rain Intensity"
-    },
-    {
         "series_id": 2635,
         "series": "Hardy Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 250,
         "series": "Orpheus Island Relay Pole 3 Humidity"
+    },
+    {
+        "series_id": 61,
+        "series": "Davies Reef Weather Station Rain Intensity"
     },
     {
         "series_id": 14953,
@@ -224,8 +228,16 @@
         "series": "Orpheus Island Sensor Float 2 Depth @8.7m"
     },
     {
+        "series_id": 33475,
+        "series": "Yongala NRS Buoy ErrorVelocity @5m"
+    },
+    {
         "series_id": 74,
         "series": "Davies Reef Weather Station Water Temperature @8.5m"
+    },
+    {
+        "series_id": 3494,
+        "series": "Lizard Island Relay Pole 2 Humidity"
     },
     {
         "series_id": 2713,
@@ -264,10 +276,6 @@
         "series": "Square Rocks Weather Station Minimum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 3490,
-        "series": "Lizard Island Weather Station Wind Direction (Vector Standard 10 Minutes)"
-    },
-    {
         "series_id": 108164,
         "series": "Badu Island Weather Station Air Temperature"
     },
@@ -278,10 +286,6 @@
     {
         "series_id": 8553,
         "series": "Thursday Island Weather Station Air Pressure"
-    },
-    {
-        "series_id": 33394,
-        "series": "Yongala NRS Buoy CurrentMagnitude @7m"
     },
     {
         "series_id": 228,
@@ -304,16 +308,16 @@
         "series": "Agincourt Reef Weather Station Wind Speed (scalar avg b 30 min)"
     },
     {
-        "series_id": 104892,
-        "series": "Davies Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
-    },
-    {
         "series_id": 3010,
         "series": "Darwin NRS Buoy - OLD Water Temperature @24m"
     },
     {
         "series_id": 100690,
         "series": "Saibai Island Weather Station Maximum Wind Speed 30 Minutes"
+    },
+    {
+        "series_id": 104892,
+        "series": "Davies Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 2016,
@@ -368,10 +372,6 @@
         "series": "Masig Island Weather Station Conductivity @10m"
     },
     {
-        "series_id": 3489,
-        "series": "Lizard Island Weather Station Wind Direction (Vector Average 10 Minutes)"
-    },
-    {
         "series_id": 2641,
         "series": "Daintree River Weather Station Historical Air Temperature"
     },
@@ -382,6 +382,10 @@
     {
         "series_id": 29703,
         "series": "Masig Island Weather Station Humidity"
+    },
+    {
+        "series_id": 3503,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Average 30 Minutes)"
     },
     {
         "series_id": 275,
@@ -396,24 +400,24 @@
         "series": "Masig Island Weather Station PAR"
     },
     {
-        "series_id": 270,
-        "series": "Davies Reef Sensor Float 1 Water Temperature @.6m"
-    },
-    {
         "series_id": 84882,
         "series": "Beagle Gulf Buoy ErrorVelocity @25m"
+    },
+    {
+        "series_id": 270,
+        "series": "Davies Reef Sensor Float 1 Water Temperature @.6m"
     },
     {
         "series_id": 9167,
         "series": "One Tree Island Relay Pole 1 Water Temperature"
     },
     {
-        "series_id": 10343,
-        "series": "Darwin NRS Buoy - OLD ErrorVelocity @10m"
-    },
-    {
         "series_id": 84876,
         "series": "Beagle Gulf Buoy CurrentDirection @25m"
+    },
+    {
+        "series_id": 10343,
+        "series": "Darwin NRS Buoy - OLD ErrorVelocity @10m"
     },
     {
         "series_id": 33486,
@@ -424,12 +428,12 @@
         "series": "Lizard Island Relay Pole 2 Water Temperature @5m"
     },
     {
-        "series_id": 108188,
-        "series": "Badu Island Weather Station Wind Speed (scalar avg b 30 min)"
-    },
-    {
         "series_id": 10254,
         "series": "Raine Island Weather Station Rain Intensity"
+    },
+    {
+        "series_id": 108188,
+        "series": "Badu Island Weather Station Wind Speed (scalar avg b 30 min)"
     },
     {
         "series_id": 2640,
@@ -464,12 +468,12 @@
         "series": "Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 30 min)"
     },
     {
-        "series_id": 104880,
-        "series": "Bramble Cay Weather Station Wind Speed (vector avg 10 min)"
-    },
-    {
         "series_id": 173,
         "series": "One Tree Island Weather Station Wind Direction (Vector Average 30 Minutes)"
+    },
+    {
+        "series_id": 104880,
+        "series": "Bramble Cay Weather Station Wind Speed (vector avg 10 min)"
     },
     {
         "series_id": 260,
@@ -484,12 +488,12 @@
         "series": "Orpheus Island Sensor Float 1 Conductivity @.6m"
     },
     {
-        "series_id": 10,
-        "series": "One Tree Island Relay Pole 2 Water Temperature @.5m"
-    },
-    {
         "series_id": 99571,
         "series": "One Tree Island Relay Pole 1 Water Temperature @1m 2015"
+    },
+    {
+        "series_id": 10,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @.5m"
     },
     {
         "series_id": 104852,
@@ -500,12 +504,12 @@
         "series": "Thursday Island Weather Station Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
-        "series_id": 108182,
-        "series": "Badu Island Weather Station Wind Direction (Vector Average 30 Minutes)"
-    },
-    {
         "series_id": 10414,
         "series": "Ningaloo Reef Weather Station Wind Speed (scalar avg b 10 min) "
+    },
+    {
+        "series_id": 108182,
+        "series": "Badu Island Weather Station Wind Direction (Vector Average 30 Minutes)"
     },
     {
         "series_id": 257,
@@ -564,10 +568,6 @@
         "series": "Raine Island Weather Station Humidity"
     },
     {
-        "series_id": 3505,
-        "series": "Lizard Island Weather Station Wind Speed (scalar avg b 30 min) duplicate"
-    },
-    {
         "series_id": 9844,
         "series": "Cleveland Bay S2 Weather Station Historical Hail Intensity"
     },
@@ -578,6 +578,10 @@
     {
         "series_id": 100709,
         "series": "Saibai Island Weather Station Wind Speed (vector avg 10 min)"
+    },
+    {
+        "series_id": 3501,
+        "series": "Lizard Island Relay Pole 2 Hail Intensity"
     },
     {
         "series_id": 108176,
@@ -612,16 +616,12 @@
         "series": "Daintree River Weather Station Historical Humidity"
     },
     {
-        "series_id": 104855,
-        "series": "Agincourt Reef Weather Station Wind Direction (Vector Standard 30 Minutes)"
-    },
-    {
         "series_id": 28,
         "series": "Heron Island Relay Pole 5 Water Temperature @1.6m"
     },
     {
-        "series_id": 33391,
-        "series": "Yongala NRS Buoy CurrentDirection @7m"
+        "series_id": 104855,
+        "series": "Agincourt Reef Weather Station Wind Direction (Vector Standard 30 Minutes)"
     },
     {
         "series_id": 230,
@@ -644,12 +644,12 @@
         "series": "Masig Island Weather Station Rain Accumulation"
     },
     {
-        "series_id": 4,
-        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m"
-    },
-    {
         "series_id": 13343,
         "series": "Darwin NRS Buoy - OLD PAR @24m"
+    },
+    {
+        "series_id": 4,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m"
     },
     {
         "series_id": 4071,
@@ -682,6 +682,10 @@
     {
         "series_id": 150,
         "series": "Orpheus Island Weather Station Water Temperature @1.9m"
+    },
+    {
+        "series_id": 33394,
+        "series": "Yongala NRS Buoy CurrentMagnitude @5m"
     },
     {
         "series_id": 2643,
@@ -736,10 +740,6 @@
         "series": "One Tree Island Weather Station Wind Direction (Vector Average 10 Minutes)"
     },
     {
-        "series_id": 33486,
-        "series": "Yongala NRS Buoy Water Temperature @28.8m From teledyne"
-    },
-    {
         "series_id": 14815,
         "series": "Orpheus Island Relay Pole 2 Water Temperature @6.3m Duplicate"
     },
@@ -768,32 +768,32 @@
         "series": "One Tree Island Weather Station Air Pressure"
     },
     {
-        "series_id": 108169,
-        "series": "Badu Island Weather Station Maximum Wind Speed 10 Minutes"
-    },
-    {
         "series_id": 19,
         "series": "Heron Island Sensor Float 1 Water Temperature @.3m"
     },
     {
-        "series_id": 9144,
-        "series": "Rib Reef Sensor Float 1 Water Pressure @16.9m"
+        "series_id": 108169,
+        "series": "Badu Island Weather Station Maximum Wind Speed 10 Minutes"
     },
     {
         "series_id": 177,
         "series": "One Tree Island Weather Station Wind Direction (Vector Standard 10 Minutes)"
     },
     {
+        "series_id": 9144,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @16.9m"
+    },
+    {
         "series_id": 130,
         "series": "Ningaloo Reef Weather Station Wind Direction (Vector Average 10 Minutes)"
     },
     {
-        "series_id": 104933,
-        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 10 Minutes)"
-    },
-    {
         "series_id": 15042,
         "series": "Agincourt Reef Weather Station Water Temperature @2.5m"
+    },
+    {
+        "series_id": 104933,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
         "series_id": 203,
@@ -848,12 +848,12 @@
         "series": "Darwin NRS Buoy - OLD Water Temperature @24m from ACD"
     },
     {
-        "series_id": 108171,
-        "series": "Badu Island Weather Station Maximum Wind Speed 30 Minutes"
-    },
-    {
         "series_id": 9273,
         "series": "Davies Reef Base Station PAR @.8m"
+    },
+    {
+        "series_id": 108171,
+        "series": "Badu Island Weather Station Maximum Wind Speed 30 Minutes"
     },
     {
         "series_id": 272,
@@ -874,10 +874,6 @@
     {
         "series_id": 84893,
         "series": "Beagle Gulf Buoy Rain Duration"
-    },
-    {
-        "series_id": 29712,
-        "series": "Masig Island Weather Station Water Temperature @1.5m"
     },
     {
         "series_id": 108186,
@@ -906,6 +902,10 @@
     {
         "series_id": 10322,
         "series": "Darwin NRS Buoy Chlorophyll @1m"
+    },
+    {
+        "series_id": 3506,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (vector avg 30 min)"
     },
     {
         "series_id": 99606,
@@ -944,10 +944,6 @@
         "series": "Bramble Cay Weather Station Maximum Wind Speed 10 Minutes"
     },
     {
-        "series_id": 3504,
-        "series": "Lizard Island Weather Station Wind Direction (Scalar Standard 30 Minutes)"
-    },
-    {
         "series_id": 109104,
         "series": "Masig Island Weather Station Water Pressure @3m"
     },
@@ -956,12 +952,12 @@
         "series": "Ningaloo Reef Weather Station Maximum Wind Speed 10 Minutes"
     },
     {
-        "series_id": 10337,
-        "series": "Darwin NRS Buoy - OLD CurrentDirection @20m"
-    },
-    {
         "series_id": 31384,
         "series": "Lizard Island Relay Pole 2 Depth @10m"
+    },
+    {
+        "series_id": 10337,
+        "series": "Darwin NRS Buoy - OLD CurrentDirection @20m"
     },
     {
         "series_id": 33084,
@@ -976,12 +972,12 @@
         "series": "Bramble Cay Weather Station Wind Speed (Scalar avg 10 min)"
     },
     {
-        "series_id": 99570,
-        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m 2015"
-    },
-    {
         "series_id": 33484,
         "series": "Yongala NRS Buoy Upwelling total radiation"
+    },
+    {
+        "series_id": 99570,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m 2015"
     },
     {
         "series_id": 104882,
@@ -992,10 +988,6 @@
         "series": "Yongala NRS Buoy ErrorVelocity @15m"
     },
     {
-        "series_id": 14610,
-        "series": "Davies Reef Sensor Float 4 Salinity @10.7m"
-    },
-    {
         "series_id": 2685,
         "series": "Cape Bowling Green Weather Station Historical Wind Speed"
     },
@@ -1004,16 +996,20 @@
         "series": "Cape Bowling Green Weather Station Rain Duration"
     },
     {
+        "series_id": 14610,
+        "series": "Davies Reef Sensor Float 4 Salinity @10.7m"
+    },
+    {
         "series_id": 87,
         "series": "Hardy Reef Weather Station Rain Accumulation"
     },
     {
-        "series_id": 10411,
-        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Standard 10 Minutes)"
-    },
-    {
         "series_id": 15041,
         "series": "Agincourt Reef Weather Station Water Temperature @12m"
+    },
+    {
+        "series_id": 10411,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Standard 10 Minutes)"
     },
     {
         "series_id": 268,
@@ -1048,12 +1044,16 @@
         "series": "Square Rocks Weather Station Water Temperature @7.9m"
     },
     {
+        "series_id": 31982,
+        "series": "Yongala NRS Buoy Wind Direction (Vector Standard 30 Minutes)"
+    },
+    {
         "series_id": 10405,
         "series": "Ningaloo Reef Weather Station Rain Intensity"
     },
     {
-        "series_id": 31982,
-        "series": "Yongala NRS Buoy Wind Direction (Vector Standard 30 Minutes)"
+        "series_id": 3493,
+        "series": "Lizard Island Relay Pole 2 Air Temperature"
     },
     {
         "series_id": 33392,
@@ -1062,6 +1062,10 @@
     {
         "series_id": 33103,
         "series": "Yongala NRS Buoy Depth @4.1m"
+    },
+    {
+        "series_id": 3496,
+        "series": "Lizard Island Relay Pole 2 Rain Accumulation"
     },
     {
         "series_id": 256,
@@ -1128,24 +1132,28 @@
         "series": "Badu Island Weather Station Wind Direction (Scalar Average 10 Minutes)"
     },
     {
-        "series_id": 104934,
-        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 30 Minutes)"
+        "series_id": 3488,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (vector avg 10 min)"
     },
     {
-        "series_id": 184,
-        "series": "One Tree Island Weather Station Wind Speed (vector avg 30 min)"
+        "series_id": 104934,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 20,
         "series": "Heron Island Sensor Float 2 Water Temperature @.3m"
     },
     {
-        "series_id": 3498,
-        "series": "Lizard Island Weather Station Rain Intensity"
+        "series_id": 184,
+        "series": "One Tree Island Weather Station Wind Speed (vector avg 30 min)"
     },
     {
         "series_id": 280,
         "series": "Davies Reef Sensor Float 4 Conductivity @10.7m"
+    },
+    {
+        "series_id": 3510,
+        "series": "Lizard Island Relay Pole 2 Minimum Wind Speed 30 Minutes"
     },
     {
         "series_id": 29716,
@@ -1164,24 +1172,28 @@
         "series": "Beagle Gulf Buoy Chlorophyll @28m"
     },
     {
+        "series_id": 8570,
+        "series": "Thursday Island Weather Station Wind Direction (Vector Average 10 Minutes)"
+    },
+    {
         "series_id": 102,
         "series": "Hardy Reef Weather Station Wind Speed (scalar avg b 10 min)  replicate b"
     },
     {
-        "series_id": 8570,
-        "series": "Thursday Island Weather Station Wind Direction (Vector Average 10 Minutes)"
+        "series_id": 33477,
+        "series": "Yongala NRS Buoy ErrorVelocity @25m"
     },
     {
         "series_id": 104881,
         "series": "Bramble Cay Weather Station Wind Speed (vector avg 30 min)"
     },
     {
-        "series_id": 4103,
-        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 10 min)"
-    },
-    {
         "series_id": 80,
         "series": "Square Rocks Weather Station Air Temperature"
+    },
+    {
+        "series_id": 4103,
+        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 10 min)"
     },
     {
         "series_id": 198,
@@ -1220,12 +1232,12 @@
         "series": "Square Rocks Weather Station Maximum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 104940,
-        "series": "Square Rocks Weather Station Wind Speed (vector avg 30 min)"
-    },
-    {
         "series_id": 84517,
         "series": "Yongala NRS Buoy PAR @26m"
+    },
+    {
+        "series_id": 104940,
+        "series": "Square Rocks Weather Station Wind Speed (vector avg 30 min)"
     },
     {
         "series_id": 12,
@@ -1376,6 +1388,10 @@
         "series": "Badu Island Weather Station Rain Duration"
     },
     {
+        "series_id": 33393,
+        "series": "Yongala NRS Buoy CurrentDirection @25m"
+    },
+    {
         "series_id": 283,
         "series": "Davies Reef Sensor Float 5 Conductivity @5.2m"
     },
@@ -1404,12 +1420,12 @@
         "series": "Rib Reef Sensor Float 1 Conductivity @20m"
     },
     {
-        "series_id": 3495,
-        "series": "Lizard Island Weather Station Air Pressure"
-    },
-    {
         "series_id": 10255,
         "series": "Raine Island Weather Station Wind Direction (Scalar Average 10 Minutes)"
+    },
+    {
+        "series_id": 3485,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Average 10 Minutes)"
     },
     {
         "series_id": 31403,
@@ -1422,10 +1438,6 @@
     {
         "series_id": 171,
         "series": "One Tree Island Weather Station Wind Speed (Scalar avg 30 min)"
-    },
-    {
-        "series_id": 3501,
-        "series": "Lizard Island Weather Station Hail Intensity"
     },
     {
         "series_id": 3037,
@@ -1442,6 +1454,10 @@
     {
         "series_id": 84894,
         "series": "Beagle Gulf Buoy Rain Intensity"
+    },
+    {
+        "series_id": 14615,
+        "series": "One Tree Island Relay Pole 1 Salinity"
     },
     {
         "series_id": 5783,
@@ -1472,12 +1488,12 @@
         "series": "Agincourt Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
-        "series_id": 108190,
-        "series": "Badu Island Weather Station Wind Speed (vector avg 30 min)"
-    },
-    {
         "series_id": 100708,
         "series": "Saibai Island Weather Station Wind Speed (scalar avg b 30 min)"
+    },
+    {
+        "series_id": 108190,
+        "series": "Badu Island Weather Station Wind Speed (vector avg 30 min)"
     },
     {
         "series_id": 172,
@@ -1488,20 +1504,16 @@
         "series": "One Tree Island Weather Station Maximum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 186,
-        "series": "Heron Island Weather Station Wind Speed (Scalar avg 10 min)"
-    },
-    {
         "series_id": 31383,
         "series": "Heron Island Relay Pole 8 Depth @5.4m"
     },
     {
-        "series_id": 8564,
-        "series": "Thursday Island Weather Station PAR"
+        "series_id": 186,
+        "series": "Heron Island Weather Station Wind Speed (Scalar avg 10 min)"
     },
     {
-        "series_id": 3503,
-        "series": "Lizard Island Weather Station Wind Direction (Scalar Average 30 Minutes)"
+        "series_id": 8564,
+        "series": "Thursday Island Weather Station PAR"
     },
     {
         "series_id": 4701,
@@ -1544,6 +1556,10 @@
         "series": "Thursday Island Weather Station Hail Accumulation"
     },
     {
+        "series_id": 3490,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Standard 10 Minutes)"
+    },
+    {
         "series_id": 2633,
         "series": "Hardy Reef Weather Station Wind Speed (scalar avg b 30 min) replicate b"
     },
@@ -1564,12 +1580,12 @@
         "series": "Ningaloo Reef Weather Station Wind Speed (Scalar avg 30 min)"
     },
     {
-        "series_id": 13,
-        "series": "One Tree Island Relay Pole 3 Water Temperature @3.5m"
-    },
-    {
         "series_id": 84326,
         "series": "Darwin NRS Buoy ErrorVelocity @9m"
+    },
+    {
+        "series_id": 13,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @3.5m"
     },
     {
         "series_id": 10264,
@@ -1584,16 +1600,8 @@
         "series": "Cleveland Bay Upwelling Detection Station Water Temperature @12m"
     },
     {
-        "series_id": 3506,
-        "series": "Lizard Island Weather Station Wind Speed (vector avg 30 min)"
-    },
-    {
         "series_id": 181,
         "series": "One Tree Island Weather Station Wind Speed (scalar avg b 30 min)"
-    },
-    {
-        "series_id": 3499,
-        "series": "Lizard Island Weather Station Hail Accumulation"
     },
     {
         "series_id": 87939,
@@ -1602,6 +1610,10 @@
     {
         "series_id": 15033,
         "series": "Agincourt Reef Weather Station Maximum Wind Speed 10 Minutes"
+    },
+    {
+        "series_id": 33395,
+        "series": "Yongala NRS Buoy CurrentMagnitude @25m"
     },
     {
         "series_id": 100683,
@@ -1626,6 +1638,10 @@
     {
         "series_id": 3558,
         "series": "Lizard Island Sensor Float 4 Water Temperature @11.5m"
+    },
+    {
+        "series_id": 3504,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 102068,
@@ -1680,10 +1696,6 @@
         "series": "Cleveland Bay Weather Station Water Temperature @12m"
     },
     {
-        "series_id": 14615,
-        "series": "One Tree Island Relay Pole 1 Salinity @3.1m"
-    },
-    {
         "series_id": 2909,
         "series": "Darwin NRS Buoy Minimum Wind Speed 30 Minutes"
     },
@@ -1716,6 +1728,10 @@
         "series": "Thursday Island Weather Station Wind Speed (vector avg 30 min)"
     },
     {
+        "series_id": 3500,
+        "series": "Lizard Island Relay Pole 2 Hail Duration"
+    },
+    {
         "series_id": 100710,
         "series": "Saibai Island Weather Station Wind Speed (vector avg 30 min)"
     },
@@ -1728,16 +1744,12 @@
         "series": "Heron Island Weather Station Rain Duration"
     },
     {
-        "series_id": 3507,
-        "series": "Lizard Island Weather Station Wind Direction (Vector Average 30 Minutes)"
+        "series_id": 273,
+        "series": "Davies Reef Sensor Float 2 Water Temperature @.6m"
     },
     {
         "series_id": 8550,
         "series": "Orpheus Island Relay Pole 1 Turbidity @3.5m"
-    },
-    {
-        "series_id": 273,
-        "series": "Davies Reef Sensor Float 2 Water Temperature @.6m"
     },
     {
         "series_id": 9846,
@@ -1824,10 +1836,6 @@
         "series": "Raine Island Weather Station Hail Intensity"
     },
     {
-        "series_id": 3491,
-        "series": "Lizard Island Weather Station Maximum Wind Speed 10 Minutes"
-    },
-    {
         "series_id": 6487,
         "series": "Square Rocks Weather Station Minimum Wind Speed 10 Minutes"
     },
@@ -1848,20 +1856,16 @@
         "series": "Orpheus Island Relay Pole 1 Depth @5.8m"
     },
     {
-        "series_id": 33393,
-        "series": "Yongala NRS Buoy CurrentDirection @22m"
-    },
-    {
         "series_id": 10417,
         "series": "Ningaloo Reef Weather Station Wind Speed (vector avg 30 min)"
     },
     {
-        "series_id": 104914,
-        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
-    },
-    {
         "series_id": 84324,
         "series": "Darwin NRS Buoy ErrorVelocity @13m"
+    },
+    {
+        "series_id": 104914,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 33,
@@ -1874,10 +1878,6 @@
     {
         "series_id": 87937,
         "series": "Bramble Cay Weather Station Rain Intensity"
-    },
-    {
-        "series_id": 36121,
-        "series": "Masig Island Weather Station Water Pressure @1.5m"
     },
     {
         "series_id": 10340,
@@ -1944,10 +1944,6 @@
         "series": "Orpheus Island Relay Pole 2 Water Pressure @7.3m"
     },
     {
-        "series_id": 84881,
-        "series": "Beagle Gulf Buoy ErrorVelocity @15m"
-    },
-    {
         "series_id": 10330,
         "series": "Darwin NRS Buoy - OLD Salinity @1m"
     },
@@ -1956,8 +1952,8 @@
         "series": "Heron Island Weather Station Wind Direction (Vector Average 30 Minutes)"
     },
     {
-        "series_id": 3492,
-        "series": "Lizard Island Weather Station Minimum Wind Speed 10 Minutes"
+        "series_id": 84881,
+        "series": "Beagle Gulf Buoy ErrorVelocity @15m"
     },
     {
         "series_id": 14611,
@@ -1972,12 +1968,12 @@
         "series": "Orpheus Island Relay Pole 3 Air Temperature"
     },
     {
-        "series_id": 4104,
-        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 30 min)"
-    },
-    {
         "series_id": 279,
         "series": "Davies Reef Sensor Float 4 Water Pressure @10.7m"
+    },
+    {
+        "series_id": 4104,
+        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 30 min)"
     },
     {
         "series_id": 183,
@@ -2000,8 +1996,8 @@
         "series": "Bramble Cay Weather Station Minimum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 3497,
-        "series": "Lizard Island Weather Station Rain Duration"
+        "series_id": 3484,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (Scalar avg 10 min)"
     },
     {
         "series_id": 2626,
@@ -2048,12 +2044,12 @@
         "series": "Myrmidon Sensor Float 1 Wind Speed (Scalar avg 30 min)"
     },
     {
-        "series_id": 96,
-        "series": "Hardy Reef Weather Station PAR"
-    },
-    {
         "series_id": 3015,
         "series": "Darwin NRS Buoy - OLD Turbidity @24m"
+    },
+    {
+        "series_id": 96,
+        "series": "Hardy Reef Weather Station PAR"
     },
     {
         "series_id": 10395,
@@ -2088,12 +2084,12 @@
         "series": "Agincourt Reef Weather Station Maximum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 10409,
-        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
-    },
-    {
         "series_id": 29711,
         "series": "Masig Island Weather Station Rain Intensity"
+    },
+    {
+        "series_id": 10409,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 10391,
@@ -2112,16 +2108,16 @@
         "series": "Saibai Island Weather Station Wind Speed (Scalar avg 30 min)"
     },
     {
-        "series_id": 3494,
-        "series": "Lizard Island Weather Station Humidity"
-    },
-    {
         "series_id": 9845,
         "series": "Cleveland Bay Weather Station Humidity"
     },
     {
         "series_id": 104893,
         "series": "Davies Reef Weather Station Wind Direction (Vector Standard 10 Minutes)"
+    },
+    {
+        "series_id": 112711,
+        "series": "CHANNEL 112711"
     },
     {
         "series_id": 218,
@@ -2140,12 +2136,12 @@
         "series": "Davies Reef Weather Station Wind Speed (Scalar avg 10 min)"
     },
     {
-        "series_id": 108184,
-        "series": "Badu Island Weather Station Wind Direction (Vector Standard 30 Minutes)"
-    },
-    {
         "series_id": 31404,
         "series": "Rib Reef Sensor Float 1 Depth @20m"
+    },
+    {
+        "series_id": 108184,
+        "series": "Badu Island Weather Station Wind Direction (Vector Standard 30 Minutes)"
     },
     {
         "series_id": 10415,
@@ -2252,20 +2248,12 @@
         "series": "Agincourt Reef Weather Station Minimum Wind Speed 10 Minutes"
     },
     {
-        "series_id": 210,
-        "series": "Heron Island Weather Station Wind Direction (Vector Standard 10 Minutes)"
-    },
-    {
-        "series_id": 3485,
-        "series": "Lizard Island Weather Station Wind Direction (Scalar Average 10 Minutes)"
-    },
-    {
         "series_id": 6485,
         "series": "Square Rocks Weather Station Maximum Wind Speed 10 Minutes"
     },
     {
-        "series_id": 87942,
-        "series": "Bramble Cay Weather Station Rain Accumulation"
+        "series_id": 210,
+        "series": "Heron Island Weather Station Wind Direction (Vector Standard 10 Minutes)"
     },
     {
         "series_id": 9849,
@@ -2274,6 +2262,10 @@
     {
         "series_id": 3121,
         "series": "Darwin NRS Buoy Downwelling longwave radiation corrected"
+    },
+    {
+        "series_id": 87942,
+        "series": "Bramble Cay Weather Station Rain Accumulation"
     },
     {
         "series_id": 31387,
@@ -2348,6 +2340,10 @@
         "series": "Beagle Gulf Buoy Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
+        "series_id": 112711,
+        "series": "Masig Island Weather Station Depth @3m"
+    },
+    {
         "series_id": 85074,
         "series": "Myrmidon Sensor Float 1 Wind Speed (Scalar avg 10 min) temporary"
     },
@@ -2360,12 +2356,12 @@
         "series": "Orpheus Island Relay Pole 2 Salinity @6.3m Duplicate"
     },
     {
-        "series_id": 2882,
-        "series": "Davies Reef Weather Station Wind Speed (Scalar avg 30 min)"
-    },
-    {
         "series_id": 8442,
         "series": "Rib Reef Sensor Float 1 Water Temperature @3.1m"
+    },
+    {
+        "series_id": 2882,
+        "series": "Davies Reef Weather Station Wind Speed (Scalar avg 30 min)"
     },
     {
         "series_id": 75,
@@ -2378,10 +2374,6 @@
     {
         "series_id": 104946,
         "series": "Thursday Island Weather Station Historic Wind Speed (scalar avg b 10 min) "
-    },
-    {
-        "series_id": 3487,
-        "series": "Lizard Island Weather Station Wind Speed (scalar avg b 10 min)  duplicate"
     },
     {
         "series_id": 190,
@@ -2408,24 +2400,20 @@
         "series": "Badu Island Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
-        "series_id": 85066,
-        "series": "Myrmidon Sensor Float 1 Maximum Wind Speed 10 Minutes temporary"
-    },
-    {
         "series_id": 3003,
         "series": "Darwin NRS Buoy - OLD Water Level"
     },
     {
-        "series_id": 3536,
-        "series": "Lizard Island Sensor Float 1 Water Temperature @5.5m"
+        "series_id": 85066,
+        "series": "Myrmidon Sensor Float 1 Maximum Wind Speed 10 Minutes temporary"
     },
     {
         "series_id": 176,
         "series": "One Tree Island Weather Station Wind Speed (scalar avg b 10 min) "
     },
     {
-        "series_id": 3488,
-        "series": "Lizard Island Weather Station Wind Speed (vector avg 10 min)"
+        "series_id": 3536,
+        "series": "Lizard Island Sensor Float 1 Water Temperature @5.5m"
     },
     {
         "series_id": 9853,
@@ -2484,12 +2472,12 @@
         "series": "Lizard Island Sensor Float 1 Depth @5.5m"
     },
     {
-        "series_id": 85069,
-        "series": "Myrmidon Sensor Float 1 Rain Accumulation temporary"
-    },
-    {
         "series_id": 104919,
         "series": "Myrmidon Reef Weather Station Wind Speed (scalar avg b 30 min)"
+    },
+    {
+        "series_id": 85069,
+        "series": "Myrmidon Sensor Float 1 Rain Accumulation temporary"
     },
     {
         "series_id": 9362,
@@ -2504,28 +2492,28 @@
         "series": "Lizard Island Sensor Float 1 Depth @6m"
     },
     {
-        "series_id": 31388,
-        "series": "Lizard Island Sensor Float 3 Depth @8.8m"
+        "series_id": 104856,
+        "series": "Agincourt Reef Weather Station Wind Speed (scalar avg b 10 min) "
     },
     {
         "series_id": 200,
         "series": "Heron Island Weather Station Wind Speed (scalar avg b 10 min) "
     },
     {
-        "series_id": 104856,
-        "series": "Agincourt Reef Weather Station Wind Speed (scalar avg b 10 min) "
+        "series_id": 10398,
+        "series": "Ningaloo Reef Weather Station Humidity"
     },
     {
         "series_id": 84314,
         "series": "Darwin NRS Buoy Turbidity"
     },
     {
-        "series_id": 10398,
-        "series": "Ningaloo Reef Weather Station Humidity"
-    },
-    {
         "series_id": 168,
         "series": "One Tree Island Weather Station Humidity"
+    },
+    {
+        "series_id": 3528,
+        "series": "Lizard Island Relay Pole 2 Water Temperature"
     },
     {
         "series_id": 234,
@@ -2612,20 +2600,16 @@
         "series": "Hardy Reef Weather Station Wind Speed (Scalar avg 10 min)"
     },
     {
-        "series_id": 3502,
-        "series": "Lizard Island Weather Station Wind Speed (Scalar avg 30 min)"
-    },
-    {
         "series_id": 8502,
         "series": "Cape Cleveland Weather Station Historical Wind Speed"
     },
     {
-        "series_id": 14993,
-        "series": "Rib Reef Sensor Float 1 Salinity @10m"
-    },
-    {
         "series_id": 2581,
         "series": "Darwin NRS Buoy Wind Speed (Scalar avg 10 min)"
+    },
+    {
+        "series_id": 14993,
+        "series": "Rib Reef Sensor Float 1 Salinity @10m"
     },
     {
         "series_id": 48,
@@ -2692,10 +2676,6 @@
         "series": "Yongala NRS Buoy Wind Speed (vector avg 10 min)"
     },
     {
-        "series_id": 3486,
-        "series": "Lizard Island Weather Station Wind Direction (Scalar Standard 10 Minutes)"
-    },
-    {
         "series_id": 34217,
         "series": "Yongala NRS Buoy Depth @28.8m from the ADCP"
     },
@@ -2706,10 +2686,6 @@
     {
         "series_id": 14876,
         "series": "Orpheus Island Relay Pole 3 Water Pressure @5.5m Duplicate"
-    },
-    {
-        "series_id": 3500,
-        "series": "Lizard Island Weather Station Hail Duration"
     },
     {
         "series_id": 1,
@@ -2728,8 +2704,16 @@
         "series": "Heron Island Weather Station Minimum Wind Speed 10 Minutes"
     },
     {
+        "series_id": 29712,
+        "series": "Masig Island Weather Station Water Temperature"
+    },
+    {
         "series_id": 247,
         "series": "Orpheus Island Relay Pole 3 Rain Duration"
+    },
+    {
+        "series_id": 3491,
+        "series": "Lizard Island Relay Pole 2 Maximum Wind Speed 10 Minutes"
     },
     {
         "series_id": 15,
@@ -2742,10 +2726,6 @@
     {
         "series_id": 108185,
         "series": "Badu Island Weather Station Wind Speed (Scalar avg 10 min)"
-    },
-    {
-        "series_id": 33395,
-        "series": "Yongala NRS Buoy CurrentMagnitude @22m"
     },
     {
         "series_id": 31388,
@@ -2808,12 +2788,12 @@
         "series": "Heron Island Sensor Float 4 Water Temperature @.3m"
     },
     {
-        "series_id": 8604,
-        "series": "Darwin NRS Buoy - OLD East Component of water velocity"
-    },
-    {
         "series_id": 5782,
         "series": "Myrmidon Reef Weather Station Humidity"
+    },
+    {
+        "series_id": 8604,
+        "series": "Darwin NRS Buoy - OLD East Component of water velocity"
     },
     {
         "series_id": 63,
@@ -2880,8 +2860,8 @@
         "series": "Hardy Reef Weather Station Wind Speed (Scalar avg 30 min)"
     },
     {
-        "series_id": 3484,
-        "series": "Lizard Island Weather Station Wind Speed (Scalar avg 10 min)"
+        "series_id": 3495,
+        "series": "Lizard Island Relay Pole 2 Air Pressure"
     },
     {
         "series_id": 10259,
@@ -2944,6 +2924,10 @@
         "series": "Bramble Cay Weather Station Minimum Wind Speed 10 Minutes"
     },
     {
+        "series_id": 3508,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Standard 30 Minutes)"
+    },
+    {
         "series_id": 33081,
         "series": "Yongala NRS Buoy Salinity @.6m"
     },
@@ -2992,6 +2976,10 @@
         "series": "Davies Reef Weather Station Wind Direction (Scalar Average 30 Minutes)"
     },
     {
+        "series_id": 3498,
+        "series": "Lizard Island Relay Pole 2 Rain Intensity"
+    },
+    {
         "series_id": 162,
         "series": "One Tree Island Weather Station Air Temperature"
     },
@@ -3012,12 +3000,12 @@
         "series": "Saibai Island Weather Station Minimum Wind Speed 30 Minutes"
     },
     {
-        "series_id": 84904,
-        "series": "Beagle Gulf Buoy Water Pressure @1m"
-    },
-    {
         "series_id": 3001,
         "series": "Darwin NRS Buoy Peak Wave Period"
+    },
+    {
+        "series_id": 84904,
+        "series": "Beagle Gulf Buoy Water Pressure @1m"
     },
     {
         "series_id": 36124,
@@ -3064,12 +3052,12 @@
         "series": "Saibai Island Weather Station Hail Accumulation"
     },
     {
-        "series_id": 104949,
-        "series": "Thursday Island Weather Station Wind Direction (Scalar Standard 30 Minutes)"
-    },
-    {
         "series_id": 100687,
         "series": "Saibai Island Weather Station Hail Intensity"
+    },
+    {
+        "series_id": 104949,
+        "series": "Thursday Island Weather Station Wind Direction (Scalar Standard 30 Minutes)"
     },
     {
         "series_id": 3011,
@@ -3144,6 +3132,10 @@
         "series": "One Tree Island Weather Station Hail Duration"
     },
     {
+        "series_id": 3499,
+        "series": "Lizard Island Relay Pole 2 Hail Accumulation"
+    },
+    {
         "series_id": 31399,
         "series": "Rib Reef Sensor Float 1 Depth @22.6m"
     },
@@ -3158,6 +3150,10 @@
     {
         "series_id": 4072,
         "series": "Yongala NRS Buoy Upwelling shortwave radiation"
+    },
+    {
+        "series_id": 3489,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Average 10 Minutes)"
     },
     {
         "series_id": 8560,
@@ -3236,12 +3232,12 @@
         "series": "One Tree Island Relay Pole 2 Water Pressure @4.9m"
     },
     {
-        "series_id": 10410,
-        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Average 30 Minutes)"
-    },
-    {
         "series_id": 3033,
         "series": "Darwin NRS Buoy Downwelling shortwave radiation"
+    },
+    {
+        "series_id": 10410,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Average 30 Minutes)"
     },
     {
         "series_id": 104911,
@@ -3314,10 +3310,6 @@
     {
         "series_id": 3550,
         "series": "Lizard Island Sensor Float 3 Water Temperature @9m"
-    },
-    {
-        "series_id": 3528,
-        "series": "Lizard Island Relay Pole 2 Water Temperature @21m"
     },
     {
         "series_id": 116,
@@ -3476,10 +3468,6 @@
         "series": "Heron Island Relay Pole 7 Water Pressure @18m"
     },
     {
-        "series_id": 3493,
-        "series": "Lizard Island Weather Station Air Temperature"
-    },
-    {
         "series_id": 8555,
         "series": "Thursday Island Weather Station Historic Conductivity @3m"
     },
@@ -3490,10 +3478,6 @@
     {
         "series_id": 3541,
         "series": "Lizard Island Sensor Float 2 Water Temperature @.6m"
-    },
-    {
-        "series_id": 33475,
-        "series": "Yongala NRS Buoy ErrorVelocity @7m"
     },
     {
         "series_id": 91,
@@ -3596,12 +3580,16 @@
         "series": "Rib Reef Weather Station Historical PAR"
     },
     {
+        "series_id": 104858,
+        "series": "Beagle Gulf Buoy Maximum Wind Speed 30 Minutes"
+    },
+    {
         "series_id": 5789,
         "series": "Myrmidon Reef Weather Station Rain Intensity"
     },
     {
-        "series_id": 104858,
-        "series": "Beagle Gulf Buoy Maximum Wind Speed 30 Minutes"
+        "series_id": 3507,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Average 30 Minutes)"
     },
     {
         "series_id": 104943,
@@ -3628,12 +3616,12 @@
         "series": "Davies Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
-        "series_id": 14957,
-        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mole) @6m"
-    },
-    {
         "series_id": 10332,
         "series": "Darwin NRS Buoy Water Pressure @1m"
+    },
+    {
+        "series_id": 14957,
+        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mole) @6m"
     },
     {
         "series_id": 3556,
@@ -3756,20 +3744,16 @@
         "series": "Raine Island Weather Station Wind Direction (Scalar Average 30 Minutes)"
     },
     {
-        "series_id": 3510,
-        "series": "Lizard Island Weather Station Minimum Wind Speed 30 Minutes"
-    },
-    {
         "series_id": 4095,
         "series": "Yongala NRS Buoy Rain Intensity"
     },
     {
-        "series_id": 115,
-        "series": "Myrmidon Reef Weather Station Water Temperature @14.7m"
-    },
-    {
         "series_id": 2911,
         "series": "Darwin NRS Buoy Minimum Wind Speed 10 Minutes"
+    },
+    {
+        "series_id": 115,
+        "series": "Myrmidon Reef Weather Station Water Temperature @14.7m"
     },
     {
         "series_id": 10331,
@@ -3780,12 +3764,20 @@
         "series": "Myrmidon Sensor Float 1 Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
+        "series_id": 3487,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (scalar avg b 10 min)  duplicate"
+    },
+    {
         "series_id": 8542,
         "series": "Cape Cleveland Weather Station Historical Air Temperature"
     },
     {
         "series_id": 43,
         "series": "Cape Bowling Green Weather Station Wind Speed (vector avg 10 min)"
+    },
+    {
+        "series_id": 36121,
+        "series": "Masig Island Weather Station Water Pressure"
     },
     {
         "series_id": 108170,
@@ -3824,7 +3816,7 @@
         "series": "Rib Reef Sensor Float 1 Water Pressure @22.6m"
     },
     {
-        "series_id": null,
+        "series_id": 0,
         "series": ""
     },
     {
@@ -3836,12 +3828,12 @@
         "series": "Davies Reef Weather Station Wind Direction (Vector Standard 30 Minutes)"
     },
     {
-        "series_id": 8561,
-        "series": "Thursday Island Weather Station Maximum Wind Speed 30 Minutes"
-    },
-    {
         "series_id": 8567,
         "series": "Thursday Island Weather Station Rain Intensity"
+    },
+    {
+        "series_id": 8561,
+        "series": "Thursday Island Weather Station Maximum Wind Speed 30 Minutes"
     },
     {
         "series_id": 13342,
@@ -3880,12 +3872,12 @@
         "series": "One Tree Island Relay Pole 3 Depth @5.4m"
     },
     {
-        "series_id": 111164,
-        "series": "Lizard Island Relay Pole 2 Salinity @21m"
-    },
-    {
         "series_id": 31983,
         "series": "Yongala NRS Buoy Wind Speed (scalar avg b 10 min) "
+    },
+    {
+        "series_id": 111164,
+        "series": "Lizard Island Relay Pole 2 Salinity @21m"
     },
     {
         "series_id": 10412,
@@ -3900,16 +3892,16 @@
         "series": "Square Rocks Weather Station Wind Speed (Scalar avg 10 min)"
     },
     {
+        "series_id": 3505,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (scalar avg b 30 min) duplicate"
+    },
+    {
         "series_id": 5785,
         "series": "Myrmidon Reef Weather Station Minimum Wind Speed 10 Minutes"
     },
     {
         "series_id": 99611,
         "series": "Heron Island Relay Pole 7 Water Temperature @5m"
-    },
-    {
-        "series_id": 3496,
-        "series": "Lizard Island Weather Station Rain Accumulation"
     },
     {
         "series_id": 104907,
@@ -3938,6 +3930,10 @@
     {
         "series_id": 15037,
         "series": "Agincourt Reef Weather Station Rain Accumulation"
+    },
+    {
+        "series_id": 33391,
+        "series": "Yongala NRS Buoy CurrentDirection @5m"
     },
     {
         "series_id": 10244,
@@ -3992,24 +3988,16 @@
         "series": "Lizard Island Relay Pole 2 Water Temperature @10m"
     },
     {
-        "series_id": 3509,
-        "series": "Lizard Island Weather Station Maximum Wind Speed 30 Minutes"
+        "series_id": 3534,
+        "series": "Lizard Island Sensor Float 1 Water Temperature @6m"
     },
     {
         "series_id": 9282,
         "series": "Hardy Reef Weather Station Wind Speed (vector avg 10 min)"
     },
     {
-        "series_id": 3534,
-        "series": "Lizard Island Sensor Float 1 Water Temperature @6m"
-    },
-    {
         "series_id": 3013,
         "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mass) @24.5m"
-    },
-    {
-        "series_id": 3508,
-        "series": "Lizard Island Weather Station Wind Direction (Vector Standard 30 Minutes)"
     },
     {
         "series_id": 33100,
@@ -4044,12 +4032,12 @@
         "series": "Darwin NRS Buoy Wind Direction (Scalar Standard 10 Minutes)"
     },
     {
-        "series_id": 10250,
-        "series": "Raine Island Weather Station Minimum Wind Speed 10 Minutes"
-    },
-    {
         "series_id": 224,
         "series": "Orpheus Island Relay Pole 1 Water Temperature @14.6m"
+    },
+    {
+        "series_id": 10250,
+        "series": "Raine Island Weather Station Minimum Wind Speed 10 Minutes"
     },
     {
         "series_id": 276,
@@ -4068,6 +4056,14 @@
         "series": "Thursday Island Weather Station Depth @6.8m"
     },
     {
+        "series_id": 3486,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Standard 10 Minutes)"
+    },
+    {
+        "series_id": 3497,
+        "series": "Lizard Island Relay Pole 2 Rain Duration"
+    },
+    {
         "series_id": 9861,
         "series": "Cleveland Bay Weather Station Wind Speed (Scalar avg 30 min)"
     },
@@ -4076,12 +4072,12 @@
         "series": "Orpheus Island Relay Pole 3 Minimum Wind Speed 10 Minutes"
     },
     {
-        "series_id": 8605,
-        "series": "Darwin NRS Buoy - OLD North Component of water velocity"
-    },
-    {
         "series_id": 9859,
         "series": "Cleveland Bay Weather Station Wind Direction (Vector Standard 30 Minutes)"
+    },
+    {
+        "series_id": 8605,
+        "series": "Darwin NRS Buoy - OLD North Component of water velocity"
     },
     {
         "series_id": 4781,
@@ -4132,6 +4128,10 @@
         "series": "Orpheus Island Relay Pole 3 Air Pressure"
     },
     {
+        "series_id": 3492,
+        "series": "Lizard Island Relay Pole 2 Minimum Wind Speed 10 Minutes"
+    },
+    {
         "series_id": 112,
         "series": "Myrmidon Reef Weather Station Air Temperature"
     },
@@ -4140,12 +4140,12 @@
         "series": "Cleveland Bay Weather Station Rain Intensity"
     },
     {
-        "series_id": 3044,
-        "series": "Darwin NRS Buoy Upwelling total radiation"
-    },
-    {
         "series_id": 104913,
         "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)"
+    },
+    {
+        "series_id": 3044,
+        "series": "Darwin NRS Buoy Upwelling total radiation"
     },
     {
         "series_id": 187,
