@@ -121,8 +121,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
       geom_sf(colour = "grey60", fill = "burlywood2",
               alpha = 0.8, lwd = 0.1) +
       theme_classic() +
-      theme(panel.background = element_rect(fill = .data$p_bkg,
-                                            colour = .data$p_bkg,
+      theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
                                             linetype = "solid"),
             legend.position = "bottom") +
       labs(x = "Longitude", y = "Latitude", title = target, subtitle = d_type) +
@@ -173,8 +172,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         geom_sf(colour = "grey60", fill = "burlywood2",
                 alpha = 0.8, lwd = 0.1) +
         theme_classic() +
-        theme(panel.background = element_rect(fill = .data$p_bkg,
-                                              colour = .data$p_bkg,
+        theme(panel.background = element_rect(fill = p_bkg, colour = p_bkg,
                                               linetype = "solid"),
               legend.position = "bottom") +
         labs(x = "Longitude", y = "Latitude", title = target,
