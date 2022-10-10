@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 weather_doi <- data_doi("weather")
 ssts_doi <- data_doi("temp_loggers")
 base_end_pt <- make_base_end_pt(weather_doi, aims_version = NA)

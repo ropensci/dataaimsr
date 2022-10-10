@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 with_mock_dir("Correct-structure-filtervalues", {
   test_that("Correct structure", {
     expect_is(aims_filter_values("weather", filter_name = "site"), "data.frame")

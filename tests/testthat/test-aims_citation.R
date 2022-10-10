@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 with_mock_dir("Citation", {
   test_that("Correct structure", {
     # regular monitoring data

@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 test_that("Correct structure", {
   expect_is(aims_expose_attributes("weather"), "list")
   expect_is(aims_expose_attributes("temp_loggers"), "list")

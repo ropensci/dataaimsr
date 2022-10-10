@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 with_mock_dir("Correct-structure-parameters", {
   test_that("Correct structure", {
     # regular monitoring data

@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 with_mock_dir("Correct-structure-metadata", {
   test_that("Correct structure metadata", {
     # regular monitoring data

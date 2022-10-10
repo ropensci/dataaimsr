@@ -1,5 +1,3 @@
-library(dataaimsr)
-
 with_mock_dir("Correct-structure-aimsdata", {
   test_that("Correct structure", {
     # default to 1000 returns next_page link
