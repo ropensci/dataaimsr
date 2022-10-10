@@ -225,7 +225,12 @@ aims_data <- function(target, filters = NULL, summary = NA, ...) {
     }
   }
   all_args <- c(doi = doi, filters = list(filters), summary = summary, add_args)
-  results <- do.call(page_data, all_args)
+  results <- try(do.call(page_data, all_args), silent = TRUE)
+  if (inherits(results, "try-error")) {
+    message("Failed to download monitoring data; Did you specify ",
+            "appropriate filter names/values?")
+    return(invisible())
+  }
   message(results$links)
   next_url <- results$links$next_page
   more_data <- TRUE
@@ -266,7 +271,7 @@ aims_data <- function(target, filters = NULL, summary = NA, ...) {
     if (!inherits(results$data, "data.frame") |
           (inherits(results$data, "data.frame") && nrow(results$data) == 0)) {
       message("Failed to download monitoring data; Did you specify ",
-              "appropriate filter values for your chosen filters?")
+              "appropriate filter names/values?")
       return(invisible())
     }
     attr(results$data, "citation") <- results$citation
