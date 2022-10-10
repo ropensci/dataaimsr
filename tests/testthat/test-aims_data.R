@@ -1,6 +1,6 @@
 library(dataaimsr)
 
-with_mock_dir("Correct structure aimsdata", {
+with_mock_dir("Correct-structure-aimsdata", {
   test_that("Correct structure", {
     # default to 1000 returns next_page link
     check_wa <- aims_data("weather", filters = w_filters, api_key = my_api_key)
@@ -30,7 +30,7 @@ with_mock_dir("Correct structure aimsdata", {
   })
 })
 
-with_mock_dir("Wrong filters aimsdata", {
+with_mock_dir("Wrong-filters-aimsdata", {
   test_that("Wrong filters", {
     check_wc <- aims_data("weather", filters = w_filters_c,
                           api_key = my_api_key)
@@ -47,7 +47,7 @@ with_mock_dir("Wrong filters aimsdata", {
   })
 })
 
-with_mock_dir("summary requests aimsdata", {
+with_mock_dir("summary-requests-aimsdata", {
   test_that("summary requests", {
     expect_message(aims_data("temp_loggers", filters = s_filters,
                              api_key = my_api_key, summary = "daily"))
@@ -66,7 +66,7 @@ with_mock_dir("summary requests aimsdata", {
   })
 })
 
-with_mock_dir("Fake bad connection aimsdata", {
+with_mock_dir("Fake-bad-connection-aimsdata", {
   test_that("Fake bad connection", {
     Sys.setenv("NETWORK_UP" = FALSE)
     expect_message(aims_data("weather", api_key = my_api_key,
