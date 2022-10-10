@@ -26,7 +26,7 @@ test_that("http error handling", {
   expect_error(handle_error(NULL))
 })
 
-with_mock_api({
+with_mock_dir("JSON results - Correct structure helpers", {
   test_that("JSON results - Correct structure", {
     good_dt_req <- GET(good_pt,
                        add_headers("X-Api-Key" = find_api_key(my_api_key)),
@@ -58,7 +58,7 @@ test_that("End point creation - Correct structure", {
                    "https://api.aims.gov.au/data")
 })
 
-with_mock_api({
+with_mock_dir("Correctly process requests", {
   test_that("Correctly process requests", {
     good_dt_req <- GET(good_pt,
                        add_headers("X-Api-Key" = find_api_key(my_api_key)),
@@ -81,7 +81,7 @@ with_mock_api({
   })
 })
 
-with_mock_api({
+with_mock_dir("Correctly update request output format", {
   test_that("Correctly update request output format", {
     good_dt_req <- GET(good_pt,
                        add_headers("X-Api-Key" = find_api_key(my_api_key)),

@@ -3,7 +3,7 @@ library(dataaimsr)
 weather_doi <- data_doi("weather")
 ssts_doi <- data_doi("temp_loggers")
 
-with_mock_api({
+with_mock_dir("Correct structure pagedata", {
   test_that("Correct structure", {
     # default to 1000 returns next_page link
     wa <- page_data(weather_doi, filters = w_filters, api_key = my_api_key)
@@ -17,7 +17,7 @@ with_mock_api({
     final_nrow_wa <- nrow(wa$data) + nrow(wa_n$data)
     final_nrow_sa <- nrow(sa$data) + nrow(sa_n$data)
     expect_is(wa, "list")
-    expect_length(wa, 4)
+    expect_length(wa, 5)
     expect_true("links" %in% names(wa))
     expect_is(wa$links, "list")
     expect_identical(names(wa$links), "next_page")
@@ -43,17 +43,16 @@ with_mock_api({
   })
 })
 
-with_mock_api({
+with_mock_dir("Wrong filters pagedata", {
   test_that("Wrong filters", {
-    texpect <- function(...) expect_message(expect_error(expect_is(...)))
-    texpect(page_data(weather_doi, filters = w_filters_c,
-                      api_key = my_api_key), "data.frame")
-    texpect(page_data(weather_doi, filters = w_filters_d,
-                      api_key = my_api_key), "data.frame")
+    texpect <- function(...) expect_error(expect_message(...))
+    texpect(page_data(weather_doi, filters = w_filters_c, api_key = my_api_key))
+    texpect(expect_is(page_data(weather_doi, filters = w_filters_d,
+                      api_key = my_api_key), "data.frame"))
   })
 })
 
-with_mock_api({
+with_mock_dir("summary requests pagedata", {
   test_that("summary requests", {
     expect_error(page_data(weather_doi, api_key = my_api_key,
                            summary = "summary-by-series"))

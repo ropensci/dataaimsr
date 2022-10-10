@@ -1,6 +1,6 @@
 library(dataaimsr)
 
-with_mock_api({
+with_mock_dir("Correct structure parameters", {
   test_that("Correct structure", {
     # regular monitoring data
     wa <- aims_data("weather", filters = w_filters, api_key = my_api_key)
