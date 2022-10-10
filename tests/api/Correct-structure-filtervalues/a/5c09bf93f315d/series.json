@@ -1,0 +1,5207 @@
+[
+    {
+        "series_id": 1,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @2m",
+        "series_short": "Water Temperature @2m"
+    },
+    {
+        "series_id": 2,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @0m",
+        "series_short": "Water Temperature @0m"
+    },
+    {
+        "series_id": 3,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @.2m",
+        "series_short": "Water Temperature @.2m"
+    },
+    {
+        "series_id": 4,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m",
+        "series_short": "Water Temperature @1.5m"
+    },
+    {
+        "series_id": 5,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @.9m",
+        "series_short": "Water Temperature @.9m"
+    },
+    {
+        "series_id": 6,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 7,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @1.4m",
+        "series_short": "Water Temperature @1.4m"
+    },
+    {
+        "series_id": 8,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @2.5m",
+        "series_short": "Water Temperature @2.5m"
+    },
+    {
+        "series_id": 9,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @4m",
+        "series_short": "Water Temperature @4m"
+    },
+    {
+        "series_id": 10,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @.5m",
+        "series_short": "Water Temperature @.5m"
+    },
+    {
+        "series_id": 11,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @3.5m",
+        "series_short": "Water Temperature @3.5m"
+    },
+    {
+        "series_id": 12,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @1.6m",
+        "series_short": "Water Temperature @1.6m"
+    },
+    {
+        "series_id": 13,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @3.5m",
+        "series_short": "Water Temperature @3.5m"
+    },
+    {
+        "series_id": 14,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 15,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @2.5m",
+        "series_short": "Water Temperature @2.5m"
+    },
+    {
+        "series_id": 16,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 17,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @4.5m",
+        "series_short": "Water Temperature @4.5m"
+    },
+    {
+        "series_id": 18,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @1.5m",
+        "series_short": "Water Temperature @1.5m"
+    },
+    {
+        "series_id": 19,
+        "series": "Heron Island Sensor Float 1 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 20,
+        "series": "Heron Island Sensor Float 2 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 21,
+        "series": "Heron Island Sensor Float 4 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 22,
+        "series": "Heron Island Sensor Float 5 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 23,
+        "series": "Heron Island Relay Pole 2 Water Temperature @1.5m",
+        "series_short": "Water Temperature @1.5m"
+    },
+    {
+        "series_id": 24,
+        "series": "Heron Island Relay Pole 3 Water Temperature @2m",
+        "series_short": "Water Temperature @2m"
+    },
+    {
+        "series_id": 25,
+        "series": "Heron Island Relay Pole 4 Water Temperature @1.8m",
+        "series_short": "Water Temperature @1.8m"
+    },
+    {
+        "series_id": 26,
+        "series": "Heron Island Relay Pole 1 Water Temperature @1.7m",
+        "series_short": "Water Temperature @1.7m"
+    },
+    {
+        "series_id": 27,
+        "series": "Heron Island Relay Pole 6 Water Temperature @1.5m",
+        "series_short": "Water Temperature @1.5m"
+    },
+    {
+        "series_id": 28,
+        "series": "Heron Island Relay Pole 5 Water Temperature @1.6m",
+        "series_short": "Water Temperature @1.6m"
+    },
+    {
+        "series_id": 29,
+        "series": "Heron Island Sensor Float 3 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 30,
+        "series": "Agincourt Reef Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 31,
+        "series": "Agincourt Reef Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 32,
+        "series": "Agincourt Reef Weather Station Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 33,
+        "series": "Agincourt Reef Weather Station Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 34,
+        "series": "Agincourt Reef Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 35,
+        "series": "Agincourt Reef Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 38,
+        "series": "Agincourt Reef Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 39,
+        "series": "Cape Bowling Green Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 40,
+        "series": "Cape Bowling Green Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 41,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 42,
+        "series": "Cape Bowling Green Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 43,
+        "series": "Cape Bowling Green Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 46,
+        "series": "Cleveland Bay Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 47,
+        "series": "Cleveland Bay Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 48,
+        "series": "Cleveland Bay Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 49,
+        "series": "Cleveland Bay Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 50,
+        "series": "Cleveland Bay Weather Station Water Temperature @8m",
+        "series_short": "Water Temperature @8m"
+    },
+    {
+        "series_id": 51,
+        "series": "Cleveland Bay Weather Station Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 52,
+        "series": "Cleveland Bay Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 55,
+        "series": "Cleveland Bay Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 57,
+        "series": "Davies Reef Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 59,
+        "series": "Davies Reef Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 60,
+        "series": "Davies Reef Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 61,
+        "series": "Davies Reef Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 62,
+        "series": "Davies Reef Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 63,
+        "series": "Davies Reef Weather Station Water Temperature @4m duplicate",
+        "series_short": "Water Temperature @4m duplicate"
+    },
+    {
+        "series_id": 64,
+        "series": "Davies Reef Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 65,
+        "series": "Davies Reef Weather Station Water Temperature @4m",
+        "series_short": "Water Temperature @4m"
+    },
+    {
+        "series_id": 66,
+        "series": "Davies Reef Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 67,
+        "series": "Davies Reef Weather Station Water Temperature @18.5m",
+        "series_short": "Water Temperature @18.5m"
+    },
+    {
+        "series_id": 72,
+        "series": "Davies Reef Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 73,
+        "series": "Davies Reef Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 74,
+        "series": "Davies Reef Weather Station Water Temperature @8.5m",
+        "series_short": "Water Temperature @8.5m"
+    },
+    {
+        "series_id": 75,
+        "series": "Davies Reef Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 77,
+        "series": "Square Rocks Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 78,
+        "series": "Square Rocks Weather Station Water Temperature @2.9m",
+        "series_short": "Water Temperature @2.9m"
+    },
+    {
+        "series_id": 79,
+        "series": "Square Rocks Weather Station Water Temperature @7.9m",
+        "series_short": "Water Temperature @7.9m"
+    },
+    {
+        "series_id": 80,
+        "series": "Square Rocks Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 81,
+        "series": "Square Rocks Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 82,
+        "series": "Square Rocks Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 83,
+        "series": "Square Rocks Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 84,
+        "series": "Square Rocks Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 87,
+        "series": "Hardy Reef Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 88,
+        "series": "Hardy Reef Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 90,
+        "series": "Hardy Reef Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 91,
+        "series": "Hardy Reef Weather Station Photopic",
+        "series_short": "Photopic"
+    },
+    {
+        "series_id": 92,
+        "series": "Hardy Reef Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 95,
+        "series": "Hardy Reef Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 96,
+        "series": "Hardy Reef Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 97,
+        "series": "Hardy Reef Weather Station Water Temperature @9m",
+        "series_short": "Water Temperature @9m"
+    },
+    {
+        "series_id": 98,
+        "series": "Hardy Reef Weather Station Water Temperature @2.5m",
+        "series_short": "Water Temperature @2.5m"
+    },
+    {
+        "series_id": 99,
+        "series": "Hardy Reef Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 100,
+        "series": "Hardy Reef Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 101,
+        "series": "Hardy Reef Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 102,
+        "series": "Hardy Reef Weather Station Wind Speed (scalar avg b 10 min)  replicate b",
+        "series_short": "Wind Speed (S avg b 10 min)  replicate b"
+    },
+    {
+        "series_id": 110,
+        "series": "Myrmidon Reef Weather Station Water Temperature @2m",
+        "series_short": "Water Temperature @2m"
+    },
+    {
+        "series_id": 111,
+        "series": "Myrmidon Reef Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 112,
+        "series": "Myrmidon Reef Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 113,
+        "series": "Myrmidon Reef Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 114,
+        "series": "Myrmidon Sensor Float 1 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 115,
+        "series": "Myrmidon Reef Weather Station Water Temperature @14.7m",
+        "series_short": "Water Temperature @14.7m"
+    },
+    {
+        "series_id": 116,
+        "series": "Myrmidon Reef Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 117,
+        "series": "Myrmidon Reef Weather Station Water Temperature @7.3m",
+        "series_short": "Water Temperature @7.3m"
+    },
+    {
+        "series_id": 120,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 128,
+        "series": "Ningaloo Reef Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 129,
+        "series": "Ningaloo Reef Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 130,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 131,
+        "series": "Ningaloo Reef Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 133,
+        "series": "Ningaloo Reef Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 142,
+        "series": "Orpheus Island Weather Station Rain",
+        "series_short": "Rain"
+    },
+    {
+        "series_id": 147,
+        "series": "Orpheus Island Weather Station Wind Gust",
+        "series_short": "Wind Gust"
+    },
+    {
+        "series_id": 148,
+        "series": "Orpheus Island Relay Pole 2 PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 150,
+        "series": "Orpheus Island Weather Station Water Temperature @1.9m",
+        "series_short": "Water Temperature @1.9m"
+    },
+    {
+        "series_id": 151,
+        "series": "Orpheus Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 153,
+        "series": "Orpheus Island Weather Station Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 155,
+        "series": "Orpheus Island Weather Station Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 158,
+        "series": "One Tree Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 159,
+        "series": "One Tree Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 160,
+        "series": "One Tree Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 161,
+        "series": "One Tree Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 162,
+        "series": "One Tree Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 163,
+        "series": "One Tree Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 164,
+        "series": "One Tree Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 166,
+        "series": "One Tree Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 167,
+        "series": "One Tree Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 168,
+        "series": "One Tree Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 169,
+        "series": "One Tree Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 170,
+        "series": "One Tree Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 171,
+        "series": "One Tree Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 172,
+        "series": "One Tree Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 173,
+        "series": "One Tree Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 174,
+        "series": "One Tree Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 175,
+        "series": "One Tree Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 176,
+        "series": "One Tree Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 177,
+        "series": "One Tree Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 178,
+        "series": "One Tree Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 179,
+        "series": "One Tree Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 180,
+        "series": "One Tree Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 181,
+        "series": "One Tree Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 182,
+        "series": "One Tree Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 183,
+        "series": "One Tree Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 184,
+        "series": "One Tree Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 185,
+        "series": "One Tree Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 186,
+        "series": "Heron Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 187,
+        "series": "Heron Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 188,
+        "series": "Heron Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 189,
+        "series": "Heron Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 190,
+        "series": "Heron Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 191,
+        "series": "Heron Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 192,
+        "series": "Heron Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 193,
+        "series": "Heron Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 194,
+        "series": "Heron Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 195,
+        "series": "Heron Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 196,
+        "series": "Heron Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 197,
+        "series": "Heron Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 198,
+        "series": "Heron Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 200,
+        "series": "Heron Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 201,
+        "series": "Heron Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 202,
+        "series": "Heron Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 203,
+        "series": "Heron Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 204,
+        "series": "Heron Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 205,
+        "series": "Heron Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 207,
+        "series": "Heron Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 208,
+        "series": "Heron Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 209,
+        "series": "Heron Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 210,
+        "series": "Heron Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 211,
+        "series": "Heron Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 212,
+        "series": "Heron Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 213,
+        "series": "Heron Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 214,
+        "series": "Heron Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 215,
+        "series": "Orpheus Island Sensor Float 1 Water Temperature @4.2m",
+        "series_short": "Water Temperature @4.2m"
+    },
+    {
+        "series_id": 216,
+        "series": "Orpheus Island Sensor Float 1 Water Pressure @4.2m",
+        "series_short": "Water Pressure @4.2m"
+    },
+    {
+        "series_id": 218,
+        "series": "Orpheus Island Sensor Float 1 Conductivity @4.2m",
+        "series_short": "Conductivity @4.2m"
+    },
+    {
+        "series_id": 219,
+        "series": "Orpheus Island Sensor Float 2 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 220,
+        "series": "Orpheus Island Sensor Float 2 Water Temperature @8.7m",
+        "series_short": "Water Temperature @8.7m"
+    },
+    {
+        "series_id": 221,
+        "series": "Orpheus Island Sensor Float 2 Water Pressure @8.7m",
+        "series_short": "Water Pressure @8.7m"
+    },
+    {
+        "series_id": 222,
+        "series": "Orpheus Island Relay Pole 1 Water Temperature @5.8m",
+        "series_short": "Water Temperature @5.8m"
+    },
+    {
+        "series_id": 223,
+        "series": "Orpheus Island Relay Pole 1 Water Pressure @5.8m",
+        "series_short": "Water Pressure @5.8m"
+    },
+    {
+        "series_id": 224,
+        "series": "Orpheus Island Relay Pole 1 Water Temperature @14.6m",
+        "series_short": "Water Temperature @14.6m"
+    },
+    {
+        "series_id": 226,
+        "series": "Orpheus Island Relay Pole 1 Conductivity @14.6m",
+        "series_short": "Conductivity @14.6m"
+    },
+    {
+        "series_id": 227,
+        "series": "Orpheus Island Relay Pole 1 Water Temperature @-.3m",
+        "series_short": "Water Temperature @-.3m"
+    },
+    {
+        "series_id": 228,
+        "series": "Orpheus Island Relay Pole 1 Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 229,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @4.3m",
+        "series_short": "Water Temperature @4.3m"
+    },
+    {
+        "series_id": 230,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @.3m",
+        "series_short": "Water Temperature @.3m"
+    },
+    {
+        "series_id": 233,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @12m",
+        "series_short": "Water Temperature @12m"
+    },
+    {
+        "series_id": 234,
+        "series": "Orpheus Island Relay Pole 2 Water Pressure @12.2m",
+        "series_short": "Water Pressure @12.2m"
+    },
+    {
+        "series_id": 235,
+        "series": "Orpheus Island Relay Pole 2 Conductivity @7.3m",
+        "series_short": "Conductivity @7.3m"
+    },
+    {
+        "series_id": 236,
+        "series": "Orpheus Island Relay Pole 3 Water Temperature @2m",
+        "series_short": "Water Temperature @2m"
+    },
+    {
+        "series_id": 237,
+        "series": "Orpheus Island Relay Pole 3 Water Temperature @.2m",
+        "series_short": "Water Temperature @.2m"
+    },
+    {
+        "series_id": 240,
+        "series": "Orpheus Island Relay Pole 3 Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 241,
+        "series": "Orpheus Island Relay Pole 3 Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 242,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 243,
+        "series": "Orpheus Island Relay Pole 3 Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 244,
+        "series": "Orpheus Island Relay Pole 3 Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 245,
+        "series": "Orpheus Island Relay Pole 3 Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 246,
+        "series": "Orpheus Island Relay Pole 3 Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 247,
+        "series": "Orpheus Island Relay Pole 3 Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 248,
+        "series": "Orpheus Island Relay Pole 3 Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 249,
+        "series": "Orpheus Island Relay Pole 3 Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 250,
+        "series": "Orpheus Island Relay Pole 3 Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 251,
+        "series": "Orpheus Island Relay Pole 3 Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 252,
+        "series": "Orpheus Island Relay Pole 3 Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 253,
+        "series": "Orpheus Island Relay Pole 3 Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 254,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 255,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 256,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 257,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 258,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 259,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 260,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 261,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 262,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 263,
+        "series": "Orpheus Island Relay Pole 3 Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 264,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 265,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 266,
+        "series": "Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 267,
+        "series": "Cleveland Bay Upwelling Detection Station Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 268,
+        "series": "Cleveland Bay Upwelling Detection Station Water Temperature @8m",
+        "series_short": "Water Temperature @8m"
+    },
+    {
+        "series_id": 269,
+        "series": "Cleveland Bay Upwelling Detection Station Water Temperature @12m",
+        "series_short": "Water Temperature @12m"
+    },
+    {
+        "series_id": 270,
+        "series": "Davies Reef Sensor Float 1 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 271,
+        "series": "Davies Reef Sensor Float 2 Water Temperature @6.5m",
+        "series_short": "Water Temperature @6.5m"
+    },
+    {
+        "series_id": 272,
+        "series": "Davies Reef Sensor Float 2 Water Pressure @6.5m",
+        "series_short": "Water Pressure @6.5m"
+    },
+    {
+        "series_id": 273,
+        "series": "Davies Reef Sensor Float 2 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 274,
+        "series": "Davies Reef Sensor Float 3 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 275,
+        "series": "Davies Reef Sensor Float 3 Water Temperature @9.1m",
+        "series_short": "Water Temperature @9.1m"
+    },
+    {
+        "series_id": 276,
+        "series": "Davies Reef Sensor Float 3 Water Pressure @9.1m",
+        "series_short": "Water Pressure @9.1m"
+    },
+    {
+        "series_id": 277,
+        "series": "Davies Reef Sensor Float 4 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 278,
+        "series": "Davies Reef Sensor Float 4 Water Temperature @10.7m",
+        "series_short": "Water Temperature @10.7m"
+    },
+    {
+        "series_id": 279,
+        "series": "Davies Reef Sensor Float 4 Water Pressure @10.7m",
+        "series_short": "Water Pressure @10.7m"
+    },
+    {
+        "series_id": 280,
+        "series": "Davies Reef Sensor Float 4 Conductivity @10.7m",
+        "series_short": "Conductivity @10.7m"
+    },
+    {
+        "series_id": 281,
+        "series": "Davies Reef Sensor Float 5 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 282,
+        "series": "Davies Reef Sensor Float 5 Water Temperature @5.2m",
+        "series_short": "Water Temperature @5.2m"
+    },
+    {
+        "series_id": 283,
+        "series": "Davies Reef Sensor Float 5 Conductivity @5.2m",
+        "series_short": "Conductivity @5.2m"
+    },
+    {
+        "series_id": 2016,
+        "series": "John Brewer Weather Station Historical Water Temperature @.5m",
+        "series_short": "Water Temperature @.5m"
+    },
+    {
+        "series_id": 2481,
+        "series": "Cleveland Bay Channel Marker 10 Historical Rain",
+        "series_short": "Rain"
+    },
+    {
+        "series_id": 2521,
+        "series": "Darwin NRS Buoy Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2541,
+        "series": "Darwin NRS Buoy Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 2581,
+        "series": "Darwin NRS Buoy Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 2582,
+        "series": "Darwin NRS Buoy Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 2601,
+        "series": "Square Rocks Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 2622,
+        "series": "Hardy Reef Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 2623,
+        "series": "Hardy Reef Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 2624,
+        "series": "Hardy Reef Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 2626,
+        "series": "Hardy Reef Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 2627,
+        "series": "Hardy Reef Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 2628,
+        "series": "Hardy Reef Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 2629,
+        "series": "Hardy Reef Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 2630,
+        "series": "Hardy Reef Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 2632,
+        "series": "Hardy Reef Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 2633,
+        "series": "Hardy Reef Weather Station Wind Speed (scalar avg b 30 min) replicate b",
+        "series_short": "Wind Speed (S avg b 30 min) replicate b"
+    },
+    {
+        "series_id": 2634,
+        "series": "Hardy Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 2635,
+        "series": "Hardy Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 2636,
+        "series": "Hardy Reef Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 2637,
+        "series": "Hardy Reef Weather Station Wind Speed (vector avg 10 min) replicate b",
+        "series_short": "Wind Speed (V avg 10 min) replicate b"
+    },
+    {
+        "series_id": 2638,
+        "series": "Hardy Reef Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 2639,
+        "series": "Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 2640,
+        "series": "Hardy Reef Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 2641,
+        "series": "Daintree River Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2642,
+        "series": "Daintree River Weather Station Historical Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 2643,
+        "series": "Daintree River Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2644,
+        "series": "Daintree River Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 2645,
+        "series": "Daintree River Weather Station Historical Rain",
+        "series_short": "Rain"
+    },
+    {
+        "series_id": 2646,
+        "series": "Daintree River Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2647,
+        "series": "Daintree River Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2661,
+        "series": "John Brewer Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2662,
+        "series": "John Brewer Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2663,
+        "series": "John Brewer Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 2664,
+        "series": "John Brewer Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2665,
+        "series": "John Brewer Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2681,
+        "series": "Cape Bowling Green Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2682,
+        "series": "Cape Bowling Green Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2683,
+        "series": "Cape Bowling Green Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 2684,
+        "series": "Cape Bowling Green Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2685,
+        "series": "Cape Bowling Green Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2701,
+        "series": "Coral Creek Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2702,
+        "series": "Coral Creek Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2704,
+        "series": "Coral Creek Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2705,
+        "series": "Coral Creek Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2706,
+        "series": "Rib Reef Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2707,
+        "series": "Rib Reef Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2708,
+        "series": "Rib Reef Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 2709,
+        "series": "Rib Reef Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2710,
+        "series": "Rib Reef Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2711,
+        "series": "AIMS Wharf Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 2712,
+        "series": "AIMS Wharf Weather Station Historical PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 2713,
+        "series": "AIMS Wharf Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 2714,
+        "series": "AIMS Wharf Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 2715,
+        "series": "AIMS Wharf Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 2821,
+        "series": "Darwin NRS Buoy Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 2822,
+        "series": "Darwin NRS Buoy Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 2851,
+        "series": "Davies Reef Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 2882,
+        "series": "Davies Reef Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 2886,
+        "series": "Darwin NRS Buoy Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 2887,
+        "series": "Darwin NRS Buoy Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 2888,
+        "series": "Darwin NRS Buoy Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 2889,
+        "series": "Darwin NRS Buoy Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 2890,
+        "series": "Darwin NRS Buoy Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 2891,
+        "series": "Darwin NRS Buoy Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 2892,
+        "series": "Darwin NRS Buoy Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 2893,
+        "series": "Darwin NRS Buoy Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 2894,
+        "series": "Darwin NRS Buoy Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 2895,
+        "series": "Darwin NRS Buoy Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 2896,
+        "series": "Darwin NRS Buoy Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 2908,
+        "series": "Darwin NRS Buoy Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 2909,
+        "series": "Darwin NRS Buoy Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 2910,
+        "series": "Darwin NRS Buoy Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 2911,
+        "series": "Darwin NRS Buoy Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 3000,
+        "series": "Darwin NRS Buoy Significant Wave Height",
+        "series_short": "Significant Wave Height"
+    },
+    {
+        "series_id": 3001,
+        "series": "Darwin NRS Buoy Peak Wave Period",
+        "series_short": "Peak Wave Period"
+    },
+    {
+        "series_id": 3002,
+        "series": "Darwin NRS Buoy peak wave direction",
+        "series_short": "peak wave direction"
+    },
+    {
+        "series_id": 3003,
+        "series": "Darwin NRS Buoy - OLD Water Level",
+        "series_short": "Water Level"
+    },
+    {
+        "series_id": 3010,
+        "series": "Darwin NRS Buoy - OLD Water Temperature @24m",
+        "series_short": "Water Temperature @24m"
+    },
+    {
+        "series_id": 3011,
+        "series": "Darwin NRS Buoy - OLD Water Pressure @24m",
+        "series_short": "Water Pressure @24m"
+    },
+    {
+        "series_id": 3012,
+        "series": "Darwin NRS Buoy - OLD Salinity @24m",
+        "series_short": "Salinity @24m"
+    },
+    {
+        "series_id": 3013,
+        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mass) @24.5m",
+        "series_short": "Dissolved O2 (mass) @24.5m"
+    },
+    {
+        "series_id": 3014,
+        "series": "Darwin NRS Buoy - OLD Chlorophyll @24m",
+        "series_short": "Chlorophyll @24m"
+    },
+    {
+        "series_id": 3015,
+        "series": "Darwin NRS Buoy - OLD Turbidity @24m",
+        "series_short": "Turbidity @24m"
+    },
+    {
+        "series_id": 3018,
+        "series": "Darwin NRS Buoy - OLD Water Temperature @6m",
+        "series_short": "Water Temperature @6m"
+    },
+    {
+        "series_id": 3019,
+        "series": "Darwin NRS Buoy - OLD Water Pressure @6m",
+        "series_short": "Water Pressure @6m"
+    },
+    {
+        "series_id": 3020,
+        "series": "Darwin NRS Buoy - OLD Salinity @6m",
+        "series_short": "Salinity @6m"
+    },
+    {
+        "series_id": 3021,
+        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mass) @6m",
+        "series_short": "Dissolved O2 (mass) @6m"
+    },
+    {
+        "series_id": 3022,
+        "series": "Darwin NRS Buoy - OLD Chlorophyll @6m",
+        "series_short": "Chlorophyll @6m"
+    },
+    {
+        "series_id": 3023,
+        "series": "Darwin NRS Buoy - OLD Turbidity @6m",
+        "series_short": "Turbidity @6m"
+    },
+    {
+        "series_id": 3025,
+        "series": "Darwin NRS Buoy - OLD Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 3026,
+        "series": "Darwin NRS Buoy - OLD Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 3033,
+        "series": "Darwin NRS Buoy Downwelling shortwave radiation",
+        "series_short": "Downwelling shortwave radiation"
+    },
+    {
+        "series_id": 3034,
+        "series": "Darwin NRS Buoy Upwelling shortwave radiation",
+        "series_short": "Upwelling shortwave radiation"
+    },
+    {
+        "series_id": 3037,
+        "series": "Darwin NRS Buoy Net shortwave radiation",
+        "series_short": "Net shortwave radiation"
+    },
+    {
+        "series_id": 3038,
+        "series": "Darwin NRS Buoy Net longwave radiation",
+        "series_short": "Net longwave radiation"
+    },
+    {
+        "series_id": 3042,
+        "series": "Darwin NRS Buoy Albedo",
+        "series_short": "Albedo"
+    },
+    {
+        "series_id": 3043,
+        "series": "Darwin NRS Buoy Downwelling total radiation",
+        "series_short": "Downwelling total radiation"
+    },
+    {
+        "series_id": 3044,
+        "series": "Darwin NRS Buoy Upwelling total radiation",
+        "series_short": "Upwelling total radiation"
+    },
+    {
+        "series_id": 3045,
+        "series": "Darwin NRS Buoy Net radiation",
+        "series_short": "Net radiation"
+    },
+    {
+        "series_id": 3049,
+        "series": "Darwin NRS Buoy Upwelling longwave radiation corrected",
+        "series_short": "Upwelling longwave radiation corrected"
+    },
+    {
+        "series_id": 3050,
+        "series": "Darwin NRS Buoy Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 3121,
+        "series": "Darwin NRS Buoy Downwelling longwave radiation corrected",
+        "series_short": "Downwelling longwave radiation corrected"
+    },
+    {
+        "series_id": 3484,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 3485,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 3486,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 3487,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (scalar avg b 10 min)  duplicate",
+        "series_short": "Wind Speed (S avg b 10 min)  duplicate"
+    },
+    {
+        "series_id": 3488,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 3489,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 3490,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 3491,
+        "series": "Lizard Island Relay Pole 2 Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 3492,
+        "series": "Lizard Island Relay Pole 2 Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 3493,
+        "series": "Lizard Island Relay Pole 2 Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 3494,
+        "series": "Lizard Island Relay Pole 2 Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 3495,
+        "series": "Lizard Island Relay Pole 2 Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 3496,
+        "series": "Lizard Island Relay Pole 2 Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 3497,
+        "series": "Lizard Island Relay Pole 2 Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 3498,
+        "series": "Lizard Island Relay Pole 2 Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 3499,
+        "series": "Lizard Island Relay Pole 2 Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 3500,
+        "series": "Lizard Island Relay Pole 2 Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 3501,
+        "series": "Lizard Island Relay Pole 2 Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 3502,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 3503,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 3504,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 3505,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (scalar avg b 30 min) duplicate",
+        "series_short": "Wind Speed (S avg b 30 min) duplicate"
+    },
+    {
+        "series_id": 3506,
+        "series": "Lizard Island Relay Pole 2 Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 3507,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 3508,
+        "series": "Lizard Island Relay Pole 2 Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 3509,
+        "series": "Lizard Island Relay Pole 2 Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 3510,
+        "series": "Lizard Island Relay Pole 2 Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 3522,
+        "series": "Lizard Island Relay Pole 2 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 3523,
+        "series": "Lizard Island Relay Pole 2 Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 3528,
+        "series": "Lizard Island Relay Pole 2 Water Temperature",
+        "series_short": "Water Temperature"
+    },
+    {
+        "series_id": 3529,
+        "series": "Lizard Island Relay Pole 2 Conductivity @20.6m",
+        "series_short": "Conductivity @20.6m"
+    },
+    {
+        "series_id": 3533,
+        "series": "Lizard Island Sensor Float 1 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 3534,
+        "series": "Lizard Island Sensor Float 1 Water Temperature @6m",
+        "series_short": "Water Temperature @6m"
+    },
+    {
+        "series_id": 3536,
+        "series": "Lizard Island Sensor Float 1 Water Temperature @5.5m",
+        "series_short": "Water Temperature @5.5m"
+    },
+    {
+        "series_id": 3537,
+        "series": "Lizard Island Sensor Float 1 Conductivity @5.5m",
+        "series_short": "Conductivity @5.5m"
+    },
+    {
+        "series_id": 3541,
+        "series": "Lizard Island Sensor Float 2 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 3542,
+        "series": "Lizard Island Sensor Float 2 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 3543,
+        "series": "Lizard Island Sensor Float 2 Water Temperature @10.9m",
+        "series_short": "Water Temperature @10.9m"
+    },
+    {
+        "series_id": 3544,
+        "series": "Lizard Island Sensor Float 2 Conductivity @10.9m",
+        "series_short": "Conductivity @10.9m"
+    },
+    {
+        "series_id": 3549,
+        "series": "Lizard Island Sensor Float 3 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 3550,
+        "series": "Lizard Island Sensor Float 3 Water Temperature @9m",
+        "series_short": "Water Temperature @9m"
+    },
+    {
+        "series_id": 3555,
+        "series": "Lizard Island Sensor Float 4 Water Temperature @6m",
+        "series_short": "Water Temperature @6m"
+    },
+    {
+        "series_id": 3556,
+        "series": "Lizard Island Sensor Float 4 Water Temperature @8m",
+        "series_short": "Water Temperature @8m"
+    },
+    {
+        "series_id": 3558,
+        "series": "Lizard Island Sensor Float 4 Water Temperature @11.5m",
+        "series_short": "Water Temperature @11.5m"
+    },
+    {
+        "series_id": 3559,
+        "series": "Lizard Island Sensor Float 4 Conductivity @11.5m",
+        "series_short": "Conductivity @11.5m"
+    },
+    {
+        "series_id": 3981,
+        "series": "Orpheus Island Relay Pole 1 Water Pressure @14.6m",
+        "series_short": "Water Pressure @14.6m"
+    },
+    {
+        "series_id": 4001,
+        "series": "Orpheus Island Sensor Float 1 Conductivity @.6m",
+        "series_short": "Conductivity @.6m"
+    },
+    {
+        "series_id": 4065,
+        "series": "Yongala NRS Buoy Albedo",
+        "series_short": "Albedo"
+    },
+    {
+        "series_id": 4066,
+        "series": "Yongala NRS Buoy Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 4067,
+        "series": "Yongala NRS Buoy Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 4069,
+        "series": "Yongala NRS Buoy Downwelling longwave radiation corrected",
+        "series_short": "Downwelling longwave radiation corrected"
+    },
+    {
+        "series_id": 4070,
+        "series": "Yongala NRS Buoy Downwelling shortwave radiation",
+        "series_short": "Downwelling shortwave radiation"
+    },
+    {
+        "series_id": 4071,
+        "series": "Yongala NRS Buoy Upwelling longwave radiation corrected",
+        "series_short": "Upwelling longwave radiation corrected"
+    },
+    {
+        "series_id": 4072,
+        "series": "Yongala NRS Buoy Upwelling shortwave radiation",
+        "series_short": "Upwelling shortwave radiation"
+    },
+    {
+        "series_id": 4073,
+        "series": "Yongala NRS Buoy Net longwave radiation",
+        "series_short": "Net longwave radiation"
+    },
+    {
+        "series_id": 4074,
+        "series": "Yongala NRS Buoy Net shortwave radiation",
+        "series_short": "Net shortwave radiation"
+    },
+    {
+        "series_id": 4075,
+        "series": "Yongala NRS Buoy Water Temperature @20m",
+        "series_short": "Water Temperature @20m"
+    },
+    {
+        "series_id": 4094,
+        "series": "Yongala NRS Buoy Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 4095,
+        "series": "Yongala NRS Buoy Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 4096,
+        "series": "Yongala NRS Buoy Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4097,
+        "series": "Yongala NRS Buoy Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 4098,
+        "series": "Yongala NRS Buoy Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4099,
+        "series": "Yongala NRS Buoy Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 4100,
+        "series": "Yongala NRS Buoy Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 4101,
+        "series": "Yongala NRS Buoy Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 4102,
+        "series": "Yongala NRS Buoy Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 4103,
+        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 4104,
+        "series": "Yongala NRS Buoy Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 4105,
+        "series": "Yongala NRS Buoy Chlorophyll @4.1m Realtime",
+        "series_short": "Chlorophyll @4.1m Realtime"
+    },
+    {
+        "series_id": 4106,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mass) @4.1m Realtime",
+        "series_short": "Dissolved O2 (mass) @4.1m Realtime"
+    },
+    {
+        "series_id": 4107,
+        "series": "Yongala NRS Buoy Salinity @4.1m Realtime",
+        "series_short": "Salinity @4.1m Realtime"
+    },
+    {
+        "series_id": 4108,
+        "series": "Yongala NRS Buoy Turbidity @4.1m Realtime",
+        "series_short": "Turbidity @4.1m Realtime"
+    },
+    {
+        "series_id": 4119,
+        "series": "Yongala NRS Buoy Water Pressure @4.1m Realtime",
+        "series_short": "Water Pressure @4.1m Realtime"
+    },
+    {
+        "series_id": 4121,
+        "series": "Yongala NRS Buoy Water Temperature @4.1m Realtime",
+        "series_short": "Water Temperature @4.1m Realtime"
+    },
+    {
+        "series_id": 4132,
+        "series": "Yongala NRS Buoy Water Temperature @15m Realtime",
+        "series_short": "Water Temperature @15m Realtime"
+    },
+    {
+        "series_id": 4181,
+        "series": "Cape Bowling Green Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 4182,
+        "series": "Cape Bowling Green Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 4183,
+        "series": "Cape Bowling Green Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 4184,
+        "series": "Cape Bowling Green Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 4185,
+        "series": "Cape Bowling Green Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4186,
+        "series": "Cape Bowling Green Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 4187,
+        "series": "Cape Bowling Green Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4188,
+        "series": "Cape Bowling Green Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 4189,
+        "series": "Cape Bowling Green Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 4190,
+        "series": "Cape Bowling Green Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 4191,
+        "series": "Cape Bowling Green Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 4192,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 4193,
+        "series": "Cape Bowling Green Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 4701,
+        "series": "Davies Reef Sensor Float 1 Water Pressure @5m",
+        "series_short": "Water Pressure @5m"
+    },
+    {
+        "series_id": 4721,
+        "series": "Davies Reef Sensor Float 1 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 4781,
+        "series": "Davies Reef Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4782,
+        "series": "Davies Reef Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 4783,
+        "series": "Davies Reef Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 4784,
+        "series": "Davies Reef Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 5782,
+        "series": "Myrmidon Reef Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 5783,
+        "series": "Myrmidon Reef Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 5784,
+        "series": "Myrmidon Reef Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 5785,
+        "series": "Myrmidon Reef Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 5786,
+        "series": "Myrmidon Reef Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 5787,
+        "series": "Myrmidon Reef Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 5788,
+        "series": "Myrmidon Reef Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 5789,
+        "series": "Myrmidon Reef Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 5790,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 6482,
+        "series": "Square Rocks Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 6483,
+        "series": "Square Rocks Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 6484,
+        "series": "Square Rocks Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 6485,
+        "series": "Square Rocks Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 6486,
+        "series": "Square Rocks Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 6487,
+        "series": "Square Rocks Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 6488,
+        "series": "Square Rocks Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 6489,
+        "series": "Square Rocks Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 6490,
+        "series": "Square Rocks Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 6491,
+        "series": "Square Rocks Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 6492,
+        "series": "Square Rocks Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 8442,
+        "series": "Rib Reef Sensor Float 1 Water Temperature @3.1m",
+        "series_short": "Water Temperature @3.1m"
+    },
+    {
+        "series_id": 8443,
+        "series": "Rib Reef Sensor Float 1 Water Temperature @16.8m",
+        "series_short": "Water Temperature @16.8m"
+    },
+    {
+        "series_id": 8444,
+        "series": "Rib Reef Sensor Float 1 Water Temperature @22.6m",
+        "series_short": "Water Temperature @22.6m"
+    },
+    {
+        "series_id": 8482,
+        "series": "Orpheus Island Sensor Float 1 Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 8502,
+        "series": "Cape Cleveland Weather Station Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 8542,
+        "series": "Cape Cleveland Weather Station Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 8543,
+        "series": "Cape Cleveland Weather Station Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 8545,
+        "series": "Cape Cleveland Weather Station Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 8546,
+        "series": "Cleveland Bay Channel Marker 10 Historical Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 8547,
+        "series": "Cleveland Bay Channel Marker 10 Historical Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 8548,
+        "series": "Cleveland Bay Channel Marker 10 Historical Water Temperature @.5m",
+        "series_short": "Water Temperature @.5m"
+    },
+    {
+        "series_id": 8549,
+        "series": "Cleveland Bay Channel Marker 10 Historical Wind Direction",
+        "series_short": "Wind Direction"
+    },
+    {
+        "series_id": 8550,
+        "series": "Orpheus Island Relay Pole 1 Turbidity @3.5m",
+        "series_short": "Turbidity @3.5m"
+    },
+    {
+        "series_id": 8552,
+        "series": "Cleveland Bay Channel Marker 10 Historical Wind Speed",
+        "series_short": "Wind Speed"
+    },
+    {
+        "series_id": 8553,
+        "series": "Thursday Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 8554,
+        "series": "Thursday Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 8555,
+        "series": "Thursday Island Weather Station Historic Conductivity @3m",
+        "series_short": "Conductivity @3m"
+    },
+    {
+        "series_id": 8556,
+        "series": "Thursday Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 8557,
+        "series": "Thursday Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 8558,
+        "series": "Thursday Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 8559,
+        "series": "Thursday Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 8560,
+        "series": "Thursday Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 8561,
+        "series": "Thursday Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 8562,
+        "series": "Thursday Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 8563,
+        "series": "Thursday Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 8564,
+        "series": "Thursday Island Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 8565,
+        "series": "Thursday Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 8566,
+        "series": "Thursday Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 8567,
+        "series": "Thursday Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 8568,
+        "series": "Thursday Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 8569,
+        "series": "Thursday Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 8570,
+        "series": "Thursday Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 8571,
+        "series": "Thursday Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 8572,
+        "series": "Thursday Island Weather Station Water Pressure @6.8m",
+        "series_short": "Water Pressure @6.8m"
+    },
+    {
+        "series_id": 8573,
+        "series": "Thursday Island Weather Station Water Temperature @6.8m",
+        "series_short": "Water Temperature @6.8m"
+    },
+    {
+        "series_id": 8588,
+        "series": "Thursday Island Weather Station Historic Water Temperature @3m",
+        "series_short": "Water Temperature @3m"
+    },
+    {
+        "series_id": 8589,
+        "series": "Thursday Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 8590,
+        "series": "Thursday Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 8602,
+        "series": "Orpheus Island Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 8603,
+        "series": "Orpheus Island Weather Station Water Temperature @6m",
+        "series_short": "Water Temperature @6m"
+    },
+    {
+        "series_id": 8604,
+        "series": "Darwin NRS Buoy - OLD East Component of water velocity",
+        "series_short": "East Component of water velocity"
+    },
+    {
+        "series_id": 8605,
+        "series": "Darwin NRS Buoy - OLD North Component of water velocity",
+        "series_short": "North Component of water velocity"
+    },
+    {
+        "series_id": 9122,
+        "series": "Lizard Island Sensor Float 1 Water Pressure @5.5m",
+        "series_short": "Water Pressure @5.5m"
+    },
+    {
+        "series_id": 9124,
+        "series": "Lizard Island Sensor Float 2 Water Pressure @10.9m",
+        "series_short": "Water Pressure @10.9m"
+    },
+    {
+        "series_id": 9126,
+        "series": "Lizard Island Sensor Float 1 Water Pressure @6m",
+        "series_short": "Water Pressure @6m"
+    },
+    {
+        "series_id": 9127,
+        "series": "Lizard Island Sensor Float 3 Water Pressure @9m",
+        "series_short": "Water Pressure @9m"
+    },
+    {
+        "series_id": 9128,
+        "series": "Lizard Island Relay Pole 2 PAR @10m",
+        "series_short": "PAR @10m"
+    },
+    {
+        "series_id": 9130,
+        "series": "Lizard Island Relay Pole 2 Water Pressure @10m",
+        "series_short": "Water Pressure @10m"
+    },
+    {
+        "series_id": 9132,
+        "series": "Lizard Island Relay Pole 2 Water Pressure @21m",
+        "series_short": "Water Pressure @21m"
+    },
+    {
+        "series_id": 9134,
+        "series": "Rib Reef Sensor Float 1 Conductivity @10m",
+        "series_short": "Conductivity @10m"
+    },
+    {
+        "series_id": 9136,
+        "series": "Rib Reef Sensor Float 1 Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 9138,
+        "series": "Rib Reef Sensor Float 1 Conductivity @20m",
+        "series_short": "Conductivity @20m"
+    },
+    {
+        "series_id": 9140,
+        "series": "Rib Reef Sensor Float 1 Water Temperature @20m",
+        "series_short": "Water Temperature @20m"
+    },
+    {
+        "series_id": 9142,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @3.1m",
+        "series_short": "Water Pressure @3.1m"
+    },
+    {
+        "series_id": 9144,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @16.9m",
+        "series_short": "Water Pressure @16.9m"
+    },
+    {
+        "series_id": 9146,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @22.6m",
+        "series_short": "Water Pressure @22.6m"
+    },
+    {
+        "series_id": 9162,
+        "series": "One Tree Island Base Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 9163,
+        "series": "One Tree Island Relay Pole 1 Conductivity",
+        "series_short": "Conductivity"
+    },
+    {
+        "series_id": 9165,
+        "series": "One Tree Island Relay Pole 1 Water Pressure @3.1m",
+        "series_short": "Water Pressure @3.1m"
+    },
+    {
+        "series_id": 9167,
+        "series": "One Tree Island Relay Pole 1 Water Temperature",
+        "series_short": "Water Temperature"
+    },
+    {
+        "series_id": 9169,
+        "series": "One Tree Island Relay Pole 2 Water Pressure @4.9m",
+        "series_short": "Water Pressure @4.9m"
+    },
+    {
+        "series_id": 9171,
+        "series": "One Tree Island Relay Pole 2 Water Temperature @4.9m",
+        "series_short": "Water Temperature @4.9m"
+    },
+    {
+        "series_id": 9173,
+        "series": "One Tree Island Relay Pole 3 Water Temperature @5.4m",
+        "series_short": "Water Temperature @5.4m"
+    },
+    {
+        "series_id": 9175,
+        "series": "One Tree Island Relay Pole 3 Water Pressure @5.4m",
+        "series_short": "Water Pressure @5.4m"
+    },
+    {
+        "series_id": 9272,
+        "series": "Davies Reef Base Station PAR @1.9m",
+        "series_short": "PAR @1.9m"
+    },
+    {
+        "series_id": 9273,
+        "series": "Davies Reef Base Station PAR @.8m",
+        "series_short": "PAR @.8m"
+    },
+    {
+        "series_id": 9274,
+        "series": "Davies Reef Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 9275,
+        "series": "Davies Reef Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 9276,
+        "series": "Davies Reef Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 9282,
+        "series": "Hardy Reef Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 9362,
+        "series": "Myrmidon Reef Weather Station Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 9382,
+        "series": "Davies Reef Sensor Float 5 Water Pressure @5.2m",
+        "series_short": "Water Pressure @5.2m"
+    },
+    {
+        "series_id": 9842,
+        "series": "Cleveland Bay S2 Weather Station Historical Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 9843,
+        "series": "Cleveland Bay S2 Weather Station Historical Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 9844,
+        "series": "Cleveland Bay S2 Weather Station Historical Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 9845,
+        "series": "Cleveland Bay Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 9846,
+        "series": "Cleveland Bay Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 9847,
+        "series": "Cleveland Bay Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 9848,
+        "series": "Cleveland Bay Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 9849,
+        "series": "Cleveland Bay Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 9850,
+        "series": "Cleveland Bay Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 9851,
+        "series": "Cleveland Bay Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 9852,
+        "series": "Cleveland Bay Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 9853,
+        "series": "Cleveland Bay Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 9854,
+        "series": "Cleveland Bay Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 9855,
+        "series": "Cleveland Bay Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 9857,
+        "series": "Cleveland Bay Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 9858,
+        "series": "Cleveland Bay Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 9859,
+        "series": "Cleveland Bay Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 9860,
+        "series": "Cleveland Bay Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 9861,
+        "series": "Cleveland Bay Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 9862,
+        "series": "Cleveland Bay Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 9863,
+        "series": "Cleveland Bay Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 9864,
+        "series": "Cleveland Bay Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 9882,
+        "series": "Cleveland Bay Weather Station Water Temperature @12m",
+        "series_short": "Water Temperature @12m"
+    },
+    {
+        "series_id": 10062,
+        "series": "Cape Bowling Green Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 10082,
+        "series": "Myrmidon Reef Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 10242,
+        "series": "Raine Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 10243,
+        "series": "Raine Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 10244,
+        "series": "Raine Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 10245,
+        "series": "Raine Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 10246,
+        "series": "Raine Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 10247,
+        "series": "Raine Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 10248,
+        "series": "Raine Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 10249,
+        "series": "Raine Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 10250,
+        "series": "Raine Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 10251,
+        "series": "Raine Island Weather Station Minimum Wind Speed 30 Minutes Since 9AM UTC",
+        "series_short": "Min Wind Speed 30 mins Since 9AM UTC"
+    },
+    {
+        "series_id": 10252,
+        "series": "Raine Island Weather Station Rain Accumulation since 9AM UTC",
+        "series_short": "Rain Accumulation since 9AM UTC"
+    },
+    {
+        "series_id": 10253,
+        "series": "Raine Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 10254,
+        "series": "Raine Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 10255,
+        "series": "Raine Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 10256,
+        "series": "Raine Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 10257,
+        "series": "Raine Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 10258,
+        "series": "Raine Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 10259,
+        "series": "Raine Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 10260,
+        "series": "Raine Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 10261,
+        "series": "Raine Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 10262,
+        "series": "Raine Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 10263,
+        "series": "Raine Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 10264,
+        "series": "Raine Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 10265,
+        "series": "Raine Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 10266,
+        "series": "Raine Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 10267,
+        "series": "Raine Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 10268,
+        "series": "Raine Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 10322,
+        "series": "Darwin NRS Buoy Chlorophyll @1m",
+        "series_short": "Chlorophyll @1m"
+    },
+    {
+        "series_id": 10323,
+        "series": "Darwin NRS Buoy Dissolved Oxygen (mass) @1m",
+        "series_short": "Dissolved O2 (mass) @1m"
+    },
+    {
+        "series_id": 10330,
+        "series": "Darwin NRS Buoy - OLD Salinity @1m",
+        "series_short": "Salinity @1m"
+    },
+    {
+        "series_id": 10331,
+        "series": "Darwin NRS Buoy Turbidity @1m",
+        "series_short": "Turbidity @1m"
+    },
+    {
+        "series_id": 10332,
+        "series": "Darwin NRS Buoy Water Pressure @1m",
+        "series_short": "Water Pressure @1m"
+    },
+    {
+        "series_id": 10333,
+        "series": "Darwin NRS Buoy Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 10334,
+        "series": "Darwin NRS Buoy - OLD Water Temperature @24m from ACD",
+        "series_short": "Water Temperature @24m from ACD"
+    },
+    {
+        "series_id": 10335,
+        "series": "Darwin NRS Buoy - OLD CurrentDirection @1m",
+        "series_short": "CurrentDirection @1m"
+    },
+    {
+        "series_id": 10336,
+        "series": "Darwin NRS Buoy - OLD CurrentDirection @10m",
+        "series_short": "CurrentDirection @10m"
+    },
+    {
+        "series_id": 10337,
+        "series": "Darwin NRS Buoy - OLD CurrentDirection @20m",
+        "series_short": "CurrentDirection @20m"
+    },
+    {
+        "series_id": 10338,
+        "series": "Darwin NRS Buoy - OLD CurrentMagnitude @1m",
+        "series_short": "CurrentMagnitude @1m"
+    },
+    {
+        "series_id": 10339,
+        "series": "Darwin NRS Buoy - OLD CurrentMagnitude @10m",
+        "series_short": "CurrentMagnitude @10m"
+    },
+    {
+        "series_id": 10340,
+        "series": "Darwin NRS Buoy - OLD CurrentMagnitude @20m",
+        "series_short": "CurrentMagnitude @20m"
+    },
+    {
+        "series_id": 10341,
+        "series": "Darwin NRS Buoy - OLD ErrorVelocity @20m",
+        "series_short": "ErrorVelocity @20m"
+    },
+    {
+        "series_id": 10342,
+        "series": "Darwin NRS Buoy - OLD ErrorVelocity @1m",
+        "series_short": "ErrorVelocity @1m"
+    },
+    {
+        "series_id": 10343,
+        "series": "Darwin NRS Buoy - OLD ErrorVelocity @10m",
+        "series_short": "ErrorVelocity @10m"
+    },
+    {
+        "series_id": 10344,
+        "series": "Darwin NRS Buoy Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 10390,
+        "series": "Heron Island Relay Pole 8 Conductivity @5.4m",
+        "series_short": "Conductivity @5.4m"
+    },
+    {
+        "series_id": 10391,
+        "series": "Heron Island Relay Pole 8 PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 10392,
+        "series": "Heron Island Relay Pole 8 Water Pressure @5.4m",
+        "series_short": "Water Pressure @5.4m"
+    },
+    {
+        "series_id": 10393,
+        "series": "Heron Island Relay Pole 8 Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 10394,
+        "series": "Heron Island Relay Pole 8 Water Temperature @5.4m",
+        "series_short": "Water Temperature @5.4m"
+    },
+    {
+        "series_id": 10395,
+        "series": "Ningaloo Reef Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 10396,
+        "series": "Ningaloo Reef Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 10397,
+        "series": "Ningaloo Reef Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 10398,
+        "series": "Ningaloo Reef Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 10399,
+        "series": "Ningaloo Reef Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 10400,
+        "series": "Ningaloo Reef Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 10401,
+        "series": "Ningaloo Reef Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 10402,
+        "series": "Ningaloo Reef Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 10403,
+        "series": "Ningaloo Reef Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 10404,
+        "series": "Ningaloo Reef Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 10405,
+        "series": "Ningaloo Reef Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 10406,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 10407,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 10408,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 10409,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 10410,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 10411,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 10412,
+        "series": "Ningaloo Reef Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 10413,
+        "series": "Ningaloo Reef Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 10414,
+        "series": "Ningaloo Reef Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 10415,
+        "series": "Ningaloo Reef Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 10416,
+        "series": "Ningaloo Reef Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 10417,
+        "series": "Ningaloo Reef Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 10551,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @10m",
+        "series_short": "Water Pressure @10m"
+    },
+    {
+        "series_id": 10552,
+        "series": "Rib Reef Sensor Float 1 Water Pressure @20m",
+        "series_short": "Water Pressure @20m"
+    },
+    {
+        "series_id": 13342,
+        "series": "Darwin NRS Buoy - OLD Conductivity @24m",
+        "series_short": "Conductivity @24m"
+    },
+    {
+        "series_id": 13343,
+        "series": "Darwin NRS Buoy - OLD PAR @24m",
+        "series_short": "PAR @24m"
+    },
+    {
+        "series_id": 14610,
+        "series": "Davies Reef Sensor Float 4 Salinity @10.7m",
+        "series_short": "Salinity @10.7m"
+    },
+    {
+        "series_id": 14611,
+        "series": "Davies Reef Sensor Float 5 Salinity @5.2m",
+        "series_short": "Salinity @5.2m"
+    },
+    {
+        "series_id": 14612,
+        "series": "Heron Island Relay Pole 8 Salinity @5.4m",
+        "series_short": "Salinity @5.4m"
+    },
+    {
+        "series_id": 14613,
+        "series": "Lizard Island Sensor Float 1 Salinity @5.5m",
+        "series_short": "Salinity @5.5m"
+    },
+    {
+        "series_id": 14614,
+        "series": "Lizard Island Sensor Float 2 Salinity @10.9m",
+        "series_short": "Salinity @10.9m"
+    },
+    {
+        "series_id": 14615,
+        "series": "One Tree Island Relay Pole 1 Salinity",
+        "series_short": "Salinity"
+    },
+    {
+        "series_id": 14616,
+        "series": "Orpheus Island Relay Pole 1 Salinity @14.6m",
+        "series_short": "Salinity @14.6m"
+    },
+    {
+        "series_id": 14617,
+        "series": "Orpheus Island Relay Pole 2 Salinity @7.3m",
+        "series_short": "Salinity @7.3m"
+    },
+    {
+        "series_id": 14618,
+        "series": "Orpheus Island Sensor Float 1 Salinity @4.2m",
+        "series_short": "Salinity @4.2m"
+    },
+    {
+        "series_id": 14812,
+        "series": "Orpheus Island Relay Pole 2 Conductivity @6.3m Duplicate",
+        "series_short": "Conductivity @6.3m Duplicate"
+    },
+    {
+        "series_id": 14813,
+        "series": "Orpheus Island Relay Pole 2 Salinity @6.3m Duplicate",
+        "series_short": "Salinity @6.3m Duplicate"
+    },
+    {
+        "series_id": 14814,
+        "series": "Orpheus Island Relay Pole 2 Water Pressure @6.3m Duplicate",
+        "series_short": "Water Pressure @6.3m Duplicate"
+    },
+    {
+        "series_id": 14815,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @6.3m Duplicate",
+        "series_short": "Water Temperature @6.3m Duplicate"
+    },
+    {
+        "series_id": 14832,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @6.1m",
+        "series_short": "Water Temperature @6.1m"
+    },
+    {
+        "series_id": 14833,
+        "series": "Orpheus Island Relay Pole 2 Water Pressure @6.1m",
+        "series_short": "Water Pressure @6.1m"
+    },
+    {
+        "series_id": 14834,
+        "series": "Orpheus Island Relay Pole 2 Salinity @12.2m",
+        "series_short": "Salinity @12.2m"
+    },
+    {
+        "series_id": 14835,
+        "series": "Orpheus Island Relay Pole 2 Conductivity @12m",
+        "series_short": "Conductivity @12m"
+    },
+    {
+        "series_id": 14836,
+        "series": "Orpheus Island Relay Pole 2 Water Pressure @7.6m Duplicate",
+        "series_short": "Water Pressure @7.6m Duplicate"
+    },
+    {
+        "series_id": 14837,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @7.6m Duplicate",
+        "series_short": "Water Temperature @7.6m Duplicate"
+    },
+    {
+        "series_id": 14838,
+        "series": "Orpheus Island Relay Pole 2 Water Temperature @7.3m",
+        "series_short": "Water Temperature @7.3m"
+    },
+    {
+        "series_id": 14839,
+        "series": "Orpheus Island Relay Pole 2 Water Pressure @7.3m",
+        "series_short": "Water Pressure @7.3m"
+    },
+    {
+        "series_id": 14852,
+        "series": "Orpheus Island Relay Pole 1 Water Pressure @14.6m Duplicate",
+        "series_short": "Water Pressure @14.6m Duplicate"
+    },
+    {
+        "series_id": 14853,
+        "series": "Orpheus Island Relay Pole 1 Water Temperature @14.6m Duplicate",
+        "series_short": "Water Temperature @14.6m Duplicate"
+    },
+    {
+        "series_id": 14876,
+        "series": "Orpheus Island Relay Pole 3 Water Pressure @5.5m Duplicate",
+        "series_short": "Water Pressure @5.5m Duplicate"
+    },
+    {
+        "series_id": 14877,
+        "series": "Orpheus Island Relay Pole 3 Water Temperature @5.5m Duplicate",
+        "series_short": "Water Temperature @5.5m Duplicate"
+    },
+    {
+        "series_id": 14878,
+        "series": "Orpheus Island Relay Pole 3 Conductivity @5.5m",
+        "series_short": "Conductivity @5.5m"
+    },
+    {
+        "series_id": 14879,
+        "series": "Orpheus Island Relay Pole 3 Water Temperature @5.5m",
+        "series_short": "Water Temperature @5.5m"
+    },
+    {
+        "series_id": 14880,
+        "series": "Orpheus Island Relay Pole 3 Water Pressure @5.5m",
+        "series_short": "Water Pressure @5.5m"
+    },
+    {
+        "series_id": 14953,
+        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mole) @24.5m",
+        "series_short": "Dissolved O2 (mole) @24.5m"
+    },
+    {
+        "series_id": 14956,
+        "series": "Darwin NRS Buoy Dissolved Oxygen (mole) @1m",
+        "series_short": "Dissolved O2 (mole) @1m"
+    },
+    {
+        "series_id": 14957,
+        "series": "Darwin NRS Buoy - OLD Dissolved Oxygen (mole) @6m",
+        "series_short": "Dissolved O2 (mole) @6m"
+    },
+    {
+        "series_id": 14993,
+        "series": "Rib Reef Sensor Float 1 Salinity @10m",
+        "series_short": "Salinity @10m"
+    },
+    {
+        "series_id": 14994,
+        "series": "Rib Reef Sensor Float 1 Salinity @20m",
+        "series_short": "Salinity @20m"
+    },
+    {
+        "series_id": 15032,
+        "series": "Agincourt Reef Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 15033,
+        "series": "Agincourt Reef Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 15034,
+        "series": "Agincourt Reef Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 15035,
+        "series": "Agincourt Reef Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 15036,
+        "series": "Agincourt Reef Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 15037,
+        "series": "Agincourt Reef Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 15038,
+        "series": "Agincourt Reef Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 15039,
+        "series": "Agincourt Reef Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 15040,
+        "series": "Agincourt Reef Weather Station Water Temperature @6m",
+        "series_short": "Water Temperature @6m"
+    },
+    {
+        "series_id": 15041,
+        "series": "Agincourt Reef Weather Station Water Temperature @12m",
+        "series_short": "Water Temperature @12m"
+    },
+    {
+        "series_id": 15042,
+        "series": "Agincourt Reef Weather Station Water Temperature @2.5m",
+        "series_short": "Water Temperature @2.5m"
+    },
+    {
+        "series_id": 15043,
+        "series": "Agincourt Reef Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 15044,
+        "series": "Agincourt Reef Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 15045,
+        "series": "Agincourt Reef Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 15046,
+        "series": "Agincourt Reef Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 15047,
+        "series": "Agincourt Reef Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 15048,
+        "series": "Agincourt Reef Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 15317,
+        "series": "Thursday Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 20186,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mole) @4.1m",
+        "series_short": "Dissolved O2 (mole) @4.1m"
+    },
+    {
+        "series_id": 29701,
+        "series": "Masig Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 29702,
+        "series": "Masig Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 29703,
+        "series": "Masig Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 29704,
+        "series": "Masig Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 29705,
+        "series": "Masig Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 29706,
+        "series": "Masig Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 29707,
+        "series": "Masig Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 29708,
+        "series": "Masig Island Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 29709,
+        "series": "Masig Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 29710,
+        "series": "Masig Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 29711,
+        "series": "Masig Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 29712,
+        "series": "Masig Island Weather Station Water Temperature",
+        "series_short": "Water Temperature"
+    },
+    {
+        "series_id": 29713,
+        "series": "Masig Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 29714,
+        "series": "Masig Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 29715,
+        "series": "Masig Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 29716,
+        "series": "Masig Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 31377,
+        "series": "One Tree Island Relay Pole 2 Depth @4.9m",
+        "series_short": "Depth @4.9m"
+    },
+    {
+        "series_id": 31378,
+        "series": "Davies Reef Sensor Float 1 Depth @5m",
+        "series_short": "Depth @5m"
+    },
+    {
+        "series_id": 31379,
+        "series": "Davies Reef Sensor Float 2 Depth @6.5m",
+        "series_short": "Depth @6.5m"
+    },
+    {
+        "series_id": 31380,
+        "series": "Davies Reef Sensor Float 3 Depth @9.1m",
+        "series_short": "Depth @9.1m"
+    },
+    {
+        "series_id": 31381,
+        "series": "Davies Reef Sensor Float 4 Depth @10.7m",
+        "series_short": "Depth @10.7m"
+    },
+    {
+        "series_id": 31382,
+        "series": "Davies Reef Sensor Float 5 Depth @5.2m",
+        "series_short": "Depth @5.2m"
+    },
+    {
+        "series_id": 31383,
+        "series": "Heron Island Relay Pole 8 Depth @5.4m",
+        "series_short": "Depth @5.4m"
+    },
+    {
+        "series_id": 31384,
+        "series": "Lizard Island Relay Pole 2 Depth @10m",
+        "series_short": "Depth @10m"
+    },
+    {
+        "series_id": 31385,
+        "series": "Lizard Island Relay Pole 2 Depth @21m",
+        "series_short": "Depth @21m"
+    },
+    {
+        "series_id": 31386,
+        "series": "Lizard Island Sensor Float 1 Depth @5.5m",
+        "series_short": "Depth @5.5m"
+    },
+    {
+        "series_id": 31387,
+        "series": "Lizard Island Sensor Float 2 Depth @10.9m",
+        "series_short": "Depth @10.9m"
+    },
+    {
+        "series_id": 31388,
+        "series": "Lizard Island Sensor Float 3 Depth @9m",
+        "series_short": "Depth @9m"
+    },
+    {
+        "series_id": 31389,
+        "series": "One Tree Island Relay Pole 1 Depth @3.1m",
+        "series_short": "Depth @3.1m"
+    },
+    {
+        "series_id": 31390,
+        "series": "One Tree Island Relay Pole 3 Depth @5.4m",
+        "series_short": "Depth @5.4m"
+    },
+    {
+        "series_id": 31391,
+        "series": "Orpheus Island Relay Pole 1 Depth @14.6m",
+        "series_short": "Depth @14.6m"
+    },
+    {
+        "series_id": 31392,
+        "series": "Orpheus Island Relay Pole 2 Depth @12.2m",
+        "series_short": "Depth @12.2m"
+    },
+    {
+        "series_id": 31393,
+        "series": "Orpheus Island Relay Pole 2 Depth @6.1m",
+        "series_short": "Depth @6.1m"
+    },
+    {
+        "series_id": 31394,
+        "series": "Orpheus Island Sensor Float 1 Depth @4.2m",
+        "series_short": "Depth @4.2m"
+    },
+    {
+        "series_id": 31395,
+        "series": "Orpheus Island Sensor Float 2 Depth @8.7m",
+        "series_short": "Depth @8.7m"
+    },
+    {
+        "series_id": 31396,
+        "series": "Rib Reef Sensor Float 1 Depth @10m",
+        "series_short": "Depth @10m"
+    },
+    {
+        "series_id": 31397,
+        "series": "Rib Reef Sensor Float 1 Depth @16.9m",
+        "series_short": "Depth @16.9m"
+    },
+    {
+        "series_id": 31398,
+        "series": "Rib Reef Sensor Float 1 Depth @3.1m",
+        "series_short": "Depth @3.1m"
+    },
+    {
+        "series_id": 31399,
+        "series": "Rib Reef Sensor Float 1 Depth @22.6m",
+        "series_short": "Depth @22.6m"
+    },
+    {
+        "series_id": 31400,
+        "series": "Lizard Island Sensor Float 1 Depth @6m",
+        "series_short": "Depth @6m"
+    },
+    {
+        "series_id": 31401,
+        "series": "Orpheus Island Relay Pole 1 Depth @5.8m",
+        "series_short": "Depth @5.8m"
+    },
+    {
+        "series_id": 31402,
+        "series": "Orpheus Island Relay Pole 2 Depth @7.3m",
+        "series_short": "Depth @7.3m"
+    },
+    {
+        "series_id": 31403,
+        "series": "Orpheus Island Relay Pole 3 Depth @5.5m",
+        "series_short": "Depth @5.5m"
+    },
+    {
+        "series_id": 31404,
+        "series": "Rib Reef Sensor Float 1 Depth @20m",
+        "series_short": "Depth @20m"
+    },
+    {
+        "series_id": 31405,
+        "series": "Thursday Island Weather Station Depth @6.8m",
+        "series_short": "Depth @6.8m"
+    },
+    {
+        "series_id": 31977,
+        "series": "Yongala NRS Buoy Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 31978,
+        "series": "Yongala NRS Buoy Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 31979,
+        "series": "Yongala NRS Buoy Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 31980,
+        "series": "Yongala NRS Buoy Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 31981,
+        "series": "Yongala NRS Buoy Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 31982,
+        "series": "Yongala NRS Buoy Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 31983,
+        "series": "Yongala NRS Buoy Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 31984,
+        "series": "Yongala NRS Buoy Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 31985,
+        "series": "Yongala NRS Buoy Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 31986,
+        "series": "Yongala NRS Buoy Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 33079,
+        "series": "Yongala NRS Buoy Chlorophyll @.6m",
+        "series_short": "Chlorophyll @.6m"
+    },
+    {
+        "series_id": 33080,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mass) @.6m",
+        "series_short": "Dissolved O2 (mass) @.6m"
+    },
+    {
+        "series_id": 33081,
+        "series": "Yongala NRS Buoy Salinity @.6m",
+        "series_short": "Salinity @.6m"
+    },
+    {
+        "series_id": 33082,
+        "series": "Yongala NRS Buoy Turbidity @.6m",
+        "series_short": "Turbidity @.6m"
+    },
+    {
+        "series_id": 33083,
+        "series": "Yongala NRS Buoy Water Pressure @.6m",
+        "series_short": "Water Pressure @.6m"
+    },
+    {
+        "series_id": 33084,
+        "series": "Yongala NRS Buoy Water Temperature @.6m",
+        "series_short": "Water Temperature @.6m"
+    },
+    {
+        "series_id": 33097,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mole) @1m",
+        "series_short": "Dissolved O2 (mole) @1m"
+    },
+    {
+        "series_id": 33098,
+        "series": "Darwin NRS Buoy Depth @1m",
+        "series_short": "Depth @1m"
+    },
+    {
+        "series_id": 33099,
+        "series": "Darwin NRS Buoy - OLD Depth @24m",
+        "series_short": "Depth @24m"
+    },
+    {
+        "series_id": 33100,
+        "series": "Darwin NRS Buoy - OLD Depth @6m",
+        "series_short": "Depth @6m"
+    },
+    {
+        "series_id": 33101,
+        "series": "Yongala NRS Buoy Depth @1.8m",
+        "series_short": "Depth @1.8m"
+    },
+    {
+        "series_id": 33103,
+        "series": "Yongala NRS Buoy Depth @4.1m",
+        "series_short": "Depth @4.1m"
+    },
+    {
+        "series_id": 33377,
+        "series": "Yongala NRS Buoy Net radiation",
+        "series_short": "Net radiation"
+    },
+    {
+        "series_id": 33391,
+        "series": "Yongala NRS Buoy CurrentDirection @5m",
+        "series_short": "CurrentDirection @5m"
+    },
+    {
+        "series_id": 33392,
+        "series": "Yongala NRS Buoy CurrentDirection @15m",
+        "series_short": "CurrentDirection @15m"
+    },
+    {
+        "series_id": 33393,
+        "series": "Yongala NRS Buoy CurrentDirection @25m",
+        "series_short": "CurrentDirection @25m"
+    },
+    {
+        "series_id": 33394,
+        "series": "Yongala NRS Buoy CurrentMagnitude @5m",
+        "series_short": "CurrentMagnitude @5m"
+    },
+    {
+        "series_id": 33395,
+        "series": "Yongala NRS Buoy CurrentMagnitude @25m",
+        "series_short": "CurrentMagnitude @25m"
+    },
+    {
+        "series_id": 33396,
+        "series": "Yongala NRS Buoy CurrentMagnitude @15m",
+        "series_short": "CurrentMagnitude @15m"
+    },
+    {
+        "series_id": 33404,
+        "series": "Yongala NRS Buoy peak wave direction",
+        "series_short": "peak wave direction"
+    },
+    {
+        "series_id": 33457,
+        "series": "Yongala NRS Buoy Chlorophyll @26m",
+        "series_short": "Chlorophyll @26m"
+    },
+    {
+        "series_id": 33458,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mass) @28.8m",
+        "series_short": "Dissolved O2 (mass) @28.8m"
+    },
+    {
+        "series_id": 33473,
+        "series": "Yongala NRS Buoy Downwelling longwave radiation",
+        "series_short": "Downwelling longwave radiation"
+    },
+    {
+        "series_id": 33474,
+        "series": "Yongala NRS Buoy Downwelling total radiation",
+        "series_short": "Downwelling total radiation"
+    },
+    {
+        "series_id": 33475,
+        "series": "Yongala NRS Buoy ErrorVelocity @5m",
+        "series_short": "ErrorVelocity @5m"
+    },
+    {
+        "series_id": 33476,
+        "series": "Yongala NRS Buoy ErrorVelocity @15m",
+        "series_short": "ErrorVelocity @15m"
+    },
+    {
+        "series_id": 33477,
+        "series": "Yongala NRS Buoy ErrorVelocity @25m",
+        "series_short": "ErrorVelocity @25m"
+    },
+    {
+        "series_id": 33479,
+        "series": "Yongala NRS Buoy Peak Wave Period",
+        "series_short": "Peak Wave Period"
+    },
+    {
+        "series_id": 33480,
+        "series": "Yongala NRS Buoy Salinity @26m",
+        "series_short": "Salinity @26m"
+    },
+    {
+        "series_id": 33481,
+        "series": "Yongala NRS Buoy Significant Wave Height",
+        "series_short": "Significant Wave Height"
+    },
+    {
+        "series_id": 33482,
+        "series": "Yongala NRS Buoy Turbidity @26m",
+        "series_short": "Turbidity @26m"
+    },
+    {
+        "series_id": 33483,
+        "series": "Yongala NRS Buoy Upwelling longwave radiation",
+        "series_short": "Upwelling longwave radiation"
+    },
+    {
+        "series_id": 33484,
+        "series": "Yongala NRS Buoy Upwelling total radiation",
+        "series_short": "Upwelling total radiation"
+    },
+    {
+        "series_id": 33485,
+        "series": "Yongala NRS Buoy Water Pressure @26m",
+        "series_short": "Water Pressure @26m"
+    },
+    {
+        "series_id": 33486,
+        "series": "Yongala NRS Buoy Water Temperature From teledyne",
+        "series_short": "Water Temperature From teledyne"
+    },
+    {
+        "series_id": 33490,
+        "series": "Yongala NRS Buoy Water Temperature @26m",
+        "series_short": "Water Temperature @26m"
+    },
+    {
+        "series_id": 33491,
+        "series": "Yongala NRS Buoy Depth @26m from the CTD",
+        "series_short": "Depth @26m from the CTD"
+    },
+    {
+        "series_id": 33493,
+        "series": "Yongala NRS Buoy Dissolved Oxygen (mole) @28.8m",
+        "series_short": "Dissolved O2 (mole) @28.8m"
+    },
+    {
+        "series_id": 34217,
+        "series": "Yongala NRS Buoy Depth @28.8m from the ADCP",
+        "series_short": "Depth @28.8m from the ADCP"
+    },
+    {
+        "series_id": 36117,
+        "series": "Masig Island Weather Station Depth @1.5m",
+        "series_short": "Depth @1.5m"
+    },
+    {
+        "series_id": 36121,
+        "series": "Masig Island Weather Station Water Pressure",
+        "series_short": "Water Pressure"
+    },
+    {
+        "series_id": 36123,
+        "series": "Masig Island Weather Station Conductivity @10m",
+        "series_short": "Conductivity @10m"
+    },
+    {
+        "series_id": 36124,
+        "series": "Masig Island Weather Station Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 84297,
+        "series": "Darwin NRS Buoy Chlorophyll @18m",
+        "series_short": "Chlorophyll @18m"
+    },
+    {
+        "series_id": 84299,
+        "series": "Darwin NRS Buoy Conductivity @18m",
+        "series_short": "Conductivity @18m"
+    },
+    {
+        "series_id": 84312,
+        "series": "Darwin NRS Buoy Water Temperature @18m",
+        "series_short": "Water Temperature @18m"
+    },
+    {
+        "series_id": 84313,
+        "series": "Darwin NRS Buoy Water Pressure @18m",
+        "series_short": "Water Pressure @18m"
+    },
+    {
+        "series_id": 84314,
+        "series": "Darwin NRS Buoy Turbidity",
+        "series_short": "Turbidity"
+    },
+    {
+        "series_id": 84315,
+        "series": "Darwin NRS Buoy Salinity @18m",
+        "series_short": "Salinity @18m"
+    },
+    {
+        "series_id": 84316,
+        "series": "Darwin NRS Buoy PAR @18m",
+        "series_short": "PAR @18m"
+    },
+    {
+        "series_id": 84317,
+        "series": "Darwin NRS Buoy Depth @18m",
+        "series_short": "Depth @18m"
+    },
+    {
+        "series_id": 84318,
+        "series": "Darwin NRS Buoy CurrentDirection @13m",
+        "series_short": "CurrentDirection @13m"
+    },
+    {
+        "series_id": 84319,
+        "series": "Darwin NRS Buoy CurrentDirection @5m",
+        "series_short": "CurrentDirection @5m"
+    },
+    {
+        "series_id": 84320,
+        "series": "Darwin NRS Buoy CurrentDirection @9m",
+        "series_short": "CurrentDirection @9m"
+    },
+    {
+        "series_id": 84321,
+        "series": "Darwin NRS Buoy CurrentMagnitude @13m",
+        "series_short": "CurrentMagnitude @13m"
+    },
+    {
+        "series_id": 84322,
+        "series": "Darwin NRS Buoy CurrentMagnitude @5m",
+        "series_short": "CurrentMagnitude @5m"
+    },
+    {
+        "series_id": 84323,
+        "series": "Darwin NRS Buoy CurrentMagnitude @9m",
+        "series_short": "CurrentMagnitude @9m"
+    },
+    {
+        "series_id": 84324,
+        "series": "Darwin NRS Buoy ErrorVelocity @13m",
+        "series_short": "ErrorVelocity @13m"
+    },
+    {
+        "series_id": 84325,
+        "series": "Darwin NRS Buoy ErrorVelocity @5m",
+        "series_short": "ErrorVelocity @5m"
+    },
+    {
+        "series_id": 84326,
+        "series": "Darwin NRS Buoy ErrorVelocity @9m",
+        "series_short": "ErrorVelocity @9m"
+    },
+    {
+        "series_id": 84327,
+        "series": "Darwin NRS Buoy Water Temperature @18m From Teledyne",
+        "series_short": "Water Temperature @18m From Teledyne"
+    },
+    {
+        "series_id": 84329,
+        "series": "Darwin NRS Buoy Salinity @1m",
+        "series_short": "Salinity @1m"
+    },
+    {
+        "series_id": 84517,
+        "series": "Yongala NRS Buoy PAR @26m",
+        "series_short": "PAR @26m"
+    },
+    {
+        "series_id": 84537,
+        "series": "Yongala NRS Buoy Depth @1m",
+        "series_short": "Depth @1m"
+    },
+    {
+        "series_id": 84863,
+        "series": "Beagle Gulf Buoy Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 84864,
+        "series": "Beagle Gulf Buoy Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 84865,
+        "series": "Beagle Gulf Buoy Chlorophyll @28m",
+        "series_short": "Chlorophyll @28m"
+    },
+    {
+        "series_id": 84866,
+        "series": "Beagle Gulf Buoy Chlorophyll @1m",
+        "series_short": "Chlorophyll @1m"
+    },
+    {
+        "series_id": 84867,
+        "series": "Beagle Gulf Buoy Conductivity @28m",
+        "series_short": "Conductivity @28m"
+    },
+    {
+        "series_id": 84868,
+        "series": "Beagle Gulf Buoy Depth @28m",
+        "series_short": "Depth @28m"
+    },
+    {
+        "series_id": 84869,
+        "series": "Beagle Gulf Buoy PAR @28m",
+        "series_short": "PAR @28m"
+    },
+    {
+        "series_id": 84870,
+        "series": "Beagle Gulf Buoy Salinity @28m",
+        "series_short": "Salinity @28m"
+    },
+    {
+        "series_id": 84871,
+        "series": "Beagle Gulf Buoy Turbidity @28m",
+        "series_short": "Turbidity @28m"
+    },
+    {
+        "series_id": 84872,
+        "series": "Beagle Gulf Buoy Water Pressure @28m",
+        "series_short": "Water Pressure @28m"
+    },
+    {
+        "series_id": 84873,
+        "series": "Beagle Gulf Buoy Water Temperature @28m From Seabird",
+        "series_short": "Water Temperature @28m From Seabird"
+    },
+    {
+        "series_id": 84874,
+        "series": "Beagle Gulf Buoy CurrentDirection @5m",
+        "series_short": "CurrentDirection @5m"
+    },
+    {
+        "series_id": 84875,
+        "series": "Beagle Gulf Buoy CurrentDirection @15m",
+        "series_short": "CurrentDirection @15m"
+    },
+    {
+        "series_id": 84876,
+        "series": "Beagle Gulf Buoy CurrentDirection @25m",
+        "series_short": "CurrentDirection @25m"
+    },
+    {
+        "series_id": 84877,
+        "series": "Beagle Gulf Buoy CurrentMagnitude @5m",
+        "series_short": "CurrentMagnitude @5m"
+    },
+    {
+        "series_id": 84878,
+        "series": "Beagle Gulf Buoy CurrentMagnitude @15m",
+        "series_short": "CurrentMagnitude @15m"
+    },
+    {
+        "series_id": 84879,
+        "series": "Beagle Gulf Buoy CurrentMagnitude @25m",
+        "series_short": "CurrentMagnitude @25m"
+    },
+    {
+        "series_id": 84880,
+        "series": "Beagle Gulf Buoy ErrorVelocity @5m",
+        "series_short": "ErrorVelocity @5m"
+    },
+    {
+        "series_id": 84881,
+        "series": "Beagle Gulf Buoy ErrorVelocity @15m",
+        "series_short": "ErrorVelocity @15m"
+    },
+    {
+        "series_id": 84882,
+        "series": "Beagle Gulf Buoy ErrorVelocity @25m",
+        "series_short": "ErrorVelocity @25m"
+    },
+    {
+        "series_id": 84883,
+        "series": "Beagle Gulf Buoy peak wave direction",
+        "series_short": "peak wave direction"
+    },
+    {
+        "series_id": 84884,
+        "series": "Beagle Gulf Buoy Peak Wave Period",
+        "series_short": "Peak Wave Period"
+    },
+    {
+        "series_id": 84885,
+        "series": "Beagle Gulf Buoy Significant Wave Height",
+        "series_short": "Significant Wave Height"
+    },
+    {
+        "series_id": 84887,
+        "series": "Beagle Gulf Buoy Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 84888,
+        "series": "Beagle Gulf Buoy Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 84890,
+        "series": "Beagle Gulf Buoy Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 84893,
+        "series": "Beagle Gulf Buoy Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 84894,
+        "series": "Beagle Gulf Buoy Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 84895,
+        "series": "Beagle Gulf Buoy Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 84896,
+        "series": "Beagle Gulf Buoy Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 84899,
+        "series": "Beagle Gulf Buoy Depth @1m",
+        "series_short": "Depth @1m"
+    },
+    {
+        "series_id": 84900,
+        "series": "Beagle Gulf Buoy Dissolved Oxygen (mass) @1m",
+        "series_short": "Dissolved O2 (mass) @1m"
+    },
+    {
+        "series_id": 84901,
+        "series": "Beagle Gulf Buoy Dissolved Oxygen (mole) @1m",
+        "series_short": "Dissolved O2 (mole) @1m"
+    },
+    {
+        "series_id": 84902,
+        "series": "Beagle Gulf Buoy Salinity @1m",
+        "series_short": "Salinity @1m"
+    },
+    {
+        "series_id": 84903,
+        "series": "Beagle Gulf Buoy Turbidity @1m",
+        "series_short": "Turbidity @1m"
+    },
+    {
+        "series_id": 84904,
+        "series": "Beagle Gulf Buoy Water Pressure @1m",
+        "series_short": "Water Pressure @1m"
+    },
+    {
+        "series_id": 84905,
+        "series": "Beagle Gulf Buoy Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 84906,
+        "series": "Beagle Gulf Buoy Water Temperature @28m From Teledyne",
+        "series_short": "Water Temperature @28m From Teledyne"
+    },
+    {
+        "series_id": 84925,
+        "series": "Beagle Gulf Buoy Rain Accumulation since 9am Local-time",
+        "series_short": "Rain Accumulation since 9am Local-time"
+    },
+    {
+        "series_id": 84927,
+        "series": "Darwin NRS Buoy Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 84928,
+        "series": "Yongala NRS Buoy Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 85063,
+        "series": "Myrmidon Sensor Float 1 Air Pressure temporary",
+        "series_short": "Air Pressure temporary"
+    },
+    {
+        "series_id": 85064,
+        "series": "Myrmidon Sensor Float 1 Air Temperature temporary",
+        "series_short": "Air Temperature temporary"
+    },
+    {
+        "series_id": 85065,
+        "series": "Myrmidon Sensor Float 1 Humidity temporary",
+        "series_short": "Humidity temporary"
+    },
+    {
+        "series_id": 85066,
+        "series": "Myrmidon Sensor Float 1 Maximum Wind Speed 10 Minutes temporary",
+        "series_short": "Max Wind Speed 10 mins temporary"
+    },
+    {
+        "series_id": 85067,
+        "series": "Myrmidon Sensor Float 1 Minimum Wind Speed 10 Minutes temporary",
+        "series_short": "Min Wind Speed 10 mins temporary"
+    },
+    {
+        "series_id": 85068,
+        "series": "Myrmidon Sensor Float 1 PAR temporary",
+        "series_short": "PAR temporary"
+    },
+    {
+        "series_id": 85069,
+        "series": "Myrmidon Sensor Float 1 Rain Accumulation temporary",
+        "series_short": "Rain Accumulation temporary"
+    },
+    {
+        "series_id": 85070,
+        "series": "Myrmidon Sensor Float 1 Rain Duration temporary",
+        "series_short": "Rain Duration temporary"
+    },
+    {
+        "series_id": 85071,
+        "series": "Myrmidon Sensor Float 1 Rain Intensity temporary",
+        "series_short": "Rain Intensity temporary"
+    },
+    {
+        "series_id": 85073,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Vector Average 10 Minutes) temporary",
+        "series_short": "Wind Direction (V Avg 10 mins) temporary"
+    },
+    {
+        "series_id": 85074,
+        "series": "Myrmidon Sensor Float 1 Wind Speed (Scalar avg 10 min) temporary",
+        "series_short": "Wind Speed (S avg 10 min) temporary"
+    },
+    {
+        "series_id": 85075,
+        "series": "Myrmidon Reef Weather Station Water Temperature @2.5m",
+        "series_short": "Water Temperature @2.5m"
+    },
+    {
+        "series_id": 87809,
+        "series": "Darwin NRS Buoy Water Temperature",
+        "series_short": "Water Temperature"
+    },
+    {
+        "series_id": 87928,
+        "series": "Bramble Cay Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 87929,
+        "series": "Bramble Cay Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 87930,
+        "series": "Bramble Cay Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 87931,
+        "series": "Bramble Cay Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 87932,
+        "series": "Bramble Cay Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 87933,
+        "series": "Bramble Cay Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 87934,
+        "series": "Bramble Cay Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 87935,
+        "series": "Bramble Cay Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 87936,
+        "series": "Bramble Cay Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 87937,
+        "series": "Bramble Cay Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 87938,
+        "series": "Bramble Cay Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 87939,
+        "series": "Bramble Cay Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 87940,
+        "series": "Bramble Cay Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 87941,
+        "series": "Bramble Cay Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 87942,
+        "series": "Bramble Cay Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 99303,
+        "series": "Myrmidon Reef Weather Station Water Temperature @4.7m",
+        "series_short": "Water Temperature @4.7m"
+    },
+    {
+        "series_id": 99569,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @2m 2015",
+        "series_short": "Water Temperature @2m 2015"
+    },
+    {
+        "series_id": 99570,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1.5m 2015",
+        "series_short": "Water Temperature @1.5m 2015"
+    },
+    {
+        "series_id": 99571,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @1m 2015",
+        "series_short": "Water Temperature @1m 2015"
+    },
+    {
+        "series_id": 99574,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @0m 2015",
+        "series_short": "Water Temperature @0m 2015"
+    },
+    {
+        "series_id": 99594,
+        "series": "Heron Island Relay Pole 7 Conductivity @9m",
+        "series_short": "Conductivity @9m"
+    },
+    {
+        "series_id": 99596,
+        "series": "Heron Island Relay Pole 7 Conductivity @15m",
+        "series_short": "Conductivity @15m"
+    },
+    {
+        "series_id": 99597,
+        "series": "Heron Island Relay Pole 7 Water Pressure @18m",
+        "series_short": "Water Pressure @18m"
+    },
+    {
+        "series_id": 99606,
+        "series": "Heron Island Relay Pole 7 Water Pressure @9m",
+        "series_short": "Water Pressure @9m"
+    },
+    {
+        "series_id": 99607,
+        "series": "Heron Island Relay Pole 7 Water Pressure @15m",
+        "series_short": "Water Pressure @15m"
+    },
+    {
+        "series_id": 99608,
+        "series": "Heron Island Relay Pole 7 Water Temperature @8m",
+        "series_short": "Water Temperature @8m"
+    },
+    {
+        "series_id": 99609,
+        "series": "Heron Island Relay Pole 7 Water Temperature @12m",
+        "series_short": "Water Temperature @12m"
+    },
+    {
+        "series_id": 99611,
+        "series": "Heron Island Relay Pole 7 Water Temperature @5m",
+        "series_short": "Water Temperature @5m"
+    },
+    {
+        "series_id": 99612,
+        "series": "Heron Island Relay Pole 7 Water Temperature @18m",
+        "series_short": "Water Temperature @18m"
+    },
+    {
+        "series_id": 99613,
+        "series": "Heron Island Relay Pole 7 Water Temperature @9m",
+        "series_short": "Water Temperature @9m"
+    },
+    {
+        "series_id": 99614,
+        "series": "Heron Island Relay Pole 7 Water Temperature @15m",
+        "series_short": "Water Temperature @15m"
+    },
+    {
+        "series_id": 99615,
+        "series": "One Tree Island Relay Pole 1 Water Temperature @.5m 2015",
+        "series_short": "Water Temperature @.5m 2015"
+    },
+    {
+        "series_id": 99616,
+        "series": "Cape Bowling Green Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 100683,
+        "series": "Saibai Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 100684,
+        "series": "Saibai Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 100685,
+        "series": "Saibai Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 100686,
+        "series": "Saibai Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 100687,
+        "series": "Saibai Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 100688,
+        "series": "Saibai Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 100689,
+        "series": "Saibai Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 100690,
+        "series": "Saibai Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 100691,
+        "series": "Saibai Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 100692,
+        "series": "Saibai Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 100693,
+        "series": "Saibai Island Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 100694,
+        "series": "Saibai Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 100695,
+        "series": "Saibai Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 100696,
+        "series": "Saibai Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 100697,
+        "series": "Saibai Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 100698,
+        "series": "Saibai Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 100699,
+        "series": "Saibai Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 100700,
+        "series": "Saibai Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 100701,
+        "series": "Saibai Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 100702,
+        "series": "Saibai Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 100703,
+        "series": "Saibai Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 100704,
+        "series": "Saibai Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 100705,
+        "series": "Saibai Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 100706,
+        "series": "Saibai Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 100707,
+        "series": "Saibai Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 100708,
+        "series": "Saibai Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 100709,
+        "series": "Saibai Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 100710,
+        "series": "Saibai Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 102068,
+        "series": "Heron Island Relay Pole 7 Salinity @9m",
+        "series_short": "Salinity @9m"
+    },
+    {
+        "series_id": 102069,
+        "series": "Heron Island Relay Pole 7 Depth @9m",
+        "series_short": "Depth @9m"
+    },
+    {
+        "series_id": 102070,
+        "series": "Heron Island Relay Pole 7 Depth @18m",
+        "series_short": "Depth @18m"
+    },
+    {
+        "series_id": 102863,
+        "series": "Raine Island Weather Station Rain Accumulation Since 9AM Local Time",
+        "series_short": "Rain Accumulation Since 9AM Local Time"
+    },
+    {
+        "series_id": 104003,
+        "series": "AIMS Mariculture Building Water Temperature",
+        "series_short": "Water Temperature"
+    },
+    {
+        "series_id": 104852,
+        "series": "Agincourt Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104853,
+        "series": "Agincourt Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104854,
+        "series": "Agincourt Reef Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104855,
+        "series": "Agincourt Reef Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104856,
+        "series": "Agincourt Reef Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104857,
+        "series": "Agincourt Reef Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104858,
+        "series": "Beagle Gulf Buoy Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 104859,
+        "series": "Beagle Gulf Buoy Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 104860,
+        "series": "Beagle Gulf Buoy Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104861,
+        "series": "Beagle Gulf Buoy Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104862,
+        "series": "Beagle Gulf Buoy Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104863,
+        "series": "Beagle Gulf Buoy Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104864,
+        "series": "Beagle Gulf Buoy Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 104865,
+        "series": "Beagle Gulf Buoy Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104866,
+        "series": "Beagle Gulf Buoy Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104867,
+        "series": "Beagle Gulf Buoy Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104868,
+        "series": "Beagle Gulf Buoy Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104869,
+        "series": "Beagle Gulf Buoy Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104870,
+        "series": "Beagle Gulf Buoy Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 104871,
+        "series": "Beagle Gulf Buoy Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104872,
+        "series": "Bramble Cay Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104873,
+        "series": "Bramble Cay Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104874,
+        "series": "Bramble Cay Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104875,
+        "series": "Bramble Cay Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104876,
+        "series": "Bramble Cay Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104877,
+        "series": "Bramble Cay Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104878,
+        "series": "Bramble Cay Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104879,
+        "series": "Bramble Cay Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104880,
+        "series": "Bramble Cay Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 104881,
+        "series": "Bramble Cay Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104882,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104883,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104884,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104885,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104886,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104887,
+        "series": "Cape Bowling Green Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104888,
+        "series": "Cape Bowling Green Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104889,
+        "series": "Cape Bowling Green Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104890,
+        "series": "Davies Reef Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104891,
+        "series": "Davies Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104892,
+        "series": "Davies Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104893,
+        "series": "Davies Reef Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104894,
+        "series": "Davies Reef Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104895,
+        "series": "Davies Reef Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104896,
+        "series": "Davies Reef Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104897,
+        "series": "Davies Reef Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 104898,
+        "series": "Davies Reef Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104900,
+        "series": "Hardy Reef Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104901,
+        "series": "Masig Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104902,
+        "series": "Masig Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104903,
+        "series": "Masig Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104904,
+        "series": "Masig Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104905,
+        "series": "Masig Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104906,
+        "series": "Masig Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104907,
+        "series": "Masig Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104908,
+        "series": "Masig Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104909,
+        "series": "Masig Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 104910,
+        "series": "Masig Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104911,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104912,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104913,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104914,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104915,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104916,
+        "series": "Myrmidon Reef Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104917,
+        "series": "Myrmidon Reef Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104918,
+        "series": "Myrmidon Reef Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104919,
+        "series": "Myrmidon Reef Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104920,
+        "series": "Myrmidon Reef Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104921,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104922,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104923,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104924,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104925,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104926,
+        "series": "Myrmidon Sensor Float 1 Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104927,
+        "series": "Myrmidon Sensor Float 1 Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104928,
+        "series": "Myrmidon Sensor Float 1 Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104929,
+        "series": "Myrmidon Sensor Float 1 Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104930,
+        "series": "Myrmidon Sensor Float 1 Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104931,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 104932,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 104933,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104934,
+        "series": "Square Rocks Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104935,
+        "series": "Square Rocks Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104936,
+        "series": "Square Rocks Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104937,
+        "series": "Square Rocks Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104938,
+        "series": "Square Rocks Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104939,
+        "series": "Square Rocks Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 104940,
+        "series": "Square Rocks Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 104941,
+        "series": "Thursday Island Weather Station Historic Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104942,
+        "series": "Thursday Island Weather Station Historic Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104943,
+        "series": "Thursday Island Weather Station Historic Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104944,
+        "series": "Thursday Island Weather Station Historic Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104945,
+        "series": "Thursday Island Weather Station Historic Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104946,
+        "series": "Thursday Island Weather Station Historic Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104947,
+        "series": "Thursday Island Weather Station Historic Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104948,
+        "series": "Thursday Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 104949,
+        "series": "Thursday Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 104950,
+        "series": "Thursday Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 104951,
+        "series": "Thursday Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 104952,
+        "series": "Thursday Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 104953,
+        "series": "Thursday Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 104954,
+        "series": "Thursday Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 104956,
+        "series": "Cape Cleveland Weather Station Historical Wind Speed duplicate",
+        "series_short": "Wind Speed duplicate"
+    },
+    {
+        "series_id": 107903,
+        "series": "John Brewer Weather Station Historical Water Temperature @10m",
+        "series_short": "Water Temperature @10m"
+    },
+    {
+        "series_id": 108163,
+        "series": "Badu Island Weather Station Air Pressure",
+        "series_short": "Air Pressure"
+    },
+    {
+        "series_id": 108164,
+        "series": "Badu Island Weather Station Air Temperature",
+        "series_short": "Air Temperature"
+    },
+    {
+        "series_id": 108165,
+        "series": "Badu Island Weather Station Hail Accumulation",
+        "series_short": "Hail Accumulation"
+    },
+    {
+        "series_id": 108166,
+        "series": "Badu Island Weather Station Hail Duration",
+        "series_short": "Hail Duration"
+    },
+    {
+        "series_id": 108167,
+        "series": "Badu Island Weather Station Hail Intensity",
+        "series_short": "Hail Intensity"
+    },
+    {
+        "series_id": 108168,
+        "series": "Badu Island Weather Station Humidity",
+        "series_short": "Humidity"
+    },
+    {
+        "series_id": 108169,
+        "series": "Badu Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series_short": "Max Wind Speed 10 mins"
+    },
+    {
+        "series_id": 108170,
+        "series": "Badu Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series_short": "Min Wind Speed 10 mins"
+    },
+    {
+        "series_id": 108171,
+        "series": "Badu Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series_short": "Max Wind Speed 30 mins"
+    },
+    {
+        "series_id": 108172,
+        "series": "Badu Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series_short": "Min Wind Speed 30 mins"
+    },
+    {
+        "series_id": 108173,
+        "series": "Badu Island Weather Station PAR",
+        "series_short": "PAR"
+    },
+    {
+        "series_id": 108174,
+        "series": "Badu Island Weather Station Rain Accumulation",
+        "series_short": "Rain Accumulation"
+    },
+    {
+        "series_id": 108175,
+        "series": "Badu Island Weather Station Rain Duration",
+        "series_short": "Rain Duration"
+    },
+    {
+        "series_id": 108176,
+        "series": "Badu Island Weather Station Rain Intensity",
+        "series_short": "Rain Intensity"
+    },
+    {
+        "series_id": 108177,
+        "series": "Badu Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series_short": "Wind Direction (S Avg 10 mins)"
+    },
+    {
+        "series_id": 108178,
+        "series": "Badu Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series_short": "Wind Direction (S Avg 30 mins)"
+    },
+    {
+        "series_id": 108179,
+        "series": "Badu Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series_short": "Wind Direction (S Std 10 mins)"
+    },
+    {
+        "series_id": 108180,
+        "series": "Badu Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series_short": "Wind Direction (S Std 30 mins)"
+    },
+    {
+        "series_id": 108181,
+        "series": "Badu Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series_short": "Wind Direction (V Avg 10 mins)"
+    },
+    {
+        "series_id": 108182,
+        "series": "Badu Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series_short": "Wind Direction (V Avg 30 mins)"
+    },
+    {
+        "series_id": 108183,
+        "series": "Badu Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series_short": "Wind Direction (V Std 10 mins)"
+    },
+    {
+        "series_id": 108184,
+        "series": "Badu Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series_short": "Wind Direction (V Std 30 mins)"
+    },
+    {
+        "series_id": 108185,
+        "series": "Badu Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series_short": "Wind Speed (S avg 10 min)"
+    },
+    {
+        "series_id": 108186,
+        "series": "Badu Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series_short": "Wind Speed (S avg 30 min)"
+    },
+    {
+        "series_id": 108187,
+        "series": "Badu Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series_short": "Wind Speed (S avg b 10 min) "
+    },
+    {
+        "series_id": 108188,
+        "series": "Badu Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series_short": "Wind Speed (S avg b 30 min)"
+    },
+    {
+        "series_id": 108189,
+        "series": "Badu Island Weather Station Wind Speed (vector avg 10 min)",
+        "series_short": "Wind Speed (V avg 10 min)"
+    },
+    {
+        "series_id": 108190,
+        "series": "Badu Island Weather Station Wind Speed (vector avg 30 min)",
+        "series_short": "Wind Speed (V avg 30 min)"
+    },
+    {
+        "series_id": 108703,
+        "series": "Yongala NRS Buoy Water Level",
+        "series_short": "Water Level"
+    },
+    {
+        "series_id": 109103,
+        "series": "Masig Island Weather Station Water Temperature @3m",
+        "series_short": "Water Temperature @3m"
+    },
+    {
+        "series_id": 109104,
+        "series": "Masig Island Weather Station Water Pressure @3m",
+        "series_short": "Water Pressure @3m"
+    },
+    {
+        "series_id": 111163,
+        "series": "Lizard Island Relay Pole 2 Conductivity @21m",
+        "series_short": "Conductivity @21m"
+    },
+    {
+        "series_id": 111164,
+        "series": "Lizard Island Relay Pole 2 Salinity @21m",
+        "series_short": "Salinity @21m"
+    },
+    {
+        "series_id": 112711,
+        "series": "Masig Island Weather Station Depth @3m",
+        "series_short": "Depth @3m"
+    }
+]

@@ -6,6 +6,10 @@ add_attr <- function(x, ...) {
   c(x, add_args)
 }
 
+with_mock_dir <- function(name, ...) {
+	httptest::with_mock_dir(file.path("../api", name), ...)
+}
+
 my_api_key <- NULL
 w_filters <- list(series_id = 64, from_date = "2018-01-01",
                   thru_date = "2018-01-10")

@@ -3,7 +3,7 @@ library(dataaimsr)
 weather_doi <- data_doi("weather")
 ssts_doi <- data_doi("temp_loggers")
 
-with_mock_dir("Correct structure pagedata", {
+with_mock_dir("Correct-structure-pagedata", {
   test_that("Correct structure", {
     # default to 1000 returns next_page link
     wa <- page_data(weather_doi, filters = w_filters, api_key = my_api_key)
@@ -43,7 +43,7 @@ with_mock_dir("Correct structure pagedata", {
   })
 })
 
-with_mock_dir("Wrong filters pagedata", {
+with_mock_dir("Wrong-filters-pagedata", {
   test_that("Wrong filters", {
     texpect <- function(...) expect_error(expect_message(...))
     texpect(page_data(weather_doi, filters = w_filters_c, api_key = my_api_key))
@@ -52,7 +52,7 @@ with_mock_dir("Wrong filters pagedata", {
   })
 })
 
-with_mock_dir("summary requests pagedata", {
+with_mock_dir("summary-requests-pagedata", {
   test_that("summary requests", {
     expect_error(page_data(weather_doi, api_key = my_api_key,
                            summary = "summary-by-series"))
