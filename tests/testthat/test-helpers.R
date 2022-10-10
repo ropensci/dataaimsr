@@ -6,7 +6,7 @@ bad_pt <- paste(base_end_pt, weather_doi, "wrong", sep = "/")
 
 test_that("API key finder", {
   expect_error(find_api_key())
-  expect_is(find_api_key(my_api_key), "character")
+  expect_is(find_api_key(null_api_key()), "character")
   key_ <- Sys.getenv("AIMS_DATAPLATFORM_API_KEY")
   Sys.setenv(AIMS_DATAPLATFORM_API_KEY = "empty")
   expect_is(find_api_key(NULL), "character")
@@ -27,10 +27,10 @@ test_that("http error handling", {
 with_mock_dir("JSON-results-Correct-structure-helpers", {
   test_that("JSON results - Correct structure", {
     good_dt_req <- GET(good_pt,
-                       add_headers("X-Api-Key" = find_api_key(my_api_key)),
-                       query = w_filters)
+                       add_headers("X-Api-Key" = find_api_key(null_api_key())),
+                       query = valid_weather_filters())
     bad_dt_req <- GET(bad_pt,
-                      add_headers("X-Api-Key" = find_api_key(my_api_key)))
+                      add_headers("X-Api-Key" = find_api_key(null_api_key())))
     expect_is(json_results(good_dt_req), "list")
     expect_true(all(c("metadata", "citation", "links", "results") %in%
                       names(json_results(good_dt_req))))
@@ -59,10 +59,10 @@ test_that("End point creation - Correct structure", {
 with_mock_dir("Correctly-process-requests", {
   test_that("Correctly process requests", {
     good_dt_req <- GET(good_pt,
-                       add_headers("X-Api-Key" = find_api_key(my_api_key)),
-                       query = w_filters)
+                       add_headers("X-Api-Key" = find_api_key(null_api_key())),
+                       query = valid_weather_filters())
     bad_dt_req <- GET(bad_pt,
-                      add_headers("X-Api-Key" = find_api_key(my_api_key)))
+                      add_headers("X-Api-Key" = find_api_key(null_api_key())))
     expect_message(
       expect_is(process_request(good_dt_req, doi = weather_doi), "list")
     )
@@ -82,10 +82,10 @@ with_mock_dir("Correctly-process-requests", {
 with_mock_dir("Correctly-update-request-output-format", {
   test_that("Correctly update request output format", {
     good_dt_req <- GET(good_pt,
-                       add_headers("X-Api-Key" = find_api_key(my_api_key)),
-                       query = w_filters)
+                       add_headers("X-Api-Key" = find_api_key(null_api_key())),
+                       query = valid_weather_filters())
     bad_dt_req <- GET(bad_pt,
-                      add_headers("X-Api-Key" = find_api_key(my_api_key)))
+                      add_headers("X-Api-Key" = find_api_key(null_api_key())))
     json_out <- json_results(good_dt_req)
     expect_is(update_format(json_out), "list")
     expect_true(all(c("metadata", "citation", "links", "data") %in%

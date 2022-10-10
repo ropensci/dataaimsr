@@ -4,14 +4,15 @@ ssts_doi <- data_doi("temp_loggers")
 with_mock_dir("Correct-structure-pagedata", {
   test_that("Correct structure", {
     # default to 1000 returns next_page link
-    wa <- page_data(weather_doi, filters = w_filters, api_key = my_api_key)
-    sa <- page_data(ssts_doi, filters = s_filters, api_key = my_api_key)
+    wa <- page_data(weather_doi, filters = valid_weather_filters(), api_key = null_api_key())
+    sa <- page_data(ssts_doi, filters = valid_tlogger_filters(), api_key = null_api_key())
     # larger size removed links from output
-    wb <- page_data(weather_doi, filters = w_filters_b, api_key = my_api_key)
-    sb <- page_data(ssts_doi, filters = s_filters_b, api_key = my_api_key)
+    wb <- page_data(weather_doi, filters = weather_filters_larger_size(),
+                    api_key = null_api_key())
+    sb <- page_data(ssts_doi, filters = tlogger_filters_no_size(), api_key = null_api_key())
     # next_page works
-    wa_n <- next_page_data(wa$links$next_page, api_key = my_api_key)
-    sa_n <- next_page_data(sa$links$next_page, api_key = my_api_key)
+    wa_n <- next_page_data(wa$links$next_page, api_key = null_api_key())
+    sa_n <- next_page_data(sa$links$next_page, api_key = null_api_key())
     final_nrow_wa <- nrow(wa$data) + nrow(wa_n$data)
     final_nrow_sa <- nrow(sa$data) + nrow(sa_n$data)
     expect_is(wa, "list")
@@ -44,22 +45,24 @@ with_mock_dir("Correct-structure-pagedata", {
 with_mock_dir("Wrong-filters-pagedata", {
   test_that("Wrong filters", {
     texpect <- function(...) expect_error(expect_message(...))
-    texpect(page_data(weather_doi, filters = w_filters_c, api_key = my_api_key))
-    texpect(expect_is(page_data(weather_doi, filters = w_filters_d,
-                      api_key = my_api_key), "data.frame"))
+    texpect(
+      page_data(weather_doi, filters = invalid_weather_filters_series(), api_key = null_api_key())
+    )
+    texpect(expect_is(page_data(weather_doi, filters = invalid_weather_filters_dates(),
+                      api_key = null_api_key()), "data.frame"))
   })
 })
 
 with_mock_dir("summary-requests-pagedata", {
   test_that("summary requests", {
-    expect_error(page_data(weather_doi, api_key = my_api_key,
+    expect_error(page_data(weather_doi, api_key = null_api_key(),
                            summary = "summary-by-series"))
-    expect_error(page_data(weather_doi, api_key = my_api_key,
+    expect_error(page_data(weather_doi, api_key = null_api_key(),
                            summary = "summary-by-deployment"))
-    expect_message(expect_is(page_data(ssts_doi, api_key = my_api_key,
+    expect_message(expect_is(page_data(ssts_doi, api_key = null_api_key(),
                                        summary = "summary-by-series"),
                    "data.frame"))
-    expect_message(expect_is(page_data(ssts_doi, api_key = my_api_key,
+    expect_message(expect_is(page_data(ssts_doi, api_key = null_api_key(),
                                        summary = "summary-by-deployment"),
                    "data.frame"))
   })
