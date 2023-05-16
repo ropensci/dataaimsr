@@ -42,11 +42,12 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
     }
   }
   dt_req <- GET(end_pt,
-                add_headers("X-Api-Key" = find_api_key(api_key)),
+                add_headers("X-Api-Key" = find_api_key(api_key),
+                            "X-Query-Source" = "dataaimsr"),
                 query = filters)
   if (verbose) {
-    message(end_pt)
-    message(dt_req)
+    message(paste("end_pt: ", end_pt))
+    message(paste("dt_req: ", dt_req)))
   }
   process_request(dt_req, doi = doi)
 }
@@ -74,6 +75,8 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
 next_page_data <- function(url, api_key = NULL, ...) {
   url <- gsub("+", "%2B", URLencode(url), fixed = TRUE)
   dt_req <- GET(url,
-                add_headers("X-Api-Key" = find_api_key(api_key)))
+                add_headers("X-Api-Key" = find_api_key(api_key),
+                            "X-Query-Source" = "dataaimsr")
+                )  # query filters not required because url passed in will already include them
   process_request(dt_req, next_page = TRUE, ...)
 }
