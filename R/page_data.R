@@ -46,8 +46,8 @@ page_data <- function(doi, filters = NULL, api_key = NULL,
                             "X-Query-Source" = "dataaimsr"),
                 query = filters)
   if (verbose) {
-    message(paste("end_pt: ", end_pt))
-    message(paste("dt_req: ", dt_req))
+    message(end_pt)
+    message(dt_req)
   }
   process_request(dt_req, doi = doi)
 }
