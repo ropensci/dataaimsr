@@ -75,7 +75,7 @@ print.aimsdf <- function(x, ...) {
 #' @return An object of class \code{\link[ggplot2]{ggplot}}.
 #'
 #' @importFrom rnaturalearth ne_countries
-#' @importFrom dplyr %>% mutate filter group_by summarise
+#' @importFrom dplyr %>% mutate filter group_by reframe
 #' @importFrom tidyr drop_na
 #' @importFrom sf st_transform st_as_sf
 #' @importFrom ggplot2 ggplot geom_sf theme_classic theme element_rect labs
@@ -112,7 +112,7 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
       st_transform(crs = 3112)
     y <- x %>%
       mutate(cols = .data$cal_obs * 1e-3) %>%
-      drop_na(.data$lon, .data$lat) %>%
+      drop_na("lon", "lat") %>%
       st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
       st_transform(crs = 3112)
     p_bkg <- make_pretty_colour("lightblue")
@@ -154,12 +154,12 @@ plot.aimsdf <- function(x, ..., ptype, pars) {
         st_transform(crs = 3112)
       y_l <- x %>%
         group_by(.data$site) %>%
-        summarise(n_obs = length(.data$qc_val), lon = unique(.data$lon),
-                  lat = unique(.data$lat),
-                  n_ser = length(unique(.data$series))) %>%
+        reframe(n_obs = length(.data$qc_val), lon = unique(.data$lon),
+                lat = unique(.data$lat),
+                n_ser = length(unique(.data$series))) %>%
         mutate(par_l = paste0(.data$site, ":\n", .data$n_ser, " series; ",
                               .data$n_obs, " obs.")) %>%
-        drop_na(.data$lon, .data$lat)
+        drop_na("lon", "lat")
       y_p <- y_l %>%
         st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
         st_transform(crs = 3112)
