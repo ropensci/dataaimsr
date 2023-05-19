@@ -1,7 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
-===========================================================================================
+# dataaimsr <img src="man/figures/logo.png" width = 180 alt="dataaimsr Logo" align="right" />
 
 <!-- badges: start -->
 
@@ -29,8 +28,7 @@ Science Data Platform API which provides easy access to AIMS Data
 Platform. *Journal of Open Source Software*, **6:** 3282. doi:
 [10.21105/joss.03282](https://doi.org/10.21105/joss.03282).
 
-Overview
---------
+## Overview
 
 The Australian Institute of Marine Science (AIMS) has a long tradition
 in measuring and monitoring a series of environmental parameters along
@@ -50,8 +48,7 @@ plot summaries of the different types of dataset made available by the
 API. Below we provide a brief context about the existing
 [Datasets](#datasets) that can be explored through `dataaimsr`.
 
-Installation
-------------
+## Installation
 
 ### Requesting an AIMS Data Platform API Key
 
@@ -86,7 +83,8 @@ The `.Renviron` file is usually stored in each users home directory:
 <tbody>
 <tr class="odd">
 <td>MS Windows</td>
-<td><code>C:\Users\‹username›\.Renviron</code> or <code>C:\Users\‹username›\Documents\.Renviron</code></td>
+<td><code>C:\Users\‹username›\.Renviron</code> or
+<code>C:\Users\‹username›\Documents\.Renviron</code></td>
 </tr>
 <tr class="even">
 <td>Linux / MacOs</td>
@@ -129,8 +127,7 @@ The `.Renviron` file is usually stored in each users home directory:
 </tbody>
 </table>
 
-Usage
------
+## Usage
 
     # assumes that user already has API key saved to
     # .Renviron
@@ -155,8 +152,7 @@ More comprehensive examples about how to navigate `dataaimsr` and
 interrogate the datasets can be found on our [online
 vignettes](https://ropensci.github.io/dataaimsr/articles/).
 
-Datasets
---------
+## Datasets
 
 Currently, there are two AIMS long-term monitoring datasets available to
 be downloaded through `dataaimsr`:
@@ -193,22 +189,19 @@ usage, please visit the
 [metadata](https://apps.aims.gov.au/metadata/view/4a12a8c0-c573-11dc-b99b-00008a07204e)
 webpage.
 
-License
--------
+## License
 
 `dataaimsr` is provided by the [Australian Institute of Marine
 Science](https://www.aims.gov.au) under the MIT License
-([MIT](https://opensource.org/licenses/MIT)).
+([MIT](https://opensource.org/license/mit/)).
 
-Code of Conduct
----------------
+## Code of Conduct
 
 Please note that this package is released with a [Contributor Code of
 Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
 project, you agree to abide by its terms.
 
-AIMS R package logos
---------------------
+## AIMS R package logos
 
 Our R package logos use a watercolour map of Australia, obtained with
 the [ggmap](https://CRAN.R-project.org/package=ggmap) R package, which
