@@ -88,7 +88,7 @@
 
       
 
-      </header><script src="weather_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>AIMS Weather Station time series datasets</h1>
@@ -101,8 +101,15 @@
 
     
     
-<p>Please check our <a href="https://ropensci.github.io/dataaimsr/articles/navigating.html" class="external-link">intro vignette</a> first to implement the installation requirements, and to learn the general approach to navigating the different datasets. This vignette assumes you have obtained an <a href="https://open-aims.github.io/data-platform/key-request" class="external-link">AIMS Data Platform API Key</a>.</p>
-<p>As per the installation instructions, we strongly suggest that you hide your API Key permanently in your <code>.Renviron</code> file and set the object <code>my_api_key</code> to <code>NULL</code> in the chunk below. You can read more about why that is important <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">here</a>.</p>
+<p>Please check our <a href="https://ropensci.github.io/dataaimsr/articles/navigating.html" class="external-link">intro
+vignette</a> first to implement the installation requirements, and to
+learn the general approach to navigating the different datasets. This
+vignette assumes you have obtained an <a href="https://open-aims.github.io/data-platform/key-request" class="external-link">AIMS Data
+Platform API Key</a>.</p>
+<p>As per the installation instructions, we strongly suggest that you
+hide your API Key permanently in your <code>.Renviron</code> file and
+set the object <code>my_api_key</code> to <code>NULL</code> in the chunk
+below. You can read more about why that is important <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">here</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set my_api_key to NULL after successfully placing it in .Renviron</span></span>
 <span><span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
@@ -114,15 +121,31 @@
 <div class="section level2">
 <h2 id="discover-a-dataset">Discover a dataset<a class="anchor" aria-label="anchor" href="#discover-a-dataset"></a>
 </h2>
-<p>The <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset consists of a series of <em>“parameters”</em> that are measured at multiple sites. Those could be, for instance, minimum wind speed, peak wave period, wind direction, water pressure, dissolved oxygen, chlorophyll concentration, etc. Not all parameters are measured for all sites and at all times. Some loggers are still actively collecting data, others have been discontinued.</p>
-<p>Essentially, for the user who has limited knowledge about where the data are, and of what they are consisted, they would need to do some prior exploration to learn more about what can downloaded. Suppose the goal is to download all time-series from a particular site. The general procedure would be:</p>
+<p>The <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather
+Station</a> dataset consists of a series of <em>“parameters”</em> that
+are measured at multiple sites. Those could be, for instance, minimum
+wind speed, peak wave period, wind direction, water pressure, dissolved
+oxygen, chlorophyll concentration, etc. Not all parameters are measured
+for all sites and at all times. Some loggers are still actively
+collecting data, others have been discontinued.</p>
+<p>Essentially, for the user who has limited knowledge about where the
+data are, and of what they are consisted, they would need to do some
+prior exploration to learn more about what can downloaded. Suppose the
+goal is to download all time-series from a particular site. The general
+procedure would be:</p>
 <ol style="list-style-type: decimal">
 <li>Examine documentation and establish query filters</li>
 <li>Perform data download using <code>aims_data</code>
 </li>
-<li>Use the R package <code>ggplot2</code> to create an exploratory time-series chart</li>
+<li>Use the R package <code>ggplot2</code> to create an exploratory
+time-series chart</li>
 </ol>
-<p>For all datasets, a list of available filters can be retrieved with the function <code>aims_expose_attributes</code>. Knowing the filters is important because some time series are quite extensive, with parameters being measured at very high frequency (e.g. every 5 minutes), so downloading the dataset for an entire year or more my take quite some time (it’s possible though if that is the true goal of the user).</p>
+<p>For all datasets, a list of available filters can be retrieved with
+the function <code>aims_expose_attributes</code>. Knowing the filters is
+important because some time series are quite extensive, with parameters
+being measured at very high frequency (e.g. every 5 minutes), so
+downloading the dataset for an entire year or more my take quite some
+time (it’s possible though if that is the true goal of the user).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/aims_expose_attributes.html">aims_expose_attributes</a></span><span class="op">(</span><span class="st">"weather"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $summary</span></span>
@@ -131,7 +154,22 @@
 <span><span class="co">#&gt; $filters</span></span>
 <span><span class="co">#&gt;  [1] "site"      "subsite"   "series"    "series_id" "parameter" "size"      "min_lat"   "max_lat"  </span></span>
 <span><span class="co">#&gt;  [9] "min_lon"   "max_lon"   "from_date" "thru_date" "version"   "cursor"</span></span></code></pre></div>
-<p>In the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water Temperature Loggers</a> dataset, as demonstrated in our <a href="https://ropensci.github.io/dataaimsr/articles/navigating.html" class="external-link">intro vignette</a>, we have a convenience <code>summary</code> method which facilitates learning more about what data is available, or downloading daily aggregated average data. The back-end for these is currently being developed for the AIMS Weather Station as well. In the meantime, to explore the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset, we use the function <code>aims_filter_values</code>. This function takes a target dataset and a given filter, and returns all the available information regarding the filter. We recommend exploring the <code>series</code> filter—a series is a continuing time-series, i.e. a collection of deployments measuring the same parameter (e.g. air temperature, air pressure, chlorophyll) at the same subsite. So, for a given site and parameter, there might exist multiple subsites and therefore series, in which case they are most likely distinguishable by depth.</p>
+<p>In the <a href="https://doi.org/10.25845/5b4eb0f9bb848" class="external-link">Sea Water
+Temperature Loggers</a> dataset, as demonstrated in our <a href="https://ropensci.github.io/dataaimsr/articles/navigating.html" class="external-link">intro
+vignette</a>, we have a convenience <code>summary</code> method which
+facilitates learning more about what data is available, or downloading
+daily aggregated average data. The back-end for these is currently being
+developed for the AIMS Weather Station as well. In the meantime, to
+explore the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS
+Weather Station</a> dataset, we use the function
+<code>aims_filter_values</code>. This function takes a target dataset
+and a given filter, and returns all the available information regarding
+the filter. We recommend exploring the <code>series</code> filter—a
+series is a continuing time-series, i.e. a collection of deployments
+measuring the same parameter (e.g. air temperature, air pressure,
+chlorophyll) at the same subsite. So, for a given site and parameter,
+there might exist multiple subsites and therefore series, in which case
+they are most likely distinguishable by depth.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="../reference/aims_filter_values.html">aims_filter_values</a></span><span class="op">(</span><span class="st">"weather"</span>, filter_name <span class="op">=</span> <span class="st">"series"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   series_id                                                                 series</span></span>
@@ -141,9 +179,18 @@
 <span><span class="co">#&gt; 4       266 Orpheus Island Relay Pole 3 Wind Direction (Vector Average 30 Minutes)</span></span>
 <span><span class="co">#&gt; 5      2639 Hardy Reef Weather Station Wind Direction (Vector Standard 10 Minutes)</span></span>
 <span><span class="co">#&gt; 6     10243                           Raine Island Weather Station Air Temperature</span></span></code></pre></div>
-<p>The benefits to choosing a data <code>series</code> is that it comes from one location and parameter type, making the data easy to plot. If we did not choose a data series from the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a> dataset, we would have to specify additional arguments to ensure the data is downloaded as expected.</p>
+<p>The benefits to choosing a data <code>series</code> is that it comes
+from one location and parameter type, making the data easy to plot. If
+we did not choose a data series from the <a href="https://doi.org/10.25845/5c09bf93f315d" class="external-link">AIMS Weather Station</a>
+dataset, we would have to specify additional arguments to ensure the
+data is downloaded as expected.</p>
 <p>Our values and filters might look like the following:</p>
 <table class="table">
+<colgroup>
+<col width="11%">
+<col width="26%">
+<col width="61%">
+</colgroup>
 <thead><tr class="header">
 <th>Variable</th>
 <th>Value</th>
@@ -153,7 +200,8 @@
 <tr class="odd">
 <td>series_id</td>
 <td>64</td>
-<td>Found <a href="https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e" class="external-link">here</a>, Davies Reef Air Temperature data series</td>
+<td>Found <a href="https://apps.aims.gov.au/metadata/view/5fc91100-4ade-11dc-8f56-00008a07204e" class="external-link">here</a>,
+Davies Reef Air Temperature data series</td>
 </tr>
 <tr class="even">
 <td>from_date</td>
@@ -171,13 +219,16 @@
 <div class="section level2">
 <h2 id="query-and-plot-dataset">Query and Plot Dataset<a class="anchor" aria-label="anchor" href="#query-and-plot-dataset"></a>
 </h2>
-<p>After deciding on query parameters, we plug the series id into a <code>aims_data</code> function:</p>
+<p>After deciding on query parameters, we plug the series id into a
+<code>aims_data</code> function:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">davies</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aims_data.html">aims_data</a></span><span class="op">(</span><span class="st">"weather"</span>, api_key <span class="op">=</span> <span class="va">my_api_key</span>,</span>
 <span>                    filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>series_id <span class="op">=</span> <span class="fl">64</span>,</span>
 <span>                                   from_date <span class="op">=</span> <span class="st">"2018-01-01"</span>,</span>
 <span>                                   thru_date <span class="op">=</span> <span class="st">"2018-01-10"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>We can even visually compare multiple series at once. For instance, let’s compare the air temperature data from Davies Reef and Bramble Cay for the same period of time:</p>
+<p>We can even visually compare multiple series at once. For instance,
+let’s compare the air temperature data from Davies Reef and Bramble Cay
+for the same period of time:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">target_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Davies Reef"</span> <span class="op">=</span> <span class="fl">64</span>, <span class="st">"Bramble Cay"</span> <span class="op">=</span> <span class="fl">87929</span><span class="op">)</span></span>
 <span><span class="va">aims_data_per_series</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">series_number</span>, <span class="va">my_api_key</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
@@ -188,10 +239,12 @@
 <span>                      my_api_key <span class="op">=</span> <span class="va">my_api_key</span>,</span>
 <span>                      from_date <span class="op">=</span> <span class="st">"2018-01-01"</span>,</span>
 <span>                      thru_date <span class="op">=</span> <span class="st">"2018-01-10"</span><span class="op">)</span></span>
-<span><span class="va">weather_data</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">rbind</span><span class="op">)</span></span>
+<span><span class="va">weather_data</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="va">results</span>, <span class="va">rbind</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">weather_data</span>, ptype <span class="op">=</span> <span class="st">"time_series"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="vignette-fig-wfa-1.png" title="plot of chunk wfa" alt="plot of chunk wfa" width="100%"></p>
-<p>One could also download data for a particular time of day throughout the year, e.g. for Heron Island Relay Pole 8 at 5.4 m of depth (series 10394):</p>
+<p>One could also download data for a particular time of day throughout
+the year, e.g. for Heron Island Relay Pole 8 at 5.4 m of depth (series
+10394):</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2018-01-01"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2018-12-31"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"month"</span><span class="op">)</span></span>
 <span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a></span><span class="op">(</span>length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">)</span></span>
@@ -246,7 +299,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

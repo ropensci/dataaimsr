@@ -94,6 +94,7 @@
 <div class="page-header"><h1 id="dataaimsr-">dataaimsr <img src="reference/figures/logo.png" width="180" alt="dataaimsr Logo" align="right"><a class="anchor" aria-label="anchor" href="#dataaimsr-"></a>
 </h1></div>
 <!-- badges: start -->
+
 <p><strong>Barneche DR, Coleman G, Fermor D, Klein E, Robinson T, Smith J, Sheehan JL, Dowley S, Ditton D, Gunn K, Ericson G, Logan M, Rehbein M</strong> (2021). dataaimsr: An R Client for the Australian Institute of Marine Science Data Platform API which provides easy access to AIMS Data Platform. <em>Journal of Open Source Software</em>, <strong>6:</strong> 3282. doi: <a href="https://doi.org/10.21105/joss.03282" class="external-link">10.21105/joss.03282</a>.</p>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
@@ -109,7 +110,7 @@
 <p><strong>AIMS Data Platform</strong> requires an API Key for data requests, <a href="https://open-AIMS.github.io/data-platform/key-request" class="external-link">get a key here</a>.</p>
 <p>The API Key can be passed to the package functions as an additional <code>api_key = "XXXX"</code> argument. <strong>However</strong>, we strongly encourage users to maintain their API key as a private locally hidden environment variable (<code>AIMS_DATAPLATFORM_API_KEY</code>) in the <code>.Renviron</code> file for automatic loading at the start of an R session. Please read this <a href="https://CRAN.R-project.org/package=httr/vignettes/secrets.html" class="external-link">article</a> which details why keeping your API private is extremely important.</p>
 <p>Users can modify their <code>.Renviron</code> file by adding the following line:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>AIMS_DATAPLATFORM_API_KEY=XXXXXXXXXXXXX</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>AIMS_DATAPLATFORM_API_KEY<span class="ot">=</span>XXXXXXXXXXXXX</span></code></pre></div>
 <p>The <code>.Renviron</code> file is usually stored in each users home directory:</p>
 <table class="table">
 <colgroup>
@@ -117,19 +118,29 @@
 <col style="width: 64%">
 </colgroup>
 <thead><tr class="header">
-<th>System</th>
-<th>.Renviron file locations</th>
+<th>
+System
+</th>
+<th>
+.Renviron file locations
+</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>MS Windows</td>
+<td>
+MS Windows
+</td>
 <td>
 <code>C:‹username›.Renviron</code> or <code>C:‹username›.Renviron</code>
 </td>
 </tr>
 <tr class="even">
-<td>Linux / MacOs</td>
-<td><code>/home/‹username›/.Renviron</code></td>
+<td>
+Linux / MacOs
+</td>
+<td>
+<code>/home/‹username›/.Renviron</code>
+</td>
 </tr>
 </tbody>
 </table>
@@ -144,25 +155,49 @@
 <col style="width: 33%">
 </colgroup>
 <thead><tr class="header">
-<th>Type</th>
-<th>Source</th>
-<th>Command</th>
+<th>
+Type
+</th>
+<th>
+Source
+</th>
+<th>
+Command
+</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Release</td>
-<td>CRAN</td>
-<td>Not yet available</td>
+<td>
+Release
+</td>
+<td>
+CRAN
+</td>
+<td>
+Not yet available
+</td>
 </tr>
 <tr class="even">
-<td>Development</td>
-<td>GitHub</td>
-<td><code>remotes::install_github(“ropensci/dataaimsr”)</code></td>
+<td>
+Development
+</td>
+<td>
+GitHub
+</td>
+<td>
+<code>remotes::install_github(“ropensci/dataaimsr”)</code>
+</td>
 </tr>
 <tr class="odd">
-<td>Development</td>
-<td>rOpenSci</td>
-<td><code>install.packages(“dataaimsr”, repos = “<a href="https://dev.ropensci.org" class="external-link uri">https://dev.ropensci.org</a>”)</code></td>
+<td>
+Development
+</td>
+<td>
+rOpenSci
+</td>
+<td>
+<code>install.packages(“dataaimsr”, repos = “<a href="https://dev.ropensci.org" class="external-link uri">https://dev.ropensci.org</a>”)</code>
+</td>
 </tr>
 </tbody>
 </table>
@@ -171,24 +206,24 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># assumes that user already has API key saved to</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># .Renviron</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">library</span>(dataaimsr)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># summarised by series</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># for all sites that contain data</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># within a defined date range</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>sdf_b &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"temp_loggers"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
-<span id="cb2-9"><a href="#cb2-9"></a>                   <span class="dt">summary =</span> <span class="st">"summary-by-series"</span>,</span>
-<span id="cb2-10"><a href="#cb2-10"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="st">"from_date"</span> =<span class="st"> "2018-01-01"</span>,</span>
-<span id="cb2-11"><a href="#cb2-11"></a>                                  <span class="st">"thru_date"</span> =<span class="st"> "2018-12-31"</span>))</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co"># downloads weather data from site Yongala</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># within a defined date range</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a>wdf_a &lt;-<span class="st"> </span><span class="kw">aims_data</span>(<span class="st">"weather"</span>, <span class="dt">api_key =</span> <span class="ot">NULL</span>,</span>
-<span id="cb2-16"><a href="#cb2-16"></a>                   <span class="dt">filters =</span> <span class="kw">list</span>(<span class="dt">site =</span> <span class="st">"Yongala"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17"></a>                                  <span class="dt">from_date =</span> <span class="st">"2018-01-01"</span>,</span>
-<span id="cb2-18"><a href="#cb2-18"></a>                                  <span class="dt">thru_date =</span> <span class="st">"2018-01-02"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assumes that user already has API key saved to</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># .Renviron</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataaimsr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># summarised by series</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># for all sites that contain data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># within a defined date range</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sdf_b <span class="ot">&lt;-</span> <span class="fu">aims_data</span>(<span class="st">"temp_loggers"</span>, <span class="at">api_key =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">summary =</span> <span class="st">"summary-by-series"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">filters =</span> <span class="fu">list</span>(<span class="st">"from_date"</span> <span class="ot">=</span> <span class="st">"2018-01-01"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"thru_date"</span> <span class="ot">=</span> <span class="st">"2018-12-31"</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># downloads weather data from site Yongala</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># within a defined date range</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>wdf_a <span class="ot">&lt;-</span> <span class="fu">aims_data</span>(<span class="st">"weather"</span>, <span class="at">api_key =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">site =</span> <span class="st">"Yongala"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">from_date =</span> <span class="st">"2018-01-01"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">thru_date =</span> <span class="st">"2018-01-02"</span>))</span></code></pre></div>
 <p>More comprehensive examples about how to navigate <code>dataaimsr</code> and interrogate the datasets can be found on our <a href="https://ropensci.github.io/dataaimsr/articles/" class="external-link">online vignettes</a>.</p>
 </div>
 <div class="section level2">
@@ -301,7 +336,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
