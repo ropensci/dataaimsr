@@ -4,6 +4,14 @@
         "site_id": 921
     },
     {
+        "site": "Darwin",
+        "site_id": 1092
+    },
+    {
+        "site": "Heron Island",
+        "site_id": 130
+    },
+    {
         "site": "Myrmidon Reef",
         "site_id": 7
     },
@@ -12,20 +20,12 @@
         "site_id": 2
     },
     {
-        "site": "Heron Island",
-        "site_id": 130
-    },
-    {
         "site": "Yongala",
         "site_id": 1165
     },
     {
         "site": "Agincourt Reef Number 3",
         "site_id": 1
-    },
-    {
-        "site": "Masig Island",
-        "site_id": 2601
     },
     {
         "site": "Cleveland Bay",
@@ -44,36 +44,28 @@
         "site_id": 6
     },
     {
-        "site": "Darwin",
-        "site_id": 1092
-    },
-    {
         "site": "Ningaloo Reef",
         "site_id": 8
-    },
-    {
-        "site": "One Tree Island",
-        "site_id": 131
     },
     {
         "site": "Halftide Rocks AWS",
         "site_id": 976
     },
     {
+        "site": "Masig Island",
+        "site_id": 2601
+    },
+    {
         "site": "Lizard Island",
         "site_id": 1166
     },
     {
-        "site": "Bramble Cay",
-        "site_id": 2381
-    },
-    {
-        "site": "Badu",
-        "site_id": 3621
-    },
-    {
         "site": "Orpheus Island",
         "site_id": 9
+    },
+    {
+        "site": "Bramble Cay",
+        "site_id": 2381
     },
     {
         "site": "Beagle Gulf",
@@ -84,12 +76,20 @@
         "site_id": 3220
     },
     {
+        "site": "One Tree Island",
+        "site_id": 131
+    },
+    {
         "site": "Raine Island",
         "site_id": 857
     },
     {
         "site": "John Brewer",
         "site_id": 747
+    },
+    {
+        "site": "Badu",
+        "site_id": 3621
     },
     {
         "site": "Rib Reef",
@@ -164,6 +164,10 @@
         "site_id": 3020
     },
     {
+        "site": "Rebe Reef",
+        "site_id": 2566
+    },
+    {
         "site": "Hook Island",
         "site_id": 1057
     },
@@ -192,8 +196,16 @@
         "site_id": 858
     },
     {
+        "site": "Cattle Bay",
+        "site_id": 856
+    },
+    {
         "site": "Humpy Island",
         "site_id": 1039
+    },
+    {
+        "site": "Helix Reef",
+        "site_id": 2707
     },
     {
         "site": "Manning Island",
@@ -208,8 +220,8 @@
         "site_id": 988
     },
     {
-        "site": "Cattle Bay",
-        "site_id": 856
+        "site": "Feather Reef",
+        "site_id": 2693
     },
     {
         "site": "Pine Island",
@@ -248,6 +260,10 @@
         "site_id": 3820
     },
     {
+        "site": "Farquharson Reef",
+        "site_id": 2703
+    },
+    {
         "site": "Shute and Tancred Islands",
         "site_id": 1058
     },
@@ -268,6 +284,10 @@
         "site_id": 992
     },
     {
+        "site": "Low Isles",
+        "site_id": 915
+    },
+    {
         "site": "Chicken Reef",
         "site_id": 1047
     },
@@ -280,16 +300,16 @@
         "site_id": 2760
     },
     {
-        "site": "Farquharson Reef",
-        "site_id": 2703
-    },
-    {
         "site": "Chinaman Reef",
         "site_id": 2256
     },
     {
         "site": "Imperieuse Reef",
         "site_id": 1134
+    },
+    {
+        "site": "Peart Reef",
+        "site_id": 2692
     },
     {
         "site": "Northeast Reef",
@@ -304,8 +324,16 @@
         "site_id": 893
     },
     {
+        "site": "Thetford Reef",
+        "site_id": 2015
+    },
+    {
         "site": "Pelorus Island",
         "site_id": 868
+    },
+    {
+        "site": "Kelso Reef",
+        "site_id": 863
     },
     {
         "site": "Seal Rocks North",
@@ -320,16 +348,16 @@
         "site_id": 1125
     },
     {
+        "site": "Dip Reef",
+        "site_id": 876
+    },
+    {
         "site": "Daydream Island",
         "site_id": 866
     },
     {
         "site": "St Crispin Reef",
         "site_id": 2689
-    },
-    {
-        "site": "Kelso Reef",
-        "site_id": 863
     },
     {
         "site": "Yonge Reef",
@@ -428,10 +456,6 @@
         "site_id": 2841
     },
     {
-        "site": "Low Isles",
-        "site_id": 915
-    },
-    {
         "site": "Cape Flattery",
         "site_id": 929
     },
@@ -476,20 +500,16 @@
         "site_id": 910
     },
     {
-        "site": "Sand Bank No7",
-        "site_id": 913
+        "site": "Carter",
+        "site_id": 2843
     },
     {
         "site": "Lady Musgrave",
         "site_id": 3060
     },
     {
-        "site": "Carter",
-        "site_id": 2843
-    },
-    {
-        "site": "Rebe Reef",
-        "site_id": 2566
+        "site": "Sand Bank No7",
+        "site_id": 913
     },
     {
         "site": "Martin",
@@ -508,12 +528,12 @@
         "site_id": 3320
     },
     {
-        "site": "Erskine Island",
-        "site_id": 3121
+        "site": "Mer Island",
+        "site_id": 2303
     },
     {
-        "site": "Thetford Reef",
-        "site_id": 2015
+        "site": "Erskine Island",
+        "site_id": 3121
     },
     {
         "site": "Taylor Reef",
@@ -524,8 +544,8 @@
         "site_id": 2716
     },
     {
-        "site": "Snake Reef",
-        "site_id": 2257
+        "site": "21-187 Reef",
+        "site_id": 2687
     },
     {
         "site": "Michaelmas Reef",
@@ -536,16 +556,16 @@
         "site_id": 979
     },
     {
+        "site": "Snake Reef",
+        "site_id": 2257
+    },
+    {
         "site": "Comets Hole",
         "site_id": 1120
     },
     {
         "site": "Middle Island",
         "site_id": 962
-    },
-    {
-        "site": "21-187 Reef",
-        "site_id": 2687
     },
     {
         "site": "Hay Point",
@@ -580,6 +600,10 @@
         "site_id": 1098
     },
     {
+        "site": "Tern Reef",
+        "site_id": 2711
+    },
+    {
         "site": "McCulloch Reef",
         "site_id": 2702
     },
@@ -604,10 +628,6 @@
         "site_id": 1077
     },
     {
-        "site": "Tern Reef",
-        "site_id": 2711
-    },
-    {
         "site": "Willis Island",
         "site_id": 1032
     },
@@ -622,10 +642,6 @@
     {
         "site": "Abbott Point",
         "site_id": 905
-    },
-    {
-        "site": "Dip Reef",
-        "site_id": 876
     },
     {
         "site": "Frederick Reef",
@@ -720,10 +736,6 @@
         "site_id": 1000
     },
     {
-        "site": "Feather Reef",
-        "site_id": 2693
-    },
-    {
         "site": "King Reef",
         "site_id": 1059
     },
@@ -762,10 +774,6 @@
     {
         "site": "Marion Reef",
         "site_id": 1121
-    },
-    {
-        "site": "Helix Reef",
-        "site_id": 2707
     },
     {
         "site": "Cod Grounds",
@@ -904,10 +912,6 @@
         "site_id": 3001
     },
     {
-        "site": "Mer Island",
-        "site_id": 2303
-    },
-    {
         "site": "Small Lagoon Reef",
         "site_id": 2681
     },
@@ -966,10 +970,6 @@
     {
         "site": "Canal Rocks",
         "site_id": 2944
-    },
-    {
-        "site": "Peart Reef",
-        "site_id": 2692
     },
     {
         "site": "Temboh Merah",
@@ -1182,5 +1182,13 @@
     {
         "site": "Banubanu",
         "site_id": 3641
+    },
+    {
+        "site": "Solander",
+        "site_id": "Solander"
+    },
+    {
+        "site": "Cape Ferguson",
+        "site_id": "Cape Ferguson"
     }
 ]

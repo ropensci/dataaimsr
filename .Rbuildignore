@@ -14,3 +14,4 @@ README.Rmd
 ^tmp_.*$
 ^CONTRIBUTING.md$
 ^codemeta\.json$
+^test_running_updating\.Rmd$

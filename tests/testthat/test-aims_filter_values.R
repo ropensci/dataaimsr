@@ -4,11 +4,11 @@ with_mock_dir("Correct-structure-filtervalues", {
     expect_is(aims_filter_values("weather", filter_name = "series"),
               "data.frame")
     expect_is(aims_filter_values("temp_loggers", filter_name = "site"),
-              "character")
+              "data.frame")
     expect_is(aims_filter_values("temp_loggers", filter_name = "series"),
               "data.frame")
     expect_is(aims_filter_values("temp_loggers", filter_name = "parameter"),
-              "character")
+              "data.frame")
   })
 })
 

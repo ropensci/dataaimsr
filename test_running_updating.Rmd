@@ -1,0 +1,39 @@
+# How to run or recreate tests
+
+From `dataaimsr/`, run
+
+```{r}
+library(testthat)
+library(roxygen2)
+library(devtools)
+system("rm -rf tests/api")
+roxygen2::roxygenise()
+devtools::install(build_vignettes = FALSE)
+testthat::test_local(".")
+all_mock_dirs <- dir("tests/api", full.names = TRUE, recursive = TRUE) |>
+  dirname() |>
+  unique()
+new_mock_dirs <- gsub(
+  "api.aims.gov.au/data-v2.0/10.25845", "a", all_mock_dirs, fixed = TRUE
+)
+for (i in seq_along(all_mock_dirs)) {
+  system(paste0("mkdir -p ", new_mock_dirs[i]))
+  system(paste0(
+    "cp -R ", all_mock_dirs[i], "/* ", new_mock_dirs[i], "/" , collapse = ""
+  ))
+  to_rm <- dirname(all_mock_dirs[i]) |>
+    dirname() |>
+    dirname()
+  system(paste0("rm -rf ", to_rm))
+}
+```
+
+This will delete all existing mock files and regenerate them. Then return to root directory and check if it all passes:
+
+```{r}
+rm(list = ls())
+rcmdcheck::rcmdcheck(
+  args = c("--no-manual", "--as-cran"), build_args = "--resave-data=best",
+  error_on = "warning", check_dir = "check"
+)
+```

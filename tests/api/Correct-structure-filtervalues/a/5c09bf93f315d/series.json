@@ -661,137 +661,137 @@
     },
     {
         "series_id": 186,
-        "series": "Heron Island Weather Station Wind Speed (Scalar avg 10 min)",
+        "series": "Heron Island Relay Pole 7 Wind Speed (Scalar avg 10 min)",
         "series_short": "Wind Speed (S avg 10 min)"
     },
     {
         "series_id": 187,
-        "series": "Heron Island Weather Station Maximum Wind Speed 30 Minutes",
+        "series": "Heron Island Relay Pole 7 Maximum Wind Speed 30 Minutes",
         "series_short": "Max Wind Speed 30 mins"
     },
     {
         "series_id": 188,
-        "series": "Heron Island Weather Station Wind Direction (Vector Average 10 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Vector Average 10 Minutes)",
         "series_short": "Wind Direction (V Avg 10 mins)"
     },
     {
         "series_id": 189,
-        "series": "Heron Island Weather Station Air Temperature",
+        "series": "Heron Island Relay Pole 7 Air Temperature",
         "series_short": "Air Temperature"
     },
     {
         "series_id": 190,
-        "series": "Heron Island Weather Station Air Pressure",
+        "series": "Heron Island Relay Pole 7 Air Pressure",
         "series_short": "Air Pressure"
     },
     {
         "series_id": 191,
-        "series": "Heron Island Weather Station Rain Accumulation",
+        "series": "Heron Island Relay Pole 7 Rain Accumulation",
         "series_short": "Rain Accumulation"
     },
     {
         "series_id": 192,
-        "series": "Heron Island Weather Station Rain Duration",
+        "series": "Heron Island Relay Pole 7 Rain Duration",
         "series_short": "Rain Duration"
     },
     {
         "series_id": 193,
-        "series": "Heron Island Weather Station Humidity",
+        "series": "Heron Island Relay Pole 7 Humidity",
         "series_short": "Humidity"
     },
     {
         "series_id": 194,
-        "series": "Heron Island Weather Station Hail Intensity",
+        "series": "Heron Island Relay Pole 7 Hail Intensity",
         "series_short": "Hail Intensity"
     },
     {
         "series_id": 195,
-        "series": "Heron Island Weather Station Wind Speed (scalar avg b 30 min)",
+        "series": "Heron Island Relay Pole 7 Wind Speed (scalar avg b 30 min)",
         "series_short": "Wind Speed (S avg b 30 min)"
     },
     {
         "series_id": 196,
-        "series": "Heron Island Weather Station Hail Duration",
+        "series": "Heron Island Relay Pole 7 Hail Duration",
         "series_short": "Hail Duration"
     },
     {
         "series_id": 197,
-        "series": "Heron Island Weather Station Wind Speed (vector avg 30 min)",
+        "series": "Heron Island Relay Pole 7 Wind Speed (vector avg 30 min)",
         "series_short": "Wind Speed (V avg 30 min)"
     },
     {
         "series_id": 198,
-        "series": "Heron Island Weather Station Wind Direction (Vector Standard 30 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Vector Standard 30 Minutes)",
         "series_short": "Wind Direction (V Std 30 mins)"
     },
     {
         "series_id": 200,
-        "series": "Heron Island Weather Station Wind Speed (scalar avg b 10 min) ",
+        "series": "Heron Island Relay Pole 7 Wind Speed (scalar avg b 10 min) ",
         "series_short": "Wind Speed (S avg b 10 min) "
     },
     {
         "series_id": 201,
-        "series": "Heron Island Weather Station Maximum Wind Speed 10 Minutes",
+        "series": "Heron Island Relay Pole 7 Maximum Wind Speed 10 Minutes",
         "series_short": "Max Wind Speed 10 mins"
     },
     {
         "series_id": 202,
-        "series": "Heron Island Weather Station Wind Direction (Scalar Standard 10 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Scalar Standard 10 Minutes)",
         "series_short": "Wind Direction (S Std 10 mins)"
     },
     {
         "series_id": 203,
-        "series": "Heron Island Weather Station Wind Direction (Scalar Average 10 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Scalar Average 10 Minutes)",
         "series_short": "Wind Direction (S Avg 10 mins)"
     },
     {
         "series_id": 204,
-        "series": "Heron Island Weather Station Wind Direction (Scalar Standard 30 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Scalar Standard 30 Minutes)",
         "series_short": "Wind Direction (S Std 30 mins)"
     },
     {
         "series_id": 205,
-        "series": "Heron Island Weather Station Wind Direction (Vector Average 30 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Vector Average 30 Minutes)",
         "series_short": "Wind Direction (V Avg 30 mins)"
     },
     {
         "series_id": 207,
-        "series": "Heron Island Weather Station Wind Speed (Scalar avg 30 min)",
+        "series": "Heron Island Relay Pole 7 Wind Speed (Scalar avg 30 min)",
         "series_short": "Wind Speed (S avg 30 min)"
     },
     {
         "series_id": 208,
-        "series": "Heron Island Weather Station Wind Direction (Scalar Average 30 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Scalar Average 30 Minutes)",
         "series_short": "Wind Direction (S Avg 30 mins)"
     },
     {
         "series_id": 209,
-        "series": "Heron Island Weather Station Minimum Wind Speed 30 Minutes",
+        "series": "Heron Island Relay Pole 7 Minimum Wind Speed 30 Minutes",
         "series_short": "Min Wind Speed 30 mins"
     },
     {
         "series_id": 210,
-        "series": "Heron Island Weather Station Wind Direction (Vector Standard 10 Minutes)",
+        "series": "Heron Island Relay Pole 7 Wind Direction (Vector Standard 10 Minutes)",
         "series_short": "Wind Direction (V Std 10 mins)"
     },
     {
         "series_id": 211,
-        "series": "Heron Island Weather Station Hail Accumulation",
+        "series": "Heron Island Relay Pole 7 Hail Accumulation",
         "series_short": "Hail Accumulation"
     },
     {
         "series_id": 212,
-        "series": "Heron Island Weather Station Rain Intensity",
+        "series": "Heron Island Relay Pole 7 Rain Intensity",
         "series_short": "Rain Intensity"
     },
     {
         "series_id": 213,
-        "series": "Heron Island Weather Station Wind Speed (vector avg 10 min)",
+        "series": "Heron Island Relay Pole 7 Wind Speed (vector avg 10 min)",
         "series_short": "Wind Speed (V avg 10 min)"
     },
     {
         "series_id": 214,
-        "series": "Heron Island Weather Station Minimum Wind Speed 10 Minutes",
+        "series": "Heron Island Relay Pole 7 Minimum Wind Speed 10 Minutes",
         "series_short": "Min Wind Speed 10 mins"
     },
     {
@@ -1771,8 +1771,8 @@
     },
     {
         "series_id": 3528,
-        "series": "Lizard Island Relay Pole 2 Water Temperature",
-        "series_short": "Water Temperature"
+        "series": "Lizard Island Relay Pole 2 Water Temperature @21m",
+        "series_short": "Water Temperature @21m"
     },
     {
         "series_id": 3529,
@@ -2906,7 +2906,7 @@
     },
     {
         "series_id": 10391,
-        "series": "Heron Island Relay Pole 8 PAR",
+        "series": "Heron Island Relay Pole 7 PAR",
         "series_short": "PAR"
     },
     {
@@ -5203,5 +5203,25 @@
         "series_id": 112711,
         "series": "Masig Island Weather Station Depth @3m",
         "series_short": "Depth @3m"
+    },
+    {
+        "series_id": 113847,
+        "series": "Bramble Cay Weather Station Water Pressure @7m",
+        "series_short": "Water Pressure @7m"
+    },
+    {
+        "series_id": 113848,
+        "series": "Bramble Cay Weather Station Water Temperature @1m",
+        "series_short": "Water Temperature @1m"
+    },
+    {
+        "series_id": 113849,
+        "series": "Bramble Cay Weather Station Water Temperature @7m",
+        "series_short": "Water Temperature @7m"
+    },
+    {
+        "series_id": 113862,
+        "series": "Bramble Cay Weather Station Depth @7m",
+        "series_short": "Depth @7m"
     }
 ]

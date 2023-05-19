@@ -1,3 +1,1432 @@
 [
-    "Temperature (°C)"
+    {
+        "site": "100th Site",
+        "site_id": 1034,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "19-131 Reef",
+        "site_id": 2560,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "19-138 Reef",
+        "site_id": 2561,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "19-159 Reef",
+        "site_id": 2562,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "20-104 Reef",
+        "site_id": 2564,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "20-344 Reef",
+        "site_id": 1062,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-062 Reef",
+        "site_id": 2685,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-139 Reef",
+        "site_id": 2686,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-187 Reef",
+        "site_id": 2687,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-245 Reef",
+        "site_id": 2682,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-278 Reef",
+        "site_id": 2683,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-296 Reef",
+        "site_id": 2684,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-550 Reef",
+        "site_id": 2715,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-583 Reef",
+        "site_id": 963,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "21-591 Reef",
+        "site_id": 2714,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Abbott Point",
+        "site_id": 905,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Agincourt Reef Number 1",
+        "site_id": 3702,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Agincourt Reef Number 3",
+        "site_id": 1,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Ah Chong Is",
+        "site_id": 1085,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "AIMS Wharf WS",
+        "site_id": 742,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Algal Hole North",
+        "site_id": 1114,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Aquila Island",
+        "site_id": 3782,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Arlington Reef",
+        "site_id": 942,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Ashmore",
+        "site_id": 1127,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Balfour Point",
+        "site_id": 3240,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Banubanu",
+        "site_id": 3641,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Banyak Coral",
+        "site_id": 1019,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bargara",
+        "site_id": 1049,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Barrbira",
+        "site_id": 3660,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Barren Island",
+        "site_id": 1041,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Baudisson Island",
+        "site_id": 2035,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Becher Pt SZ",
+        "site_id": 2460,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bedarra Island",
+        "site_id": 3020,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bickerton Island",
+        "site_id": 3681,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bird Island",
+        "site_id": 2901,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Black Rocks Reef",
+        "site_id": 860,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bonner Rocks",
+        "site_id": 3661,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Booby Island",
+        "site_id": 2275,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Border Island",
+        "site_id": 2567,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bougainville Reef",
+        "site_id": 1123,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Boult Reef",
+        "site_id": 2720,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bramble Cay",
+        "site_id": 2381,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Buffon Island",
+        "site_id": 3404,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Bundegi",
+        "site_id": 2401,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Burns Rock",
+        "site_id": 2960,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cabbage Patch",
+        "site_id": 1025,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Camp Island East",
+        "site_id": 3341,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Canal Rocks",
+        "site_id": 2944,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cape Flattery",
+        "site_id": 929,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cape Voltaire",
+        "site_id": 3402,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Carter",
+        "site_id": 2843,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cartier",
+        "site_id": 1129,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cattle Bay",
+        "site_id": 856,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Centaur Reef",
+        "site_id": 3260,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Centipede Reef",
+        "site_id": 2710,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Central E Barrow Island Shoals",
+        "site_id": 1947,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cherepo",
+        "site_id": 2295,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Chicken Reef",
+        "site_id": 1047,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Chinaman Reef",
+        "site_id": 2256,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Christmas island",
+        "site_id": 1100,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Clerke Reef",
+        "site_id": 1056,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cleveland Bay",
+        "site_id": 3,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Coconut Beach Reef",
+        "site_id": 859,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cod Grounds",
+        "site_id": 984,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Comets Hole",
+        "site_id": 1120,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cook Island",
+        "site_id": 1053,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Coral Bay",
+        "site_id": 2402,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Cowaramup Bay",
+        "site_id": 2945,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Creal Reef",
+        "site_id": 1126,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Crystal Head",
+        "site_id": 3403,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Curd Reef",
+        "site_id": 3480,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dampier Peninsula",
+        "site_id": 3820,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Davies Reef",
+        "site_id": 4,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Daydream Island",
+        "site_id": 866,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Denham",
+        "site_id": 3000,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dent Island",
+        "site_id": 992,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dip Reef",
+        "site_id": 876,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dobu Island",
+        "site_id": 2075,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Double Cone",
+        "site_id": 988,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dugong Island",
+        "site_id": 2297,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Dunk Island",
+        "site_id": 1005,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "East Cay",
+        "site_id": 893,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "E Dugong Reef",
+        "site_id": 1945,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Elizabeth Reef",
+        "site_id": 1004,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "E Lowendal",
+        "site_id": 1949,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Elusive Reef",
+        "site_id": 1125,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Enderby Is",
+        "site_id": 3181,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Erskine Island",
+        "site_id": 3121,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Esa Ala",
+        "site_id": 2076,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Farquharson Reef",
+        "site_id": 2703,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Feather Reef",
+        "site_id": 2693,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Fish Rock",
+        "site_id": 1029,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Fitzroy Island",
+        "site_id": 1011,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Flattop Point",
+        "site_id": 967,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Flinders Bay",
+        "site_id": 3002,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Flinders Reef",
+        "site_id": 1070,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Florence Bay",
+        "site_id": 879,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Fore And Aft Reef",
+        "site_id": 2706,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Frankland Islands",
+        "site_id": 1013,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Frederick Reef",
+        "site_id": 1074,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Gannet Cay Reef",
+        "site_id": 2760,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Geoffrey Bay",
+        "site_id": 923,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Geographe Bay",
+        "site_id": 2943,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Gnaraloo Bay",
+        "site_id": 2403,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Goble Reef",
+        "site_id": 1061,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Green Island",
+        "site_id": 1030,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Green Island, Qld",
+        "site_id": 902,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Groper Island-Outer Mooring",
+        "site_id": 972,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Grub Reef",
+        "site_id": 2708,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Gurriba Island",
+        "site_id": 3422,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Halftide Rocks AWS",
+        "site_id": 976,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Halfway Island",
+        "site_id": 890,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hamelin Bay",
+        "site_id": 2946,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hamelin Pool",
+        "site_id": 2781,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hammersley Shoals",
+        "site_id": 3183,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hardy Reef",
+        "site_id": 6,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hastings Reef",
+        "site_id": 3123,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Havannah Island",
+        "site_id": 1075,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hayman Island",
+        "site_id": 865,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hay Point",
+        "site_id": 904,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hedley Reef",
+        "site_id": 2701,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Helix Reef",
+        "site_id": 2707,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Henderson Island",
+        "site_id": 3764,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Heron Island",
+        "site_id": 130,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "High Island",
+        "site_id": 1009,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Holbourne Island East",
+        "site_id": 3340,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Holmes Reef",
+        "site_id": 1122,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hook Island",
+        "site_id": 1057,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Horsburgh",
+        "site_id": 1023,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Horseshoe Reef",
+        "site_id": 2700,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Humpy Island",
+        "site_id": 1039,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Hyde Reef",
+        "site_id": 2563,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Ili",
+        "site_id": 2077,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Imperieuse Reef",
+        "site_id": 1134,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "John Brewer",
+        "site_id": 747,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Julian Rocks",
+        "site_id": 1028,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Karumba",
+        "site_id": 979,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Kelso Reef",
+        "site_id": 863,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Kimbe Island",
+        "site_id": 1035,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "King Reef",
+        "site_id": 1059,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Knife Reef",
+        "site_id": 2709,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Kubin Island",
+        "site_id": 2298,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lady Elliot Reef",
+        "site_id": 1066,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lady Musgrave",
+        "site_id": 3060,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lagoon Reef",
+        "site_id": 3460,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Langford Island",
+        "site_id": 2565,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Laurieton Reef",
+        "site_id": 1031,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lennox Head",
+        "site_id": 1052,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Limuka",
+        "site_id": 1079,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Linnet Reef",
+        "site_id": 1995,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lion Island",
+        "site_id": 1102,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lissenung Island",
+        "site_id": 2440,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lizard Island",
+        "site_id": 1166,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Low Isles",
+        "site_id": 915,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Lucinda",
+        "site_id": 907,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mabuiag Island",
+        "site_id": 2299,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Macgillivray",
+        "site_id": 2841,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mackay Reef",
+        "site_id": 2688,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Maizab",
+        "site_id": 3540,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Malabar",
+        "site_id": 1116,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mangrove Bay",
+        "site_id": 1071,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Manning Island",
+        "site_id": 3321,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Marion Reef",
+        "site_id": 1121,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Martin",
+        "site_id": 2842,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Masig Island",
+        "site_id": 2601,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mast Head Reef",
+        "site_id": 2716,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "McCulloch Reef",
+        "site_id": 2702,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mer Island",
+        "site_id": 2303,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mermaid Reef",
+        "site_id": 1054,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Miall",
+        "site_id": 1951,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Michaelmas Reef",
+        "site_id": 2691,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Middle Island",
+        "site_id": 962,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Middle Reef",
+        "site_id": 926,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Middleton Reef",
+        "site_id": 1000,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Moore Reef",
+        "site_id": 931,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Moore Reef-Coral Sea",
+        "site_id": 3500,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Motupore",
+        "site_id": 1101,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mourilyan",
+        "site_id": 919,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Murrungga Island",
+        "site_id": 3421,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Mutton Bird Island",
+        "site_id": 985,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Myrmidon Reef",
+        "site_id": 7,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nambung Bay",
+        "site_id": 2820,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Neds Beach",
+        "site_id": 1119,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "NE Hat Point",
+        "site_id": 3400,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "NE Lihou Reef (Turtle Islet)",
+        "site_id": 996,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nelly Bay",
+        "site_id": 924,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "NE of Bridled Is",
+        "site_id": 1943,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "NE Regnard",
+        "site_id": 3182,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Night Island",
+        "site_id": 910,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Ningaloo Reef",
+        "site_id": 8,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "No Name",
+        "site_id": 2844,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Norman Reef",
+        "site_id": 871,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Bay",
+        "site_id": 1115,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Direction Island",
+        "site_id": 1996,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North East Herald Cay",
+        "site_id": 981,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North East Island",
+        "site_id": 3682,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Northeast Reef",
+        "site_id": 1060,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Keppel Island",
+        "site_id": 1026,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Point",
+        "site_id": 1024,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Reef",
+        "site_id": 2740,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "North Solitary Island Elbow Cave",
+        "site_id": 969,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nth Barnards (Jesse Is)",
+        "site_id": 1007,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nth Fishermans Is",
+        "site_id": 2822,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nth Muiron",
+        "site_id": 2405,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nth Solitary Island Anemony Bay",
+        "site_id": 970,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Nth West Solitary Is-Manta Moor",
+        "site_id": 971,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Observatory Rocks",
+        "site_id": 3741,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "One Tree Island",
+        "site_id": 131,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Opal Reef",
+        "site_id": 2690,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Orpheus Island",
+        "site_id": 9,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Osprey Reef",
+        "site_id": 933,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pandora Reef",
+        "site_id": 1037,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Peak Island",
+        "site_id": 1022,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Peart Reef",
+        "site_id": 2692,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pelican Island",
+        "site_id": 1065,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pelorus Island",
+        "site_id": 868,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Penguin Is East",
+        "site_id": 2461,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Penrith Reef",
+        "site_id": 2713,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pimpernel Rock",
+        "site_id": 973,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pine Island",
+        "site_id": 986,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pine Peak Island",
+        "site_id": 3763,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pioneer Bay",
+        "site_id": 867,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pompey Reef (No 1)",
+        "site_id": 2712,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pulu Chepelok",
+        "site_id": 1020,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Pumpkin Hollow",
+        "site_id": 2821,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Raine Island",
+        "site_id": 857,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Rapuma Island",
+        "site_id": 3420,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Rat Island",
+        "site_id": 3320,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Rebe Reef",
+        "site_id": 2566,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Redcliffe Bay",
+        "site_id": 3001,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Repulse",
+        "site_id": 3140,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Rib Reef",
+        "site_id": 743,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Roxburgh Reef",
+        "site_id": 2705,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Sailfish Reef",
+        "site_id": 3180,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Sand Bank No7",
+        "site_id": 913,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Sandy Point",
+        "site_id": 3160,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "S Batman Reef",
+        "site_id": 1946,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Scott Reef",
+        "site_id": 1098,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Seaforth Island",
+        "site_id": 990,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Seal Rocks North",
+        "site_id": 3322,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "SE Lowendal",
+        "site_id": 1944,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Shark Bay",
+        "site_id": 2500,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Shute and Tancred Islands",
+        "site_id": 1058,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "S Lowendal",
+        "site_id": 1948,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Small Lagoon Reef",
+        "site_id": 2681,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Snake Reef",
+        "site_id": 2257,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Snapper Island North",
+        "site_id": 1045,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "South Solitary Island",
+        "site_id": 968,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "South West Herald Cay",
+        "site_id": 1021,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Square Rocks",
+        "site_id": 5,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "St Crispin Reef",
+        "site_id": 2689,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Stephensons Channel",
+        "site_id": 2176,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Sugarloaf west",
+        "site_id": 1118,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Sylphs Hole",
+        "site_id": 1117,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tandabiddi",
+        "site_id": 2404,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Taylor Reef",
+        "site_id": 2704,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Temboh Merah",
+        "site_id": 1954,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tern Reef",
+        "site_id": 2711,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Thetford Reef",
+        "site_id": 2015,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Thursday Island",
+        "site_id": 921,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tryon Island",
+        "site_id": 885,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tuare Reef",
+        "site_id": 1077,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tuesday",
+        "site_id": 3560,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Turner Cay",
+        "site_id": 896,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Turtle Bay",
+        "site_id": 3161,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Twin Island",
+        "site_id": 2296,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Tydeman Cay",
+        "site_id": 858,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Vannessas",
+        "site_id": 1078,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Vodka Beach",
+        "site_id": 1128,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "W Ah Chong Is",
+        "site_id": 1952,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wallace Islet",
+        "site_id": 898,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Warraber Island",
+        "site_id": 2302,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Weipa(channel)",
+        "site_id": 928,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Weipa(lorim point)",
+        "site_id": 927,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wheatsheath",
+        "site_id": 1148,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wilkie Island",
+        "site_id": 994,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Willis Island",
+        "site_id": 1032,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Woiz Reef",
+        "site_id": 2304,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wongarra",
+        "site_id": 940,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wonnich Reef",
+        "site_id": 2335,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Wreck Island",
+        "site_id": 2258,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Yam Island",
+        "site_id": 2301,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Yingindiyumanja",
+        "site_id": 3680,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Yonge Reef",
+        "site_id": 1001,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Yorke",
+        "site_id": 3580,
+        "parameter": "Temperature (°C)"
+    },
+    {
+        "site": "Yorke Island",
+        "site_id": 1130,
+        "parameter": "Temperature (°C)"
+    }
 ]
