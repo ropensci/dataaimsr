@@ -161,7 +161,7 @@ and its usage, please visit the [metadata][3] webpage.
 
 ## License
 
-`dataaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](https://opensource.org/licenses/MIT)).
+`dataaimsr` is provided by the [Australian Institute of Marine Science](https://www.aims.gov.au) under the MIT License ([MIT](https://opensource.org/license/mit/)).
 
 ## Code of Conduct
 
