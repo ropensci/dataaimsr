@@ -242,7 +242,7 @@
     {
         "series_id": 55,
         "series": "Cleveland Bay Weather Station Maximum Wind Speed 10 Minutes",
-        "series_short": "Max Wind Speed 10 mins"
+        "series_short": "Wind Speed 10 mins"
     },
     {
         "series_id": 57,
@@ -5201,8 +5201,8 @@
     },
     {
         "series_id": 112711,
-        "series": "Masig Island Weather Station Depth @3m",
-        "series_short": "Depth @3m"
+        "series": "CHANNEL 112711",
+        "series_short": "CHANNEL 112711"
     },
     {
         "series_id": 113847,
