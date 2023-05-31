@@ -1,11 +1,8 @@
 {
     "metadata": "Metadata record https://doi.org/10.25845/5b4eb0f9bb848",
-    "citation": "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 19 May 2023.",
+    "citation": "Australian Institute of Marine Science (AIMS). 2017, AIMS Sea Temperature Observing System (AIMS Temperature Logger Program), Time period:2005-01-01 to 2005-01-10. https://doi.org/10.25845/5b4eb0f9bb848, accessed 31 May 2023.",
     "links": {
         "next": "https://api.aims.gov.au/data-v2.0/10.25845/5b4eb0f9bb848/data?from_date=2005-01-01&thru_date=2005-01-10&size=300&cursor=3776%212005-01-09T18%3A30%3A00%2B00%3A00"
-    },
-    "paging": {
-        "total": 300
     },
     "cursor": {
         "deployment_id": 3776,

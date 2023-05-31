@@ -44,6 +44,10 @@
         "site_id": 6
     },
     {
+        "site": "Lizard Island",
+        "site_id": 1166
+    },
+    {
         "site": "Ningaloo Reef",
         "site_id": 8
     },
@@ -54,10 +58,6 @@
     {
         "site": "Masig Island",
         "site_id": 2601
-    },
-    {
-        "site": "Lizard Island",
-        "site_id": 1166
     },
     {
         "site": "Orpheus Island",

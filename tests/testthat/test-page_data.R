@@ -23,7 +23,7 @@ with_mock_dir("Correct-structure-pagedata", {
     expect_is(wa$links, "list")
     expect_identical(names(wa$links), "next_page")
     expect_is(sa, "list")
-    expect_length(sa, 6) # soon will revert back to 5
+    expect_length(sa, 5)
     expect_true(all(c("cursor", "links") %in% names(sa)))
     expect_is(sa$links, "list")
     expect_identical(names(sa$links), "next_page")
@@ -35,7 +35,7 @@ with_mock_dir("Correct-structure-pagedata", {
       )
     )
     expect_is(sb, "list")
-    expect_length(sb, 6) # soon will revert back to 5
+    expect_length(sb, 5)
     expect_true(
       all(
         c("metadata", "citation", "links", "cursor", "data") %in% names(sb)
@@ -49,7 +49,7 @@ with_mock_dir("Correct-structure-pagedata", {
       )
     )
     expect_is(sa_n, "list")
-    expect_length(sa_n, 6) # soon will revert back to 5
+    expect_length(sa_n, 5)
     expect_true(
       all(
         c("metadata", "citation", "links", "cursor", "data") %in% names(sa_n)

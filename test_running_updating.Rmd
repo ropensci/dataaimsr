@@ -3,7 +3,7 @@
 From `dataaimsr/`, run
 
 ```{r}
-library(httptest) # installed from https://github.com/nealrichardson/httptest/commit/5fc2be9f8627fa36d04ee06de0291c1d7633d1a8
+library(httptest)
 library(testthat)
 library(roxygen2)
 library(devtools)
